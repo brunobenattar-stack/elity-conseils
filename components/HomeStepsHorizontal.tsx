@@ -51,9 +51,9 @@ const STEPS: Step[] = [
   },
   {
     num: "05",
-    label: "Négociation",
-    title: "Sécuriser jusqu'au bout.",
-    desc: "Conditions économiques et juridiques négociées. Accompagnement post-signature.",
+    label: "Accompagnement",
+    title: "Conseiller jusqu'à la signature.",
+    desc: "Posture de négociation, conditions économiques et juridiques. Accompagnement jusqu'à la finalisation et au-delà.",
     image: "/etape-05-negociation.jpg",
     cardinal: "S",
   },

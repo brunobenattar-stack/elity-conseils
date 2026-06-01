@@ -53,7 +53,7 @@ export default function HomePage() {
                 <div>
                   <span className="offres-acquisition-eyebrow">Vous souhaitez acquérir ?</span>
                   <p className="offres-acquisition-text">
-                    Les mêmes offres s&apos;appliquent côté acquéreur — Elity Conseils structure votre stratégie d&apos;acquisition, Procomm Océan Indien sécurise la transaction.
+                    Vous souhaitez acquérir une entreprise ? Elity Conseils vous accompagne dans la définition de votre stratégie d&apos;acquisition : identification de cibles, audit de valeur, structuration du projet.
                   </p>
                 </div>
                 <Link href="/contact" className="offres-acquisition-cta">
@@ -116,30 +116,29 @@ export default function HomePage() {
 
           <Reveal>
             <div className="cas-home-card">
-              {/* Colonne gauche : contexte + citation */}
-              <div className="cas-home-left">
+              {/* En-tête badges */}
+              <div className="cas-home-header">
                 <div className="cas-home-badge-row">
                   <span className="cas-home-sector">Garage automobile</span>
                   <span className="cas-home-tag">Elity Dirigeant</span>
+                  <span className="cas-home-size">TPE · 5 collaborateurs · CA 1 M€ · La Réunion</span>
                 </div>
-                <p className="cas-home-size">TPE · 5 collaborateurs · CA 1 M€ · La Réunion</p>
-
-                <blockquote className="cas-home-quote">
-                  &ldquo;Merci pour l&apos;écoute et le soutien. Nous avons pu redresser l&apos;entreprise en 24 mois.&rdquo;
-                  <cite>Le dirigeant — anonymisé</cite>
-                </blockquote>
               </div>
 
-              {/* Colonne droite : blocs */}
-              <div className="cas-home-right">
-                <div className="cas-home-block">
-                  <span className="cas-home-block-label">Situation initiale</span>
-                  <p>Entreprise au bord de la faillite. Difficultés financières sévères, dirigeant sans rémunération, 5 emplois menacés.</p>
-                </div>
-                <div className="cas-home-block">
-                  <span className="cas-home-block-label">Intervention</span>
-                  <p>Accompagnement Elity Dirigeant — méthode ESSOR. Audit complet, tableau de bord mensuel, plan d&apos;action structuré sur 24 mois.</p>
-                </div>
+              {/* Citation principale */}
+              <div className="cas-home-quote-wrap">
+                <span className="cas-home-quote-mark" aria-hidden="true">&ldquo;</span>
+                <blockquote className="cas-home-quote">
+                  Merci pour l&apos;écoute et le soutien. Nous avons pu redresser l&apos;entreprise en 24 mois.
+                </blockquote>
+                <cite className="cas-home-cite">Le dirigeant &mdash; anonymisé</cite>
+              </div>
+
+              {/* Séparateur */}
+              <div className="cas-home-divider" aria-hidden="true" />
+
+              {/* Métriques + contexte */}
+              <div className="cas-home-bottom">
                 <div className="cas-home-metrics">
                   <div className="cas-home-metric">
                     <span className="cas-home-metric-val">24</span>
@@ -153,9 +152,13 @@ export default function HomePage() {
                   </div>
                   <div className="cas-home-metric">
                     <span className="cas-home-metric-val">✓</span>
-                    <span className="cas-home-metric-unit">Rentabilité</span>
-                    <span className="cas-home-metric-lbl">Retrouvée</span>
+                    <span className="cas-home-metric-unit">&nbsp;</span>
+                    <span className="cas-home-metric-lbl">Rentabilité retrouvée</span>
                   </div>
+                </div>
+                <div className="cas-home-context">
+                  <p><strong>Départ :</strong> Entreprise au bord de la faillite. Dirigeant sans rémunération, 5 emplois menacés.</p>
+                  <p><strong>Méthode :</strong> Accompagnement mensuel ESSOR sur 24 mois — audit, tableau de bord, plans d&apos;action.</p>
                 </div>
               </div>
             </div>

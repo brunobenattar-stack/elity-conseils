@@ -6235,137 +6235,146 @@ main { position: relative; z-index: 2; }
 .offres-acquisition-cta:hover { background: var(--gold-main); color: #08080a; }
 
 /* ==========================================================================
-   ÉTUDE DE CAS HOME — layout split premium
+   ÉTUDE DE CAS HOME — design YieldCard inspiré, gradient border doré
    ========================================================================== */
 .cas-home-section {
   background: linear-gradient(160deg, #0a0907 0%, #131009 50%, #0a0907 100%);
   border-top: 1px solid var(--gold-border);
   border-bottom: 1px solid var(--gold-border);
 }
-.cas-home-card {
-  display: grid;
-  grid-template-columns: 1fr 1.6fr;
-  gap: 0;
-  max-width: 900px;
-  margin: 48px auto 0;
-  border: 1px solid var(--gold-border-strong);
-  border-radius: 4px;
-  overflow: hidden;
-}
-@media (max-width: 768px) {
-  .cas-home-card { grid-template-columns: 1fr; }
-}
 
-/* Colonne gauche */
-.cas-home-left {
-  padding: clamp(28px, 3vw, 44px);
-  background: rgba(201, 165, 90, 0.04);
-  border-right: 1px solid var(--gold-border);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+/* Gradient border effect (inspiré YieldCard 21st.dev) */
+.cas-home-card {
+  position: relative;
+  max-width: 960px;
+  margin: 56px auto 0;
+  border-radius: 6px;
+  padding: 2px;
+  background: linear-gradient(135deg, #1a1408, #c9a55a 40%, #1a1408 60%, #c9a55a 80%, #0a0907);
 }
-@media (max-width: 768px) {
-  .cas-home-left { border-right: none; border-bottom: 1px solid var(--gold-border); }
+.cas-home-card::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 5px;
+  background: linear-gradient(160deg, #0e0c08 0%, #131009 100%);
+  z-index: 0;
+}
+.cas-home-card > * { position: relative; z-index: 1; }
+
+/* En-tête */
+.cas-home-header {
+  padding: clamp(24px, 3vw, 36px) clamp(24px, 3vw, 48px) 0;
 }
 .cas-home-badge-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
   align-items: center;
+  gap: 10px;
 }
 .cas-home-sector {
   font-family: var(--sans);
   font-size: 10px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--gold-main);
-  background: rgba(201,165,90,0.12);
-  padding: 4px 10px;
+  background: rgba(201, 165, 90, 0.12);
+  padding: 5px 12px;
   border-radius: 2px;
+  border: 1px solid rgba(201, 165, 90, 0.25);
 }
 .cas-home-tag {
   font-family: var(--sans);
   font-size: 10px;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-muted);
   border: 1px solid var(--gold-border);
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 2px;
 }
 .cas-home-size {
   font-family: var(--sans);
   font-size: 12px;
   color: var(--text-muted);
-  line-height: 1.5;
+  margin-left: auto;
+}
+@media (max-width: 600px) { .cas-home-size { margin-left: 0; } }
+
+/* Citation principale */
+.cas-home-quote-wrap {
+  padding: clamp(28px, 3vw, 44px) clamp(24px, 3vw, 48px) clamp(20px, 2.5vw, 36px);
+  position: relative;
+}
+.cas-home-quote-mark {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(72px, 9vw, 120px);
+  color: var(--gold-main);
+  opacity: 0.18;
+  line-height: 0.6;
+  margin-bottom: 12px;
+  user-select: none;
 }
 .cas-home-quote {
-  margin: auto 0 0;
-  padding-top: 20px;
-  border-top: 1px solid var(--gold-border);
   font-family: var(--serif);
-  font-size: clamp(14px, 1.4vw, 17px);
+  font-size: clamp(20px, 2.8vw, 32px);
   font-style: italic;
   color: var(--white-title);
-  line-height: 1.65;
+  line-height: 1.45;
+  margin: 0;
+  max-width: 740px;
 }
-.cas-home-quote cite {
+.cas-home-cite {
   display: block;
-  margin-top: 10px;
+  margin-top: 16px;
+  font-family: var(--sans);
   font-style: normal;
-  font-family: var(--sans);
   font-size: 11px;
-  letter-spacing: 0.14em;
-  color: var(--text-muted);
-}
-
-/* Colonne droite */
-.cas-home-right {
-  padding: clamp(28px, 3vw, 44px);
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.cas-home-block { display: flex; flex-direction: column; gap: 8px; }
-.cas-home-block-label {
-  font-family: var(--sans);
-  font-size: 9px;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold-main);
-}
-.cas-home-block p {
-  font-family: var(--sans);
-  font-size: 13px;
-  line-height: 1.7;
-  color: var(--text-body);
-  margin: 0;
+  opacity: 0.7;
 }
 
-/* Métriques */
+/* Séparateur */
+.cas-home-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-border-strong) 20%, var(--gold-border-strong) 80%, transparent);
+  margin: 0 clamp(24px, 3vw, 48px);
+}
+
+/* Bas : métriques + contexte */
+.cas-home-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 0;
+  padding: clamp(24px, 3vw, 36px) clamp(24px, 3vw, 48px);
+}
+@media (max-width: 640px) {
+  .cas-home-bottom { grid-template-columns: 1fr; gap: 28px; }
+}
+
 .cas-home-metrics {
   display: flex;
   gap: 0;
-  border-top: 1px solid var(--gold-border);
-  padding-top: 24px;
-  margin-top: auto;
+  align-items: flex-start;
 }
 .cas-home-metric {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 2px;
-  padding-right: 20px;
+  padding-right: 24px;
 }
 .cas-home-metric + .cas-home-metric {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 24px;
+  padding-right: 24px;
   border-left: 1px solid var(--gold-border);
 }
 .cas-home-metric-val {
   font-family: var(--display);
-  font-size: clamp(26px, 3vw, 36px);
+  font-size: clamp(32px, 4vw, 48px);
   color: var(--gold-main);
   line-height: 1;
 }
@@ -6373,15 +6382,39 @@ main { position: relative; z-index: 2; }
   font-family: var(--sans);
   font-size: 10px;
   letter-spacing: 0.14em;
-  color: var(--gold-main);
-  opacity: 0.7;
   text-transform: uppercase;
+  color: var(--gold-main);
+  opacity: 0.6;
+  min-height: 14px;
 }
 .cas-home-metric-lbl {
   font-family: var(--sans);
   font-size: 11px;
   color: var(--text-muted);
-  margin-top: 4px;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.cas-home-context {
+  border-left: 1px solid var(--gold-border);
+  padding-left: clamp(20px, 3vw, 36px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+@media (max-width: 640px) {
+  .cas-home-context { border-left: none; border-top: 1px solid var(--gold-border); padding-left: 0; padding-top: 20px; }
+}
+.cas-home-context p {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-body);
+  margin: 0;
+}
+.cas-home-context strong {
+  color: var(--gold-main);
+  font-weight: 500;
 }
 
 /* ==========================================================================

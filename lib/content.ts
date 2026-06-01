@@ -41,8 +41,8 @@ export type ContentData = {
 
 export const defaultContent: ContentData = {
   hero: {
-    eyebrow: "Conseil en cession · Pilotage dirigeant · La Réunion",
-    titleLine1: "Céder ou piloter,",
+    eyebrow: "La Réunion",
+    titleLine1: "Céder, reprendre,",
     titleEm: "structurer avant d'agir.",
     sub: "Elity Conseils accompagne les dirigeants dans l'élaboration de leur stratégie de cession ou d'acquisition. Elity Dirigeant les aide à piloter leur entreprise avec méthode et recul.",
     cta1Label: "Entamer un échange",

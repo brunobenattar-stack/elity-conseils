@@ -41,7 +41,7 @@ export default function HomeOffersCards() {
                   <h3 className="offer-card-name">{offer.name}</h3>
                   <p className="offer-card-pitch">{offer.pitch}</p>
                 </div>
-                <span className="offer-card-chip">{offer.chip}</span>
+                {offer.chip && <span className="offer-card-chip">{offer.chip}</span>}
               </div>
 
               {offer.price && (
