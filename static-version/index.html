@@ -1,0 +1,2813 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Elity Conseils — Cabinet de conseil en cession d'entreprise à La Réunion. Approche stratégique, confidentielle et sur-mesure pour valoriser et céder votre entreprise dans les meilleures conditions. Partenaire Procom Océan Indien.">
+<meta name="theme-color" content="#0d0d0d">
+<meta property="og:title" content="Elity Conseils — Structurer votre cession avant de la lancer">
+<meta property="og:description" content="Approche stratégique pour valoriser votre entreprise et vendre dans les meilleures conditions.">
+<meta property="og:type" content="website">
+<title>Elity Conseils — Cabinet de Conseil en Cession d'Entreprise | La Réunion</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   RESET & TOKENS
+   ========================================================================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img,svg{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+a{color:inherit;text-decoration:none}
+input,textarea{font:inherit;color:inherit}
+
+:root{
+  --bg-deep:#080808;
+  --bg-primary:#0d0d0d;
+  --bg-secondary:#111111;
+  --bg-card:#161616;
+  --bg-card-hover:#1c1c1c;
+
+  --gold-main:#c9a55a;
+  --gold-accent:#b8903a;
+  --gold-light:#dfc07a;
+  --gold-border:rgba(201,165,90,0.20);
+  --gold-border-strong:rgba(201,165,90,0.50);
+  --gold-glow:rgba(201,165,90,0.08);
+
+  --white-title:#f5f0e8;
+  --white-body:#ccc8bf;
+  --white-muted:#7a756d;
+
+  --sep:rgba(201,165,90,0.30);
+
+  --serif:'Cormorant Garamond', Georgia, serif;
+  --sans:'Montserrat', system-ui, -apple-system, sans-serif;
+
+  --container:1240px;
+  --section-pad:120px;
+  --ease:cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+body{
+  font-family:var(--sans);
+  font-weight:300;
+  color:var(--white-body);
+  background:var(--bg-primary);
+  line-height:1.6;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* Subtle noise texture overlay - real human design touch */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+  opacity:0.035;
+  mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection{background:var(--gold-main);color:#000}
+
+/* Focus visible */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
+  outline:1px solid var(--gold-main);
+  outline-offset:3px;
+}
+
+/* ==========================================================================
+   UTILITIES
+   ========================================================================== */
+.container{
+  width:100%;
+  max-width:var(--container);
+  margin:0 auto;
+  padding:0 32px;
+  position:relative;
+}
+
+.serif{font-family:var(--serif)}
+.italic{font-style:italic}
+.gold{color:var(--gold-main)}
+.gold-light{color:var(--gold-light)}
+.muted{color:var(--white-muted)}
+
+.caps{
+  text-transform:uppercase;
+  letter-spacing:0.20em;
+  font-weight:500;
+}
+
+.section{
+  padding:var(--section-pad) 0;
+  position:relative;
+}
+
+.section-header{
+  max-width:780px;
+  margin-bottom:80px;
+}
+.section-header.center{margin-left:auto;margin-right:auto;text-align:center}
+
+.section-label{
+  display:inline-block;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:0.32em;
+  text-transform:uppercase;
+  color:var(--gold-main);
+  margin-bottom:18px;
+}
+
+.section-sep{
+  width:48px;
+  height:1px;
+  background:var(--gold-main);
+  margin-bottom:28px;
+}
+.section-header.center .section-sep{margin-left:auto;margin-right:auto}
+
+.section-title{
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:clamp(34px,4.5vw,52px);
+  line-height:1.1;
+  color:var(--white-title);
+  margin-bottom:24px;
+  letter-spacing:-0.005em;
+}
+
+.section-sub{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:300;
+  font-size:clamp(22px,2.4vw,28px);
+  color:var(--gold-light);
+  line-height:1.3;
+  margin-bottom:24px;
+}
+
+.section-body{
+  font-size:15.5px;
+  font-weight:300;
+  color:var(--white-body);
+  line-height:1.75;
+  max-width:680px;
+}
+
+/* Gold shimmer (used sparingly on key words) */
+@keyframes gold-shimmer{
+  0%{background-position:-200% center}
+  100%{background-position:200% center}
+}
+.gold-shimmer{
+  background:linear-gradient(90deg,var(--gold-accent),var(--gold-light),var(--gold-accent));
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:gold-shimmer 5s linear infinite;
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 30px;
+  font-family:var(--sans);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:all 0.35s var(--ease);
+  white-space:nowrap;
+}
+.btn-primary{
+  background:var(--gold-main);
+  color:#000;
+}
+.btn-primary:hover{
+  background:var(--gold-light);
+  transform:translateY(-2px);
+  box-shadow:0 14px 32px rgba(201,165,90,0.28);
+}
+.btn-ghost{
+  background:transparent;
+  color:var(--gold-main);
+  border-color:var(--gold-main);
+}
+.btn-ghost:hover{
+  background:var(--gold-main);
+  color:#000;
+}
+.btn-underline{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-family:var(--sans);
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--white-title);
+  padding:12px 0;
+  position:relative;
+}
+.btn-underline::after{
+  content:"";
+  position:absolute;
+  left:0;bottom:6px;
+  width:100%;
+  height:1px;
+  background:var(--gold-main);
+  transform-origin:left;
+  transform:scaleX(0.4);
+  transition:transform 0.4s var(--ease);
+}
+.btn-underline:hover{color:var(--gold-light)}
+.btn-underline:hover::after{transform:scaleX(1)}
+.btn-underline .arrow{
+  display:inline-block;
+  transition:transform 0.3s var(--ease);
+}
+.btn-underline:hover .arrow{transform:translateX(6px)}
+
+/* ==========================================================================
+   PROGRESS BAR + NAVBAR
+   ========================================================================== */
+.progress-bar{
+  position:fixed;
+  top:0;left:0;
+  height:2px;
+  width:0%;
+  background:linear-gradient(90deg,var(--gold-accent),var(--gold-light));
+  z-index:1100;
+  transition:width 0.08s linear;
+}
+
+.navbar{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:1000;
+  padding:22px 0;
+  transition:all 0.4s var(--ease);
+}
+.navbar.scrolled{
+  background:rgba(8,8,8,0.92);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--gold-border);
+  padding:14px 0;
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:32px;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.logo-mark{
+  width:38px;height:38px;
+  flex-shrink:0;
+}
+.logo-text{display:flex;flex-direction:column;line-height:1}
+.logo-name{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:22px;
+  letter-spacing:0.22em;
+  color:var(--white-title);
+}
+.logo-sub{
+  display:flex;
+  align-items:center;
+  font-family:var(--sans);
+  font-size:9px;
+  letter-spacing:0.30em;
+  color:var(--gold-main);
+  margin-top:4px;
+}
+.logo-sub .dash{
+  display:inline-block;
+  width:18px;height:1px;
+  background:var(--gold-main);
+  margin:0 6px;
+}
+.logo-tag{
+  font-family:var(--sans);
+  font-weight:300;
+  font-size:7.5px;
+  letter-spacing:0.34em;
+  color:var(--white-muted);
+  margin-top:3px;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:38px;
+  list-style:none;
+}
+.nav-links a{
+  position:relative;
+  font-size:12px;
+  font-weight:400;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--white-body);
+  padding:6px 0;
+  transition:color 0.3s var(--ease);
+}
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;bottom:0;
+  width:100%;height:1px;
+  background:var(--gold-main);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 0.35s var(--ease);
+}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-main)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+
+.nav-cta{
+  padding:11px 22px;
+  border:1px solid var(--gold-main);
+  color:var(--gold-main);
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:11px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  transition:all 0.3s var(--ease);
+}
+.nav-cta:hover{background:var(--gold-main);color:#000}
+
+.burger{
+  display:none;
+  width:36px;height:36px;
+  flex-direction:column;
+  justify-content:center;
+  gap:6px;
+  padding:0;
+}
+.burger span{
+  display:block;
+  width:24px;height:1.5px;
+  background:var(--gold-main);
+  transition:all 0.3s var(--ease);
+}
+.burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+.mobile-menu{
+  position:fixed;
+  inset:0;
+  background:var(--bg-deep);
+  z-index:999;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:32px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.4s var(--ease);
+}
+.mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu a{
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:30px;
+  color:var(--white-title);
+  letter-spacing:0.04em;
+}
+.mobile-menu a:hover{color:var(--gold-main)}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:140px 0 80px;
+  position:relative;
+  background:
+    radial-gradient(ellipse at 75% 50%, rgba(201,165,90,0.05) 0%, transparent 60%),
+    var(--bg-deep);
+  overflow:hidden;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+.hero-eyebrow{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:28px;
+}
+.hero-eyebrow .line{
+  width:32px;height:1px;
+  background:var(--gold-main);
+}
+.hero-eyebrow span{
+  font-size:10.5px;
+  font-weight:500;
+  letter-spacing:0.34em;
+  text-transform:uppercase;
+  color:var(--gold-main);
+}
+.hero-title{
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:clamp(40px,5.6vw,72px);
+  line-height:1.04;
+  color:var(--white-title);
+  letter-spacing:-0.012em;
+  margin-bottom:32px;
+}
+.hero-title em{
+  font-style:italic;
+  font-weight:300;
+  color:var(--gold-main);
+  display:block;
+  margin-top:6px;
+}
+.hero-sub{
+  font-size:16.5px;
+  font-weight:300;
+  color:var(--white-body);
+  line-height:1.75;
+  max-width:540px;
+  margin-bottom:32px;
+}
+.hero-divider{
+  width:48px;height:1px;
+  background:var(--gold-main);
+  margin:28px 0 28px;
+}
+.hero-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:28px;
+  margin-bottom:42px;
+}
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--white-muted);
+}
+.hero-badge svg{
+  width:15px;height:15px;
+  stroke:var(--gold-main);
+  flex-shrink:0;
+}
+.hero-ctas{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:32px;
+}
+
+/* Hero compass visual */
+.hero-visual{
+  position:relative;
+  height:520px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero-visual::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center, rgba(201,165,90,0.14) 0%, transparent 65%);
+  filter:blur(20px);
+}
+.hero-visual .ring{
+  position:absolute;
+  top:50%;left:50%;
+  border-radius:50%;
+  border:1px solid var(--gold-border);
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+.hero-visual .ring.r1{width:300px;height:300px;opacity:0.5}
+.hero-visual .ring.r2{width:420px;height:420px;opacity:0.3}
+.hero-visual .ring.r3{width:540px;height:540px;opacity:0.15;border-style:dashed}
+
+.compass-hero{
+  width:280px;height:280px;
+  position:relative;
+  z-index:2;
+  transition:transform 0.3s ease-out;
+}
+@keyframes rotate-compass{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+.compass-hero svg{
+  width:100%;height:100%;
+  animation:rotate-compass 120s linear infinite;
+}
+
+/* Tick marks rays */
+.hero-visual .ray{
+  position:absolute;
+  top:50%;left:50%;
+  width:1px;
+  height:260px;
+  background:linear-gradient(to bottom, transparent, var(--gold-border), transparent);
+  transform-origin:center top;
+  opacity:0.6;
+  pointer-events:none;
+}
+
+/* ==========================================================================
+   STATS
+   ========================================================================== */
+.stats{
+  background:var(--bg-secondary);
+  border-top:1px solid var(--gold-border);
+  border-bottom:1px solid var(--gold-border);
+  padding:72px 0;
+}
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  align-items:center;
+}
+.stat{
+  text-align:center;
+  position:relative;
+  padding:0 24px;
+}
+.stat:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  right:0;top:50%;
+  width:1px;height:60px;
+  background:var(--sep);
+  transform:translateY(-50%);
+}
+.stat-num{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(40px,5vw,58px);
+  color:var(--gold-main);
+  line-height:1;
+  margin-bottom:14px;
+  letter-spacing:-0.02em;
+}
+.stat-label{
+  font-size:10.5px;
+  font-weight:500;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--white-muted);
+}
+
+/* ==========================================================================
+   APPROCHE (5 STEPS)
+   ========================================================================== */
+.approche{background:var(--bg-primary)}
+.steps{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:0;
+  position:relative;
+}
+.steps::before{
+  content:"";
+  position:absolute;
+  top:78px;
+  left:8%;right:8%;
+  height:1px;
+  background:linear-gradient(90deg, transparent, var(--gold-border) 15%, var(--gold-border) 85%, transparent);
+  z-index:0;
+}
+.step{
+  background:var(--bg-card);
+  border-top:3px solid var(--gold-border);
+  padding:42px 26px 36px;
+  position:relative;
+  z-index:1;
+  transition:all 0.4s var(--ease);
+  border-right:1px solid rgba(255,255,255,0.03);
+}
+.step:last-child{border-right:none}
+.step:hover{
+  background:var(--bg-card-hover);
+  border-top-color:var(--gold-main);
+  transform:translateY(-6px);
+  z-index:2;
+}
+.step-num{
+  position:absolute;
+  top:18px;right:22px;
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:46px;
+  color:rgba(201,165,90,0.22);
+  line-height:1;
+  transition:color 0.4s var(--ease);
+}
+.step:hover .step-num{color:var(--gold-border-strong)}
+.step-icon{
+  width:54px;height:54px;
+  border:1px solid var(--gold-border);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:28px;
+  transition:all 0.4s var(--ease);
+  background:rgba(8,8,8,0.4);
+}
+.step-icon svg{
+  width:24px;height:24px;
+  stroke:var(--gold-main);
+  stroke-width:1.4;
+  fill:none;
+}
+.step:hover .step-icon{
+  border-color:var(--gold-main);
+  background:rgba(201,165,90,0.05);
+}
+.step-title{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:11px;
+  letter-spacing:0.20em;
+  text-transform:uppercase;
+  color:var(--white-title);
+  margin-bottom:14px;
+  line-height:1.4;
+}
+.step-desc{
+  font-size:12.5px;
+  font-weight:300;
+  color:var(--white-body);
+  line-height:1.65;
+}
+
+/* ==========================================================================
+   OFFRES
+   ========================================================================== */
+.offres{
+  background:var(--bg-secondary);
+  position:relative;
+}
+.partner-note{
+  display:inline-flex;
+  align-items:flex-start;
+  gap:14px;
+  border-left:2px solid var(--gold-border);
+  padding:6px 0 6px 14px;
+  margin-top:18px;
+  font-size:12px;
+  font-weight:300;
+  color:var(--white-muted);
+  font-style:italic;
+  max-width:540px;
+}
+.offers-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:24px;
+  align-items:stretch;
+}
+.offer{
+  background:var(--bg-card);
+  border:1px solid var(--gold-border);
+  padding:48px 36px 36px;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  transition:all 0.4s var(--ease);
+}
+.offer:hover{
+  transform:translateY(-6px);
+  border-color:var(--gold-main);
+  background:var(--bg-card-hover);
+  box-shadow:0 24px 60px rgba(0,0,0,0.5);
+}
+.offer-premium{
+  background:linear-gradient(160deg,#1a1610 0%,#111 100%);
+  border:2px solid var(--gold-main);
+  box-shadow:0 0 50px rgba(201,165,90,0.10);
+  transform:scale(1.015);
+}
+.offer-premium:hover{transform:translateY(-6px) scale(1.015)}
+.offer-ribbon{
+  position:absolute;
+  top:0;right:24px;
+  background:var(--gold-main);
+  color:#000;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:0.28em;
+  padding:6px 14px;
+  text-transform:uppercase;
+}
+.offer-badge{
+  display:inline-block;
+  padding:6px 14px;
+  border:1px solid;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.30em;
+  text-transform:uppercase;
+  margin-bottom:28px;
+  width:fit-content;
+}
+.offer-classique .offer-badge{
+  color:var(--white-muted);
+  border-color:var(--white-muted);
+}
+.offer-strategique .offer-badge{
+  color:var(--gold-main);
+  border-color:var(--gold-border-strong);
+}
+.offer-premium .offer-badge{
+  background:var(--gold-main);
+  color:#000;
+  border-color:var(--gold-main);
+}
+.offer-icon{
+  width:64px;height:64px;
+  border:1px solid var(--gold-border);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:24px;
+}
+.offer-premium .offer-icon{
+  background:var(--gold-main);
+  border-color:var(--gold-main);
+}
+.offer-premium .offer-icon svg{stroke:#000}
+.offer-strategique .offer-icon{border-color:var(--gold-main)}
+.offer-icon svg{
+  width:28px;height:28px;
+  stroke:var(--gold-main);
+  stroke-width:1.4;
+  fill:none;
+}
+.offer-pitch{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+  font-size:22px;
+  color:var(--gold-light);
+  line-height:1.3;
+  margin-bottom:20px;
+}
+.offer-sep{
+  width:36px;height:1px;
+  background:var(--gold-main);
+  margin-bottom:24px;
+}
+.offer-mission-label{
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.30em;
+  text-transform:uppercase;
+  color:var(--white-muted);
+  margin-bottom:18px;
+}
+.offer-list{
+  list-style:none;
+  margin-bottom:32px;
+}
+.offer-list li{
+  padding:9px 0 9px 22px;
+  font-size:13px;
+  font-weight:300;
+  color:var(--white-body);
+  line-height:1.55;
+  position:relative;
+  border-bottom:1px dashed rgba(255,255,255,0.05);
+}
+.offer-list li:last-child{border-bottom:none}
+.offer-list li::before{
+  content:"";
+  position:absolute;
+  left:0;top:16px;
+  width:10px;height:1px;
+  background:var(--gold-main);
+}
+.offer-premium .offer-list li::before{
+  content:"✓";
+  background:transparent;
+  width:auto;
+  top:9px;
+  color:var(--gold-main);
+  font-weight:700;
+  font-size:13px;
+}
+.offer-for{
+  margin-top:auto;
+  padding:18px 0;
+  border-top:1px solid rgba(255,255,255,0.06);
+  font-size:12.5px;
+  font-style:italic;
+  color:var(--white-body);
+  line-height:1.6;
+}
+.offer-for strong{
+  display:block;
+  font-style:normal;
+  font-size:9.5px;
+  font-weight:600;
+  letter-spacing:0.30em;
+  color:var(--gold-main);
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.offer-footer{
+  margin-top:20px;
+  padding-top:18px;
+  border-top:1px solid var(--gold-border);
+  font-size:9px;
+  font-weight:500;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--white-muted);
+  line-height:1.7;
+}
+
+.offers-band{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:48px;
+  margin-top:72px;
+  padding:48px 0;
+  border-top:1px solid var(--sep);
+  border-bottom:1px solid var(--sep);
+}
+.band-item{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+}
+.band-item svg{
+  width:28px;height:28px;
+  stroke:var(--gold-main);
+  stroke-width:1.4;
+  fill:none;
+  flex-shrink:0;
+  margin-top:4px;
+}
+.band-title{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--white-title);
+  margin-bottom:6px;
+}
+.band-desc{
+  font-size:13px;
+  font-weight:300;
+  color:var(--white-body);
+  line-height:1.6;
+}
+
+.offers-quote{
+  margin-top:64px;
+  text-align:center;
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:300;
+  font-size:clamp(22px,2.4vw,28px);
+  color:var(--gold-light);
+  position:relative;
+  padding:0 32px;
+}
+.offers-quote::before,.offers-quote::after{
+  content:"";
+  display:inline-block;
+  width:40px;height:1px;
+  background:var(--gold-main);
+  vertical-align:middle;
+  margin:0 18px;
+  opacity:0.5;
+}
+.offers-cta-wrap{
+  display:flex;
+  justify-content:center;
+  margin-top:48px;
+}
+
+/* ==========================================================================
+   DIRIGEANT
+   ========================================================================== */
+.dirigeant{background:var(--bg-primary)}
+.dirigeant-split{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:90px;
+  align-items:start;
+}
+.pain-points{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin:36px 0 56px;
+}
+.pain{
+  border-left:2px solid var(--gold-border);
+  padding:6px 0 6px 14px;
+}
+.pain svg{
+  width:18px;height:18px;
+  stroke:var(--gold-main);
+  stroke-width:1.4;
+  fill:none;
+  margin-bottom:8px;
+}
+.pain-title{
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--gold-main);
+  margin-bottom:4px;
+}
+.pain-desc{
+  font-size:12px;
+  font-weight:300;
+  color:var(--white-body);
+  line-height:1.55;
+}
+
+.essor-title{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:28px;
+  color:var(--white-title);
+  margin-bottom:6px;
+}
+.essor-sub{
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:0.30em;
+  text-transform:uppercase;
+  color:var(--gold-main);
+  margin-bottom:32px;
+}
+.essor-timeline{
+  position:relative;
+  padding-left:0;
+}
+.essor-step{
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:24px;
+  padding:24px 0;
+  border-bottom:1px dashed var(--gold-border);
+  position:relative;
+}
+.essor-step:last-child{border-bottom:none}
+.essor-num{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:44px;
+  color:var(--gold-main);
+  line-height:1;
+}
+.essor-name{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.24em;
+  text-transform:uppercase;
+  color:var(--white-title);
+  margin-bottom:10px;
+}
+.essor-desc{
+  font-size:13.5px;
+  font-weight:300;
+  color:var(--white-body);
+  line-height:1.6;
+}
+
+.formules{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+.formule{
+  background:var(--bg-card);
+  border:1px solid var(--gold-border);
+  padding:36px 32px;
+  position:relative;
+  transition:all 0.35s var(--ease);
+}
+.formule:hover{transform:translateY(-4px)}
+.formule-plus{
+  background:linear-gradient(160deg, #1a1610 0%, #111 100%);
+  border-color:var(--gold-main);
+  box-shadow:0 0 40px rgba(201,165,90,0.08);
+}
+.formule-tag{
+  display:inline-block;
+  font-size:9.5px;
+  font-weight:600;
+  letter-spacing:0.30em;
+  text-transform:uppercase;
+  color:var(--gold-main);
+  margin-bottom:10px;
+}
+.formule-name{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:26px;
+  color:var(--white-title);
+  margin-bottom:6px;
+}
+.formule-duration{
+  font-size:11px;
+  font-weight:400;
+  letter-spacing:0.20em;
+  text-transform:uppercase;
+  color:var(--white-muted);
+  margin-bottom:24px;
+}
+.formule-list{
+  list-style:none;
+}
+.formule-list li{
+  padding:8px 0 8px 18px;
+  font-size:13px;
+  font-weight:300;
+  color:var(--white-body);
+  position:relative;
+}
+.formule-list li::before{
+  content:"";
+  position:absolute;
+  left:0;top:16px;
+  width:8px;height:1px;
+  background:var(--gold-main);
+}
+.formule-ribbon{
+  position:absolute;
+  top:24px;right:24px;
+  background:var(--gold-main);
+  color:#000;
+  font-size:8.5px;
+  font-weight:700;
+  letter-spacing:0.25em;
+  padding:5px 10px;
+  text-transform:uppercase;
+}
+.dirigeant-quote{
+  margin-top:36px;
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+  font-size:22px;
+  color:var(--gold-light);
+  border-left:2px solid var(--gold-main);
+  padding-left:20px;
+  line-height:1.4;
+}
+
+/* ==========================================================================
+   CONFIANCE (VS Table)
+   ========================================================================== */
+.confiance{
+  background:var(--bg-secondary);
+  position:relative;
+}
+.vs-table{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  background:var(--gold-border);
+  position:relative;
+  border:1px solid var(--gold-border);
+}
+.vs-col{
+  background:var(--bg-card);
+  padding:48px 40px;
+}
+.vs-col-bad{background:#0f0d0d}
+.vs-col-good{
+  background:linear-gradient(160deg, rgba(201,165,90,0.04) 0%, var(--bg-card) 100%);
+}
+.vs-col-head{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:11px;
+  letter-spacing:0.26em;
+  text-transform:uppercase;
+  margin-bottom:32px;
+  padding-bottom:18px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.vs-col-bad .vs-col-head{color:#8a4848}
+.vs-col-good .vs-col-head{color:var(--gold-main)}
+.vs-item{
+  padding:18px 0;
+  border-bottom:1px dashed rgba(255,255,255,0.06);
+}
+.vs-item:last-child{border-bottom:none}
+.vs-name{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.vs-col-bad .vs-name{color:#a86a6a}
+.vs-col-good .vs-name{color:var(--gold-main)}
+.vs-name .marker{
+  width:14px;height:14px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:11px;
+  font-weight:700;
+}
+.vs-col-bad .marker{color:#a86a6a}
+.vs-col-good .marker{color:var(--gold-main)}
+.vs-text{
+  font-size:13px;
+  font-weight:300;
+  color:var(--white-body);
+  line-height:1.55;
+}
+.vs-col-footer{
+  margin-top:24px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+  font-size:16px;
+  line-height:1.4;
+}
+.vs-col-bad .vs-col-footer{color:#8a4848}
+.vs-col-good .vs-col-footer{color:var(--gold-light)}
+
+.vs-center{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:300;
+  font-size:88px;
+  color:var(--gold-border-strong);
+  background:var(--bg-secondary);
+  width:90px;height:90px;
+  border:1px solid var(--gold-border);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:3;
+  letter-spacing:-0.02em;
+}
+
+.vs-callout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  margin-top:48px;
+  padding:32px 40px;
+  background:var(--bg-card);
+  border:1px solid var(--gold-border);
+}
+.vs-callout p{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+  font-size:18px;
+  color:var(--white-title);
+  line-height:1.4;
+}
+.vs-callout p:last-child{color:var(--gold-main);text-align:right}
+
+/* ==========================================================================
+   À PROPOS
+   ========================================================================== */
+.apropos{background:var(--bg-primary)}
+.apropos-split{
+  display:grid;
+  grid-template-columns:0.7fr 1fr;
+  gap:90px;
+  align-items:center;
+}
+.apropos-visual{
+  position:relative;
+  height:480px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.apropos-visual::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center, rgba(201,165,90,0.10) 0%, transparent 65%);
+}
+.apropos-visual .ring{
+  position:absolute;
+  top:50%;left:50%;
+  border-radius:50%;
+  border:1px solid var(--gold-border);
+  transform:translate(-50%,-50%);
+}
+.apropos-visual .ring.a1{width:240px;height:240px;opacity:0.5}
+.apropos-visual .ring.a2{width:340px;height:340px;opacity:0.3}
+.apropos-visual .ring.a3{width:440px;height:440px;opacity:0.15}
+.apropos-visual .compass-big{
+  width:220px;height:220px;
+  position:relative;
+  z-index:2;
+  animation:rotate-compass 160s linear infinite;
+}
+.apropos-meta{
+  position:absolute;
+  bottom:24px;left:50%;
+  transform:translateX(-50%);
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:0.30em;
+  text-transform:uppercase;
+  color:var(--gold-main);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.apropos-meta::before,.apropos-meta::after{
+  content:"";
+  display:inline-block;
+  width:24px;height:1px;
+  background:var(--gold-main);
+}
+.apropos-name{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:clamp(36px,4.5vw,52px);
+  color:var(--white-title);
+  margin-bottom:10px;
+  letter-spacing:-0.005em;
+}
+.apropos-role{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+  font-size:20px;
+  color:var(--gold-light);
+  margin-bottom:32px;
+}
+.apropos-body{
+  font-size:15px;
+  font-weight:300;
+  color:var(--white-body);
+  line-height:1.8;
+}
+.apropos-body p{margin-bottom:18px}
+.values{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:48px;
+  padding-top:40px;
+  border-top:1px solid var(--sep);
+}
+.value{
+  text-align:left;
+}
+.value svg{
+  width:24px;height:24px;
+  stroke:var(--gold-main);
+  stroke-width:1.4;
+  fill:none;
+  margin-bottom:12px;
+}
+.value-name{
+  font-size:10.5px;
+  font-weight:600;
+  letter-spacing:0.30em;
+  text-transform:uppercase;
+  color:var(--gold-main);
+  margin-bottom:8px;
+}
+.value-desc{
+  font-size:12.5px;
+  font-weight:300;
+  font-style:italic;
+  color:var(--white-body);
+  line-height:1.55;
+}
+
+/* ==========================================================================
+   CONTACT
+   ========================================================================== */
+.contact{
+  background:var(--bg-deep);
+  position:relative;
+  overflow:hidden;
+}
+.contact::before{
+  content:"";
+  position:absolute;
+  top:50%;left:50%;
+  width:800px;height:800px;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle, rgba(201,165,90,0.05) 0%, transparent 60%);
+  pointer-events:none;
+}
+.contact-head{
+  text-align:center;
+  max-width:780px;
+  margin:0 auto 64px;
+  position:relative;
+}
+.contact-head h2{
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:clamp(34px,4.8vw,56px);
+  color:var(--white-title);
+  line-height:1.1;
+  letter-spacing:-0.012em;
+  margin-bottom:24px;
+}
+.contact-head .sub{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:300;
+  font-size:24px;
+  color:var(--gold-main);
+  margin-bottom:24px;
+}
+.contact-head p{
+  font-size:15.5px;
+  font-weight:300;
+  color:var(--white-body);
+  line-height:1.7;
+  max-width:600px;
+  margin:0 auto;
+}
+
+.form-wrap{
+  max-width:580px;
+  margin:0 auto;
+  position:relative;
+}
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.form-field{
+  margin-bottom:18px;
+  position:relative;
+}
+.form-field.full{grid-column:1/-1}
+.form-field label{
+  display:block;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--gold-main);
+  margin-bottom:10px;
+}
+.form-field input,
+.form-field textarea{
+  width:100%;
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--gold-border);
+  border-bottom:2px solid var(--gold-border);
+  color:var(--white-title);
+  font-size:14px;
+  font-weight:300;
+  padding:14px 16px;
+  transition:all 0.3s var(--ease);
+  font-family:var(--sans);
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder{color:var(--white-muted)}
+.form-field input:focus,
+.form-field textarea:focus{
+  outline:none;
+  border-color:var(--gold-main);
+  background:rgba(201,165,90,0.04);
+  box-shadow:0 0 0 3px rgba(201,165,90,0.08);
+}
+.form-field textarea{resize:vertical;min-height:120px;line-height:1.6}
+
+.form-checkbox{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  margin:24px 0;
+  font-size:12px;
+  font-weight:300;
+  color:var(--white-body);
+  line-height:1.5;
+  cursor:pointer;
+}
+.form-checkbox input{
+  width:18px;height:18px;
+  margin-top:1px;
+  accent-color:var(--gold-main);
+  flex-shrink:0;
+  cursor:pointer;
+}
+
+.form-submit{
+  width:100%;
+  padding:18px;
+  background:var(--gold-main);
+  color:#000;
+  font-family:var(--sans);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  border:none;
+  cursor:pointer;
+  transition:all 0.35s var(--ease);
+}
+.form-submit:hover{
+  background:var(--gold-light);
+  transform:translateY(-2px);
+  box-shadow:0 14px 32px rgba(201,165,90,0.28);
+}
+.form-note{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin-top:18px;
+  font-size:11px;
+  font-weight:300;
+  color:var(--white-muted);
+  letter-spacing:0.05em;
+}
+.form-note svg{
+  width:13px;height:13px;
+  stroke:var(--gold-main);
+  stroke-width:1.4;
+  fill:none;
+}
+
+.form-success{
+  display:none;
+  text-align:center;
+  padding:48px 32px;
+  background:linear-gradient(160deg, rgba(201,165,90,0.08) 0%, var(--bg-card) 100%);
+  border:1px solid var(--gold-main);
+}
+.form-success.show{display:block}
+.form-success svg{
+  width:48px;height:48px;
+  stroke:var(--gold-main);
+  stroke-width:1.4;
+  fill:none;
+  margin:0 auto 18px;
+}
+.form-success h3{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:24px;
+  color:var(--gold-light);
+  margin-bottom:10px;
+}
+.form-success p{
+  font-size:14px;
+  font-weight:300;
+  color:var(--white-body);
+  line-height:1.6;
+}
+
+.contact-direct{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:72px;
+  padding-top:48px;
+  border-top:1px solid var(--sep);
+  max-width:880px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.contact-line{
+  text-align:center;
+}
+.contact-line svg{
+  width:22px;height:22px;
+  stroke:var(--gold-main);
+  stroke-width:1.4;
+  fill:none;
+  margin:0 auto 12px;
+}
+.contact-line-label{
+  font-size:9.5px;
+  font-weight:600;
+  letter-spacing:0.30em;
+  text-transform:uppercase;
+  color:var(--white-muted);
+  margin-bottom:8px;
+}
+.contact-line a{
+  font-size:15px;
+  font-weight:400;
+  color:var(--white-title);
+  transition:color 0.3s var(--ease);
+}
+.contact-line a:hover{color:var(--gold-main)}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer{
+  background:#070707;
+  border-top:1px solid var(--sep);
+  padding:64px 0 0;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:64px;
+  padding-bottom:48px;
+}
+.footer-brand .logo{margin-bottom:20px}
+.footer-tagline{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+  font-size:18px;
+  color:var(--gold-light);
+  margin-bottom:18px;
+  line-height:1.4;
+}
+.footer-partner{
+  font-size:11px;
+  font-weight:400;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--white-muted);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.footer-partner::before{
+  content:"";
+  display:inline-block;
+  width:24px;height:1px;
+  background:var(--gold-main);
+}
+.footer-col h4{
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  color:var(--gold-main);
+  margin-bottom:22px;
+}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:12px}
+.footer-col a{
+  font-size:13px;
+  font-weight:300;
+  color:var(--white-body);
+  transition:color 0.3s var(--ease);
+}
+.footer-col a:hover{color:var(--gold-main)}
+.footer-social{
+  display:flex;
+  gap:12px;
+  margin-top:20px;
+}
+.footer-social a{
+  width:36px;height:36px;
+  border:1px solid var(--gold-border);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all 0.3s var(--ease);
+}
+.footer-social a:hover{
+  border-color:var(--gold-main);
+  background:var(--gold-main);
+}
+.footer-social svg{
+  width:14px;height:14px;
+  fill:var(--gold-main);
+  transition:fill 0.3s var(--ease);
+}
+.footer-social a:hover svg{fill:#000}
+
+.footer-bottom{
+  border-top:1px solid var(--sep);
+  padding:22px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:16px;
+}
+.footer-bottom p,.footer-bottom a{
+  font-size:11px;
+  font-weight:300;
+  color:var(--white-muted);
+}
+.footer-bottom a:hover{color:var(--gold-main)}
+.footer-bottom .legal a{margin-left:18px}
+
+/* ==========================================================================
+   REVEAL ANIMATIONS
+   ========================================================================== */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.reveal[data-delay="100"]{transition-delay:0.1s}
+.reveal[data-delay="200"]{transition-delay:0.2s}
+.reveal[data-delay="300"]{transition-delay:0.3s}
+.reveal[data-delay="400"]{transition-delay:0.4s}
+.reveal[data-delay="500"]{transition-delay:0.5s}
+.reveal[data-delay="600"]{transition-delay:0.6s}
+
+/* Initial hero animations (load) */
+.hero .anim{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+.hero.loaded .anim{opacity:1;transform:translateY(0)}
+.hero.loaded .anim[data-delay="0"]{transition-delay:0s}
+.hero.loaded .anim[data-delay="150"]{transition-delay:0.15s}
+.hero.loaded .anim[data-delay="300"]{transition-delay:0.30s}
+.hero.loaded .anim[data-delay="450"]{transition-delay:0.45s}
+.hero.loaded .anim[data-delay="600"]{transition-delay:0.60s}
+
+.hero-visual.anim{
+  opacity:0;
+  transform:scale(0.85);
+  transition:opacity 1.2s var(--ease), transform 1.4s var(--ease);
+}
+.hero.loaded .hero-visual.anim{
+  opacity:1;
+  transform:scale(1);
+  transition-delay:0.3s;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.01ms !important;
+    scroll-behavior:auto !important;
+  }
+  .reveal{opacity:1;transform:none}
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px){
+  :root{--section-pad:90px}
+  .hero-grid{grid-template-columns:1fr;gap:60px}
+  .hero-visual{height:380px;order:-1}
+  .compass-hero{width:220px;height:220px}
+  .hero-visual .ring.r1{width:240px;height:240px}
+  .hero-visual .ring.r2{width:340px;height:340px}
+  .hero-visual .ring.r3{width:440px;height:440px}
+  .steps{grid-template-columns:repeat(5,minmax(200px,1fr));overflow-x:auto;scroll-snap-type:x mandatory}
+  .step{scroll-snap-align:start}
+  .steps::before{display:none}
+  .offers-grid{grid-template-columns:1fr;gap:32px}
+  .offer-premium{transform:none}
+  .offer-premium:hover{transform:translateY(-6px)}
+  .dirigeant-split{grid-template-columns:1fr;gap:60px}
+  .apropos-split{grid-template-columns:1fr;gap:60px}
+  .apropos-visual{height:380px}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:48px 0;padding:24px 0}
+  .stat:nth-child(2)::after{display:none}
+  .stat:nth-child(odd)::after{display:none}
+  .stat:nth-child(1),.stat:nth-child(2){padding-bottom:32px;border-bottom:1px solid var(--sep)}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:48px}
+  .vs-callout{grid-template-columns:1fr;gap:18px}
+  .vs-callout p:last-child{text-align:left}
+}
+
+@media (max-width: 768px){
+  :root{--section-pad:72px}
+  .container{padding:0 22px}
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+  .navbar{padding:14px 0}
+  .hero{padding:120px 0 60px}
+  .hero-title{font-size:42px}
+  .hero-sub{font-size:15px}
+  .hero-badges{gap:18px}
+  .hero-ctas{flex-direction:column;align-items:stretch;gap:16px}
+  .hero-ctas .btn,.hero-ctas .btn-underline{justify-content:center;text-align:center}
+  .stats-grid{grid-template-columns:1fr;gap:36px 0}
+  .stat:nth-child(1),.stat:nth-child(2){padding-bottom:0;border-bottom:none}
+  .stat:not(:last-child){padding-bottom:32px;border-bottom:1px solid var(--sep)}
+  .stat:not(:last-child)::after{display:none}
+  .pain-points{grid-template-columns:1fr;gap:14px}
+  .vs-table{grid-template-columns:1fr;gap:0}
+  .vs-center{display:none}
+  .essor-step{grid-template-columns:60px 1fr;gap:18px}
+  .essor-num{font-size:36px}
+  .form-grid{grid-template-columns:1fr}
+  .contact-direct{grid-template-columns:1fr;gap:36px}
+  .offers-band{grid-template-columns:1fr;gap:32px}
+  .values{grid-template-columns:1fr;gap:24px}
+  .footer-grid{grid-template-columns:1fr;gap:40px}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .footer-bottom .legal a{margin:0 9px}
+  .section-header{margin-bottom:56px}
+}
+
+@media (max-width: 480px){
+  .logo-name{font-size:18px}
+  .logo-sub{font-size:8px}
+  .logo-tag{display:none}
+  .hero-title{font-size:36px}
+  .offer{padding:36px 24px}
+  .vs-col{padding:32px 24px}
+  .form-field input,.form-field textarea{font-size:13px;padding:12px 14px}
+}
+</style>
+</head>
+<body>
+
+<!-- Progress bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ============================================================
+     NAVBAR
+============================================================ -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#" class="logo" aria-label="Elity Conseils — Accueil">
+      <svg class="logo-mark" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="30" cy="30" r="28" fill="none" stroke="#c9a55a" stroke-width="1"/>
+        <polygon points="30,2 33,28 30,32 27,28" fill="#c9a55a"/>
+        <polygon points="30,58 33,32 30,28 27,32" fill="#b8903a"/>
+        <polygon points="2,30 28,27 32,30 28,33" fill="#b8903a"/>
+        <polygon points="58,30 32,27 28,30 32,33" fill="#c9a55a"/>
+        <polygon points="9,9 27,27 30,24 26,26" fill="#c9a55a" opacity="0.7"/>
+        <polygon points="51,9 33,27 30,24 34,26" fill="#c9a55a" opacity="0.7"/>
+        <polygon points="9,51 27,33 30,36 26,34" fill="#c9a55a" opacity="0.7"/>
+        <polygon points="51,51 33,33 30,36 34,34" fill="#c9a55a" opacity="0.7"/>
+        <circle cx="30" cy="30" r="3" fill="#c9a55a"/>
+      </svg>
+      <span class="logo-text">
+        <span class="logo-name">ELITY</span>
+        <span class="logo-sub"><span class="dash"></span>CONSEILS<span class="dash"></span></span>
+        <span class="logo-tag">APPROCHE STRATÉGIQUE</span>
+      </span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#approche" data-nav="approche">Notre Approche</a></li>
+      <li><a href="#offres" data-nav="offres">Nos Offres</a></li>
+      <li><a href="#dirigeant" data-nav="dirigeant">Elity Dirigeant</a></li>
+      <li><a href="#apropos" data-nav="apropos">À Propos</a></li>
+      <li><a href="#contact" data-nav="contact">Contact</a></li>
+    </ul>
+
+    <a href="#contact" class="nav-cta">Échange Confidentiel</a>
+
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#approche">Notre Approche</a>
+  <a href="#offres">Nos Offres</a>
+  <a href="#dirigeant">Elity Dirigeant</a>
+  <a href="#apropos">À Propos</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-eyebrow anim" data-delay="0">
+          <span class="line"></span>
+          <span>Cabinet de Conseil en Cession d'Entreprise · La Réunion</span>
+        </div>
+
+        <h1 class="hero-title anim" data-delay="150">
+          Structurer votre cession
+          <em>avant de la lancer.</em>
+        </h1>
+
+        <p class="hero-sub anim" data-delay="300">
+          Une approche stratégique, confidentielle et sur-mesure pour valoriser votre entreprise et la céder dans les meilleures conditions.
+        </p>
+
+        <div class="hero-divider anim" data-delay="300"></div>
+
+        <div class="hero-badges anim" data-delay="450">
+          <span class="hero-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true">
+              <rect x="5" y="11" width="14" height="10" rx="1.5"/>
+              <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+            </svg>
+            Confidentialité totale
+          </span>
+          <span class="hero-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true">
+              <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            Approche sur-mesure
+          </span>
+          <span class="hero-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true">
+              <path d="M8 21h8M12 17v4M7 4h10v3a5 5 0 0 1-10 0V4z"/>
+              <path d="M4 4h3v2a3 3 0 0 1-3-3M20 4h-3v2a3 3 0 0 0 3-3" transform="translate(0,2)"/>
+            </svg>
+            Résultats optimisés
+          </span>
+        </div>
+
+        <div class="hero-ctas anim" data-delay="600">
+          <a href="#contact" class="btn btn-primary">
+            Demander un échange confidentiel
+            <span aria-hidden="true">→</span>
+          </a>
+          <a href="#approche" class="btn-underline">
+            Découvrir notre approche
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual anim">
+        <div class="ring r3"></div>
+        <div class="ring r2"></div>
+        <div class="ring r1"></div>
+        <div class="ray" style="transform:translateX(-50%) rotate(0deg)"></div>
+        <div class="ray" style="transform:translateX(-50%) rotate(45deg)"></div>
+        <div class="ray" style="transform:translateX(-50%) rotate(90deg)"></div>
+        <div class="ray" style="transform:translateX(-50%) rotate(135deg)"></div>
+
+        <div class="compass-hero" id="compassHero">
+          <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="30" cy="30" r="28" fill="none" stroke="#c9a55a" stroke-width="0.5"/>
+            <circle cx="30" cy="30" r="22" fill="none" stroke="#c9a55a" stroke-width="0.3" opacity="0.5"/>
+            <polygon points="30,2 33,28 30,32 27,28" fill="#c9a55a"/>
+            <polygon points="30,58 33,32 30,28 27,32" fill="#b8903a"/>
+            <polygon points="2,30 28,27 32,30 28,33" fill="#b8903a"/>
+            <polygon points="58,30 32,27 28,30 32,33" fill="#c9a55a"/>
+            <polygon points="9,9 27,27 30,24 26,26" fill="#c9a55a" opacity="0.7"/>
+            <polygon points="51,9 33,27 30,24 34,26" fill="#c9a55a" opacity="0.7"/>
+            <polygon points="9,51 27,33 30,36 26,34" fill="#c9a55a" opacity="0.7"/>
+            <polygon points="51,51 33,33 30,36 34,34" fill="#c9a55a" opacity="0.7"/>
+            <circle cx="30" cy="30" r="3" fill="#c9a55a"/>
+            <circle cx="30" cy="30" r="1.5" fill="#080808"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS
+============================================================ -->
+<section class="stats" id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <div class="stat-num" data-count="100" data-suffix="+">0</div>
+        <div class="stat-label">Dirigeants accompagnés</div>
+      </div>
+      <div class="stat reveal" data-delay="100">
+        <div class="stat-num" data-static="2013">2013</div>
+        <div class="stat-label">Partenaire Procom</div>
+      </div>
+      <div class="stat reveal" data-delay="200">
+        <div class="stat-num" data-count="20" data-suffix="+">0</div>
+        <div class="stat-label">Secteurs d'activité</div>
+      </div>
+      <div class="stat reveal" data-delay="300">
+        <div class="stat-num" data-count="100" data-suffix="%">0</div>
+        <div class="stat-label">Confidentiel</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     APPROCHE
+============================================================ -->
+<section class="section approche" id="approche">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Notre Approche</span>
+      <div class="section-sep"></div>
+      <h2 class="section-title">Ce n'est pas une question de timing.</h2>
+      <p class="section-sub">C'est une question de préparation.</p>
+      <p class="section-body">
+        Avant de mettre votre entreprise en vente, nous l'analysons, la structurons et la valorisons pour que chaque acquéreur voie immédiatement son potentiel.
+      </p>
+    </div>
+
+    <div class="steps">
+      <article class="step reveal" data-delay="100">
+        <span class="step-num">01</span>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/>
+            <path d="M21 21l-4.35-4.35"/>
+          </svg>
+        </div>
+        <h3 class="step-title">Diagnostic stratégique</h3>
+        <p class="step-desc">Nous analysons votre entreprise, vos objectifs et votre environnement. Identification des forces, faiblesses et leviers de valeur réels.</p>
+      </article>
+
+      <article class="step reveal" data-delay="200">
+        <span class="step-num">02</span>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+          </svg>
+        </div>
+        <h3 class="step-title">Positionnement & Valorisation</h3>
+        <p class="step-desc">Nous définissons le positionnement optimal et une valorisation réaliste et argumentée auprès des bons acquéreurs.</p>
+      </article>
+
+      <article class="step reveal" data-delay="300">
+        <span class="step-num">03</span>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+            <path d="M14 3v6h6M8 13h8M8 17h5"/>
+          </svg>
+        </div>
+        <h3 class="step-title">Préparation & Optimisation</h3>
+        <p class="step-desc">Nous structurons les informations clés, préparons le dossier de présentation et optimisons les leviers de valeur identifiés.</p>
+      </article>
+
+      <article class="step reveal" data-delay="400">
+        <span class="step-num">04</span>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 11l18-6v14L3 13z"/>
+            <path d="M11 19l-2 3-3-1-2-7"/>
+          </svg>
+        </div>
+        <h3 class="step-title">Mise en vente stratégique</h3>
+        <p class="step-desc">Nous ciblons les bons acquéreurs, pilotons le processus avec discrétion et gérons chaque interaction avec méthode.</p>
+      </article>
+
+      <article class="step reveal" data-delay="500">
+        <span class="step-num">05</span>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 12l3-3 4 4 4-4 3 3"/>
+            <path d="M7 16h10M7 8l5-5 5 5"/>
+          </svg>
+        </div>
+        <h3 class="step-title">Négociation & Accompagnement</h3>
+        <p class="step-desc">Nous sécurisons les conditions de la cession et vous accompagnons jusqu'à la signature et au-delà.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OFFRES
+============================================================ -->
+<section class="section offres" id="offres">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Nos Offres</span>
+      <div class="section-sep"></div>
+      <h2 class="section-title">Trois niveaux d'accompagnement.</h2>
+      <p class="section-sub">Une approche adaptée à vos enjeux et objectifs.</p>
+      <p class="partner-note">
+        En partenariat avec <strong style="color:var(--gold-main);font-weight:500;font-style:normal">Procom Océan Indien</strong> — Réseau national Transactions Commerces & Entreprises.
+      </p>
+    </div>
+
+    <div class="offers-grid">
+      <!-- CARTE 1 - CLASSIQUE -->
+      <article class="offer offer-classique reveal" data-delay="100">
+        <span class="offer-badge">Classique</span>
+        <div class="offer-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 11l2-2 3 3 6-6 3 3"/>
+            <path d="M3 14l4 4 3-2 4 3 5-5 2 1"/>
+          </svg>
+        </div>
+        <p class="offer-pitch">Pour vendre simplement.</p>
+        <div class="offer-sep"></div>
+
+        <p class="offer-mission-label">Notre mission</p>
+        <ul class="offer-list">
+          <li>Mise en vente de votre entreprise</li>
+          <li>Diffusion auprès du réseau d'acquéreurs qualifiés Procom</li>
+          <li>Organisation des visites</li>
+          <li>Négociation et accompagnement jusqu'à la signature</li>
+        </ul>
+
+        <p class="offer-for">
+          <strong>Pour qui ?</strong>
+          Dirigeants souhaitant vendre leur entreprise avec un accompagnement axé sur la mise en relation et la négociation.
+        </p>
+        <div class="offer-footer">
+          Mise en transaction :<br>Procom Océan Indien
+        </div>
+      </article>
+
+      <!-- CARTE 2 - STRATÉGIQUE -->
+      <article class="offer offer-strategique reveal" data-delay="200">
+        <span class="offer-badge">Stratégique</span>
+        <div class="offer-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 4v4l-2 2 2 2v3l4 3v-3l4-3-2-2 2-2V4l-4 3z"/>
+            <path d="M6 20h12"/>
+          </svg>
+        </div>
+        <p class="offer-pitch">Pour vendre intelligemment.</p>
+        <div class="offer-sep"></div>
+
+        <p class="offer-mission-label">Notre mission</p>
+        <ul class="offer-list">
+          <li>Diagnostic complet de votre entreprise</li>
+          <li>Positionnement stratégique</li>
+          <li>Valorisation réaliste et argumentée</li>
+          <li>Préparation du dossier de cession (teaser, mémorandum, data room)</li>
+          <li>Recherche d'acquéreurs ciblés</li>
+          <li>Conseil et accompagnement jusqu'à la décision</li>
+        </ul>
+
+        <p class="offer-for">
+          <strong>Pour qui ?</strong>
+          Dirigeants souhaitant sécuriser, valoriser et optimiser leur cession grâce à une préparation stratégique.
+        </p>
+        <div class="offer-footer">
+          Structuration stratégique : Elity Conseils<br>+ Mise en transaction : Procom Océan Indien
+        </div>
+      </article>
+
+      <!-- CARTE 3 - PREMIUM -->
+      <article class="offer offer-premium reveal" data-delay="300">
+        <div class="offer-ribbon">Recommandée</div>
+        <span class="offer-badge">Premium</span>
+        <div class="offer-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 3h12l4 6-10 12L2 9z"/>
+            <path d="M11 3l-2 6 3 12 3-12-2-6"/>
+            <path d="M2 9h20"/>
+          </svg>
+        </div>
+        <p class="offer-pitch">Pour vendre dans les meilleures conditions.</p>
+        <div class="offer-sep"></div>
+
+        <p class="offer-mission-label">Notre mission</p>
+        <ul class="offer-list">
+          <li>Stratégie de cession sur-mesure</li>
+          <li>Structuration et valorisation complète</li>
+          <li>Valorisation et optimisation du dossier</li>
+          <li>Mise en vente confidentielle</li>
+          <li>Négociation et sécurisation des conditions</li>
+          <li>Accompagnement du dirigeant jusqu'à la finalisation et au-delà</li>
+        </ul>
+
+        <p class="offer-for">
+          <strong>Pour qui ?</strong>
+          Dirigeants souhaitant être accompagnés de A à Z avec une approche premium, personnalisée et confidentielle.
+        </p>
+        <div class="offer-footer">
+          Structuration stratégique : Elity Conseils<br>+ Mise en transaction : Procom Océan Indien
+        </div>
+      </article>
+    </div>
+
+    <div class="offers-band reveal">
+      <div class="band-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="5" y="11" width="14" height="10" rx="1.5"/>
+          <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+        </svg>
+        <div>
+          <div class="band-title">Confidentialité totale</div>
+          <div class="band-desc">Discrétion garantie à chaque étape.</div>
+        </div>
+      </div>
+      <div class="band-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/>
+          <circle cx="12" cy="12" r="5"/>
+          <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+        </svg>
+        <div>
+          <div class="band-title">Approche sur-mesure</div>
+          <div class="band-desc">Une stratégie adaptée à vos objectifs.</div>
+        </div>
+      </div>
+      <div class="band-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 17l6-6 4 4 8-8"/>
+          <path d="M21 7v6h-6"/>
+        </svg>
+        <div>
+          <div class="band-title">Résultats optimisés</div>
+          <div class="band-desc">Valorisation maximale et conditions sécurisées.</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="offers-quote reveal">Chaque cession est unique. Notre approche s'adapte à votre situation.</p>
+
+    <div class="offers-cta-wrap reveal">
+      <a href="#contact" class="btn btn-primary">Prendre rendez-vous <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DIRIGEANT
+============================================================ -->
+<section class="section dirigeant" id="dirigeant">
+  <div class="container">
+    <div class="dirigeant-split">
+      <div class="dirigeant-left reveal">
+        <span class="section-label">Accompagnement mensuel</span>
+        <div class="section-sep"></div>
+        <h2 class="section-title">Pilotez votre entreprise.<br><em style="font-style:italic;color:var(--gold-main);font-family:var(--serif)">Les yeux ouverts.</em></h2>
+        <p class="section-body">
+          Vous dirigez une TPE ou une PME et avancez souvent seul, sans véritable partenaire stratégique. Votre comptable gère vos comptes… mais qui pilote réellement avec vous&nbsp;?
+        </p>
+
+        <div class="pain-points">
+          <div class="pain">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true">
+              <circle cx="12" cy="8" r="3.5"/>
+              <path d="M5 21c1-4 4-6 7-6s6 2 7 6"/>
+            </svg>
+            <div class="pain-title">Vous avancez seul</div>
+            <div class="pain-desc">Face aux décisions importantes.</div>
+          </div>
+          <div class="pain">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true">
+              <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            <div class="pain-title">Vous manquez de recul</div>
+            <div class="pain-desc">La tête dans l'opérationnel.</div>
+          </div>
+          <div class="pain">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true">
+              <path d="M12 2l3 7h7l-6 4 2 8-6-4-6 4 2-8L2 9h7z"/>
+            </svg>
+            <div class="pain-title">Vous méritez mieux</div>
+            <div class="pain-desc">Un vrai partenaire stratégique.</div>
+          </div>
+        </div>
+
+        <h3 class="essor-title">Méthode <span class="gold">ESSOR</span></h3>
+        <p class="essor-sub">Le chemin pour reprendre le cap.</p>
+
+        <div class="essor-timeline">
+          <div class="essor-step">
+            <div class="essor-num">01</div>
+            <div>
+              <div class="essor-name">Constate</div>
+              <div class="essor-desc">Audit complet — forces, faiblesses et potentiel réel de votre entreprise.</div>
+            </div>
+          </div>
+          <div class="essor-step">
+            <div class="essor-num">02</div>
+            <div>
+              <div class="essor-name">Consolide</div>
+              <div class="essor-desc">Optimiser ce qui fonctionne et réduire ce qui freine votre performance.</div>
+            </div>
+          </div>
+          <div class="essor-step">
+            <div class="essor-num">03</div>
+            <div>
+              <div class="essor-name">Maîtrise</div>
+              <div class="essor-desc">Chiffres clairs, décisions éclairées, cap maintenu mois après mois.</div>
+            </div>
+          </div>
+          <div class="essor-step">
+            <div class="essor-num">04</div>
+            <div>
+              <div class="essor-name">Réalise</div>
+              <div class="essor-desc">Concrétiser vos projets — croissance, recrutement, valorisation.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dirigeant-right reveal" data-delay="200">
+        <div class="formules">
+          <article class="formule">
+            <span class="formule-tag">Formule essentielle</span>
+            <h4 class="formule-name">12 mois d'accompagnement</h4>
+            <p class="formule-duration">Cycle annuel · Engagement 12 mois</p>
+            <ul class="formule-list">
+              <li>12 entretiens individuels mensuels (3-4h)</li>
+              <li>12 rapports d'activité personnalisés</li>
+              <li>12 plans d'action mensuels</li>
+              <li>Méthode ESSOR complète (4 étapes)</li>
+              <li>Disponibilité entre les séances</li>
+              <li>Bilan annuel de progression</li>
+            </ul>
+          </article>
+
+          <article class="formule formule-plus">
+            <div class="formule-ribbon">Plus complet</div>
+            <span class="formule-tag">Formule performance</span>
+            <h4 class="formule-name">24 mois d'accompagnement</h4>
+            <p class="formule-duration">Cycle approfondi · Engagement 24 mois</p>
+            <ul class="formule-list">
+              <li>24 entretiens individuels mensuels (3-4h)</li>
+              <li>24 rapports d'activité personnalisés</li>
+              <li>24 plans d'action mensuels</li>
+              <li>Méthode ESSOR complète (4 étapes)</li>
+              <li>2 bilans semestriels approfondis</li>
+              <li>Accompagnement stratégique renforcé</li>
+              <li>Disponibilités entre les séances</li>
+            </ul>
+          </article>
+        </div>
+
+        <blockquote class="dirigeant-quote">
+          Pilotez votre entreprise. Les yeux ouverts.
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONFIANCE / VS
+============================================================ -->
+<section class="section confiance" id="confiance">
+  <div class="container">
+    <div class="section-header center reveal">
+      <span class="section-label">Notre Différence</span>
+      <div class="section-sep"></div>
+      <h2 class="section-title">Ce que vous voyez<br>n'est pas ce que voit un acquéreur.</h2>
+      <p class="section-body" style="margin-left:auto;margin-right:auto;text-align:center">
+        La perception crée la valeur. Nous vous aidons à construire la perception qu'un bon acquéreur doit avoir de votre entreprise.
+      </p>
+    </div>
+
+    <div class="vs-table reveal">
+      <div class="vs-col vs-col-bad">
+        <div class="vs-col-head">Entreprise mal préparée</div>
+
+        <div class="vs-item">
+          <div class="vs-name"><span class="marker">✕</span> Perception floue</div>
+          <div class="vs-text">Les acquéreurs ne comprennent pas la réelle valeur.</div>
+        </div>
+        <div class="vs-item">
+          <div class="vs-name"><span class="marker">✕</span> Négociation subie</div>
+          <div class="vs-text">Le prix devient le seul point de discussion.</div>
+        </div>
+        <div class="vs-item">
+          <div class="vs-name"><span class="marker">✕</span> Risques perçus élevés</div>
+          <div class="vs-text">Doutes, incertitudes, freins à l'investissement.</div>
+        </div>
+        <div class="vs-item">
+          <div class="vs-name"><span class="marker">✕</span> Acquéreurs opportunistes</div>
+          <div class="vs-text">Peu d'intérêt, beaucoup de conditions.</div>
+        </div>
+        <div class="vs-item">
+          <div class="vs-name"><span class="marker">✕</span> Valorisation réduite</div>
+          <div class="vs-text">Le potentiel n'est pas reconnu, la valeur baisse.</div>
+        </div>
+
+        <p class="vs-col-footer">
+          Vendre devient difficile.<br>La valeur se réduit.
+        </p>
+      </div>
+
+      <div class="vs-col vs-col-good">
+        <div class="vs-col-head">Entreprise bien préparée</div>
+
+        <div class="vs-item">
+          <div class="vs-name"><span class="marker">✓</span> Perception claire</div>
+          <div class="vs-text">Les acquéreurs comprennent et se projettent.</div>
+        </div>
+        <div class="vs-item">
+          <div class="vs-name"><span class="marker">✓</span> Négociation maîtrisée</div>
+          <div class="vs-text">Le prix reflète la valeur, pas l'inverse.</div>
+        </div>
+        <div class="vs-item">
+          <div class="vs-name"><span class="marker">✓</span> Risques maîtrisés</div>
+          <div class="vs-text">Confiance, sécurité, décision facilitée.</div>
+        </div>
+        <div class="vs-item">
+          <div class="vs-name"><span class="marker">✓</span> Acquéreurs qualifiés</div>
+          <div class="vs-text">Intérêt réel, projets solides, vision long terme.</div>
+        </div>
+        <div class="vs-item">
+          <div class="vs-name"><span class="marker">✓</span> Valorisation optimisée</div>
+          <div class="vs-text">Le potentiel est reconnu, la valeur augmente.</div>
+        </div>
+
+        <p class="vs-col-footer">
+          Vendre devient naturel.<br>La valeur se réalise.
+        </p>
+      </div>
+
+      <div class="vs-center" aria-hidden="true">vs</div>
+    </div>
+
+    <div class="vs-callout reveal">
+      <p>La préparation n'est pas une charge. C'est le meilleur investissement avant la cession.</p>
+      <p>Préparer aujourd'hui, c'est maximiser demain.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     À PROPOS
+============================================================ -->
+<section class="section apropos" id="apropos">
+  <div class="container">
+    <div class="apropos-split">
+      <div class="apropos-visual reveal">
+        <div class="ring a3"></div>
+        <div class="ring a2"></div>
+        <div class="ring a1"></div>
+        <div class="compass-big">
+          <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="30" cy="30" r="28" fill="none" stroke="#c9a55a" stroke-width="0.5"/>
+            <polygon points="30,2 33,28 30,32 27,28" fill="#c9a55a"/>
+            <polygon points="30,58 33,32 30,28 27,32" fill="#b8903a"/>
+            <polygon points="2,30 28,27 32,30 28,33" fill="#b8903a"/>
+            <polygon points="58,30 32,27 28,30 32,33" fill="#c9a55a"/>
+            <polygon points="9,9 27,27 30,24 26,26" fill="#c9a55a" opacity="0.7"/>
+            <polygon points="51,9 33,27 30,24 34,26" fill="#c9a55a" opacity="0.7"/>
+            <polygon points="9,51 27,33 30,36 26,34" fill="#c9a55a" opacity="0.7"/>
+            <polygon points="51,51 33,33 30,36 34,34" fill="#c9a55a" opacity="0.7"/>
+            <circle cx="30" cy="30" r="3" fill="#c9a55a"/>
+          </svg>
+        </div>
+        <div class="apropos-meta">La Réunion</div>
+      </div>
+
+      <div class="apropos-content reveal" data-delay="200">
+        <span class="section-label">À Propos</span>
+        <div class="section-sep"></div>
+        <h2 class="apropos-name">Bruno Benattar</h2>
+        <p class="apropos-role">Conseil en cession d'entreprise — Franchisé Procom depuis 2013.</p>
+
+        <div class="apropos-body">
+          <p>Avec plus de 12 ans d'expérience dans l'accompagnement de dirigeants de TPE et PME, je mets mon expertise au service de votre projet de cession.</p>
+          <p>Ancien acteur de l'immobilier reconverti dans le conseil stratégique aux entreprises, j'ai développé une approche globale qui va bien au-delà de la simple transaction : comprendre votre entreprise, préparer sa cession, valoriser ce qui compte et attirer les bons acquéreurs.</p>
+          <p>En tant que partenaire Procom Océan Indien, je dispose d'un réseau national de mise en transaction pour maximiser vos opportunités dans les meilleures conditions.</p>
+        </div>
+
+        <div class="values">
+          <div class="value">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polygon points="12,7 14,12 12,17 10,12" fill="currentColor"/>
+              <polygon points="7,12 12,10 17,12 12,14" fill="currentColor"/>
+            </svg>
+            <div class="value-name">Orientation</div>
+            <div class="value-desc">La direction juste, la décision éclairée.</div>
+          </div>
+          <div class="value">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+            </svg>
+            <div class="value-name">Stratégie</div>
+            <div class="value-desc">Une approche sur-mesure et rigoureuse.</div>
+          </div>
+          <div class="value">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 3h12l4 6-10 12L2 9z"/>
+              <path d="M11 3l-2 6 3 12 3-12-2-6"/>
+              <path d="M2 9h20"/>
+            </svg>
+            <div class="value-name">Excellence</div>
+            <div class="value-desc">L'engagement d'un résultat optimal.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="contact-head reveal">
+      <h2>Prêts à structurer votre projet de cession&nbsp;?</h2>
+      <p class="sub">Échangeons en toute confidentialité.</p>
+      <p>
+        Chaque entreprise est unique. Chaque dirigeant aussi. Prenons le temps d'échanger sur votre situation, vos objectifs et les meilleures options qui s'offrent à vous. Premier échange confidentiel, sans engagement.
+      </p>
+    </div>
+
+    <div class="form-wrap reveal" data-delay="100">
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="firstname">Prénom</label>
+            <input type="text" id="firstname" name="firstname" placeholder="Votre prénom" required>
+          </div>
+          <div class="form-field">
+            <label for="lastname">Nom</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Votre nom" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Email professionnel</label>
+            <input type="email" id="email" name="email" placeholder="exemple@entreprise.com" required>
+          </div>
+          <div class="form-field">
+            <label for="phone">Téléphone</label>
+            <input type="tel" id="phone" name="phone" placeholder="+262 692 ..." required>
+          </div>
+          <div class="form-field full">
+            <label for="sector">Secteur d'activité</label>
+            <input type="text" id="sector" name="sector" placeholder="BTP, commerce, services, restauration…" required>
+          </div>
+          <div class="form-field full">
+            <label for="message">Votre situation</label>
+            <textarea id="message" name="message" rows="4" placeholder="Décrivez brièvement votre projet et où vous en êtes…" required></textarea>
+          </div>
+        </div>
+
+        <label class="form-checkbox">
+          <input type="checkbox" required>
+          <span>J'accepte que mes données soient utilisées dans le cadre de mon accompagnement chez Elity Conseils.</span>
+        </label>
+
+        <button type="submit" class="form-submit">Envoyer ma demande confidentielle</button>
+
+        <p class="form-note">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="5" y="11" width="14" height="10" rx="1.5"/>
+            <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+          </svg>
+          Vos informations sont strictement confidentielles.
+        </p>
+      </form>
+
+      <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M8 12l3 3 5-6"/>
+        </svg>
+        <h3>Votre demande a bien été envoyée.</h3>
+        <p>Nous vous recontacterons sous 24h en toute confidentialité.</p>
+      </div>
+    </div>
+
+    <div class="contact-direct reveal" data-delay="200">
+      <div class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        <div class="contact-line-label">Téléphone</div>
+        <a href="tel:+262692188928">+262 692 18 89 28</a>
+      </div>
+      <div class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2"/>
+          <path d="M3 7l9 6 9-6"/>
+        </svg>
+        <div class="contact-line-label">Email</div>
+        <a href="mailto:contact@elity-conseils.com">contact@elity-conseils.com</a>
+      </div>
+      <div class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>
+        </svg>
+        <div class="contact-line-label">Site</div>
+        <a href="#">www.elity-conseils.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" aria-label="Elity Conseils — Accueil">
+          <svg class="logo-mark" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="30" cy="30" r="28" fill="none" stroke="#c9a55a" stroke-width="1"/>
+            <polygon points="30,2 33,28 30,32 27,28" fill="#c9a55a"/>
+            <polygon points="30,58 33,32 30,28 27,32" fill="#b8903a"/>
+            <polygon points="2,30 28,27 32,30 28,33" fill="#b8903a"/>
+            <polygon points="58,30 32,27 28,30 32,33" fill="#c9a55a"/>
+            <polygon points="9,9 27,27 30,24 26,26" fill="#c9a55a" opacity="0.7"/>
+            <polygon points="51,9 33,27 30,24 34,26" fill="#c9a55a" opacity="0.7"/>
+            <polygon points="9,51 27,33 30,36 26,34" fill="#c9a55a" opacity="0.7"/>
+            <polygon points="51,51 33,33 30,36 34,34" fill="#c9a55a" opacity="0.7"/>
+            <circle cx="30" cy="30" r="3" fill="#c9a55a"/>
+          </svg>
+          <span class="logo-text">
+            <span class="logo-name">ELITY</span>
+            <span class="logo-sub"><span class="dash"></span>CONSEILS<span class="dash"></span></span>
+            <span class="logo-tag">APPROCHE STRATÉGIQUE</span>
+          </span>
+        </a>
+        <p class="footer-tagline">Structurer aujourd'hui. Valoriser demain.</p>
+        <p class="footer-partner">En partenariat avec Procom Océan Indien</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#approche">Notre Approche</a></li>
+          <li><a href="#offres">Nos Offres</a></li>
+          <li><a href="#dirigeant">Elity Dirigeant</a></li>
+          <li><a href="#apropos">À Propos</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+262692188928">+262 692 18 89 28</a></li>
+          <li><a href="mailto:contact@elity-conseils.com">contact@elity-conseils.com</a></li>
+          <li><a href="#">www.elity-conseils.com</a></li>
+        </ul>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM8.5 18H6V10h2.5v8zM7.2 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM18 18h-2.5v-4c0-1-.4-1.6-1.3-1.6-.8 0-1.2.5-1.4 1V18H10V10h2.5v1c.4-.6 1.3-1.4 2.6-1.4 1.9 0 2.9 1 2.9 3.3V18z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Elity Conseils — Approche Stratégique. Tous droits réservés.</p>
+      <div class="legal">
+        <a href="#">Confidentialité</a>
+        <a href="#">Mentions légales</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  const $ = (s,c) => (c||document).querySelector(s);
+  const $$ = (s,c) => Array.from((c||document).querySelectorAll(s));
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ------------------------------------------------------------
+     1) Hero load animation
+  ------------------------------------------------------------ */
+  const hero = $('#hero');
+  requestAnimationFrame(() => {
+    setTimeout(() => hero.classList.add('loaded'), 80);
+  });
+
+  /* ------------------------------------------------------------
+     2) Navbar scroll state + progress bar
+  ------------------------------------------------------------ */
+  const navbar = $('#navbar');
+  const progressBar = $('#progressBar');
+
+  function onScroll(){
+    const y = window.scrollY;
+    navbar.classList.toggle('scrolled', y > 80);
+
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (y / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ------------------------------------------------------------
+     3) Smooth scroll for in-page links
+  ------------------------------------------------------------ */
+  $$('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const href = a.getAttribute('href');
+      if (href === '#' || href.length < 2) return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 70;
+      window.scrollTo({ top, behavior: prefersReduced ? 'auto' : 'smooth' });
+      closeMobileMenu();
+    });
+  });
+
+  /* ------------------------------------------------------------
+     4) Burger / Mobile menu
+  ------------------------------------------------------------ */
+  const burger = $('#burger');
+  const mobileMenu = $('#mobileMenu');
+  function closeMobileMenu(){
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  burger.addEventListener('click', () => {
+    const open = burger.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(open));
+    mobileMenu.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  /* ------------------------------------------------------------
+     5) Reveal on scroll
+  ------------------------------------------------------------ */
+  if (!prefersReduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const delay = el.dataset.delay;
+          if (delay) el.style.transitionDelay = (parseInt(delay,10)/1000) + 's';
+          el.classList.add('visible');
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    $$('.reveal').forEach(el => io.observe(el));
+  } else {
+    $$('.reveal').forEach(el => el.classList.add('visible'));
+  }
+
+  /* ------------------------------------------------------------
+     6) Animated counters
+  ------------------------------------------------------------ */
+  function animateCounter(el){
+    const target = parseInt(el.dataset.count, 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1600;
+    let startTime;
+    const step = (ts) => {
+      if (!startTime) startTime = ts;
+      const elapsed = ts - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target + suffix;
+    };
+    requestAnimationFrame(step);
+  }
+
+  if ('IntersectionObserver' in window) {
+    const statsIO = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          $$('.stat-num[data-count]').forEach(el => {
+            if (!el.dataset.done) {
+              el.dataset.done = '1';
+              animateCounter(el);
+            }
+          });
+          statsIO.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    const statsEl = $('#stats');
+    if (statsEl) statsIO.observe(statsEl);
+  } else {
+    $$('.stat-num[data-count]').forEach(el => {
+      el.textContent = el.dataset.count + (el.dataset.suffix || '');
+    });
+  }
+
+  /* ------------------------------------------------------------
+     7) Nav link active state
+  ------------------------------------------------------------ */
+  const sections = ['approche','offres','dirigeant','apropos','contact']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+  const navLinks = $$('.nav-links a');
+
+  if ('IntersectionObserver' in window) {
+    const navIO = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(a => a.classList.toggle('active', a.dataset.nav === id));
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+    sections.forEach(s => navIO.observe(s));
+  }
+
+  /* ------------------------------------------------------------
+     8) Hero compass parallax (mouse)
+  ------------------------------------------------------------ */
+  const compass = $('#compassHero');
+  if (compass && !prefersReduced && window.matchMedia('(hover: hover)').matches) {
+    let raf = null;
+    window.addEventListener('mousemove', e => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 14;
+        const y = (e.clientY / window.innerHeight - 0.5) * 14;
+        compass.style.transform = `translate(${x}px, ${y}px)`;
+        raf = null;
+      });
+    }, { passive: true });
+  }
+
+  /* ------------------------------------------------------------
+     9) Contact form (no backend — confirm visually)
+  ------------------------------------------------------------ */
+  const form = $('#contactForm');
+  const success = $('#formSuccess');
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      form.style.display = 'none';
+      success.classList.add('show');
+      success.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'center' });
+    });
+  }
+
+  /* ------------------------------------------------------------
+     10) Year (auto in footer if needed) — already hardcoded 2025
+  ------------------------------------------------------------ */
+
+})();
+</script>
+
+</body>
+</html>
