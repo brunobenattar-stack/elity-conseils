@@ -18,11 +18,11 @@ const CESSION: QA[] = [
   },
   {
     q: "Combien de temps dure un processus de cession en moyenne ?",
-    a: "Entre 6 et 18 mois selon la taille, le secteur et la préparation en amont. Le diagnostic et la valorisation prennent 4 à 8 semaines. La mise en marché et la négociation représentent l'essentiel de la durée.",
+    a: "La mission Elity Conseils (diagnostic, valorisation, préparation stratégique) dure 1 à 2 semaines. La transaction menée par Procomm Océan Indien prend en moyenne 1 an. En tout, il faut compter entre 12 et 18 mois du premier rendez-vous à la signature définitive.",
   },
   {
     q: "Comment ma confidentialité est-elle préservée ?",
-    a: "Aucune information identifiante ne circule sans accord signé. Les teasers sont anonymisés, les acquéreurs signent un NDA avant d'accéder au dossier complet, et la data room est cloisonnée. Vos salariés, clients et fournisseurs ne sont pas informés sans votre validation.",
+    a: "Tout prospect qui reçoit des informations sur une affaire signe systématiquement un bon de confidentialité. Les teasers présentés aux acquéreurs sont anonymisés. La data room est cloisonnée. Pour les accompagnements Elity Dirigeant, les informations restent strictement en interne. La divulgation de la vente à vos équipes ou clients n'intervient qu'au moment choisi avec vous.",
   },
   {
     q: "Comment est calculée la valorisation de mon entreprise ?",
@@ -72,7 +72,7 @@ const PRATIQUE: QA[] = [
   },
   {
     q: "Comment sont calculés vos honoraires ?",
-    a: "Pour la cession : combinaison d'un forfait de mise en marché et d'un success fee indexé sur le prix final. Pour Elity Dirigeant : un forfait mensuel sur la durée d'engagement. Pas de coûts cachés, devis détaillé après le premier rendez-vous.",
+    a: "Pour l'accompagnement Elity Conseils (cession) : un acompte puis le solde à la livraison de la note stratégique, payés par le vendeur. Pour Elity Dirigeant : des mensualités sur la durée d'engagement (12 ou 24 mois). Pour la transaction Procomm Océan Indien : des honoraires à la vente, payés par l'acquéreur. Devis détaillé après le premier rendez-vous.",
   },
   {
     q: "Travaillez-vous avec des avocats et notaires ?",
@@ -136,7 +136,7 @@ export default function FaqPage() {
           </>
         }
         subtitle="Cession, accompagnement, méthode, honoraires, confidentialité. Les réponses claires aux interrogations qui reviennent dans nos premiers échanges avec les dirigeants."
-        meta="3 thèmes · 16 réponses"
+        meta="3 thèmes · 15 réponses"
       />
 
       <section className="section">

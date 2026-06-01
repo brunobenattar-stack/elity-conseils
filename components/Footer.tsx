@@ -73,12 +73,6 @@ export default function Footer() {
             <h4>Nous contacter</h4>
             <ul className="footer-contact-list">
               <li>
-                <a href="tel:+262692188928">
-                  <span className="footer-contact-ico" aria-hidden="true"><PhoneIcon /></span>
-                  <span>+262 692 18 89 28</span>
-                </a>
-              </li>
-              <li>
                 <a href="mailto:contact@elityconseils.re">
                   <span className="footer-contact-ico" aria-hidden="true"><MailIcon /></span>
                   <span>contact@elityconseils.re</span>

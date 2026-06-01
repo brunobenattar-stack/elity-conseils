@@ -22,12 +22,11 @@ type Partner = {
 const PARTNERS: Partner[] = [
   {
     initials: "PO",
-    name: "Procom Océan Indien",
-    specialty: "Expertise-comptable & conseil",
+    name: "Procomm Océan Indien",
+    specialty: "Réseau national · Transactions commerces & entreprises",
     description:
-      "Cabinet d'expertise-comptable de référence à La Réunion. Procom accompagne les dirigeants de TPE/PME sur les volets comptables, fiscaux et financiers. Un partenaire naturel pour garantir la fiabilité des données présentées lors d'une cession ou d'un rachat.",
-    location: "La Réunion",
-    website: "https://www.procom-oi.re",
+      "Franchisé Procomm depuis le 1er juillet 2015, Bruno Benattar s'appuie sur ce réseau national d'une quinzaine de cabinets pour réaliser les transactions d'entreprises. C'est Procomm Océan Indien qui prend en charge la mise en vente, la recherche d'acquéreurs qualifiés, la négociation et la signature. Les honoraires de transaction sont payés par l'acquéreur.",
+    location: "La Réunion · Océan Indien",
   },
 ];
 

@@ -54,22 +54,38 @@ export default function AProposPage() {
               <div className="values">
                 <Reveal className="value" delay={100}>
                   <IconCompass />
-                  <div className="value-name">Orientation</div>
-                  <div className="value-desc">La direction juste, la décision éclairée.</div>
+                  <div className="value-name">Écoute</div>
+                  <div className="value-desc">Comprendre le projet de vie avant de proposer.</div>
                 </Reveal>
                 <Reveal className="value" delay={200}>
                   <IconTarget />
-                  <div className="value-name">Stratégie</div>
-                  <div className="value-desc">Une approche sur-mesure et rigoureuse.</div>
+                  <div className="value-name">Intégrité</div>
+                  <div className="value-desc">Jamais de surévaluation, jamais de mensonge.</div>
                 </Reveal>
                 <Reveal className="value" delay={300}>
                   <IconDiamond />
-                  <div className="value-name">Excellence</div>
-                  <div className="value-desc">L'engagement d'un résultat optimal.</div>
+                  <div className="value-name">Persévérance</div>
+                  <div className="value-desc">Tenir le cap quand les autres abandonnent.</div>
                 </Reveal>
               </div>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <Reveal className="section-header center">
+            <span className="section-label">Une mission marquante</span>
+            <div className="section-sep" />
+            <h2 className="section-title">Parfois, tenir bon<br /><em>change tout.</em></h2>
+            <p className="section-body" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
+              En 2017, j'ai accompagné deux associés en conflit depuis dix ans pour céder leur résidence hôtelière. La transaction a duré 18 mois. Même le notaire me disait que je perdais mon temps, que l'un des deux associés ne signerait jamais. J'ai finalisé la cession à 5 M€. Et au-delà du prix, j'ai permis un soulagement entre deux hommes que leur propre affaire avait éloignés.
+            </p>
+            <p className="section-body" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center", fontStyle: "italic" }}>
+              C'est pourquoi je fais ce travail.
+            </p>
+          </Reveal>
         </div>
       </section>
 

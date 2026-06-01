@@ -48,11 +48,26 @@ export default function ContactPageClient() {
     video.play().catch(() => {});
   }, [isMobile]);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     if (!form.checkValidity()) { form.reportValidity(); return; }
-    setSent(true);
+    setLoading(true);
+    setError(null);
+    try {
+      const data = new FormData(form);
+      const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: data });
+      const json = await res.json();
+      if (json.success) { setSent(true); }
+      else { setError("Une erreur est survenue. Veuillez réessayer."); }
+    } catch {
+      setError("Une erreur est survenue. Veuillez réessayer.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -84,13 +99,6 @@ export default function ContactPageClient() {
           </p>
 
           <div className="contact-info-items">
-            <a href="tel:+262692188928" className="contact-info-item">
-              <span className="contact-info-ico"><PhoneIcon /></span>
-              <div>
-                <span className="contact-info-label">Téléphone</span>
-                <span className="contact-info-value">+262 692 18 89 28</span>
-              </div>
-            </a>
             <a href="mailto:contact@elityconseils.re" className="contact-info-item">
               <span className="contact-info-ico"><MailIcon /></span>
               <div>
@@ -116,6 +124,9 @@ export default function ContactPageClient() {
             </div>
           ) : (
             <form className="contact-form-v2" onSubmit={onSubmit} noValidate>
+              <input type="hidden" name="access_key" value="12817e2f-68b1-438e-974d-bc0bdd8d602f" />
+              <input type="hidden" name="subject" value="Nouvelle demande de contact - Elity Conseils" />
+              <input type="hidden" name="from_name" value="Elity Conseils - Site web" />
               <h2 className="contact-form-title">Votre situation</h2>
 
               {/* Type de projet */}
@@ -150,10 +161,6 @@ export default function ContactPageClient() {
                   <label htmlFor="cf-email">Email</label>
                   <input type="email" id="cf-email" name="email" placeholder="vous@entreprise.com" required />
                 </div>
-                <div className="contact-form-field">
-                  <label htmlFor="cf-phone">Téléphone</label>
-                  <input type="tel" id="cf-phone" name="phone" placeholder="+262 692..." required />
-                </div>
                 <div className="contact-form-field full">
                   <label htmlFor="cf-sector">Secteur d&apos;activité</label>
                   <input type="text" id="cf-sector" name="sector" placeholder="BTP, commerce, services, restauration…" required />
@@ -175,8 +182,10 @@ export default function ContactPageClient() {
                 <span>J&apos;accepte que mes données soient utilisées dans le cadre de mon accompagnement chez Elity Conseils, en toute confidentialité.</span>
               </label>
 
-              <button type="submit" className="contact-form-submit">
-                Envoyer ma demande
+              {error && <p className="form-error" role="alert">{error}</p>}
+
+              <button type="submit" className="contact-form-submit" disabled={loading}>
+                {loading ? "Envoi en cours…" : "Envoyer ma demande"}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path d="M5 12h14M13 5l7 7-7 7" />
                 </svg>
