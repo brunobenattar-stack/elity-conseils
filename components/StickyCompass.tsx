@@ -1,20 +1,49 @@
 "use client";
 
-// Rotation via CSS Scroll-Driven Animation (compositor thread, zéro main-thread)
-// Phase label via un seul useMotionValueEvent
-
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useIsMobile } from "./useIsMobile";
+import { useState, useEffect } from "react";
 
+const SECTIONS = [
+  { id: "section-hero",     label: "Préparer" },
+  { id: "section-approche", label: "Comprendre" },
+  { id: "section-offres",   label: "Structurer" },
+  { id: "section-pilotage", label: "Valoriser" },
+  { id: "section-cabinet",  label: "Transmettre" },
+  { id: "section-cas",      label: "Sécuriser" },
+  { id: "section-cta",      label: "Signer" },
+];
 
 export default function StickyCompass() {
   const isMobile = useIsMobile(1024);
+  const [activeLabel, setActiveLabel] = useState("Préparer");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const found = SECTIONS.find((s) => s.id === entry.target.id);
+            if (found) setActiveLabel(found.label);
+          }
+        });
+      },
+      { rootMargin: "-35% 0px -35% 0px", threshold: 0 }
+    );
+
+    SECTIONS.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   if (isMobile) return null;
 
   return (
     <div className="sticky-compass-wrap" aria-hidden="true">
-      {/* Rotation 100% CSS — compositor thread */}
       <motion.div
         className="sticky-compass compass-scroll-rotate"
         initial={{ opacity: 0, scale: 0.6 }}
@@ -24,6 +53,16 @@ export default function StickyCompass() {
         <Image src="/logo-elity.png" alt="" width={82} height={82} />
       </motion.div>
 
+      <motion.div
+        className="sticky-compass-meta"
+        aria-hidden="true"
+        key={activeLabel}
+        initial={{ opacity: 0, y: 4 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <span className="sticky-compass-phase-active">{activeLabel}</span>
+      </motion.div>
     </div>
   );
 }

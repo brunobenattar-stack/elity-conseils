@@ -2316,8 +2316,7 @@ main { position: relative; z-index: 2; }
   align-items: center;
   justify-content: center;
 }
-.sticky-compass-phase {
-  position: absolute;
+.sticky-compass-phase-active {
   display: inline-flex;
   align-items: center;
   font-family: var(--sans);
@@ -6182,104 +6181,207 @@ main { position: relative; z-index: 2; }
 /* ==========================================================================
    ÉTUDE DE CAS — Section home
    ========================================================================== */
-.cas-home-section { }
-.cas-home-card {
-  background: rgba(255,255,255,0.03);
+/* ==========================================================================
+   NOTE ACQUISITION — sous les 3 cartes offres
+   ========================================================================== */
+.offres-acquisition-note {
+  margin: 32px auto 0;
+  max-width: 860px;
   border: 1px solid var(--gold-border);
   border-radius: 4px;
-  padding: clamp(28px, 4vw, 48px);
-  max-width: 820px;
-  margin: 48px auto 0;
+  background: rgba(201, 165, 90, 0.04);
 }
-.cas-home-card-meta {
+.offres-acquisition-note-inner {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 28px;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 28px;
   flex-wrap: wrap;
 }
-.cas-home-sector {
+.offres-acquisition-eyebrow {
+  display: block;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-main);
+  margin-bottom: 6px;
+}
+.offres-acquisition-text {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 540px;
+}
+.offres-acquisition-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--sans);
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold-main);
-  background: rgba(201,165,90,0.1);
-  padding: 4px 12px;
+  white-space: nowrap;
+  text-decoration: none;
+  border: 1px solid var(--gold-border);
+  padding: 10px 20px;
   border-radius: 2px;
+  transition: background 0.2s, color 0.2s;
 }
-.cas-home-size {
-  font-family: var(--sans);
-  font-size: 13px;
-  color: var(--text-muted);
+.offres-acquisition-cta:hover { background: var(--gold-main); color: #08080a; }
+
+/* ==========================================================================
+   ÉTUDE DE CAS HOME — layout split premium
+   ========================================================================== */
+.cas-home-section {
+  background: linear-gradient(160deg, #0a0907 0%, #131009 50%, #0a0907 100%);
+  border-top: 1px solid var(--gold-border);
+  border-bottom: 1px solid var(--gold-border);
 }
-.cas-home-body {
+.cas-home-card {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 24px;
-  margin-bottom: 32px;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 0;
+  max-width: 900px;
+  margin: 48px auto 0;
+  border: 1px solid var(--gold-border-strong);
+  border-radius: 4px;
+  overflow: hidden;
 }
 @media (max-width: 768px) {
-  .cas-home-body { grid-template-columns: 1fr; }
+  .cas-home-card { grid-template-columns: 1fr; }
 }
-.cas-home-block h4 {
+
+/* Colonne gauche */
+.cas-home-left {
+  padding: clamp(28px, 3vw, 44px);
+  background: rgba(201, 165, 90, 0.04);
+  border-right: 1px solid var(--gold-border);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+@media (max-width: 768px) {
+  .cas-home-left { border-right: none; border-bottom: 1px solid var(--gold-border); }
+}
+.cas-home-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.cas-home-sector {
   font-family: var(--sans);
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold-main);
-  margin: 0 0 10px;
+  background: rgba(201,165,90,0.12);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+.cas-home-tag {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--gold-border);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+.cas-home-size {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.cas-home-quote {
+  margin: auto 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--gold-border);
+  font-family: var(--serif);
+  font-size: clamp(14px, 1.4vw, 17px);
+  font-style: italic;
+  color: var(--white-title);
+  line-height: 1.65;
+}
+.cas-home-quote cite {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+}
+
+/* Colonne droite */
+.cas-home-right {
+  padding: clamp(28px, 3vw, 44px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.cas-home-block { display: flex; flex-direction: column; gap: 8px; }
+.cas-home-block-label {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold-main);
 }
 .cas-home-block p {
   font-family: var(--sans);
-  font-size: 14px;
-  line-height: 1.65;
+  font-size: 13px;
+  line-height: 1.7;
   color: var(--text-body);
   margin: 0;
 }
-.cas-home-result {
-  border-left: 1px solid var(--gold-border);
-  padding-left: 24px;
-}
-@media (max-width: 768px) {
-  .cas-home-result { border-left: none; border-top: 1px solid var(--gold-border); padding-left: 0; padding-top: 20px; }
-}
+
+/* Métriques */
 .cas-home-metrics {
   display: flex;
-  gap: 24px;
-  margin-top: 16px;
+  gap: 0;
+  border-top: 1px solid var(--gold-border);
+  padding-top: 24px;
+  margin-top: auto;
 }
-.cas-home-metric { display: flex; flex-direction: column; gap: 3px; }
+.cas-home-metric {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-right: 20px;
+}
+.cas-home-metric + .cas-home-metric {
+  padding-left: 20px;
+  padding-right: 20px;
+  border-left: 1px solid var(--gold-border);
+}
 .cas-home-metric-val {
   font-family: var(--display);
-  font-size: 28px;
+  font-size: clamp(26px, 3vw, 36px);
   color: var(--gold-main);
   line-height: 1;
+}
+.cas-home-metric-unit {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--gold-main);
+  opacity: 0.7;
+  text-transform: uppercase;
 }
 .cas-home-metric-lbl {
   font-family: var(--sans);
   font-size: 11px;
   color: var(--text-muted);
-  letter-spacing: 0.12em;
-}
-.cas-home-quote {
-  border-top: 1px solid var(--gold-border);
-  padding-top: 24px;
-  margin: 0;
-  font-family: var(--serif);
-  font-size: clamp(15px, 1.6vw, 18px);
-  font-style: italic;
-  color: var(--white-title);
-  line-height: 1.6;
-}
-.cas-home-quote cite {
-  display: block;
-  margin-top: 12px;
-  font-style: normal;
-  font-family: var(--sans);
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  color: var(--text-muted);
+  margin-top: 4px;
 }
 
 /* ==========================================================================
