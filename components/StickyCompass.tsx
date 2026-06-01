@@ -4,7 +4,7 @@
 // Phase label via un seul useMotionValueEvent
 
 import { motion } from "framer-motion";
-import CompassLogo from "./CompassLogo";
+import Image from "next/image";
 import { useIsMobile } from "./useIsMobile";
 
 const PHASES = [
@@ -29,7 +29,7 @@ export default function StickyCompass() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
-        <CompassLogo size={120} />
+        <Image src="/logo-elity.png" alt="" width={82} height={82} />
       </motion.div>
 
       {/* Labels affichés via CSS scroll-driven + :has() — pas de JS */}
