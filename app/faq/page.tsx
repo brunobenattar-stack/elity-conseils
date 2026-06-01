@@ -57,7 +57,18 @@ const DIRIGEANT: QA[] = [
   },
   {
     q: "Quel engagement financier et de temps ?",
-    a: "12 ou 24 mois d'engagement, un entretien mensuel de 3-4h. L'investissement est calibré pour des dirigeants de TPE/PME, pas un coût de cabinet de conseil. Tarif communiqué lors du premier échange, après compréhension de votre situation.",
+    a: "12 ou 24 mois d'engagement, un entretien mensuel de 3-4h. L'investissement est calibré pour des dirigeants de TPE/PME qui n'ont pas les moyens d'embaucher un directeur administratif et financier. Tarif communiqué lors du premier échange, après compréhension de votre situation.",
+  },
+];
+
+const PRATIQUE_EXTRA: QA[] = [
+  {
+    q: "Je ne suis pas encore prêt à céder. Vous pouvez quand même m'aider ?",
+    a: "Oui. Dans ce cas, je vous propose de valoriser votre entreprise pour connaître la valeur de votre actif. C'est souvent le meilleur point de départ : savoir ce que vaut ce que vous avez construit, avant même de décider quoi en faire.",
+  },
+  {
+    q: "Comment réagissez-vous quand la négociation se tend ou que votre valorisation est contestée ?",
+    a: "Je reste très calme. Et j'explique que nous n'allons probablement pas pouvoir travailler ensemble — ce que j'appelle l'anti-vente. La raison est simple : nous valorisons comme un banquier. Si le financement ne peut pas passer en banque, la transaction ne se fera pas. Contester nos chiffres, c'est contester la réalité du marché.",
   },
 ];
 
@@ -109,7 +120,7 @@ function FaqGroup({ label, items }: { label: string; items: QA[] }) {
 }
 
 export default function FaqPage() {
-  const allItems = [...CESSION, ...DIRIGEANT, ...PRATIQUE];
+  const allItems = [...CESSION, ...DIRIGEANT, ...PRATIQUE, ...PRATIQUE_EXTRA];
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -136,14 +147,14 @@ export default function FaqPage() {
           </>
         }
         subtitle="Cession, accompagnement, méthode, honoraires, confidentialité. Les réponses claires aux interrogations qui reviennent dans nos premiers échanges avec les dirigeants."
-        meta="3 thèmes · 15 réponses"
+        meta="3 thèmes · 17 réponses"
       />
 
       <section className="section">
         <div className="container faq-container">
           <FaqGroup label="Cession & rachat" items={CESSION} />
           <FaqGroup label="Elity Dirigeant & méthode ESSOR" items={DIRIGEANT} />
-          <FaqGroup label="En pratique" items={PRATIQUE} />
+          <FaqGroup label="En pratique" items={[...PRATIQUE, ...PRATIQUE_EXTRA]} />
         </div>
       </section>
 

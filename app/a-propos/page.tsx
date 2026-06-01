@@ -6,9 +6,9 @@ import CtaStrip from "@/components/CtaStrip";
 import { IconCompass, IconTarget, IconDiamond } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "À Propos : Bruno Benattar, conseil en cession",
+  title: "À Propos : Bruno Benattar, conseil en cession et transmission",
   description:
-    "Bruno Benattar, conseil en cession d'entreprise à La Réunion, franchisé Procom depuis 2013. Plus de 12 ans d'expérience auprès des dirigeants de TPE et PME.",
+    "Bruno Benattar, franchisé Procomm depuis 2015 et fondateur d'Elity Conseils à La Réunion. Accompagnement stratégique en cession, acquisition et pilotage de dirigeants de TPE/PME.",
 };
 
 export default function AProposPage() {
@@ -41,13 +41,13 @@ export default function AProposPage() {
 
               <div className="apropos-body">
                 <p>
-                  Chef d'entreprise toute ma vie, j'ai vécu de l'intérieur toutes les problématiques qui vont avec. C'est ce qui me permet de parler le même langage que les dirigeants que j'accompagne.
+                  Chef d'entreprise toute ma vie, j'ai vécu de l'intérieur toutes les problématiques qui vont avec. C'est ce qui me permet de parler le même langage que les dirigeants que j'accompagne. J'aime les écouter, les aider, et les voir réussir.
                 </p>
                 <p>
-                  Après un parcours dans l'immobilier de luxe à l'Ile Maurice, je suis entré dans la transaction d'entreprise en 2013 en aidant mon père à céder son restaurant. J'ai découvert la franchise Procom, disponible sur les Iles Mascareignes, et j'en suis franchisé depuis le 1er juillet 2015. Ce réseau d'une quinzaine de cabinets en France nous donne du poids, de la formation continue et de la rigueur.
+                  Après un parcours dans l'immobilier de luxe à l'Ile Maurice, je suis entré dans la transaction d'entreprise en 2013 en aidant mon père à céder son restaurant. J'ai découvert la franchise Procomm, disponible sur les Iles Mascareignes, j'ai suivi la formation d'intégration et signé la franchise le 1er juillet 2015. Ce réseau d'une quinzaine de cabinets en France nous apporte du poids, de la rigueur et une formation continue.
                 </p>
                 <p>
-                  Après plus de dix ans, j'ai créé Elity Conseils pour formaliser la mission qui précède toute transaction : accompagner le dirigeant dans l'élaboration de sa stratégie de cession ou d'acquisition. C'est Procom Océan Indien qui réalise ensuite la transaction. Deux structures, une continuité d'accompagnement.
+                  Pendant plus de dix ans, la préparation à la cession était offerte contre une prise de mandat exclusif : chronophage, rémunération incertaine. C'est quand plusieurs vendeurs ont commencé à me demander combien cela leur coûterait que j'ai formalisé cette prestation sous Elity Conseils. L'idée de la développer à plus grande échelle est venue naturellement.
                 </p>
               </div>
 
@@ -70,6 +70,35 @@ export default function AProposPage() {
               </div>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      <section className="section" style={{ background: "var(--bg-secondary)" }}>
+        <div className="container">
+          <Reveal className="section-header center">
+            <span className="section-label">Ma mission au quotidien</span>
+            <div className="section-sep" />
+            <h2 className="section-title">Analyser, accompagner,<br /><em>répondre à vos enjeux.</em></h2>
+            <p className="section-body" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
+              J'analyse le projet du dirigeant, je lui propose de l'accompagner pour répondre à ses enjeux et objectifs. Ce que je fais, et que les autres ne font pas aussi bien : écouter le projet de vie, produire une synthèse et un premier signal de valeur, puis comprendre, structurer, sécuriser, valoriser — et commercialiser avec Procomm Océan Indien.
+            </p>
+            <p className="section-body" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
+              Ce qu'un dirigeant retient de notre collaboration : professionnalisme, efficacité, empathie. Et surtout : <em>j'ai pris le temps d'écouter.</em>
+            </p>
+          </Reveal>
+
+          <Reveal className="apropos-avantages">
+            {[
+              ["Connaissance du marché", "Une lecture fine des transactions récentes à La Réunion et dans l'Océan Indien."],
+              ["Leads qualifiés", "Une base d'acquéreurs potentiels constituée sur plus de dix ans de transactions."],
+              ["Expertise de valorisation", "Une méthode calée sur la capacité de remboursement réelle, comme un banquier."],
+            ].map(([titre, desc]) => (
+              <div key={titre} className="apropos-avantage">
+                <div className="apropos-avantage-titre">{titre}</div>
+                <div className="apropos-avantage-desc">{desc}</div>
+              </div>
+            ))}
+          </Reveal>
         </div>
       </section>
 

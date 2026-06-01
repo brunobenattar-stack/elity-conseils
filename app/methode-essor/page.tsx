@@ -190,10 +190,11 @@ export default function MethodeEssorPage() {
               <div className="essor-fit-block">
                 <h4>Vous reconnaissez l&apos;une de ces situations</h4>
                 <ul>
-                  <li>Vous dirigez seul une TPE/PME et vous manquez de partenaire stratégique.</li>
+                  <li>Vous dirigez seul une TPE/PME et n&apos;avez pas les moyens d&apos;embaucher un directeur administratif et financier.</li>
                   <li>Vous êtes dans l&apos;opérationnel et vous perdez le recul.</li>
                   <li>Vous traversez un plateau de stagnation que vous ne savez pas comment franchir.</li>
                   <li>Vous préparez une cession à 18-36 mois et vous voulez maximiser la valeur.</li>
+                  <li>Vous venez de racheter une entreprise et souhaitez structurer votre prise en main.</li>
                 </ul>
               </div>
               <div className="essor-fit-block essor-fit-block-not">
@@ -206,6 +207,22 @@ export default function MethodeEssorPage() {
                 </ul>
               </div>
             </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <Reveal className="section-header center">
+            <span className="section-label">Origine de la méthode</span>
+            <div className="section-sep" />
+            <h2 className="section-title">Une méthode née du terrain,<br /><em>pas d&apos;un livre.</em></h2>
+            <p className="section-body" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
+              ESSOR s&apos;inspire d&apos;une franchise acquise il y a plusieurs années, EssOR des ENTREPRISES, qui a depuis déposé le bilan. Bruno Benattar l&apos;a adaptée à partir de son expérience terrain et de celle de son associé, de formation comptable. La méthode est appliquée dans ses accompagnements depuis 2021.
+            </p>
+            <p className="section-body" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
+              Elle peut s&apos;appliquer à tout moment stratégique : pilotage mensuel, mais aussi préparation avant une vente ou structuration après un rachat.
+            </p>
           </Reveal>
         </div>
       </section>
