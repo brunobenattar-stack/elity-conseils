@@ -34,35 +34,14 @@ export default function HomeBrunoParallax() {
             <div className="cabinet-simple-photo-frame" />
           </div>
 
-          {/* Contenu : description + CTA + reassurance */}
+          {/* Contenu : stat + CTA */}
           <div className="cabinet-simple-content">
-            <p className="cabinet-simple-desc">
-              12 ans aux côtés des dirigeants de TPE et PME, en cession comme en acquisition. Une approche fondée sur l&apos;écoute, la rigueur et la discrétion.
-            </p>
+            <p className="cabinet-simple-stat">100+</p>
+            <p className="cabinet-simple-stat-label">dirigeants accompagnés</p>
             <Link href="/a-propos" className="cabinet-simple-cta">
               En savoir plus
               <span aria-hidden="true">→</span>
             </Link>
-
-            <ul className="cabinet-simple-reassurance">
-              <li>
-                <span className="cabinet-simple-reassurance-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                    <path d="M12 2l2.4 7.2H22l-6.2 4.5 2.4 7.3L12 16.5 5.8 21l2.4-7.3L2 9.2h7.6z" />
-                  </svg>
-                </span>
-                <span>100+ dirigeants accompagnés</span>
-              </li>
-              <li>
-                <span className="cabinet-simple-reassurance-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M12 7v5l3 2" />
-                  </svg>
-                </span>
-                <span>12 ans d&apos;expérience terrain</span>
-              </li>
-            </ul>
           </div>
 
         </div>

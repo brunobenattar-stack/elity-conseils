@@ -9,10 +9,8 @@ import HomeTrajectoires from "@/components/HomeTrajectoires";
 import HomeStepsHorizontal from "@/components/HomeStepsHorizontal";
 import HomeBrunoParallax from "@/components/HomeBrunoParallax";
 import HomeOffersCards from "@/components/HomeOffersCards";
-import HomeTemoignages3D from "@/components/HomeTemoignages3D";
 import MagneticButton from "@/components/MagneticButton";
 import StickyCompass from "@/components/StickyCompass";
-import CompassLogo from "@/components/CompassLogo";
 
 export default function HomePage() {
   return (
@@ -33,14 +31,17 @@ export default function HomePage() {
       <section className="section offres-dark">
         <div className="container">
           <Reveal className="offers-deck-intro">
-            <span className="section-label">Nos offres</span>
+            <span className="section-label">Nos offres · Cession & Acquisition</span>
             <div className="section-sep" style={{ marginLeft: "auto", marginRight: "auto" }} />
             <h2 className="section-title" style={{ marginBottom: 16 }}>
-              Trois offres,{" "}
+              Trois niveaux,{" "}
               <em style={{ fontStyle: "normal", color: "var(--gold-main)", fontFamily: "var(--display)", fontWeight: 400 }}>
                 un seul standard.
               </em>
             </h2>
+            <p style={{ color: "var(--text-muted)", fontSize: "15px", maxWidth: 520, margin: "0 auto 8px", textAlign: "center" }}>
+              Que vous souhaitiez céder ou acquérir une entreprise, Elity Conseils structure votre stratégie. Procomm Océan Indien réalise la transaction.
+            </p>
           </Reveal>
 
           <HomeOffersCards />
@@ -79,41 +80,60 @@ export default function HomePage() {
       {/* 5. CABINET (Bruno — éditorial) */}
       <HomeBrunoParallax />
 
-      {/* 6. TÉMOIGNAGES — Carrousel type Apple */}
-      <section
-        className="section temoignages-section"
-        style={{
-          background:
-            "linear-gradient(160deg, #0a0907 0%, #131009 50%, #0a0907 100%)",
-          borderTop: "1px solid var(--gold-border)",
-          borderBottom: "1px solid var(--gold-border)",
-          paddingLeft: 0,
-          paddingRight: 0,
-        }}
-      >
-        {/* Watermark boussole blanche — fond éditorial qui renforce le concept "Le Compas qui guide" */}
-        <div className="temoignages-watermark" aria-hidden="true">
-          <CompassLogo size={640} color="#ffffff" />
-        </div>
-
+      {/* 6. ÉTUDE DE CAS */}
+      <section className="section cas-home-section" style={{ background: "linear-gradient(160deg, #0a0907 0%, #131009 50%, #0a0907 100%)", borderTop: "1px solid var(--gold-border)", borderBottom: "1px solid var(--gold-border)" }}>
         <div className="container">
-          <Reveal className="temoignages-header-row">
-            <div className="temoignages-header-label">
-              <span className="section-label">Avis Google</span>
-              <div className="section-sep" />
-            </div>
-            <h2 className="section-title temoignages-header-title">
-              Ce qu&apos;ils en{" "}
+          <Reveal className="section-header center">
+            <span className="section-label">Étude de cas</span>
+            <div className="section-sep" />
+            <h2 className="section-title">
+              Un exemple{" "}
               <em style={{ fontStyle: "italic", color: "var(--gold-main)", fontFamily: "var(--serif)" }}>
-                disent vraiment.
+                concret.
               </em>
             </h2>
           </Reveal>
-        </div>
 
-        <Reveal>
-          <HomeTemoignages3D />
-        </Reveal>
+          <Reveal className="cas-home-card">
+            <div className="cas-home-card-meta">
+              <span className="cas-home-sector">Garage automobile</span>
+              <span className="cas-home-size">TPE · 5 collaborateurs · CA 1 M€ · La Réunion</span>
+            </div>
+
+            <div className="cas-home-body">
+              <div className="cas-home-block">
+                <h4>Situation initiale</h4>
+                <p>Entreprise au bord de la faillite. Grosses difficultés financières, dirigeant incapable de se rémunérer, 5 emplois menacés.</p>
+              </div>
+              <div className="cas-home-block">
+                <h4>Intervention</h4>
+                <p>Accompagnement Elity Dirigeant sur 24 mois — méthode ESSOR. Audit complet, tableau de bord mensuel, plan d'action structuré.</p>
+              </div>
+              <div className="cas-home-block cas-home-result">
+                <h4>Résultat</h4>
+                <p>Entreprise rentable en 24 mois. Le dirigeant peut à nouveau se rémunérer. Les 5 emplois ont été préservés.</p>
+                <div className="cas-home-metrics">
+                  <div className="cas-home-metric"><span className="cas-home-metric-val">24 mois</span><span className="cas-home-metric-lbl">Durée</span></div>
+                  <div className="cas-home-metric"><span className="cas-home-metric-val">5</span><span className="cas-home-metric-lbl">Emplois sauvés</span></div>
+                </div>
+              </div>
+            </div>
+
+            <blockquote className="cas-home-quote">
+              &ldquo;Merci pour l&apos;écoute et le soutien. Nous avons pu redresser l&apos;entreprise en 24 mois.&rdquo;
+              <cite>Le dirigeant — anonymisé</cite>
+            </blockquote>
+          </Reveal>
+
+          <Reveal>
+            <div style={{ textAlign: "center", marginTop: 40 }}>
+              <Link href="/cas-clients" className="btn btn-ghost">
+                Voir tous les cas clients
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </Reveal>
+        </div>
       </section>
 
       {/* 7. CTA FINAL — Cession ou rachat */}

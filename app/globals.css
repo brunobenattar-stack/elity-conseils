@@ -6161,6 +6161,127 @@ main { position: relative; z-index: 2; }
 }
 .cabinet-simple-reassurance-icon svg { width: 14px; height: 14px; }
 
+/* Stat 100+ */
+.cabinet-simple-stat {
+  font-family: var(--display);
+  font-size: clamp(52px, 7vw, 80px);
+  font-weight: 400;
+  color: var(--gold-main);
+  line-height: 1;
+  margin: 0 0 4px;
+}
+.cabinet-simple-stat-label {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 28px;
+}
+
+/* ==========================================================================
+   ÉTUDE DE CAS — Section home
+   ========================================================================== */
+.cas-home-section { }
+.cas-home-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  padding: clamp(28px, 4vw, 48px);
+  max-width: 820px;
+  margin: 48px auto 0;
+}
+.cas-home-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.cas-home-sector {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-main);
+  background: rgba(201,165,90,0.1);
+  padding: 4px 12px;
+  border-radius: 2px;
+}
+.cas-home-size {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.cas-home-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+@media (max-width: 768px) {
+  .cas-home-body { grid-template-columns: 1fr; }
+}
+.cas-home-block h4 {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-main);
+  margin: 0 0 10px;
+}
+.cas-home-block p {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-body);
+  margin: 0;
+}
+.cas-home-result {
+  border-left: 1px solid var(--gold-border);
+  padding-left: 24px;
+}
+@media (max-width: 768px) {
+  .cas-home-result { border-left: none; border-top: 1px solid var(--gold-border); padding-left: 0; padding-top: 20px; }
+}
+.cas-home-metrics {
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+}
+.cas-home-metric { display: flex; flex-direction: column; gap: 3px; }
+.cas-home-metric-val {
+  font-family: var(--display);
+  font-size: 28px;
+  color: var(--gold-main);
+  line-height: 1;
+}
+.cas-home-metric-lbl {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+}
+.cas-home-quote {
+  border-top: 1px solid var(--gold-border);
+  padding-top: 24px;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(15px, 1.6vw, 18px);
+  font-style: italic;
+  color: var(--white-title);
+  line-height: 1.6;
+}
+.cas-home-quote cite {
+  display: block;
+  margin-top: 12px;
+  font-style: normal;
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+}
+
 /* ==========================================================================
    TÉMOIGNAGES — Section "Avis Google" : watermark boussole en background
    ========================================================================== */

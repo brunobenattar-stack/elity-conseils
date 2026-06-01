@@ -7,14 +7,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useIsMobile } from "./useIsMobile";
 
-const PHASES = [
-  { from: 0.00, to: 0.12, label: "Préparer" },
-  { from: 0.12, to: 0.28, label: "Comprendre" },
-  { from: 0.28, to: 0.62, label: "Structurer" },
-  { from: 0.62, to: 0.78, label: "Transmettre" },
-  { from: 0.78, to: 0.92, label: "Sécuriser" },
-  { from: 0.92, to: 1.00, label: "Signer" },
-];
 
 export default function StickyCompass() {
   const isMobile = useIsMobile(1024);
@@ -32,18 +24,6 @@ export default function StickyCompass() {
         <Image src="/logo-elity.png" alt="" width={82} height={82} />
       </motion.div>
 
-      {/* Labels affichés via CSS scroll-driven + :has() — pas de JS */}
-      <div className="sticky-compass-meta" aria-hidden="true">
-        {PHASES.map((p, i) => (
-          <span
-            key={i}
-            className="sticky-compass-phase"
-            style={{ "--phase-from": p.from, "--phase-to": p.to } as React.CSSProperties}
-          >
-            {p.label}
-          </span>
-        ))}
-      </div>
     </div>
   );
 }
