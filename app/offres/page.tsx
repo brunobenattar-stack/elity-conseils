@@ -52,11 +52,11 @@ export default function OffresPage() {
       <section className="section offers-cession-section" id="cession">
         <div className="container">
           <Reveal className="section-header">
-            <span className="section-label">Activité 01 : Cession & rachat</span>
+            <span className="section-label">Activité 01 : Cession & acquisition</span>
             <div className="section-sep" />
             <h2 className="section-title">Trois niveaux d&apos;accompagnement.<br /><em>Une approche adaptée à vos enjeux.</em></h2>
             <p className="section-body">
-              Du conseil ciblé jusqu&apos;à l&apos;accompagnement premium de A à Z, nos trois offres couvrent toutes les situations de cession et de rachat. Chacune s&apos;appuie sur le réseau national <strong>Procom Océan Indien</strong>.
+              Elity Conseils structure et prépare votre stratégie. <strong>Procomm Océan Indien</strong> réalise la transaction. Trois offres pour répondre à chaque situation, de la mise en marché simple à l&apos;accompagnement premium de A à Z.
             </p>
           </Reveal>
 
