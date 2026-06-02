@@ -663,10 +663,10 @@ main { position: relative; z-index: 2; }
   line-height: 1.15;
 }
 .hero-sub {
-  font-size: 16.5px;
-  font-weight: 300;
-  color: rgba(245, 240, 232, 0.92);
-  line-height: 1.75;
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(245, 240, 232, 0.95);
+  line-height: 1.72;
   max-width: 540px;
   margin-bottom: 32px;
 }
