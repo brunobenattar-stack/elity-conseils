@@ -95,7 +95,6 @@ function ProblemCard({ r }: { r: typeof RISQUES[number] }) {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
       >
-        <span className="problem-eyebrow">{r.eyebrow}</span>
         <h3 className="problem-titre">{r.titre}</h3>
         <span className={`problem-chevron${open ? " open" : ""}`} aria-hidden="true">
           <svg viewBox="0 0 16 10" fill="none">
