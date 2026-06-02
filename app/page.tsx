@@ -153,8 +153,13 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Note bas */}
+              {/* Description + note bas */}
               <div className="cas-home-summary">
+                <p>
+                  Entreprise au bord de la faillite, dirigeant sans rémunération, 5 emplois menacés.
+                  Un accompagnement ESSOR sur 24 mois a permis de stabiliser la trésorerie, structurer
+                  le pilotage et retrouver la rentabilité.
+                </p>
                 <cite className="cas-home-cite">Témoignage anonymisé</cite>
               </div>
             </div>

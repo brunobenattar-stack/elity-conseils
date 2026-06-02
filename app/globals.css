@@ -6158,6 +6158,7 @@ main { position: relative; z-index: 2; }
 .problem-card-ivory .problem-desc { color: rgba(43, 36, 24, 0.72); }
 
 /* Carte sombre (problèmes 02 et 03) */
+/* Mobile : carte sombre */
 .problem-card-dark {
   background:
     radial-gradient(ellipse at top right, rgba(201,165,90,0.10) 0%, transparent 60%),
@@ -6172,6 +6173,24 @@ main { position: relative; z-index: 2; }
 .problem-card-dark .problem-card-deco { color: #c9a55a; }
 .problem-card-dark .problem-eyebrow { background: rgba(201,165,90,0.12); color: var(--gold-main); border: 1px solid rgba(201,165,90,0.25); }
 .problem-card-dark .problem-desc { color: var(--text-muted); }
+
+/* Desktop : carte dorée (style Trajectoires) */
+@media (min-width: 1024px) {
+  .problem-card-dark {
+    background:
+      radial-gradient(ellipse at top right, rgba(255,255,255,0.18) 0%, transparent 60%),
+      linear-gradient(165deg, #c9a55a 0%, #a8843a 100%);
+    border: 2.5px solid rgba(255,255,255,0.60);
+    box-shadow: 0 30px 60px -30px rgba(168,132,58,0.55), 0 0 0 1px rgba(255,255,255,0.08) inset;
+    color: #1a1206;
+  }
+  .problem-card-dark:hover {
+    box-shadow: 0 36px 72px -28px rgba(168,132,58,0.7), 0 0 0 1px rgba(255,255,255,0.15) inset;
+  }
+  .problem-card-dark .problem-card-deco { color: #4a3614; }
+  .problem-card-dark .problem-desc { color: rgba(26,18,6,0.75); }
+  .problem-card-dark .problem-titre { color: #1a1206; }
+}
 
 .problem-eyebrow {
   font-family: var(--sans);
@@ -6536,8 +6555,10 @@ main { position: relative; z-index: 2; }
   color: var(--gold-main);
   background: rgba(201, 165, 90, 0.12);
   padding: 5px 12px;
-  border-radius: 2px;
+  border-radius: 6px;
   border: 1px solid rgba(201, 165, 90, 0.25);
+  display: inline-block;
+  width: fit-content;
 }
 .cas-home-tag {
   font-family: var(--sans);
@@ -6652,6 +6673,17 @@ main { position: relative; z-index: 2; }
 /* Note bas */
 .cas-home-summary {
   padding: clamp(14px, 1.5vw, 20px) clamp(24px, 3vw, 48px) clamp(20px, 2.5vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.cas-home-summary p {
+  font-family: var(--sans);
+  font-size: 14.5px;
+  line-height: 1.72;
+  color: var(--text-body);
+  margin: 0;
+  max-width: 680px;
 }
 
 .cas-home-metrics {
