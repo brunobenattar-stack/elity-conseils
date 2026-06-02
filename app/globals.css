@@ -5482,11 +5482,7 @@ main { position: relative; z-index: 2; }
     0%, 100% { transform: translateX(0); }
     50% { transform: translateX(6px); }
   }
-  /* Pitch sur une seule ligne mobile */
   .offer-card-pitch {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     font-size: 11.5px;
   }
 }
