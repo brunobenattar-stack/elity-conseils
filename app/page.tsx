@@ -3,7 +3,7 @@
 import Link from "next/link";
 import HomeHero from "@/components/HomeHero";
 import Reveal from "@/components/Reveal";
-import HomeTrajectoires from "@/components/HomeTrajectoires";
+import HomeProblem from "@/components/HomeProblem";
 import HomeStepsHorizontal from "@/components/HomeStepsHorizontal";
 import HomeBrunoParallax from "@/components/HomeBrunoParallax";
 import HomeOffersCards from "@/components/HomeOffersCards";
@@ -15,10 +15,10 @@ export default function HomePage() {
     <>
       <StickyCompass />
 
-      {/* 1+2. HERO + TRAJECTOIRES */}
+      {/* 1+2. HERO + PROBLÈME */}
       <div id="section-hero" className="hero-parallax-zone">
         <HomeHero />
-        <HomeTrajectoires />
+        <HomeProblem />
       </div>
 
       {/* 3. APPROCHE */}
