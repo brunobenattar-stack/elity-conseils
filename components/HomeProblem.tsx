@@ -2,26 +2,33 @@
 
 import Reveal from "./Reveal";
 
-const RISQUES = [
+const DELAYS = [0, 100, 200, 300] as const;
+type RevealDelay = (typeof DELAYS)[number];
+
+const RISQUES: { num: string; titre: string; desc: string; delay: RevealDelay }[] = [
   {
     num: "01",
     titre: "Une valorisation sous-estimée",
     desc: "Sans dossier argumenté, le prix proposé reflète l'instinct de l'acheteur, pas la valeur réelle de votre entreprise. L'écart peut représenter plusieurs années de bénéfices.",
+    delay: 0,
   },
   {
     num: "02",
     titre: "Un repreneur mal qualifié",
     desc: "Un acquéreur sans capacité financière ou sans projet solide met en danger vos salariés, votre réputation et vos garanties post-cession.",
+    delay: 100,
   },
   {
     num: "03",
     titre: "Une discrétion compromise",
     desc: "Une vente mal gérée se sait. Salariés, concurrents, fournisseurs : l'information fuite avant la signature et fragilise l'entreprise au pire moment.",
+    delay: 200,
   },
   {
     num: "04",
     titre: "Des clauses qui reviennent vous chercher",
     desc: "Garantie d'actif-passif, earn-out, clause de non-concurrence : mal négociées, ces clauses peuvent effacer une partie du prix des années après la vente.",
+    delay: 300,
   },
 ];
 
@@ -45,7 +52,7 @@ export default function HomeProblem() {
 
         <div className="problem-grid">
           {RISQUES.map((r, i) => (
-            <Reveal key={r.num} className="problem-card" delay={i * 120}>
+            <Reveal key={r.num} className="problem-card" delay={r.delay}>
               <span className="problem-num" aria-hidden="true">{r.num}</span>
               <h3 className="problem-titre">{r.titre}</h3>
               <p className="problem-desc">{r.desc}</p>
