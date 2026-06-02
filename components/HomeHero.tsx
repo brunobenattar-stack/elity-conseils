@@ -30,8 +30,20 @@ export default function HomeHero() {
 
   return (
     <section className={`hero hero-v3 ${loaded ? "loaded" : ""}`}>
-      {/* BG boussole animée */}
-      <HeroCompassBg />
+      {/* BG vidéo */}
+      <div className="hero-media-bg" aria-hidden="true">
+        <video
+          ref={videoRef}
+          className="hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          src={isMobile ? "/hero-video-mobile.mp4" : "/hero-video-desktop.mp4"}
+        />
+        <div className="hero-overlay" />
+      </div>
 
 
       <div className="container hero-v3-container">
