@@ -25,8 +25,8 @@ const RISQUES: {
     icon: (
       <svg viewBox="0 0 64 64" fill="none">
         <circle cx="32" cy="32" r="22" stroke="currentColor" strokeWidth="1.2" />
-        <path d="M22 36l6-8 6 6 8-12" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M38 24h6v6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M20 38l7-10 6 7 9-14" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M36 21h7v7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },

@@ -6,13 +6,13 @@ import { useIsMobile } from "./useIsMobile";
 import { useState, useEffect } from "react";
 
 const SECTIONS = [
-  { id: "section-hero",     label: "Préparer" },
-  { id: "section-approche", label: "Comprendre" },
-  { id: "section-offres",   label: "Structurer" },
-  { id: "section-pilotage", label: "Valoriser" },
-  { id: "section-cabinet",  label: "Transmettre" },
-  { id: "section-cas",      label: "Sécuriser" },
-  { id: "section-cta",      label: "Signer" },
+  { id: "section-hero",     label: "Accueil" },
+  { id: "section-approche", label: "Méthode" },
+  { id: "section-offres",   label: "Offres" },
+  { id: "section-pilotage", label: "Pilotage" },
+  { id: "section-cabinet",  label: "Cabinet" },
+  { id: "section-cas",      label: "Résultats" },
+  { id: "section-cta",      label: "Contact" },
 ];
 
 export default function StickyCompass() {

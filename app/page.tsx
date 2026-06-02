@@ -130,7 +130,7 @@ export default function HomePage() {
               {/* Séparateur */}
               <div className="cas-home-divider" aria-hidden="true" />
 
-              {/* Résultats */}
+              {/* Résultats : 2 chiffres + check */}
               <div className="cas-home-metrics-top">
                 <div className="cas-home-metric">
                   <span className="cas-home-metric-val">24</span>
@@ -148,16 +148,15 @@ export default function HomePage() {
                       <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
-                  <span className="cas-home-metric-lbl">Rentabilité<br />retrouvée</span>
+                  <span className="cas-home-metric-lbl">Rentabilité retrouvée</span>
                 </div>
               </div>
 
-              {/* Description + note bas */}
+              {/* Description */}
               <div className="cas-home-summary">
                 <p>
                   Entreprise au bord de la faillite, dirigeant sans rémunération, 5 emplois menacés.
-                  Un accompagnement ESSOR sur 24 mois a permis de stabiliser la trésorerie, structurer
-                  le pilotage et retrouver la rentabilité.
+                  Un accompagnement ESSOR sur 24 mois : trésorerie stabilisée, pilotage structuré, rentabilité retrouvée.
                 </p>
                 <cite className="cas-home-cite">Témoignage anonymisé</cite>
               </div>
