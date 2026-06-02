@@ -81,7 +81,7 @@ export default function ContactPageClient() {
           loop
           playsInline
           preload="metadata"
-          src={isMobile ? "/hero-video-mobile.mp4" : "/hero-video-desktop.mp4"}
+          src="/hero-video-desktop.mp4"
         />
         <div className="contact-video-overlay" />
       </div>
