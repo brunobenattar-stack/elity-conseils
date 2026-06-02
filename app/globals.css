@@ -2135,13 +2135,9 @@ main { position: relative; z-index: 2; }
   display: flex;
   align-items: center;
   gap: 10px;
+  white-space: nowrap;
 }
-.footer-partner::before {
-  content: "";
-  display: inline-block;
-  width: 24px; height: 1px;
-  background: var(--gold-main);
-}
+.footer-partner::before { display: none; }
 .footer-col h4 {
   font-size: 10px;
   font-weight: 600;
@@ -5612,7 +5608,7 @@ main { position: relative; z-index: 2; }
   /* Navbar haut mobile : contour doré visible */
   .navbar {
     margin: 10px;
-    border-radius: 100px;
+    border-radius: 18px;
     background: rgba(8, 8, 8, 0.88);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -5628,12 +5624,12 @@ main { position: relative; z-index: 2; }
     overflow: hidden;
     transition: border-radius 0.35s var(--ease), background 0.35s var(--ease);
   }
-  /* Menu ouvert : devient une carte */
+  /* Menu ouvert : même border-radius, fond plus opaque */
   .navbar.menu-open {
-    border-radius: 14px;
+    border-radius: 18px;
     background: rgba(8, 8, 8, 0.97);
   }
-  /* Scrollé : même apparence, pleine largeur conservée */
+  /* Scrollé */
   .navbar.scrolled {
     background: rgba(8, 8, 8, 0.94);
     border-color: var(--gold-border-strong);
@@ -5644,7 +5640,7 @@ main { position: relative; z-index: 2; }
   }
   /* Scrollé + menu ouvert */
   .navbar.scrolled.menu-open {
-    border-radius: 14px;
+    border-radius: 18px;
   }
   /* Dropdown mobile */
   .mobile-nav-dropdown {
@@ -6605,6 +6601,46 @@ main { position: relative; z-index: 2; }
 }
 
 /* Bas : métriques + contexte */
+/* En-tête identité (secteur + offre) */
+.cas-home-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cas-home-offer {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Infos entreprise centrées horizontalement */
+.cas-home-infos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: clamp(16px, 2vw, 24px) clamp(24px, 3vw, 48px);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.cas-home-info-item {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+.cas-home-info-sep {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold-main);
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+
 /* Métriques en haut (nouvelle structure) */
 .cas-home-metrics-top {
   display: flex;
@@ -6613,20 +6649,9 @@ main { position: relative; z-index: 2; }
   padding: clamp(24px, 3vw, 36px) clamp(24px, 3vw, 48px) clamp(16px, 2vw, 24px);
 }
 
-/* Résumé condensé sous le séparateur */
+/* Note bas */
 .cas-home-summary {
-  padding: clamp(20px, 2.5vw, 32px) clamp(24px, 3vw, 48px) clamp(24px, 3vw, 36px);
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.cas-home-summary p {
-  font-family: var(--sans);
-  font-size: 15px;
-  line-height: 1.72;
-  color: var(--text-body);
-  margin: 0;
-  max-width: 680px;
+  padding: clamp(14px, 1.5vw, 20px) clamp(24px, 3vw, 48px) clamp(20px, 2.5vw, 28px);
 }
 
 .cas-home-metrics {
@@ -6648,17 +6673,20 @@ main { position: relative; z-index: 2; }
 }
 .cas-home-metric-val {
   font-family: var(--display);
-  font-size: clamp(32px, 4vw, 48px);
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 600;
   color: var(--gold-main);
   line-height: 1;
+  text-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
 }
 .cas-home-metric-unit {
   font-family: var(--sans);
   font-size: 11px;
-  letter-spacing: 0.12em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gold-main);
-  opacity: 0.65;
+  opacity: 0.8;
   min-height: 14px;
 }
 .cas-home-metric-lbl {

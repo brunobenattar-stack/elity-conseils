@@ -110,45 +110,52 @@ export default function HomePage() {
 
           <Reveal>
             <div className="cas-home-card">
-              {/* En-tête badges */}
+              {/* En-tête : secteur + offre */}
               <div className="cas-home-header">
-                <div className="cas-home-badge-row">
+                <div className="cas-home-identity">
                   <span className="cas-home-sector">Garage automobile</span>
-                  <span className="cas-home-tag">Elity Dirigeant</span>
-                  <span className="cas-home-size">TPE · 5 collaborateurs · CA 1 M€ · La Réunion</span>
+                  <span className="cas-home-offer">Offre Elity Dirigeant</span>
                 </div>
               </div>
 
-              {/* Résultats en premier */}
-              <div className="cas-home-metrics-top">
-                <div className="cas-home-metric">
-                  <span className="cas-home-metric-val">24</span>
-                  <span className="cas-home-metric-unit">mois</span>
-                  <span className="cas-home-metric-lbl">Pour redresser</span>
-                </div>
-                <div className="cas-home-metric">
-                  <span className="cas-home-metric-val">5</span>
-                  <span className="cas-home-metric-unit">emplois</span>
-                  <span className="cas-home-metric-lbl">Préservés</span>
-                </div>
-                <div className="cas-home-metric">
-                  <span className="cas-home-metric-val">+</span>
-                  <span className="cas-home-metric-unit">rentabilité</span>
-                  <span className="cas-home-metric-lbl">Retrouvée</span>
-                </div>
+              {/* Infos entreprise centrées */}
+              <div className="cas-home-infos">
+                <span className="cas-home-info-item">5 collaborateurs</span>
+                <span className="cas-home-info-sep" aria-hidden="true" />
+                <span className="cas-home-info-item">CA 1 M€/an</span>
+                <span className="cas-home-info-sep" aria-hidden="true" />
+                <span className="cas-home-info-item">La Réunion</span>
               </div>
 
               {/* Séparateur */}
               <div className="cas-home-divider" aria-hidden="true" />
 
-              {/* Contexte condensé */}
+              {/* Résultats */}
+              <div className="cas-home-metrics-top">
+                <div className="cas-home-metric">
+                  <span className="cas-home-metric-val">24</span>
+                  <span className="cas-home-metric-unit">mois</span>
+                  <span className="cas-home-metric-lbl">d&apos;accompagnement</span>
+                </div>
+                <div className="cas-home-metric">
+                  <span className="cas-home-metric-val">5</span>
+                  <span className="cas-home-metric-unit">emplois</span>
+                  <span className="cas-home-metric-lbl">préservés</span>
+                </div>
+                <div className="cas-home-metric">
+                  <span className="cas-home-metric-val">
+                    <svg viewBox="0 0 24 24" fill="none" width="32" height="32" style={{ display: "inline-block" }}>
+                      <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                  <span className="cas-home-metric-unit">&nbsp;</span>
+                  <span className="cas-home-metric-lbl">Rentabilité retrouvée</span>
+                </div>
+              </div>
+
+              {/* Note bas */}
               <div className="cas-home-summary">
-                <p>
-                  Entreprise au bord de la faillite, dirigeant sans rémunération, 5 emplois menacés.
-                  Un accompagnement ESSOR sur 24 mois a permis de stabiliser la trésorerie, structurer
-                  le pilotage et retrouver la rentabilité.
-                </p>
-                <cite className="cas-home-cite">Témoignage anonymisé &middot; La Réunion</cite>
+                <cite className="cas-home-cite">Témoignage anonymisé</cite>
               </div>
             </div>
           </Reveal>
