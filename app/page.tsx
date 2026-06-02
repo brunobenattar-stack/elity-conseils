@@ -142,14 +142,13 @@ export default function HomePage() {
                   <span className="cas-home-metric-unit">emplois</span>
                   <span className="cas-home-metric-lbl">préservés</span>
                 </div>
-                <div className="cas-home-metric">
-                  <span className="cas-home-metric-val">
-                    <svg viewBox="0 0 24 24" fill="none" width="32" height="32" style={{ display: "inline-block" }}>
+                <div className="cas-home-metric cas-home-metric-check">
+                  <span className="cas-home-metric-check-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
                       <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
-                  <span className="cas-home-metric-unit">&nbsp;</span>
-                  <span className="cas-home-metric-lbl">Rentabilité retrouvée</span>
+                  <span className="cas-home-metric-lbl">Rentabilité<br />retrouvée</span>
                 </div>
               </div>
 

@@ -44,7 +44,7 @@ export const defaultContent: ContentData = {
     eyebrow: "La Réunion",
     titleLine1: "Céder, reprendre,",
     titleEm: "structurer avant d'agir.",
-    sub: "Elity Conseils accompagne les dirigeants dans l'élaboration de leur stratégie de cession ou d'acquisition. Elity Dirigeant les aide à piloter leur entreprise avec méthode et recul.",
+    sub: "Elity Conseils accompagne les dirigeants dans leur stratégie de cession ou d'acquisition. Nous les aidons aussi à piloter leur entreprise sur le long terme.",
     cta1Label: "Entamer un échange",
     cta1Href: "/contact",
     cta2Label: "Découvrir notre approche",
