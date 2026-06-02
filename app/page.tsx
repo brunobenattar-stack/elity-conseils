@@ -158,7 +158,7 @@ export default function HomePage() {
                 </div>
                 <div className="cas-home-context">
                   <p><strong>Départ :</strong> Entreprise au bord de la faillite. Dirigeant sans rémunération, 5 emplois menacés.</p>
-                  <p><strong>Méthode :</strong> Accompagnement mensuel ESSOR sur 24 mois — audit, tableau de bord, plans d&apos;action.</p>
+                  <p><strong>Méthode :</strong> Accompagnement mensuel ESSOR sur 24 mois : audit, tableau de bord, plans d&apos;action.</p>
                 </div>
               </div>
             </div>

@@ -80,7 +80,7 @@ export default function AProposPage() {
             <div className="section-sep" />
             <h2 className="section-title">Analyser, accompagner,<br /><em>répondre à vos enjeux.</em></h2>
             <p className="section-body" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
-              J'analyse le projet du dirigeant, je lui propose de l'accompagner pour répondre à ses enjeux et objectifs. Ce que je fais, et que les autres ne font pas aussi bien : écouter le projet de vie, produire une synthèse et un premier signal de valeur, puis comprendre, structurer, sécuriser, valoriser — et commercialiser avec Procomm Océan Indien.
+              J'analyse le projet du dirigeant, je lui propose de l'accompagner pour répondre à ses enjeux et objectifs. Ce que je fais, et que les autres ne font pas aussi bien : écouter le projet de vie, produire une synthèse et un premier signal de valeur, puis comprendre, structurer, sécuriser, valoriser et commercialiser avec Procomm Océan Indien.
             </p>
             <p className="section-body" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
               Ce qu'un dirigeant retient de notre collaboration : professionnalisme, efficacité, empathie. Et surtout : <em>j'ai pris le temps d'écouter.</em>

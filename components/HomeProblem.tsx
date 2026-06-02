@@ -49,7 +49,7 @@ const RISQUES: {
     num: "03",
     eyebrow: "Discrétion",
     titre: "Perdre le contrôle de l'information",
-    desc: "Une vente mal gérée se sait. Salariés, concurrents, fournisseurs alertés trop tôt — l'entreprise se fragilise avant même la signature.",
+    desc: "Une vente mal gérée se sait. Salariés, concurrents, fournisseurs alertés trop tôt : l'entreprise se fragilise avant même la signature.",
     delay: 200,
     variant: "dark",
     icon: (

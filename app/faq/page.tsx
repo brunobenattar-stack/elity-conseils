@@ -68,7 +68,7 @@ const PRATIQUE_EXTRA: QA[] = [
   },
   {
     q: "Comment réagissez-vous quand la négociation se tend ou que votre valorisation est contestée ?",
-    a: "Je reste très calme. Et j'explique que nous n'allons probablement pas pouvoir travailler ensemble — ce que j'appelle l'anti-vente. La raison est simple : nous valorisons comme un banquier. Si le financement ne peut pas passer en banque, la transaction ne se fera pas. Contester nos chiffres, c'est contester la réalité du marché.",
+    a: "Je reste très calme. Et j'explique que nous n'allons probablement pas pouvoir travailler ensemble, ce que j'appelle l'anti-vente. La raison est simple : nous valorisons comme un banquier. Si le financement ne peut pas passer en banque, la transaction ne se fera pas. Contester nos chiffres, c'est contester la réalité du marché.",
   },
 ];
 
