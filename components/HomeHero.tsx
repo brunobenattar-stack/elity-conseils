@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useIsMobile } from "./useIsMobile";
 import { useContent } from "@/lib/ContentProvider";
+import HeroCompassBg from "./HeroCompassBg";
 
 export default function HomeHero() {
   const [loaded, setLoaded] = useState(false);
@@ -29,20 +30,8 @@ export default function HomeHero() {
 
   return (
     <section className={`hero hero-v3 ${loaded ? "loaded" : ""}`}>
-      {/* BG vidéo Runway */}
-      <div className="hero-media-bg" aria-hidden="true">
-        <video
-          ref={videoRef}
-          className="hero-video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          src={isMobile ? "/hero-video-mobile.mp4" : "/hero-video-desktop.mp4"}
-        />
-        <div className="hero-overlay" />
-      </div>
+      {/* BG boussole animée */}
+      <HeroCompassBg />
 
 
       <div className="container hero-v3-container">
