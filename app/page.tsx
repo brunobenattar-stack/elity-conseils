@@ -50,16 +50,10 @@ export default function HomePage() {
           <Reveal>
             <div className="offres-acquisition-note">
               <div className="offres-acquisition-note-inner">
-                <div>
-                  <span className="offres-acquisition-eyebrow">Vous souhaitez acquérir ?</span>
-                  <p className="offres-acquisition-text">
-                    Vous souhaitez acquérir une entreprise ? Elity Conseils vous accompagne dans la définition de votre stratégie d&apos;acquisition : identification de cibles, audit de valeur, structuration du projet.
-                  </p>
-                </div>
-                <Link href="/contact" className="offres-acquisition-cta">
-                  En parler
-                  <span aria-hidden="true">→</span>
-                </Link>
+                <span className="offres-acquisition-eyebrow">Vous souhaitez acquérir ?</span>
+                <p className="offres-acquisition-text">
+                  Elity Conseils vous accompagne dans la définition de votre stratégie : identification de cibles, audit de valeur, structuration du projet.
+                </p>
               </div>
             </div>
           </Reveal>
@@ -125,41 +119,36 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Citation principale */}
-              <div className="cas-home-quote-wrap">
-                <span className="cas-home-quote-mark" aria-hidden="true">&ldquo;</span>
-                <blockquote className="cas-home-quote">
-                  Merci pour l&apos;écoute et le soutien. Nous avons pu redresser l&apos;entreprise en 24 mois.
-                </blockquote>
-                <cite className="cas-home-cite">Le dirigeant &mdash; anonymisé</cite>
+              {/* Résultats en premier */}
+              <div className="cas-home-metrics-top">
+                <div className="cas-home-metric">
+                  <span className="cas-home-metric-val">24</span>
+                  <span className="cas-home-metric-unit">mois</span>
+                  <span className="cas-home-metric-lbl">Pour redresser</span>
+                </div>
+                <div className="cas-home-metric">
+                  <span className="cas-home-metric-val">5</span>
+                  <span className="cas-home-metric-unit">emplois</span>
+                  <span className="cas-home-metric-lbl">Préservés</span>
+                </div>
+                <div className="cas-home-metric">
+                  <span className="cas-home-metric-val">+</span>
+                  <span className="cas-home-metric-unit">rentabilité</span>
+                  <span className="cas-home-metric-lbl">Retrouvée</span>
+                </div>
               </div>
 
               {/* Séparateur */}
               <div className="cas-home-divider" aria-hidden="true" />
 
-              {/* Métriques + contexte */}
-              <div className="cas-home-bottom">
-                <div className="cas-home-metrics">
-                  <div className="cas-home-metric">
-                    <span className="cas-home-metric-val">24</span>
-                    <span className="cas-home-metric-unit">mois</span>
-                    <span className="cas-home-metric-lbl">Pour redresser</span>
-                  </div>
-                  <div className="cas-home-metric">
-                    <span className="cas-home-metric-val">5</span>
-                    <span className="cas-home-metric-unit">emplois</span>
-                    <span className="cas-home-metric-lbl">Préservés</span>
-                  </div>
-                  <div className="cas-home-metric">
-                    <span className="cas-home-metric-val">✓</span>
-                    <span className="cas-home-metric-unit">&nbsp;</span>
-                    <span className="cas-home-metric-lbl">Rentabilité retrouvée</span>
-                  </div>
-                </div>
-                <div className="cas-home-context">
-                  <p><strong>Départ :</strong> Entreprise au bord de la faillite. Dirigeant sans rémunération, 5 emplois menacés.</p>
-                  <p><strong>Méthode :</strong> Accompagnement mensuel ESSOR sur 24 mois : audit, tableau de bord, plans d&apos;action.</p>
-                </div>
+              {/* Contexte condensé */}
+              <div className="cas-home-summary">
+                <p>
+                  Entreprise au bord de la faillite, dirigeant sans rémunération, 5 emplois menacés.
+                  Un accompagnement ESSOR sur 24 mois a permis de stabiliser la trésorerie, structurer
+                  le pilotage et retrouver la rentabilité.
+                </p>
+                <cite className="cas-home-cite">Témoignage anonymisé &middot; La Réunion</cite>
               </div>
             </div>
           </Reveal>

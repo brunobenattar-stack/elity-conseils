@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Reveal from "./Reveal";
 
 const DELAYS = [0, 100, 200, 300] as const;
@@ -51,7 +52,7 @@ const RISQUES: {
     titre: "Perdre le contrôle de l'information",
     desc: "Une vente mal gérée se sait. Salariés, concurrents, fournisseurs alertés trop tôt : l'entreprise se fragilise avant même la signature.",
     delay: 200,
-    variant: "dark",
+    variant: "ivory",
     icon: (
       <svg viewBox="0 0 64 64" fill="none">
         <path d="M32 12C18 12 8 32 8 32s10 20 24 20 24-20 24-20S46 12 32 12z" stroke="currentColor" strokeWidth="1.2" />
@@ -66,7 +67,7 @@ const RISQUES: {
     titre: "Signer sans comprendre ce qu'on signe",
     desc: "Garantie d'actif-passif, earn-out, non-concurrence : mal négociées, ces clauses peuvent effacer une partie du prix des années après la vente.",
     delay: 300,
-    variant: "ivory",
+    variant: "dark",
     icon: (
       <svg viewBox="0 0 64 64" fill="none">
         <rect x="14" y="8" width="36" height="48" rx="3" stroke="currentColor" strokeWidth="1.2" />
@@ -77,6 +78,37 @@ const RISQUES: {
     ),
   },
 ];
+
+function ProblemCard({ r }: { r: typeof RISQUES[number] }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Reveal
+      className={`problem-card problem-card-${r.variant}`}
+      delay={r.delay}
+    >
+      <div className="problem-card-deco" aria-hidden="true">{r.icon}</div>
+
+      {/* Header cliquable sur mobile */}
+      <button
+        className="problem-card-header"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+      >
+        <span className="problem-eyebrow">{r.eyebrow}</span>
+        <h3 className="problem-titre">{r.titre}</h3>
+        <span className={`problem-chevron${open ? " open" : ""}`} aria-hidden="true">
+          <svg viewBox="0 0 16 10" fill="none">
+            <path d="M1 1l7 7 7-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
+      </button>
+
+      {/* Description — visible desktop, accordéon mobile */}
+      <p className={`problem-desc${open ? " problem-desc-open" : ""}`}>{r.desc}</p>
+    </Reveal>
+  );
+}
 
 export default function HomeProblem() {
   return (
@@ -94,20 +126,7 @@ export default function HomeProblem() {
 
         <div className="problem-cards-grid">
           {RISQUES.map((r) => (
-            <Reveal
-              key={r.num}
-              className={`problem-card problem-card-${r.variant}`}
-              delay={r.delay}
-            >
-              <div className="problem-card-deco" aria-hidden="true">
-                {r.icon}
-              </div>
-              <span className="problem-eyebrow">{r.eyebrow}</span>
-              <h3 className="problem-titre">
-                {r.titre}
-              </h3>
-              <p className="problem-desc">{r.desc}</p>
-            </Reveal>
+            <ProblemCard key={r.num} r={r} />
           ))}
         </div>
       </div>
