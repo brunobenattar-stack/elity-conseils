@@ -6218,15 +6218,13 @@ main { position: relative; z-index: 2; }
   position: relative;
   z-index: 1;
 }
-.problem-card-header {
-  display: contents; /* desktop : transparent, tout s'affiche normalement */
+.problem-chevron {
+  display: none; /* caché sur desktop */
   background: none;
   border: none;
   padding: 0;
-  cursor: default;
-  text-align: left;
+  cursor: pointer;
 }
-.problem-chevron { display: none; }
 
 .problem-desc {
   font-family: var(--sans);
@@ -6241,29 +6239,20 @@ main { position: relative; z-index: 2; }
 
 /* Mobile : accordéon */
 @media (max-width: 1023px) {
-  .problem-card-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    width: 100%;
-    cursor: pointer;
-  }
-  .problem-card-header .problem-titre {
-    flex: 1;
-  }
   .problem-chevron {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
     width: 32px;
     height: 32px;
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.18);
     border: 1px solid rgba(201, 165, 90, 0.3);
     transition: transform 0.3s ease, background 0.2s ease;
+    z-index: 2;
   }
   .problem-card-ivory .problem-chevron {
     background: rgba(0, 0, 0, 0.12);
@@ -6271,6 +6260,8 @@ main { position: relative; z-index: 2; }
   }
   .problem-chevron svg { width: 12px; height: 8px; }
   .problem-chevron.open { transform: rotate(180deg); background: rgba(201, 165, 90, 0.18); }
+  /* Padding bas pour ne pas que le texte passe sous le bouton */
+  .problem-card { padding-bottom: 64px; }
 
   .problem-desc {
     max-height: 0;

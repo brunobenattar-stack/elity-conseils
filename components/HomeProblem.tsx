@@ -89,18 +89,18 @@ function ProblemCard({ r }: { r: typeof RISQUES[number] }) {
     >
       <div className="problem-card-deco" aria-hidden="true">{r.icon}</div>
 
-      {/* Header cliquable sur mobile */}
+      <h3 className="problem-titre">{r.titre}</h3>
+
+      {/* Bouton accordéon mobile — collé en bas à droite */}
       <button
-        className="problem-card-header"
+        className={`problem-chevron${open ? " open" : ""}`}
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
+        aria-label={open ? "Réduire" : "En savoir plus"}
       >
-        <h3 className="problem-titre">{r.titre}</h3>
-        <span className={`problem-chevron${open ? " open" : ""}`} aria-hidden="true">
-          <svg viewBox="0 0 16 10" fill="none">
-            <path d="M1 1l7 7 7-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </span>
+        <svg viewBox="0 0 16 10" fill="none">
+          <path d="M1 1l7 7 7-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
       </button>
 
       {/* Description — visible desktop, accordéon mobile */}
