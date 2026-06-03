@@ -45,6 +45,14 @@ export default function ContactPageClient() {
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+    video.muted = true;
+    video.play().catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
     video.play().catch(() => {});
   }, [isMobile]);
 
@@ -80,7 +88,7 @@ export default function ContactPageClient() {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           src="/hero-video-desktop.mp4"
         />
         <div className="contact-video-overlay" />

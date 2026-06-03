@@ -21,10 +21,18 @@ export default function HomeHero() {
     return () => cancelAnimationFrame(id);
   }, []);
 
-  // Force autoplay sur iOS (Safari exige un appel .play() explicite)
+  // Force autoplay sur iOS — déclenché au mount ET à chaque changement d'état
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+    video.muted = true;
+    video.play().catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
     video.play().catch(() => {});
   }, [isMobile]);
 
@@ -39,7 +47,7 @@ export default function HomeHero() {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           src="/hero-video-desktop.mp4"
         />
         <div className="hero-overlay" />
