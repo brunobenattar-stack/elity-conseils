@@ -22,7 +22,7 @@ export default function ConfidentialitePage() {
           <Reveal className="legal-page">
             <h2>1. Responsable du traitement</h2>
             <p>
-              Le responsable du traitement des données est <strong>Elity Conseils</strong> (Bruno Benattar). Pour toute question relative à vos données, contactez-nous à <a href="mailto:contact@elityconseils.re">contact@elityconseils.re</a>.
+              Le responsable du traitement des données est la <strong>SAS Elity Conseils</strong> (SIREN 902 290 147), représentée par Bruno Ben Attar, dont le siège est situé 15 Ruelle 46, 97436 Saint-Leu, La Réunion. Pour toute question relative à vos données, contactez-nous à <a href="mailto:contact@elityconseils.re">contact@elityconseils.re</a>.
             </p>
 
             <h2>2. Données collectées</h2>
@@ -37,7 +37,7 @@ export default function ConfidentialitePage() {
 
             <h2>3. Finalité du traitement</h2>
             <p>
-              Ces données sont collectées dans le seul but de vous recontacter, d'échanger sur votre projet de cession et de vous proposer un accompagnement adapté. Elles ne sont pas utilisées à des fins commerciales ou publicitaires.
+              Le formulaire de contact sert uniquement à permettre à <strong>Bruno Benattar et son équipe</strong> de vous recontacter, d'échanger sur votre situation et de vous proposer un accompagnement adapté (cession, acquisition ou pilotage). Vos données ne sont utilisées à aucune autre fin : ni démarchage commercial, ni publicité, ni revente.
             </p>
 
             <h2>4. Confidentialité</h2>

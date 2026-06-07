@@ -1,12 +1,14 @@
 "use client";
 
-import { type ReactNode, useEffect, useRef, useState } from "react";
+import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from "react";
 
 type Props = {
-  children: ReactNode;
+  children?: ReactNode;
   delay?: 0 | 100 | 200 | 300 | 400 | 500 | 600;
   as?: keyof React.JSX.IntrinsicElements;
   className?: string;
+  style?: CSSProperties;
+  "aria-label"?: string;
 };
 
 export default function Reveal({
@@ -14,6 +16,8 @@ export default function Reveal({
   delay = 0,
   as = "div",
   className = "",
+  style,
+  "aria-label": ariaLabel,
 }: Props) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
@@ -48,6 +52,8 @@ export default function Reveal({
       ref={ref as React.Ref<HTMLElement>}
       className={`reveal ${visible ? "visible" : ""} ${className}`.trim()}
       data-delay={delay || undefined}
+      style={style}
+      aria-label={ariaLabel}
     >
       {children}
     </Tag>

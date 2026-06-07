@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/mentions-legales", "/confidentialite"],
       },
     ],
-    sitemap: "https://www.elity-conseils.com/sitemap.xml",
+    sitemap: "https://elityconseil.re/sitemap.xml",
   };
 }

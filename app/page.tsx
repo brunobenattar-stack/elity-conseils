@@ -132,13 +132,17 @@ export default function HomePage() {
               {/* Résultats : 2 chiffres */}
               <div className="cas-home-metrics-top">
                 <div className="cas-home-metric">
-                  <span className="cas-home-metric-val">24</span>
-                  <span className="cas-home-metric-unit">mois</span>
+                  <span className="cas-home-metric-line">
+                    <span className="cas-home-metric-val">24</span>
+                    <span className="cas-home-metric-unit">mois</span>
+                  </span>
                   <span className="cas-home-metric-lbl">d&apos;accompagnement</span>
                 </div>
                 <div className="cas-home-metric">
-                  <span className="cas-home-metric-val">5</span>
-                  <span className="cas-home-metric-unit">emplois</span>
+                  <span className="cas-home-metric-line">
+                    <span className="cas-home-metric-val">5</span>
+                    <span className="cas-home-metric-unit">emplois</span>
+                  </span>
                   <span className="cas-home-metric-lbl">préservés</span>
                 </div>
               </div>
@@ -167,7 +171,7 @@ export default function HomePage() {
           <Reveal>
             <div style={{ textAlign: "center", marginTop: 48 }}>
               <Link href="/cas-clients" className="btn btn-ghost">
-                Voir tous les cas clients
+                En savoir plus
                 <span aria-hidden="true">→</span>
               </Link>
             </div>

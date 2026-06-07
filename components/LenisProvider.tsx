@@ -5,19 +5,30 @@ import { useEffect } from "react";
 
 export default function LenisProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
+    // Respecter la preference utilisateur (pas de smooth scroll force)
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+
+    // lerp plus eleve + wheelMultiplier = scroll plus direct et reactif
+    // (l'ancien duration:1.2 donnait une inertie lourde/molle au scroll).
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.12,
+      wheelMultiplier: 1.1,
       smoothWheel: true,
+      syncTouch: false,
     });
 
+    let rafId = 0;
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
-    return () => lenis.destroy();
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
   }, []);
 
   return <>{children}</>;

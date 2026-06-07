@@ -22,15 +22,20 @@ export default function MentionsLegalesPage() {
           <Reveal className="legal-page">
             <h2>Éditeur du site</h2>
             <p>
-              <strong>Elity Conseils</strong><br />
-              Bruno Benattar, conseil en cession d'entreprise<br />
-              La Réunion, France<br />
+              <strong>SAS Elity Conseils</strong> (Elity Conseils, Essor des Entreprises)<br />
+              Forme juridique : SASU, société par actions simplifiée unipersonnelle<br />
+              SIREN : 902 290 147<br />
+              SIRET (siège) : 902 290 147 00013<br />
+              Numéro de TVA intracommunautaire : FR93902290147<br />
+              RCS : 902 290 147 R.C.S. Saint-Pierre-de-la-Réunion<br />
+              Code APE : 70.22Z (Conseil pour les affaires et autres conseils de gestion)<br />
+              Siège social : 15 Ruelle 46, 97436 Saint-Leu, La Réunion<br />
               Téléphone : <a href="tel:+262692188928">+262 692 18 89 28</a><br />
               Email : <a href="mailto:contact@elityconseils.re">contact@elityconseils.re</a>
             </p>
 
             <h2>Directeur de la publication</h2>
-            <p>Bruno Benattar.</p>
+            <p>Bruno Ben Attar, président de la SAS Elity Conseils.</p>
 
             <h2>Hébergement</h2>
             <p>

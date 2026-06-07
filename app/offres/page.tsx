@@ -1,66 +1,66 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
-import OffersGrid from "@/components/OffersGrid";
-import CtaStrip from "@/components/CtaStrip";
+import CessionOffers from "@/components/CessionOffers";
+import OfferCard, { type OfferCardData } from "@/components/OfferCard";
+import CtaFinal from "@/components/CtaFinal";
 import { IconLock, IconEye, IconChart } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Nos Offres : Cession, rachat et pilotage mensuel du dirigeant",
+  title: "Nos Offres : Cession, rachat et pilotage d'entreprise à La Réunion",
   description:
     "Deux activités complémentaires : Cession & rachat d'entreprise (3 offres : Classique, Stratégique, Premium) et Pilotage mensuel du dirigeant via la méthode ESSOR (formules 12 ou 24 mois).",
 };
 
+const PILOTAGE: OfferCardData[] = [
+  {
+    id: "12mois",
+    name: "12 mois",
+    pitch: "Un cycle annuel complet.",
+    features: [
+      "1 entretien mensuel (3 à 4h)",
+      "Rapport et plan d'action chaque mois",
+      "Méthode ESSOR (4 étapes)",
+      "Bilan annuel de progression",
+    ],
+    meta: "Pour installer un cadre de pilotage",
+    details:
+      "Un rendez-vous mensuel de 3 à 4 heures où l'on pilote ensemble votre entreprise : on lit les chiffres, on tranche les décisions, on fixe le cap du mois. Chaque séance produit un rapport et un plan d'action concret. Sur l'année, on déroule les quatre étapes de la méthode ESSOR et on mesure les progrès lors d'un bilan annuel. C'est l'équivalent d'un directeur financier à temps partagé, sans le coût d'une embauche.",
+  },
+  {
+    id: "24mois",
+    name: "24 mois",
+    pitch: "Un cycle approfondi sur deux ans.",
+    chip: "Plus complet",
+    featured: true,
+    features: [
+      "Tout le contenu de la formule 12 mois",
+      "2 bilans semestriels approfondis",
+      "Accompagnement stratégique renforcé",
+      "Idéal avant une cession à 24 mois",
+    ],
+    meta: "Pour la croissance ou une cession",
+    details:
+      "Le même accompagnement mensuel, déployé sur deux ans pour aller plus loin : on ne se contente pas de stabiliser, on construit la croissance, on prépare les recrutements et, le cas échéant, on prépare la valorisation en vue d'une cession. Deux bilans semestriels approfondis viennent rythmer la trajectoire. La formule idéale pour transformer durablement l'entreprise ou maximiser sa valeur avant de la céder.",
+  },
+];
+
 export default function OffresPage() {
   return (
     <>
-      <PageHero
-        crumbs={[{ label: "Nos Offres" }]}
-        title={
-          <>
-            Deux activités, un seul standard.<br />
-            <em>Vendre, racheter ou piloter. Sereinement.</em>
-          </>
-        }
-        subtitle="Le cabinet accompagne les dirigeants sur deux moments distincts : la cession ou le rachat d'une entreprise d'un côté, le pilotage mensuel de leur activité de l'autre. Chaque offre s'appuie sur une méthode rigoureuse et une exigence de confidentialité absolue."
-        meta="2 activités · 5 formules"
-      />
-
-      <section className="section offers-toc-section">
+      {/* SECTION 1 : Vendre ou racheter */}
+      <section className="section section-first offers-cession-section" id="cession">
         <div className="container">
-          <Reveal className="offers-toc">
-            <a href="#cession" className="offers-toc-card">
-              <span className="offers-toc-label">Activité 01</span>
-              <h3 className="offers-toc-title">Cession & rachat d&apos;entreprise</h3>
-              <p className="offers-toc-desc">Trois offres pour vendre ou racheter dans les meilleures conditions, avec le réseau Procom.</p>
-              <span className="offers-toc-cta">Voir les 3 offres <span aria-hidden="true">↓</span></span>
-            </a>
-            <a href="#pilotage" className="offers-toc-card">
-              <span className="offers-toc-label">Activité 02</span>
-              <h3 className="offers-toc-title">Pilotage mensuel du dirigeant</h3>
-              <p className="offers-toc-desc">Deux formules d&apos;accompagnement récurrent pour piloter votre entreprise, méthode ESSOR.</p>
-              <span className="offers-toc-cta">Voir les 2 formules <span aria-hidden="true">↓</span></span>
-            </a>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ============================================================ */}
-      {/* SECTION 1 — Cession & rachat                                 */}
-      {/* ============================================================ */}
-      <section className="section offers-cession-section" id="cession">
-        <div className="container">
-          <Reveal className="section-header">
-            <span className="section-label">Activité 01 : Cession & acquisition</span>
-            <div className="section-sep" />
-            <h2 className="section-title">Trois niveaux d&apos;accompagnement.<br /><em>Une approche adaptée à vos enjeux.</em></h2>
-            <p className="section-body">
-              Elity Conseils structure et prépare votre stratégie. <strong>Procomm Océan Indien</strong> réalise la transaction. Trois offres pour répondre à chaque situation, de la mise en marché simple à l&apos;accompagnement premium de A à Z.
+          <Reveal className="section-header center">
+            <span className="section-label">Vendre ou racheter une entreprise</span>
+            <div className="section-sep" style={{ marginInline: "auto" }} />
+            <h2 className="section-title">Trois niveaux d&apos;accompagnement,<br /><em>une approche adaptée.</em></h2>
+            <p className="section-body" style={{ marginInline: "auto", textAlign: "center" }}>
+              Elity Conseils prépare votre stratégie. <strong>Procomm Océan Indien</strong> réalise la transaction.
             </p>
           </Reveal>
 
-          <OffersGrid />
+          <CessionOffers />
 
           <div className="offers-band">
             <Reveal className="band-item" delay={100}>
@@ -88,87 +88,37 @@ export default function OffresPage() {
         </div>
       </section>
 
-      {/* ============================================================ */}
-      {/* SECTION 2 — Pilotage mensuel du dirigeant                    */}
-      {/* ============================================================ */}
-      <section className="section offers-pilotage-section" id="pilotage">
+      {/* SECTION 2 : Piloter son entreprise au quotidien */}
+      <section className="section section-cream offers-pilotage-section" id="pilotage">
         <div className="container">
-          <Reveal className="section-header">
-            <span className="section-label">Activité 02 : Pilotage mensuel</span>
-            <div className="section-sep" />
+          <Reveal className="section-header center">
+            <span className="section-label">Piloter son entreprise au quotidien</span>
+            <div className="section-sep" style={{ marginInline: "auto" }} />
             <h2 className="section-title">Diriger seul, c&apos;est arbitrer<br /><em>dans le brouillard.</em></h2>
-            <p className="section-body">
-              Vous dirigez une TPE ou une PME et avancez souvent seul, sans véritable partenaire stratégique. Votre comptable gère vos comptes… mais qui pilote réellement avec vous ? Le pilotage mensuel Elity Dirigeant vous offre un cadre structuré pour reprendre la main, avec méthode et continuité, appuyé sur notre <Link href="/methode-essor" className="inline-link">méthode ESSOR</Link>.
+            <p className="section-body" style={{ marginInline: "auto", textAlign: "center" }}>
+              Votre comptable gère vos comptes. Mais qui pilote vraiment avec vous ? Elity Dirigeant vous donne un cadre mensuel structuré, appuyé sur la <Link href="/methode-essor" className="inline-link">méthode ESSOR</Link>.
             </p>
           </Reveal>
 
-          <div className="pilotage-formules">
-            <Reveal className="formule" delay={100}>
-              <span className="formule-tag">Formule essentielle</span>
-              <h4 className="formule-name">12 mois d&apos;accompagnement</h4>
-              <p className="formule-duration">Cycle annuel · Engagement 12 mois</p>
-              <ul className="formule-list">
-                <li>12 entretiens individuels mensuels (3-4h)</li>
-                <li>12 rapports d&apos;activité personnalisés</li>
-                <li>12 plans d&apos;action mensuels</li>
-                <li>Méthode ESSOR complète (4 étapes)</li>
-                <li>Disponibilité entre les séances</li>
-                <li>Bilan annuel de progression</li>
-              </ul>
-              <p className="formule-for"><strong>Pour qui ?</strong> Dirigeants qui veulent structurer leur pilotage et installer un cadre stratégique mensuel.</p>
-            </Reveal>
-
-            <Reveal className="formule formule-plus" delay={200}>
-              <div className="formule-ribbon">Plus complet</div>
-              <span className="formule-tag">Formule performance</span>
-              <h4 className="formule-name">24 mois d&apos;accompagnement</h4>
-              <p className="formule-duration">Cycle approfondi · Engagement 24 mois</p>
-              <ul className="formule-list">
-                <li>24 entretiens individuels mensuels (3-4h)</li>
-                <li>24 rapports d&apos;activité personnalisés</li>
-                <li>24 plans d&apos;action mensuels</li>
-                <li>Méthode ESSOR complète (4 étapes)</li>
-                <li>2 bilans semestriels approfondis</li>
-                <li>Accompagnement stratégique renforcé</li>
-                <li>Disponibilités entre les séances</li>
-              </ul>
-              <p className="formule-for"><strong>Pour qui ?</strong> Dirigeants en phase de croissance, restructuration ou préparation à la cession à 24 mois.</p>
-            </Reveal>
+          <div className="offers-deck offers-deck-2">
+            {PILOTAGE.map((offer, i) => (
+              <Reveal key={offer.id} delay={((i + 1) * 100) as 100 | 200}>
+                <OfferCard offer={offer} />
+              </Reveal>
+            ))}
           </div>
-
-          <Reveal>
-            <div className="pilotage-cta-wrap">
-              <Link href="/methode-essor" className="btn btn-ghost">
-                Découvrir la méthode ESSOR <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-          </Reveal>
         </div>
       </section>
 
-      <section className="section" style={{ background: "var(--bg-secondary)" }}>
-        <div className="container">
-          <Reveal>
-            <p className="offers-quote">Chaque dirigeant est unique. Nos offres s&apos;adaptent à votre situation.</p>
-          </Reveal>
-          <Reveal>
-            <div className="offers-cta-wrap">
-              <Link href="/contact" className="btn btn-primary">
-                Prendre rendez-vous <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <CtaStrip
+      <CtaFinal
         title={
           <>
-            Hésitez entre deux offres ?<br />
-            <em>Échangeons pour la choisir ensemble.</em>
+            Hésitez entre deux offres ? <em>Choisissons ensemble.</em>
           </>
         }
-        text="Nous prenons 30 minutes pour comprendre votre situation et identifier le format le plus adapté. Sans engagement."
+        text="30 minutes pour comprendre votre situation et identifier le bon format. Sans engagement."
+        secondaryLabel="Découvrir la méthode"
+        secondaryHref="/methode-essor"
       />
     </>
   );

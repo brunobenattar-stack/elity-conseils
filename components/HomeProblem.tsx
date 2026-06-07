@@ -1,6 +1,4 @@
-"use client";
-
-import { useState } from "react";
+import Link from "next/link";
 import Reveal from "./Reveal";
 
 const DELAYS = [0, 100, 200, 300] as const;
@@ -80,8 +78,6 @@ const RISQUES: {
 ];
 
 function ProblemCard({ r }: { r: typeof RISQUES[number] }) {
-  const [open, setOpen] = useState(false);
-
   return (
     <Reveal
       className={`problem-card problem-card-${r.variant}`}
@@ -89,22 +85,11 @@ function ProblemCard({ r }: { r: typeof RISQUES[number] }) {
     >
       <div className="problem-card-deco" aria-hidden="true">{r.icon}</div>
 
-      <h3 className="problem-titre">{r.titre}</h3>
-
-      {/* Bouton accordéon mobile — collé en bas à droite */}
-      <button
-        className={`problem-chevron${open ? " open" : ""}`}
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        aria-label={open ? "Réduire" : "En savoir plus"}
-      >
-        <svg viewBox="0 0 16 10" fill="none">
-          <path d="M1 1l7 7 7-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </button>
-
-      {/* Description — visible desktop, accordéon mobile */}
-      <p className={`problem-desc${open ? " problem-desc-open" : ""}`}>{r.desc}</p>
+      <div className="problem-card-body">
+        <span className="problem-eyebrow">{r.eyebrow}</span>
+        <h3 className="problem-titre">{r.titre}</h3>
+        <p className="problem-desc">{r.desc}</p>
+      </div>
     </Reveal>
   );
 }
@@ -115,19 +100,26 @@ export default function HomeProblem() {
       <div className="container">
         <Reveal className="problem-intro">
           <h2 className="problem-headline">
-            Ce qui coûte cher quand{" "}
-            <em>on s&apos;y prend mal.</em>
+            Ce qui coûte cher<br />
+            <em>quand on s&apos;y prend mal.</em>
           </h2>
           <p className="problem-sub">
             La plupart des dirigeants sous-estiment la complexité d&apos;une transmission. Voici ce qui arrive quand elle n&apos;est pas préparée.
           </p>
         </Reveal>
 
-        <div className="problem-cards-grid">
+        <div className="problem-cards-scroller">
           {RISQUES.map((r) => (
             <ProblemCard key={r.num} r={r} />
           ))}
         </div>
+
+        <Reveal className="problem-cta-wrap">
+          <Link href="/approche" className="btn btn-ghost problem-cta">
+            Voir comment l&apos;éviter
+            <span aria-hidden="true">→</span>
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

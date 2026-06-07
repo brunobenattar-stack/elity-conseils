@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
-import CtaStrip from "@/components/CtaStrip";
+import CtaFinal from "@/components/CtaFinal";
 
 export const metadata: Metadata = {
   title: "FAQ : Vos questions sur la cession et l'accompagnement",
@@ -138,45 +137,31 @@ export default function FaqPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <PageHero
-        crumbs={[{ label: "FAQ" }]}
-        title={
-          <>
-            Les questions que vous nous posez<br />
-            <em>le plus souvent.</em>
-          </>
-        }
-        subtitle="Cession, accompagnement, méthode, honoraires, confidentialité. Les réponses claires aux interrogations qui reviennent dans nos premiers échanges avec les dirigeants."
-        meta="3 thèmes · 17 réponses"
-      />
-
-      <section className="section">
+      <section className="section faq-dark-section section-first">
         <div className="container faq-container">
-          <FaqGroup label="Cession & rachat" items={CESSION} />
-          <FaqGroup label="Elity Dirigeant & méthode ESSOR" items={DIRIGEANT} />
-          <FaqGroup label="En pratique" items={[...PRATIQUE, ...PRATIQUE_EXTRA]} />
-        </div>
-      </section>
-
-      <section className="section" style={{ background: "var(--bg-secondary)" }}>
-        <div className="container">
-          <Reveal>
-            <p className="pull-quote">
-              Votre question n&apos;est pas listée&nbsp;?<br />
-              <em>Elle mérite probablement une vraie conversation.</em>
+          <Reveal className="faq-hero">
+            <h1 className="faq-hero-title">FAQ</h1>
+            <p className="faq-hero-text">
+              Les réponses claires aux interrogations qui reviennent le plus souvent.
             </p>
           </Reveal>
+          <div className="faq-groups">
+            <FaqGroup label="Cession & rachat" items={CESSION} />
+            <FaqGroup label="Elity Dirigeant & méthode ESSOR" items={DIRIGEANT} />
+            <FaqGroup label="En pratique" items={[...PRATIQUE, ...PRATIQUE_EXTRA]} />
+          </div>
         </div>
       </section>
 
-      <CtaStrip
+      <CtaFinal
         title={
           <>
-            Une situation singulière<br />
-            <em>mérite une réponse sur-mesure.</em>
+            Une situation singulière <em>mérite mieux.</em>
           </>
         }
-        text="Premier échange confidentiel et sans engagement. Nous prenons le temps qu'il faut pour comprendre votre situation."
+        text="Votre question n'est pas listée ? Elle mérite une vraie conversation. Premier échange confidentiel et sans engagement."
+        secondaryLabel="À propos de Bruno"
+        secondaryHref="/a-propos"
       />
     </>
   );

@@ -48,7 +48,7 @@ export default function Footer() {
               <a href="https://www.linkedin.com/in/brunobenattar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Bruno Benattar">
                 <LinkedInIcon />
               </a>
-              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <a href="https://www.facebook.com/ElityConseil" target="_blank" rel="noopener noreferrer" aria-label="Facebook Elity Conseil">
                 <FacebookIcon />
               </a>
             </div>

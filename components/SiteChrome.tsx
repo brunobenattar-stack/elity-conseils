@@ -8,6 +8,7 @@ import Footer from "./Footer";
 import PageTransition from "./PageTransition";
 import FloatingContactCTA from "./FloatingContactCTA";
 import ComingSoonBanner from "./ComingSoonBanner";
+import ScrollManager from "./ScrollManager";
 
 // Affiche le chrome du site (navbar + footer + bottom nav mobile) sur toutes les
 // pages sauf /admin, qui doit rester nue pour offrir une vraie UX d'édition.
@@ -21,6 +22,7 @@ export default function SiteChrome({ children }: { children: ReactNode }) {
 
   return (
     <>
+      <ScrollManager />
       <ComingSoonBanner />
       <ProgressBar />
       <Navbar />

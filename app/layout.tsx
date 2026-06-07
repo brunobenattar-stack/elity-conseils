@@ -34,7 +34,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.elity-conseils.com"),
+  metadataBase: new URL("https://elityconseil.re"),
+  alternates: { canonical: "/" },
   title: {
     default: "Elity Conseils : Cabinet de Conseil en Cession d'Entreprise | La Réunion",
     template: "%s | Elity Conseils",
@@ -78,6 +79,33 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${cormorant.variable} ${montserrat.variable} ${bricolage.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              name: "Elity Conseils",
+              description:
+                "Cabinet de conseil en cession, acquisition et pilotage d'entreprise à La Réunion. Approche stratégique pour valoriser et céder votre entreprise.",
+              url: "https://elityconseil.re",
+              telephone: "+262692188928",
+              email: "contact@elityconseils.re",
+              founder: { "@type": "Person", name: "Bruno Ben Attar" },
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "15 Ruelle 46",
+                addressLocality: "Saint-Leu",
+                postalCode: "97436",
+                addressRegion: "La Réunion",
+                addressCountry: "RE",
+              },
+              areaServed: "La Réunion, Océan Indien",
+              vatID: "FR93902290147",
+              taxID: "90229014700013",
+            }),
+          }}
+        />
         <ContentProvider>
           <LenisProvider>
             <SiteChrome>{children}</SiteChrome>

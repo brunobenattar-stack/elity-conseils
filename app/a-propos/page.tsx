@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
-import CompassVisual from "@/components/CompassVisual";
-import CtaStrip from "@/components/CtaStrip";
+import CtaFinal from "@/components/CtaFinal";
 import { IconCompass, IconTarget, IconDiamond } from "@/components/icons";
 
 export const metadata: Metadata = {
@@ -14,40 +12,31 @@ export const metadata: Metadata = {
 export default function AProposPage() {
   return (
     <>
-      <PageHero
-        crumbs={[{ label: "À Propos" }]}
-        title={
-          <>
-            Bruno Benattar.<br />
-            <em>Le cap, la méthode, l'écoute.</em>
-          </>
-        }
-        subtitle="Chef d'entreprise, franchisé Procom depuis 2015, Bruno Benattar accompagne les dirigeants de La Réunion dans la préparation stratégique de leur cession ou acquisition, et dans le pilotage de leur entreprise via Elity Dirigeant."
-        meta="La Réunion · depuis 2015"
-      />
-
-      <section className="section">
+      <section className="section section-first">
         <div className="container">
           <div className="apropos-split">
-            <Reveal>
-              <CompassVisual size="medium" />
-            </Reveal>
+            <div
+              className="apropos-photo"
+              style={{ backgroundImage: "url(/bruno-portrait.jpg)" }}
+              role="img"
+              aria-label="Bruno Benattar"
+            />
 
             <Reveal className="apropos-content" delay={200}>
-              <span className="section-label">À Propos</span>
+              <span className="section-label">À propos · le parcours</span>
               <div className="section-sep" />
-              <h2 className="apropos-name">Bruno Benattar</h2>
-              <p className="apropos-role">Conseil en cession d'entreprise, franchisé Procom depuis 2015.</p>
+              <h2 className="apropos-name">Bruno Benattar,<br /><em>chef d&apos;entreprise devenu conseil.</em></h2>
+              <p className="apropos-role">Franchisé Procomm depuis 2015, à La Réunion.</p>
 
               <div className="apropos-body">
                 <p>
-                  Chef d'entreprise toute ma vie, j'ai vécu de l'intérieur toutes les problématiques qui vont avec. C'est ce qui me permet de parler le même langage que les dirigeants que j'accompagne. J'aime les écouter, les aider, et les voir réussir.
+                  Chef d&apos;entreprise toute ma vie, j&apos;ai vécu de l&apos;intérieur toutes les problématiques qui vont avec. C&apos;est ce qui me permet de parler le même langage que les dirigeants que j&apos;accompagne. J&apos;aime les écouter, les aider, et les voir réussir.
                 </p>
                 <p>
-                  Après un parcours dans l'immobilier de luxe à l'Ile Maurice, je suis entré dans la transaction d'entreprise en 2013 en aidant mon père à céder son restaurant. J'ai découvert la franchise Procomm, disponible sur les Iles Mascareignes, j'ai suivi la formation d'intégration et signé la franchise le 1er juillet 2015. Ce réseau d'une quinzaine de cabinets en France nous apporte du poids, de la rigueur et une formation continue.
+                  Après un parcours dans l&apos;immobilier de luxe à l&apos;Ile Maurice, je suis entré dans la transaction d&apos;entreprise en 2013 en aidant mon père à céder son restaurant. J&apos;ai découvert la franchise Procomm, disponible sur les Iles Mascareignes, j&apos;ai suivi la formation d&apos;intégration et signé la franchise le 1er juillet 2015. Ce réseau d&apos;une quinzaine de cabinets en France nous apporte du poids, de la rigueur et une formation continue.
                 </p>
                 <p>
-                  Pendant plus de dix ans, la préparation à la cession était offerte contre une prise de mandat exclusif : chronophage, rémunération incertaine. C'est quand plusieurs vendeurs ont commencé à me demander combien cela leur coûterait que j'ai formalisé cette prestation sous Elity Conseils. L'idée de la développer à plus grande échelle est venue naturellement.
+                  Pendant plus de dix ans, la préparation à la cession était offerte contre une prise de mandat exclusif : chronophage, rémunération incertaine. C&apos;est quand plusieurs vendeurs ont commencé à me demander combien cela leur coûterait que j&apos;ai formalisé cette prestation sous Elity Conseils. L&apos;idée de la développer à plus grande échelle est venue naturellement.
                 </p>
               </div>
 
@@ -73,31 +62,64 @@ export default function AProposPage() {
         </div>
       </section>
 
-      <section className="section" style={{ background: "var(--bg-secondary)" }}>
+      <section
+        className="section section-photo apropos-mission"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(8,8,8,0.74), rgba(8,8,8,0.82)), url(/mission-bg.jpg)",
+        }}
+      >
         <div className="container">
           <Reveal className="section-header center">
             <span className="section-label">Ma mission au quotidien</span>
-            <div className="section-sep" />
+            <div className="section-sep" style={{ marginInline: "auto" }} />
             <h2 className="section-title">Analyser, accompagner,<br /><em>répondre à vos enjeux.</em></h2>
-            <p className="section-body" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
-              J'analyse le projet du dirigeant, je lui propose de l'accompagner pour répondre à ses enjeux et objectifs. Ce que je fais, et que les autres ne font pas aussi bien : écouter le projet de vie, produire une synthèse et un premier signal de valeur, puis comprendre, structurer, sécuriser, valoriser et commercialiser avec Procomm Océan Indien.
-            </p>
-            <p className="section-body" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
-              Ce qu'un dirigeant retient de notre collaboration : professionnalisme, efficacité, empathie. Et surtout : <em>j'ai pris le temps d'écouter.</em>
+            <p className="section-body" style={{ marginInline: "auto", textAlign: "center" }}>
+              J&apos;écoute le projet de vie du dirigeant, je structure, je sécurise, je valorise. Et surtout : <em>je prends le temps d&apos;écouter.</em>
             </p>
           </Reveal>
 
-          <Reveal className="apropos-avantages">
-            {[
-              ["Connaissance du marché", "Une lecture fine des transactions récentes à La Réunion et dans l'Océan Indien."],
-              ["Leads qualifiés", "Une base d'acquéreurs potentiels constituée sur plus de dix ans de transactions."],
-              ["Expertise de valorisation", "Une méthode calée sur la capacité de remboursement réelle, comme un banquier."],
-            ].map(([titre, desc]) => (
-              <div key={titre} className="apropos-avantage">
-                <div className="apropos-avantage-titre">{titre}</div>
-                <div className="apropos-avantage-desc">{desc}</div>
-              </div>
-            ))}
+          <div className="apropos-mission-grid">
+            <Reveal className="apropos-mission-item" delay={100}>
+              <span className="apropos-mission-icon" aria-hidden="true"><IconCompass /></span>
+              <h3>Connaissance du marché</h3>
+              <p>Une lecture fine des transactions récentes de l&apos;Océan Indien.</p>
+            </Reveal>
+            <Reveal className="apropos-mission-item" delay={200}>
+              <span className="apropos-mission-icon" aria-hidden="true"><IconTarget /></span>
+              <h3>Leads qualifiés</h3>
+              <p>Une base d&apos;acquéreurs bâtie sur plus de dix ans de transactions.</p>
+            </Reveal>
+            <Reveal className="apropos-mission-item" delay={300}>
+              <span className="apropos-mission-icon" aria-hidden="true"><IconDiamond /></span>
+              <h3>Valorisation juste</h3>
+              <p>Calée sur la capacité de remboursement réelle, comme un banquier.</p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-cream apropos-story-section">
+        <div className="container">
+          <Reveal className="section-header center">
+            <span className="section-label">Une mission marquante</span>
+            <div className="section-sep" style={{ marginInline: "auto" }} />
+            <h2 className="section-title">Bien plus <em>qu&apos;une transaction.</em></h2>
+          </Reveal>
+          <Reveal className="apropos-story">
+            <div className="apropos-story-body">
+              <p>
+                En 2017, j&apos;ai accompagné deux associés en conflit depuis dix ans pour céder leur résidence hôtelière. La transaction a duré 18 mois, et même le notaire me disait que je perdais mon temps. J&apos;ai finalisé la cession à <strong>5 M€</strong>.
+              </p>
+              <p>
+                Et au-delà du prix, j&apos;ai permis un soulagement entre deux hommes que leur propre affaire avait éloignés. <em>C&apos;est pour ça que je fais ce métier.</em>
+              </p>
+            </div>
+            <div className="apropos-story-meta">
+              <span><strong>18 mois</strong> de persévérance</span>
+              <span><strong>5 M€</strong> de cession</span>
+              <span><strong>2 associés</strong> réconciliés</span>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -105,83 +127,58 @@ export default function AProposPage() {
       <section className="section">
         <div className="container">
           <Reveal className="section-header center">
-            <span className="section-label">Une mission marquante</span>
-            <div className="section-sep" />
-            <h2 className="section-title">Parfois, tenir bon<br /><em>change tout.</em></h2>
-            <p className="section-body" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
-              En 2017, j'ai accompagné deux associés en conflit depuis dix ans pour céder leur résidence hôtelière. La transaction a duré 18 mois. Même le notaire me disait que je perdais mon temps, que l'un des deux associés ne signerait jamais. J'ai finalisé la cession à 5 M€. Et au-delà du prix, j'ai permis un soulagement entre deux hommes que leur propre affaire avait éloignés.
-            </p>
-            <p className="section-body" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center", fontStyle: "italic" }}>
-              C'est pourquoi je fais ce travail.
+            <span className="section-label">Pourquoi se faire accompagner</span>
+            <div className="section-sep" style={{ marginInline: "auto" }} />
+            <h2 className="section-title">Ce que vous voyez<br /><em>n&apos;est pas ce que voit un acquéreur.</em></h2>
+            <p className="section-body" style={{ marginInline: "auto", textAlign: "center" }}>
+              La perception crée la valeur. Nous construisons celle qu&apos;un bon acquéreur doit avoir de votre entreprise.
             </p>
           </Reveal>
+
+          <div className="diff-deck">
+            <Reveal className="diff-card diff-card-bad" delay={100}>
+              <span className="diff-card-tag">
+                <span className="diff-card-tag-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" /></svg>
+                </span>
+                Mal préparée
+              </span>
+              <ul>
+                <li>Perception floue de la valeur</li>
+                <li>Négociation subie, prix tiré vers le bas</li>
+                <li>Risques perçus élevés</li>
+                <li>Acquéreurs opportunistes</li>
+              </ul>
+              <p className="diff-card-foot">Vendre devient difficile.</p>
+            </Reveal>
+            <Reveal className="diff-card diff-card-good" delay={200}>
+              <span className="diff-card-tag">
+                <span className="diff-card-tag-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </span>
+                Bien préparée
+              </span>
+              <ul>
+                <li>Perception claire, acquéreurs qui se projettent</li>
+                <li>Négociation maîtrisée, prix qui reflète la valeur</li>
+                <li>Risques maîtrisés, décision facilitée</li>
+                <li>Acquéreurs qualifiés, vision long terme</li>
+              </ul>
+              <p className="diff-card-foot">Vendre devient naturel.</p>
+            </Reveal>
+          </div>
         </div>
       </section>
 
-      <section className="section" style={{ background: "var(--bg-secondary)" }}>
-        <div className="container">
-          <Reveal className="section-header center">
-            <span className="section-label">Notre différence</span>
-            <div className="section-sep" />
-            <h2 className="section-title">Ce que vous voyez<br />n'est pas ce que voit un acquéreur.</h2>
-            <p className="section-body" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
-              La perception crée la valeur. Nous vous aidons à construire la perception qu'un bon acquéreur doit avoir de votre entreprise.
-            </p>
-          </Reveal>
-
-          <Reveal className="vs-table">
-            <div className="vs-col vs-col-bad">
-              <div className="vs-col-head">Entreprise mal préparée</div>
-              {[
-                ["Perception floue", "Les acquéreurs ne comprennent pas la réelle valeur."],
-                ["Négociation subie", "Le prix devient le seul point de discussion."],
-                ["Risques perçus élevés", "Doutes, incertitudes, freins à l'investissement."],
-                ["Acquéreurs opportunistes", "Peu d'intérêt, beaucoup de conditions."],
-                ["Valorisation réduite", "Le potentiel n'est pas reconnu, la valeur baisse."],
-              ].map(([n, d]) => (
-                <div key={n} className="vs-item">
-                  <div className="vs-name"><span className="marker">✕</span> {n}</div>
-                  <div className="vs-text">{d}</div>
-                </div>
-              ))}
-              <p className="vs-col-footer">Vendre devient difficile.<br />La valeur se réduit.</p>
-            </div>
-
-            <div className="vs-col vs-col-good">
-              <div className="vs-col-head">Entreprise bien préparée</div>
-              {[
-                ["Perception claire", "Les acquéreurs comprennent et se projettent."],
-                ["Négociation maîtrisée", "Le prix reflète la valeur, pas l'inverse."],
-                ["Risques maîtrisés", "Confiance, sécurité, décision facilitée."],
-                ["Acquéreurs qualifiés", "Intérêt réel, projets solides, vision long terme."],
-                ["Valorisation optimisée", "Le potentiel est reconnu, la valeur augmente."],
-              ].map(([n, d]) => (
-                <div key={n} className="vs-item">
-                  <div className="vs-name"><span className="marker">✓</span> {n}</div>
-                  <div className="vs-text">{d}</div>
-                </div>
-              ))}
-              <p className="vs-col-footer">Vendre devient naturel.<br />La valeur se réalise.</p>
-            </div>
-
-            <div className="vs-center" aria-hidden="true">vs</div>
-          </Reveal>
-
-          <Reveal className="vs-callout">
-            <p>La préparation n'est pas une charge. C'est le meilleur investissement avant la cession.</p>
-            <p>Préparer aujourd'hui, c'est maximiser demain.</p>
-          </Reveal>
-        </div>
-      </section>
-
-      <CtaStrip
+      <CtaFinal
         title={
           <>
-            Envie d'échanger<br />
-            <em>directement avec Bruno&nbsp;?</em>
+            Envie d&apos;échanger <em>avec Bruno ?</em>
           </>
         }
-        text="Le premier rendez-vous est confidentiel et sans engagement. Nous prenons le temps qu'il faut pour comprendre votre situation."
+        text="Le premier rendez-vous est confidentiel et sans engagement. On prend le temps de comprendre votre situation."
+        secondaryLabel="Voir nos offres"
+        secondaryHref="/offres"
       />
     </>
   );
