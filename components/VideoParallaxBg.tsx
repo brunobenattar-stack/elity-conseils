@@ -10,10 +10,50 @@ export default function VideoParallaxBg({ src = "/hero-video-desktop.mp4" }: { s
 
   useEffect(() => {
     const v = videoRef.current;
-    if (v) {
+    if (!v) return;
+
+    const tryPlay = () => {
       v.muted = true;
-      v.play().catch(() => {});
-    }
+      v.defaultMuted = true;
+      const p = v.play();
+      if (p) p.catch(() => {});
+    };
+
+    // Lancer des que possible et a chaque fois que la video est prete
+    tryPlay();
+    v.addEventListener("loadeddata", tryPlay);
+    v.addEventListener("canplay", tryPlay);
+
+    // Relance quand la video entre dans le viewport (cas des fonds plus bas dans la page)
+    const io =
+      "IntersectionObserver" in window
+        ? new IntersectionObserver(
+            (entries) => {
+              entries.forEach((e) => {
+                if (e.isIntersecting) tryPlay();
+              });
+            },
+            { threshold: 0.01 }
+          )
+        : null;
+    io?.observe(v);
+
+    // Filet de securite : relance a la premiere interaction utilisateur
+    const onInteract = () => {
+      tryPlay();
+      window.removeEventListener("pointerdown", onInteract);
+      window.removeEventListener("touchstart", onInteract);
+    };
+    window.addEventListener("pointerdown", onInteract, { once: true });
+    window.addEventListener("touchstart", onInteract, { once: true });
+
+    return () => {
+      v.removeEventListener("loadeddata", tryPlay);
+      v.removeEventListener("canplay", tryPlay);
+      io?.disconnect();
+      window.removeEventListener("pointerdown", onInteract);
+      window.removeEventListener("touchstart", onInteract);
+    };
   }, []);
 
   useEffect(() => {
