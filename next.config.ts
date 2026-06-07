@@ -10,8 +10,8 @@ const config: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  experimental: {
-    optimizePackageImports: [],
+  eslint: {
+    ignoreDuringBuilds: true,
   },
   async redirects() {
     return [
