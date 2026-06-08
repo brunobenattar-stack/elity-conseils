@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import CtaFinal from "@/components/CtaFinal";
 import VideoParallaxBg from "@/components/VideoParallaxBg";
+import { getCaseStudies } from "@/sanity/queries";
 
 export const metadata: Metadata = {
   title: "Cas client : un garage redressé en 24 mois à La Réunion",
@@ -19,8 +20,8 @@ type CaseStudy = {
   author: string;
 };
 
-// Structure de "blog" : ajouter un objet ici cree un nouveau cas client.
-const CASES: CaseStudy[] = [
+// Contenu par defaut, utilise tant qu'aucune etude de cas n'existe dans Sanity.
+const FALLBACK_CASES: CaseStudy[] = [
   {
     sector: "Garage automobile",
     meta: "TPE · 5 salariés · CA 1 M€ · La Réunion",
@@ -52,7 +53,24 @@ const CASES: CaseStudy[] = [
   },
 ];
 
-export default function CasClientsPage() {
+export default async function CasClientsPage() {
+  const sanityCases = await getCaseStudies();
+  const CASES: CaseStudy[] = sanityCases.length
+    ? sanityCases.map((c) => ({
+        sector: c.sector,
+        meta: c.meta ?? "",
+        tag: c.tag ?? "",
+        metrics: c.metrics ?? [],
+        phases: (c.phases ?? []).map((p) => ({
+          eyebrow: p.eyebrow ?? "",
+          title: p.title ?? "",
+          text: p.text ?? "",
+        })),
+        quote: c.quote ?? "",
+        author: c.author ?? "",
+      }))
+    : FALLBACK_CASES;
+
   return (
     <>
       <section className="section section-cream section-first">

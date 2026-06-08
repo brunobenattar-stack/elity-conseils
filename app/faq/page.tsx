@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import CtaFinal from "@/components/CtaFinal";
+import { getFaqItems } from "@/sanity/queries";
 
 export const metadata: Metadata = {
   title: "FAQ : Vos questions sur la cession et l'accompagnement",
@@ -118,8 +119,22 @@ function FaqGroup({ label, items }: { label: string; items: QA[] }) {
   );
 }
 
-export default function FaqPage() {
-  const allItems = [...CESSION, ...DIRIGEANT, ...PRATIQUE, ...PRATIQUE_EXTRA];
+export default async function FaqPage() {
+  const sanityFaq = await getFaqItems();
+  // Si des questions existent dans Sanity, elles remplacent les groupes par defaut.
+  const fromSanity = (g: "cession" | "dirigeant" | "pratique"): QA[] =>
+    sanityFaq.filter((f) => (f.group ?? "pratique") === g).map((f) => ({ q: f.question, a: f.answer }));
+
+  const sanityCession = fromSanity("cession");
+  const sanityDirigeant = fromSanity("dirigeant");
+  const sanityPratique = fromSanity("pratique");
+  const hasSanity = sanityFaq.length > 0;
+
+  const cessionItems = hasSanity ? sanityCession : CESSION;
+  const dirigeantItems = hasSanity ? sanityDirigeant : DIRIGEANT;
+  const pratiqueItems = hasSanity ? sanityPratique : [...PRATIQUE, ...PRATIQUE_EXTRA];
+
+  const allItems = [...cessionItems, ...dirigeantItems, ...pratiqueItems];
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -146,9 +161,9 @@ export default function FaqPage() {
             </p>
           </Reveal>
           <div className="faq-groups">
-            <FaqGroup label="Cession & rachat" items={CESSION} />
-            <FaqGroup label="Elity Dirigeant & méthode ESSOR" items={DIRIGEANT} />
-            <FaqGroup label="En pratique" items={[...PRATIQUE, ...PRATIQUE_EXTRA]} />
+            {cessionItems.length > 0 && <FaqGroup label="Cession & rachat" items={cessionItems} />}
+            {dirigeantItems.length > 0 && <FaqGroup label="Elity Dirigeant & méthode ESSOR" items={dirigeantItems} />}
+            {pratiqueItems.length > 0 && <FaqGroup label="En pratique" items={pratiqueItems} />}
           </div>
         </div>
       </section>

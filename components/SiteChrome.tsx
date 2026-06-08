@@ -14,9 +14,11 @@ import ScrollManager from "./ScrollManager";
 // pages sauf /admin, qui doit rester nue pour offrir une vraie UX d'édition.
 export default function SiteChrome({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-  const isAdmin = pathname?.startsWith("/admin") ?? false;
+  const isBare =
+    (pathname?.startsWith("/admin") ?? false) ||
+    (pathname?.startsWith("/studio") ?? false);
 
-  if (isAdmin) {
+  if (isBare) {
     return <>{children}</>;
   }
 

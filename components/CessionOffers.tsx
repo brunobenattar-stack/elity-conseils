@@ -101,9 +101,18 @@ const ACQUISITION: OfferCardData[] = [
   },
 ];
 
-export default function CessionOffers() {
+export default function CessionOffers({
+  cession,
+  acquisition,
+}: {
+  cession?: OfferCardData[];
+  acquisition?: OfferCardData[];
+}) {
   const [mode, setMode] = useState<"cession" | "acquisition">("cession");
-  const offers = mode === "cession" ? CESSION : ACQUISITION;
+  const cessionList = cession && cession.length ? cession : CESSION;
+  const acquisitionList =
+    acquisition && acquisition.length ? acquisition : ACQUISITION;
+  const offers = mode === "cession" ? cessionList : acquisitionList;
 
   return (
     <div className="offers-filtered">

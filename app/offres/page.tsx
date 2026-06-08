@@ -5,6 +5,7 @@ import CessionOffers from "@/components/CessionOffers";
 import OfferCard, { type OfferCardData } from "@/components/OfferCard";
 import CtaFinal from "@/components/CtaFinal";
 import { IconLock, IconEye, IconChart } from "@/components/icons";
+import { getOffers } from "@/sanity/queries";
 
 export const metadata: Metadata = {
   title: "Nos Offres : Cession, rachat et pilotage d'entreprise à La Réunion",
@@ -45,7 +46,26 @@ const PILOTAGE: OfferCardData[] = [
   },
 ];
 
-export default function OffresPage() {
+function mapOffer(o: import("@/sanity/queries").SanityOffer, i: number): OfferCardData {
+  return {
+    id: `${o.category}-${i}`,
+    name: o.name,
+    pitch: o.pitch ?? "",
+    chip: o.chip || undefined,
+    featured: o.featured || undefined,
+    features: o.features ?? [],
+    meta: o.meta ?? "",
+    details: o.details ?? "",
+  };
+}
+
+export default async function OffresPage() {
+  const sanityOffers = await getOffers();
+  const cession = sanityOffers.filter((o) => o.category === "cession").map(mapOffer);
+  const acquisition = sanityOffers.filter((o) => o.category === "acquisition").map(mapOffer);
+  const pilotageSanity = sanityOffers.filter((o) => o.category === "pilotage").map(mapOffer);
+  const pilotage = pilotageSanity.length ? pilotageSanity : PILOTAGE;
+
   return (
     <>
       {/* SECTION 1 : Vendre ou racheter */}
@@ -60,7 +80,7 @@ export default function OffresPage() {
             </p>
           </Reveal>
 
-          <CessionOffers />
+          <CessionOffers cession={cession} acquisition={acquisition} />
 
           <div className="offers-band">
             <Reveal className="band-item" delay={100}>
@@ -101,7 +121,7 @@ export default function OffresPage() {
           </Reveal>
 
           <div className="offers-deck offers-deck-2">
-            {PILOTAGE.map((offer, i) => (
+            {pilotage.map((offer, i) => (
               <Reveal key={offer.id} delay={((i + 1) * 100) as 100 | 200}>
                 <OfferCard offer={offer} />
               </Reveal>
