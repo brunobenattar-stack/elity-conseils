@@ -93,3 +93,4 @@ Tous dans `app/globals.css` sous `:root`.
 - `prefers-reduced-motion` est respecté partout.
 
 
+
