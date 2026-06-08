@@ -323,8 +323,8 @@ main { position: relative; z-index: 2; }
   .nav-inner { gap: 12px; }
   .logo-tag { display: none; }
 }
-.logo { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
-.logo-mark { width: 64px; height: 64px; flex-shrink: 0; }
+.logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.logo-mark { width: 46px; height: 46px; flex-shrink: 0; }
 .logo-text { display: flex; flex-direction: column; line-height: 1; }
 .logo-name {
   font-family: var(--serif);
