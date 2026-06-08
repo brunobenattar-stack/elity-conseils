@@ -104,9 +104,11 @@ const ACQUISITION: OfferCardData[] = [
 export default function CessionOffers({
   cession,
   acquisition,
+  compact,
 }: {
   cession?: OfferCardData[];
   acquisition?: OfferCardData[];
+  compact?: boolean;
 }) {
   const [mode, setMode] = useState<"cession" | "acquisition">("cession");
   const cessionList = cession && cession.length ? cession : CESSION;
@@ -141,7 +143,7 @@ export default function CessionOffers({
       <div className="offers-deck" key={mode}>
         {offers.map((offer, i) => (
           <Reveal key={offer.id} delay={((i + 1) * 100) as 100 | 200 | 300}>
-            <OfferCard offer={offer} />
+            <OfferCard offer={offer} compact={compact} />
           </Reveal>
         ))}
       </div>

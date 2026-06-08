@@ -19,7 +19,13 @@ export type OfferCardData = {
   featured?: boolean;
 };
 
-export default function OfferCard({ offer }: { offer: OfferCardData }) {
+export default function OfferCard({
+  offer,
+  compact,
+}: {
+  offer: OfferCardData;
+  compact?: boolean;
+}) {
   return (
     <article
       className={`offer-card-shell offer-card-${offer.variant ?? "default"} ${offer.featured ? "featured" : ""}`}
@@ -49,7 +55,9 @@ export default function OfferCard({ offer }: { offer: OfferCardData }) {
           ))}
         </ul>
 
-        <p className="offer-card-detail-text">{offer.details}</p>
+        {!compact && offer.details && (
+          <p className="offer-card-detail-text">{offer.details}</p>
+        )}
 
         <div className="offer-card-footer-meta">{offer.meta}</div>
       </div>

@@ -44,7 +44,7 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          <CessionOffers />
+          <CessionOffers compact />
 
           <Reveal className="offers-deck-cta-wrap">
             <Link href="/offres" className="btn btn-ghost">

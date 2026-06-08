@@ -324,7 +324,7 @@ main { position: relative; z-index: 2; }
   .logo-tag { display: none; }
 }
 .logo { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
-.logo-mark { width: 32px; height: 32px; flex-shrink: 0; }
+.logo-mark { width: 64px; height: 64px; flex-shrink: 0; }
 .logo-text { display: flex; flex-direction: column; line-height: 1; }
 .logo-name {
   font-family: var(--serif);
@@ -2946,7 +2946,8 @@ main { position: relative; z-index: 2; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px;
+  padding: 4px;
+  overflow: hidden;
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.6),
     0 0 0 1px rgba(201, 165, 90, 0.12) inset,
@@ -2955,7 +2956,7 @@ main { position: relative; z-index: 2; }
   -webkit-backdrop-filter: blur(8px);
 }
 .sticky-compass svg,
-.sticky-compass img { width: 100%; height: 100%; display: block; object-fit: contain; }
+.sticky-compass img { width: 100%; height: 100%; display: block; object-fit: contain; margin: auto; }
 .sticky-compass-meta {
   position: relative;
   height: 30px;
@@ -9317,28 +9318,34 @@ main { position: relative; z-index: 2; }
 .case-card-big-quote { margin-top: 36px; }
 .case-big-metric {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
 }
 .case-big-metric-val {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(34px, 4vw, 48px);
+  font-size: clamp(30px, 3.4vw, 42px);
   color: var(--gold-main);
   line-height: 1;
+  white-space: nowrap;
 }
 .case-big-metric-lbl {
-  font-family: var(--sans);
-  font-size: 11.5px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(20px, 2.4vw, 30px);
+  letter-spacing: 0;
+  text-transform: none;
   color: #fff;
+  line-height: 1;
+  white-space: nowrap;
 }
+/* Mobile : on empile pour eviter le debordement */
 @media (max-width: 600px) {
-  .case-card-big-metrics { gap: 26px 36px; }
-  .case-big-metric-val { font-size: 38px; }
+  .case-card-big-metrics { gap: 22px 30px; }
+  .case-big-metric { flex-direction: column; align-items: center; gap: 4px; }
+  .case-big-metric-val { font-size: 30px; }
+  .case-big-metric-lbl { font-size: 15px; }
 }
 .case-card-big-quote {
   position: relative;

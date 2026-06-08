@@ -50,7 +50,7 @@ export default function StickyCompass() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
-        <Image src="/logo-elity.png" alt="" width={82} height={82} />
+        <Image src="/logo-elity.png" alt="" width={120} height={120} />
       </motion.div>
 
       <motion.div
