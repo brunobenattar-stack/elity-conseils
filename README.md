@@ -92,3 +92,4 @@ Tous dans `app/globals.css` sous `:root`.
 - Le dossier `static-version/` contient la version one-page HTML originale, à titre de référence.
 - `prefers-reduced-motion` est respecté partout.
 
+
