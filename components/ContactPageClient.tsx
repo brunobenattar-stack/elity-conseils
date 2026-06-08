@@ -7,7 +7,7 @@ import { useIsMobile } from "./useIsMobile";
 const PROJECT_OPTIONS = [
   { value: "cession", label: "Je souhaite céder mon entreprise" },
   { value: "reprise", label: "Je souhaite reprendre une entreprise" },
-  { value: "pilotage", label: "Je cherche un accompagnement mensuel" },
+  { value: "pilotage", label: "Je veux être épaulé dans le pilotage de mon entreprise" },
 ] as const;
 
 function PhoneIcon() {

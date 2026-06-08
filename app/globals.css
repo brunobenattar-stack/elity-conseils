@@ -6858,11 +6858,16 @@ main { position: relative; z-index: 2; }
 .problem-headline {
   font-family: var(--display);
   font-weight: 500;
-  font-size: clamp(36px, 4.5vw, 60px);
+  font-size: clamp(28px, 4.5vw, 60px);
   line-height: 1.08;
   letter-spacing: -0.025em;
   color: var(--white-title);
   margin: 0 0 22px;
+}
+/* Titre toujours sur 2 lignes : chaque ligne ne se coupe jamais */
+.problem-headline-line {
+  display: block;
+  white-space: nowrap;
 }
 .problem-headline em {
   font-style: italic;

@@ -41,14 +41,14 @@ export const metadata: Metadata = {
     template: "%s | Elity Conseils",
   },
   description:
-    "Elity Conseils, cabinet de conseil en cession d'entreprise à La Réunion. Approche stratégique, confidentielle et sur-mesure pour valoriser et céder votre entreprise dans les meilleures conditions. Partenaire Procom Océan Indien.",
+    "Elity Conseils, cabinet de conseil en cession d'entreprise à La Réunion. Approche stratégique, confidentielle et sur-mesure pour valoriser et céder votre entreprise dans les meilleures conditions. Partenaire Procomm Océan Indien.",
   keywords: [
     "cession entreprise",
     "vente entreprise",
     "La Réunion",
     "conseil dirigeant",
     "valorisation entreprise",
-    "Procom Océan Indien",
+    "Procomm Océan Indien",
     "cabinet conseil",
     "transmission entreprise",
   ],

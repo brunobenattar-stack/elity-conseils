@@ -41,10 +41,10 @@ export type ContentData = {
 
 export const defaultContent: ContentData = {
   hero: {
-    eyebrow: "La Réunion",
+    eyebrow: "La Réunion · Ile Maurice · Océan Indien",
     titleLine1: "Céder, reprendre,",
     titleEm: "structurer avant d'agir.",
-    sub: "Elity Conseils accompagne les dirigeants dans leur stratégie de cession ou d'acquisition. Nous les aidons aussi à piloter leur entreprise sur le long terme.",
+    sub: "Elity Conseils accompagne les dirigeantes et dirigeants de l'Océan Indien dans leur stratégie de cession ou d'acquisition, et les aide à piloter leur entreprise sur le long terme.",
     cta1Label: "Entamer un échange",
     cta1Href: "/contact",
     cta2Label: "Découvrir notre approche",
@@ -53,7 +53,7 @@ export const defaultContent: ContentData = {
     chip1Sub: "Premier échange sans engagement",
     chip2Num: "10+",
     chip2Label: "Années d'expérience",
-    chip2Sub: "Franchisé Procom depuis 2015",
+    chip2Sub: "Franchisé Procomm depuis 2015",
   },
   offers: [
     {

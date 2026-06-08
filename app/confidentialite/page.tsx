@@ -42,7 +42,7 @@ export default function ConfidentialitePage() {
 
             <h2>4. Confidentialité</h2>
             <p>
-              <strong>Vos informations sont strictement confidentielles.</strong> Elles ne sont jamais cédées, vendues ou transmises à des tiers, à l'exception de notre partenaire Procom Océan Indien lorsque la mise en transaction le nécessite et avec votre accord explicite.
+              <strong>Vos informations sont strictement confidentielles.</strong> Elles ne sont jamais cédées, vendues ou transmises à des tiers, à l'exception de notre partenaire Procomm Océan Indien lorsque la mise en transaction le nécessite et avec votre accord explicite.
             </p>
 
             <h2>5. Durée de conservation</h2>

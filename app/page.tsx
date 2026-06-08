@@ -6,7 +6,7 @@ import Reveal from "@/components/Reveal";
 import HomeProblem from "@/components/HomeProblem";
 import HomeStepsHorizontal from "@/components/HomeStepsHorizontal";
 import HomeBrunoParallax from "@/components/HomeBrunoParallax";
-import HomeOffersCards from "@/components/HomeOffersCards";
+import CessionOffers from "@/components/CessionOffers";
 import MagneticButton from "@/components/MagneticButton";
 import StickyCompass from "@/components/StickyCompass";
 
@@ -44,19 +44,7 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          <HomeOffersCards />
-
-          {/* Note acquisition */}
-          <Reveal>
-            <div className="offres-acquisition-note">
-              <div className="offres-acquisition-note-inner">
-                <span className="offres-acquisition-eyebrow">Vous souhaitez acquérir ?</span>
-                <p className="offres-acquisition-text">
-                  Elity Conseils vous accompagne dans la définition de votre stratégie : identification de cibles, audit de valeur, structuration du projet.
-                </p>
-              </div>
-            </div>
-          </Reveal>
+          <CessionOffers />
 
           <Reveal className="offers-deck-cta-wrap">
             <Link href="/offres" className="btn btn-ghost">
@@ -74,11 +62,11 @@ export default function HomePage() {
             <div>
               <span className="home-pilotage-eyebrow">Pas (encore) de projet de cession ?</span>
               <h2 className="home-pilotage-title">
-                Le cabinet accompagne aussi les dirigeants{" "}
-                <em>mensuellement.</em>
+                Un regard extérieur pour{" "}
+                <em>piloter sereinement.</em>
               </h2>
               <p className="home-pilotage-desc">
-                Avant, ou indépendamment d&apos;une cession, nous proposons un pilotage mensuel pour les dirigeants de TPE/PME qui veulent un partenaire stratégique régulier. Méthode ESSOR, formules 12 ou 24 mois.
+                Avant ou indépendamment d&apos;une cession, Elity devient le partenaire stratégique des dirigeantes et dirigeants de TPE/PME : un cadre clair pour décider sur des faits, garder le cap et préparer l&apos;avenir. Méthode ESSOR, formules 12 ou 24 mois.
               </p>
             </div>
             <Link href="/offres#pilotage" className="home-pilotage-cta">

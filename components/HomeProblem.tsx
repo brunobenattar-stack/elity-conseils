@@ -100,11 +100,11 @@ export default function HomeProblem() {
       <div className="container">
         <Reveal className="problem-intro">
           <h2 className="problem-headline">
-            Ce qui coûte cher<br />
-            <em>quand on s&apos;y prend mal.</em>
+            <span className="problem-headline-line">Ce qui coûte cher</span>
+            <span className="problem-headline-line"><em>quand on s&apos;y prend mal.</em></span>
           </h2>
           <p className="problem-sub">
-            La plupart des dirigeants sous-estiment la complexité d&apos;une transmission. Voici ce qui arrive quand elle n&apos;est pas préparée.
+            La plupart des dirigeantes et dirigeants sous-estiment la complexité d&apos;une transmission. Voici ce qui arrive quand elle n&apos;est pas préparée.
           </p>
         </Reveal>
 

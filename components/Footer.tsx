@@ -43,7 +43,7 @@ export default function Footer() {
           <div className="footer-brand">
             <Logo />
             <p className="footer-tagline">Structurer aujourd&apos;hui. Valoriser demain.</p>
-            <p className="footer-partner">En partenariat avec Procom Océan Indien</p>
+            <p className="footer-partner">En partenariat avec Procomm Océan Indien</p>
             <div className="footer-social">
               <a href="https://www.linkedin.com/in/brunobenattar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Bruno Benattar">
                 <LinkedInIcon />

@@ -46,7 +46,7 @@ export default function MentionsLegalesPage() {
 
             <h2>Partenariat</h2>
             <p>
-              Elity Conseils opère en partenariat avec <strong>Procom Océan Indien</strong>, réseau national Transactions Commerces & Entreprises, pour la mise en transaction des dossiers de cession.
+              Elity Conseils opère en partenariat avec <strong>Procomm Océan Indien</strong>, réseau national Transactions Commerces & Entreprises, pour la mise en transaction des dossiers de cession.
             </p>
 
             <h2>Propriété intellectuelle</h2>
