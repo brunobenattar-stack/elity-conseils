@@ -64,7 +64,7 @@ export default function ActualitesList({ articles }: { articles: SanityArticle[]
             <>
               {/* Filtre par année */}
               {years.length > 1 && (
-                <Reveal className="blog-filter" role="tablist" aria-label="Filtrer par année">
+                <Reveal className="blog-filter" aria-label="Filtrer par année">
                   <button
                     type="button"
                     className={`blog-filter-btn${year === "all" ? " active" : ""}`}

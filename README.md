@@ -91,3 +91,9 @@ Tous dans `app/globals.css` sous `:root`.
 - Le formulaire de contact n'envoie pas réellement — il affiche un message de succès. Pour brancher un backend, voir `components/ContactForm.tsx`.
 - Le dossier `static-version/` contient la version one-page HTML originale, à titre de référence.
 - `prefers-reduced-motion` est respecté partout.
+
+
+
+
+
+<!-- redeploy 1780939415 -->

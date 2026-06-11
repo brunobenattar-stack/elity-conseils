@@ -23,3 +23,10 @@ yarn-error.log*
 
 # TypeScript
 *.tsbuildinfo
+
+# Sanity runtime
+.sanity/
+
+# Fichiers parasites
+video-f99fc5f1-201c-4479-afe2-f7caf04cbaf5.mp4
+app/globals 2.css

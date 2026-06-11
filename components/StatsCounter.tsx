@@ -10,8 +10,8 @@ type Stat = {
 };
 
 const STATS: Stat[] = [
-  { value: 100, suffix: "+", label: "Dirigeants accompagnés" },
-  { value: 2013, label: "Partenaire Procom", staticValue: true },
+  { value: 100, suffix: "+", label: "Dirigeantes et dirigeants accompagnés" },
+  { value: 2013, label: "Partenaire Procomm", staticValue: true },
   { value: 20, suffix: "+", label: "Secteurs d'activité" },
   { value: 100, suffix: "%", label: "Confidentiel" },
 ];

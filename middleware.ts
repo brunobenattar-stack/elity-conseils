@@ -1,33 +1,10 @@
 import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
 
-// Pages accessibles en production
-const ALLOWED = new Set(["/", "/contact"]);
-
-export function middleware(request: NextRequest) {
-  // En développement (localhost) : tout est accessible
-  if (process.env.NODE_ENV !== "production") {
-    return NextResponse.next();
-  }
-
-  const { pathname } = request.nextUrl;
-
-  // Ressources statiques, API, admin
-  if (
-    pathname.startsWith("/_next") ||
-    pathname.startsWith("/api") ||
-    pathname.startsWith("/admin") ||
-    pathname.includes(".")
-  ) {
-    return NextResponse.next();
-  }
-
-  if (ALLOWED.has(pathname)) {
-    return NextResponse.next();
-  }
-
-  // Toute autre page → redirige vers l'accueil
-  return NextResponse.redirect(new URL("/", request.url));
+// Toutes les pages du site sont accessibles.
+// (Ancien comportement "coming soon" qui ne laissait passer que / et /contact
+// en production et redirigeait le reste vers l'accueil : supprime.)
+export function middleware() {
+  return NextResponse.next();
 }
 
 export const config = {
