@@ -73,9 +73,11 @@ function DesktopHorizontalSteps() {
     offset: ["start start", "end end"],
   });
 
-  // 2 panels visibles à la fois : translate 0 à -60% (la 5e étape finit calée à droite).
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-60%"]);
-  const progressBarScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  // 2 panels visibles à la fois. Translate final -72% pour que la 5e étape finisse
+  // calée à droite (plus de grand vide). Le mapping se termine à 82% du scroll : les
+  // ~18% restants laissent la section sortir vers le bas sans temps mort.
+  const x = useTransform(scrollYProgress, [0, 0.82], ["0%", "-72%"]);
+  const progressBarScale = useTransform(scrollYProgress, [0, 0.82], [0, 1]);
 
   return (
     <section className="steps-horizontal" ref={containerRef}>

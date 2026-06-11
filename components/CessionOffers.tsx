@@ -56,7 +56,7 @@ const CESSION: OfferCardData[] = [
 const ACQUISITION: OfferCardData[] = [
   {
     id: "acq-decouverte",
-    name: "Découverte",
+    name: "Classique",
     pitch: "Pour reprendre en confiance.",
     features: [
       "Définition de votre projet de reprise",
@@ -70,7 +70,7 @@ const ACQUISITION: OfferCardData[] = [
   },
   {
     id: "acq-audit",
-    name: "Audit",
+    name: "Stratégique",
     pitch: "Pour racheter sans mauvaise surprise.",
     features: [
       "Audit indépendant de la cible",
@@ -84,7 +84,7 @@ const ACQUISITION: OfferCardData[] = [
   },
   {
     id: "acq-integrale",
-    name: "Intégrale",
+    name: "Premium",
     pitch: "Pour reprendre dans les meilleures conditions.",
     chip: "Recommandée",
     featured: true,
