@@ -62,6 +62,12 @@ export default defineType({
       type: "array",
       of: [{ type: "block" }],
     }),
+    defineField({
+      name: "link",
+      title: "Lien de redirection (optionnel)",
+      type: "url",
+      description: "Si renseigné, un clic sur la carte ouvre ce lien au lieu de la lecture.",
+    }),
   ],
   orderings: [
     {

@@ -134,7 +134,7 @@ export default async function OffresPage() {
       <CtaFinal
         title={
           <>
-            Vous ne savez pas quelle offre vous convient ?<br /><em>Réservez un premier échange gratuit.</em>
+            Un doute sur l&apos;offre ?<br /><em>Réservez un échange gratuit.</em>
           </>
         }
         text="30 minutes pour comprendre votre situation et identifier le bon format. Sans engagement."

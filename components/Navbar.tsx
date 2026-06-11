@@ -21,7 +21,7 @@ const DESKTOP_LINKS: NavLink[] = [
     href: "/cas-clients",
     label: "Cas clients",
     submenu: [
-      { href: "/cas-clients#cas", label: "Cas clients" },
+      { href: "/cas-clients", label: "Cas clients" },
       { href: "/cas-clients#actualites", label: "Actualités" },
     ],
   },
@@ -35,7 +35,7 @@ const MOBILE_LINKS: NavLink[] = [
   { href: "/approche", label: "Approche" },
   { href: "/offres", label: "Offres" },
   { href: "/methode-essor", label: "Méthode ESSOR" },
-  { href: "/cas-clients#cas", label: "Cas clients" },
+  { href: "/cas-clients", label: "Cas clients" },
   { href: "/cas-clients#actualites", label: "Actualités" },
   { href: "/faq", label: "FAQ" },
   { href: "/a-propos", label: "À Propos" },

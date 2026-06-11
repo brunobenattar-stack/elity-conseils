@@ -8,6 +8,10 @@ export type SanityCaseStudy = {
   sector: string;
   meta?: string;
   tag?: string;
+  sectorCategory?: string;
+  date?: string;
+  coverUrl?: string;
+  link?: string;
   metrics?: { value: string; label: string }[];
   phases?: { eyebrow?: string; title?: string; text?: string }[];
   quote?: string;
@@ -47,6 +51,7 @@ export type SanityArticle = {
   excerpt?: string;
   coverUrl?: string;
   body?: string;
+  link?: string;
 };
 
 async function safeFetch<T>(query: string, fallback: T): Promise<T> {
@@ -61,7 +66,9 @@ async function safeFetch<T>(query: string, fallback: T): Promise<T> {
 export function getCaseStudies() {
   return safeFetch<SanityCaseStudy[]>(
     `*[_type == "caseStudy"] | order(order asc){
-      sector, meta, tag, metrics, phases, quote, author
+      sector, meta, tag, sectorCategory, date, link,
+      "coverUrl": cover.asset->url,
+      metrics, phases, quote, author
     }`,
     []
   );
@@ -93,7 +100,7 @@ export function getPageTexts() {
 export function getArticles() {
   return safeFetch<SanityArticle[]>(
     `*[_type == "article"] | order(date desc){
-      title, "slug": slug.current, date, category, excerpt,
+      title, "slug": slug.current, date, category, excerpt, link,
       "coverUrl": cover.asset->url,
       "body": pt::text(body)
     }`,

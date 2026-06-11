@@ -91,6 +91,10 @@ export default async function CasClientsPage() {
         meta: c.meta ?? "",
         tag: c.tag ?? "",
         summary: c.meta ?? "",
+        date: c.date,
+        sectorCategory: c.sectorCategory,
+        coverUrl: c.coverUrl,
+        link: c.link,
         metrics: c.metrics ?? [],
         phases: (c.phases ?? []).map((p) => ({
           eyebrow: p.eyebrow ?? "",

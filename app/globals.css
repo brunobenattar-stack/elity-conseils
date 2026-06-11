@@ -6342,6 +6342,9 @@ main { position: relative; z-index: 2; }
   .offers-deck > .reveal:has(.offer-card-shell.featured),
   .offers-deck > .offer-card-shell.featured { position: relative; z-index: 3; }
   #section-pilotage.home-pilotage-teaser { position: relative; z-index: 1; }
+  /* Page Offres : même protection du halo Premium (section suivante ne le coupe pas) */
+  .offers-cession-section { position: relative; z-index: 2; }
+  .offers-pilotage-section { position: relative; z-index: 1; }
   /* Reveal wrapper autour des cartes : ne doit pas rogner l'ombre */
   .offers-deck > .reveal { overflow: visible; display: flex; }
   .offers-deck > .reveal > .offer-card-shell { width: 100%; }
@@ -6499,7 +6502,7 @@ main { position: relative; z-index: 2; }
   }
 
   .navbar { padding: 8px 0; }
-  .logo-mark { width: 36px; height: 36px; }
+  .logo-mark { width: 72px; height: 72px; }
   /* Navbar haut mobile : contour doré visible */
   .navbar {
     margin: 10px;
@@ -6555,8 +6558,8 @@ main { position: relative; z-index: 2; }
     padding: 12px 0;
     font-family: var(--sans);
     font-size: 14px;
-    font-weight: 400;
-    color: rgba(245, 240, 232, 0.60);
+    font-weight: 500;
+    color: #ffffff;
     border-bottom: 1px solid rgba(201, 165, 90, 0.08);
     text-decoration: none;
     letter-spacing: 0.04em;
@@ -10727,10 +10730,12 @@ main { position: relative; z-index: 2; }
 }
 .blog-hub-card:hover .blog-hub-card-cta { gap: 12px; }
 
-/* Filtre par année */
+/* Filtre par année / secteur (centré) */
 .blog-filter {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
   margin-bottom: 36px;
 }
@@ -10759,13 +10764,36 @@ main { position: relative; z-index: 2; }
   background: var(--gold-on-cream-soft);
   margin: 2px 6px;
 }
+.blog-filter-dates { margin-top: -22px; margin-bottom: 36px; }
+.blog-date-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-cream-soft);
+}
+.blog-date-field input {
+  font-family: var(--sans);
+  font-size: 12px;
+  padding: 7px 12px;
+  border-radius: 100px;
+  border: 1px solid var(--gold-on-cream-soft);
+  background: transparent;
+  color: var(--text-on-cream);
+}
 
 /* Grille d'articles */
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  align-items: stretch;
 }
+/* Les cartes d'une même ligne ont la même hauteur */
+.blog-grid > .reveal { display: flex; height: 100%; }
+.blog-grid > .reveal > .blog-card { width: 100%; }
 .blog-card {
   display: flex;
   flex-direction: column;
@@ -10791,7 +10819,10 @@ main { position: relative; z-index: 2; }
   flex-direction: column;
   gap: 10px;
   padding: 24px;
+  flex: 1;
 }
+/* Le bouton "En savoir plus" reste collé en bas, cartes alignées */
+.blog-card-body .blog-card-cta { margin-top: auto; }
 .blog-card-meta {
   display: flex;
   align-items: center;
@@ -10835,6 +10866,10 @@ main { position: relative; z-index: 2; }
 @media (max-width: 680px) {
   .blog-hub-grid { grid-template-columns: 1fr; gap: 18px; }
   .blog-grid { grid-template-columns: 1fr; }
+  /* Filtres : plus aérés et lisibles, pas de chevauchement */
+  .blog-filter { gap: 8px; margin-bottom: 28px; }
+  .blog-filter-btn { font-size: 11.5px; padding: 7px 14px; }
+  .blog-filter-sep { display: none; }
 }
 
 /* ==========================================================================
@@ -10911,7 +10946,8 @@ main { position: relative; z-index: 2; }
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  overflow-y: auto;
+  /* Le fond ne scrolle pas : c'est le panneau qui scrolle en interne */
+  overflow: hidden;
   padding: clamp(24px, 6vh, 80px) 20px;
   animation: blog-overlay-in 0.3s var(--ease);
 }
@@ -10923,6 +10959,11 @@ main { position: relative; z-index: 2; }
   position: relative;
   width: 100%;
   max-width: 760px;
+  /* Hauteur bornée + scroll interne : on lit le contenu en faisant défiler la carte */
+  max-height: calc(100dvh - clamp(48px, 12vh, 160px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   background: #fbf7ee;
   border-radius: 22px;
   border: 1px solid var(--gold-on-cream-soft);
@@ -10935,9 +10976,11 @@ main { position: relative; z-index: 2; }
   to { opacity: 1; transform: translateY(0); }
 }
 .blog-overlay-close {
-  position: absolute;
-  top: 18px;
-  right: 18px;
+  position: sticky;
+  top: 0;
+  float: right;
+  /* Compense le padding du panneau pour rester dans le coin */
+  margin: clamp(-20px, -3vw, -44px) clamp(-20px, -3vw, -44px) 0 0;
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -10948,6 +10991,7 @@ main { position: relative; z-index: 2; }
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  z-index: 2;
   transition: all 0.3s var(--ease);
 }
 .blog-overlay-close:hover { background: var(--text-on-cream); color: #fbf7ee; }

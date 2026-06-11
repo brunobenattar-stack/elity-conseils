@@ -27,6 +27,31 @@ export default defineType({
       description: "Ex. : Offre Elity Dirigeant",
     }),
     defineField({
+      name: "sectorCategory",
+      title: "Catégorie de secteur (pour le filtre)",
+      type: "string",
+      description: "Ex. : Automobile, Hôtellerie, BTP, Commerce…",
+    }),
+    defineField({
+      name: "date",
+      title: "Date du cas (pour le tri)",
+      type: "date",
+      options: { dateFormat: "DD/MM/YYYY" },
+    }),
+    defineField({
+      name: "cover",
+      title: "Image de la carte (optionnelle)",
+      type: "image",
+      options: { hotspot: true },
+      description: "Affichée en haut de la carte si renseignée.",
+    }),
+    defineField({
+      name: "link",
+      title: "Lien de redirection (optionnel)",
+      type: "url",
+      description: "Si renseigné, un clic sur la carte ouvre ce lien au lieu de la lecture.",
+    }),
+    defineField({
       name: "metrics",
       title: "Chiffres clés",
       type: "array",

@@ -16,6 +16,8 @@ export type CaseStudy = {
   summary: string;
   date?: string;
   sectorCategory?: string;
+  coverUrl?: string;
+  link?: string;
 };
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -51,9 +53,12 @@ export default function CasClientsHub({
 }) {
   const [tab, setTab] = useState<"cas" | "actus">("cas");
   const [overlay, setOverlay] = useState<OverlayContent>(null);
-  const [year, setYear] = useState<string>("all");
   const [caseSector, setCaseSector] = useState<string>("all");
   const [caseSort, setCaseSort] = useState<"recent" | "old">("recent");
+  const [artCategory, setArtCategory] = useState<string>("all");
+  const [artSort, setArtSort] = useState<"recent" | "old">("recent");
+  const [artFrom, setArtFrom] = useState<string>("");
+  const [artTo, setArtTo] = useState<string>("");
 
   // Ouvre l'onglet Actualités si on arrive avec #actualites (depuis la navbar)
   useEffect(() => {
@@ -67,11 +72,24 @@ export default function CasClientsHub({
     return () => window.removeEventListener("hashchange", applyHash);
   }, []);
 
-  // Bloque le scroll de fond quand l'overlay est ouvert
+  // Bloque le scroll de fond quand l'overlay est ouvert (robuste iOS : on fige
+  // la position du body et on la restaure à la fermeture).
   useEffect(() => {
-    document.body.style.overflow = overlay ? "hidden" : "";
+    if (!overlay) return;
+    const scrollY = window.scrollY;
+    const body = document.body;
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
     return () => {
-      document.body.style.overflow = "";
+      body.style.position = "";
+      body.style.top = "";
+      body.style.left = "";
+      body.style.right = "";
+      body.style.width = "";
+      window.scrollTo(0, scrollY);
     };
   }, [overlay]);
 
@@ -85,15 +103,20 @@ export default function CasClientsHub({
     return () => window.removeEventListener("keydown", onKey);
   }, [overlay]);
 
-  const years = Array.from(
-    new Set(articles.map((a) => a.date?.slice(0, 4)).filter(Boolean) as string[])
-  ).sort((a, b) => b.localeCompare(a));
+  const CATEGORY_VALUES = ["actualite", "conseil", "marche", "evenement"];
+  const articleCategories = CATEGORY_VALUES.filter((cat) =>
+    articles.some((a) => a.category === cat)
+  );
 
-  const filteredArticles = (
-    year === "all" ? articles : articles.filter((a) => a.date?.startsWith(year))
-  )
+  const filteredArticles = articles
+    .filter((a) => artCategory === "all" || a.category === artCategory)
+    .filter((a) => !artFrom || (a.date ?? "") >= artFrom)
+    .filter((a) => !artTo || (a.date ?? "") <= artTo)
     .slice()
-    .sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
+    .sort((a, b) => {
+      const cmp = (b.date ?? "").localeCompare(a.date ?? "");
+      return artSort === "recent" ? cmp : -cmp;
+    });
 
   // Filtres études de cas : par secteur + tri par date
   const sectors = Array.from(
@@ -207,6 +230,14 @@ export default function CasClientsHub({
                       delay={(((i % 3) + 1) * 100) as 100 | 200 | 300}
                     >
                       <article className="blog-card">
+                        {c.coverUrl && (
+                          <div
+                            className="blog-card-cover"
+                            style={{ backgroundImage: `url(${c.coverUrl})` }}
+                            role="img"
+                            aria-label={c.sector}
+                          />
+                        )}
                         <div className="blog-card-body">
                           <div className="blog-card-meta">
                             <span className="blog-card-cat">{c.tag}</span>
@@ -217,13 +248,24 @@ export default function CasClientsHub({
                           <h3 className="blog-card-title">{c.sector}</h3>
                           <p className="blog-card-sub">{c.meta}</p>
                           <p className="blog-card-excerpt">{c.summary}</p>
-                          <button
-                            type="button"
-                            className="blog-card-cta"
-                            onClick={() => setOverlay({ kind: "case", data: c })}
-                          >
-                            En savoir plus <span aria-hidden="true">→</span>
-                          </button>
+                          {c.link ? (
+                            <a
+                              href={c.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="blog-card-cta"
+                            >
+                              En savoir plus <span aria-hidden="true">→</span>
+                            </a>
+                          ) : (
+                            <button
+                              type="button"
+                              className="blog-card-cta"
+                              onClick={() => setOverlay({ kind: "case", data: c })}
+                            >
+                              En savoir plus <span aria-hidden="true">→</span>
+                            </button>
+                          )}
                         </div>
                       </article>
                     </Reveal>
@@ -236,26 +278,76 @@ export default function CasClientsHub({
               </Reveal>
             ) : (
               <>
-                {years.length > 1 && (
-                  <div className="blog-filter" aria-label="Filtrer par année">
+                <div className="blog-filter" aria-label="Filtrer les actualités">
+                  <button
+                    type="button"
+                    className={`blog-filter-btn${artCategory === "all" ? " active" : ""}`}
+                    onClick={() => setArtCategory("all")}
+                  >
+                    Toutes
+                  </button>
+                  {articleCategories.map((cat) => (
+                    <button
+                      key={cat}
+                      type="button"
+                      className={`blog-filter-btn${artCategory === cat ? " active" : ""}`}
+                      onClick={() => setArtCategory(cat)}
+                    >
+                      {CATEGORY_LABELS[cat] ?? cat}
+                    </button>
+                  ))}
+                  <span className="blog-filter-sep" aria-hidden="true" />
+                  <button
+                    type="button"
+                    className={`blog-filter-btn${artSort === "recent" ? " active" : ""}`}
+                    onClick={() => setArtSort("recent")}
+                  >
+                    Plus récentes
+                  </button>
+                  <button
+                    type="button"
+                    className={`blog-filter-btn${artSort === "old" ? " active" : ""}`}
+                    onClick={() => setArtSort("old")}
+                  >
+                    Plus anciennes
+                  </button>
+                </div>
+                <div className="blog-filter blog-filter-dates" aria-label="Filtrer par dates">
+                  <label className="blog-date-field">
+                    <span>Du</span>
+                    <input
+                      type="date"
+                      value={artFrom}
+                      max={artTo || undefined}
+                      onChange={(e) => setArtFrom(e.target.value)}
+                    />
+                  </label>
+                  <label className="blog-date-field">
+                    <span>Au</span>
+                    <input
+                      type="date"
+                      value={artTo}
+                      min={artFrom || undefined}
+                      onChange={(e) => setArtTo(e.target.value)}
+                    />
+                  </label>
+                  {(artFrom || artTo) && (
                     <button
                       type="button"
-                      className={`blog-filter-btn${year === "all" ? " active" : ""}`}
-                      onClick={() => setYear("all")}
+                      className="blog-filter-btn"
+                      onClick={() => {
+                        setArtFrom("");
+                        setArtTo("");
+                      }}
                     >
-                      Toutes
+                      Réinitialiser
                     </button>
-                    {years.map((y) => (
-                      <button
-                        key={y}
-                        type="button"
-                        className={`blog-filter-btn${year === y ? " active" : ""}`}
-                        onClick={() => setYear(y)}
-                      >
-                        {y}
-                      </button>
-                    ))}
-                  </div>
+                  )}
+                </div>
+                {filteredArticles.length === 0 && (
+                  <Reveal className="blog-empty">
+                    <p>Aucune actualité ne correspond à ces filtres.</p>
+                  </Reveal>
                 )}
                 <div className="blog-grid">
                   {filteredArticles.map((a, i) => (
@@ -285,13 +377,24 @@ export default function CasClientsHub({
                           {a.excerpt && (
                             <p className="blog-card-excerpt">{a.excerpt}</p>
                           )}
-                          <button
-                            type="button"
-                            className="blog-card-cta"
-                            onClick={() => setOverlay({ kind: "article", data: a })}
-                          >
-                            En savoir plus <span aria-hidden="true">→</span>
-                          </button>
+                          {a.link ? (
+                            <a
+                              href={a.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="blog-card-cta"
+                            >
+                              En savoir plus <span aria-hidden="true">→</span>
+                            </a>
+                          ) : (
+                            <button
+                              type="button"
+                              className="blog-card-cta"
+                              onClick={() => setOverlay({ kind: "article", data: a })}
+                            >
+                              En savoir plus <span aria-hidden="true">→</span>
+                            </button>
+                          )}
                         </div>
                       </article>
                     </Reveal>

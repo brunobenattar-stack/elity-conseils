@@ -171,10 +171,10 @@ export default async function FaqPage() {
       <CtaFinal
         title={
           <>
-            Une situation singulière <em>mérite mieux.</em>
+            Vous ne trouvez pas votre réponse ?<br /><em>Contactez-nous.</em>
           </>
         }
-        text="Votre question n'est pas listée ? Elle mérite une vraie conversation. Premier échange confidentiel et sans engagement."
+        text="Votre question n'est pas dans la liste ? Réservez dès maintenant un appel gratuit de 30 minutes avec Bruno."
         secondaryLabel="À propos de Bruno"
         secondaryHref="/a-propos"
       />
