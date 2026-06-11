@@ -10753,6 +10753,12 @@ main { position: relative; z-index: 2; }
   border-color: var(--text-on-cream);
   color: #fbf7ee;
 }
+.blog-filter-sep {
+  width: 1px;
+  align-self: stretch;
+  background: var(--gold-on-cream-soft);
+  margin: 2px 6px;
+}
 
 /* Grille d'articles */
 .blog-grid {
@@ -11060,26 +11066,53 @@ main { position: relative; z-index: 2; }
 
 /* Sous-menu navbar desktop (survol sur "Cas clients") */
 .nav-has-submenu { position: relative; }
+/* Flèche vers le bas à côté du libellé */
+.nav-submenu-arrow {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 5px;
+  transition: transform 0.25s var(--ease);
+}
+.nav-submenu-arrow svg { width: 11px; height: 11px; }
+.nav-has-submenu.submenu-open .nav-submenu-arrow { transform: rotate(180deg); }
+
 .nav-submenu {
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(6px);
-  min-width: 170px;
-  padding: 8px;
+  min-width: 180px;
+  /* Pont invisible : couvre l'espace entre le lien et la carte pour que le
+     survol ne soit jamais perdu en descendant la souris. */
+  padding: 14px 8px 8px;
   list-style: none;
   margin: 0;
-  background: rgba(8, 8, 8, 0.96);
-  border: 1px solid var(--gold-border-strong);
-  border-radius: 14px;
-  box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.6);
+  background: transparent;
+  border: none;
+  box-shadow: none;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
   z-index: 50;
+  text-align: center;
 }
-.nav-has-submenu:hover .nav-submenu,
+/* La carte visible est dessinée par ::before, sous les <li>, hors du pont haut */
+.nav-submenu::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(8, 8, 8, 0.96);
+  border: 1px solid var(--gold-border-strong);
+  border-radius: 14px;
+  box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+/* Ouverture pilotée par l'état React (délai de fermeture d'1 s en JS) */
+.nav-has-submenu.submenu-open .nav-submenu,
 .nav-has-submenu:focus-within .nav-submenu {
   opacity: 1;
   visibility: visible;
@@ -11089,13 +11122,14 @@ main { position: relative; z-index: 2; }
 .nav-submenu li { display: block; }
 .nav-submenu a {
   display: block;
-  padding: 9px 14px;
+  padding: 9px 18px;
   border-radius: 8px;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--white-body);
   white-space: nowrap;
+  text-align: center;
   transition: background 0.2s var(--ease), color 0.2s var(--ease);
 }
 .nav-submenu a:hover { background: rgba(201, 165, 90, 0.14); color: var(--gold-main); }

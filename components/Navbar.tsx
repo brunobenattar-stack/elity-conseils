@@ -87,6 +87,24 @@ export default function Navbar() {
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
+  // Sous-menu desktop : reste ouvert 1 s après que la souris quitte la zone,
+  // pour qu'on ait le temps de descendre dessus sans qu'il se ferme.
+  const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
+  const submenuTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const openSubmenu = (href: string) => {
+    if (submenuTimer.current) clearTimeout(submenuTimer.current);
+    setHoveredMenu(href);
+  };
+  const scheduleCloseSubmenu = () => {
+    if (submenuTimer.current) clearTimeout(submenuTimer.current);
+    submenuTimer.current = setTimeout(() => setHoveredMenu(null), 1000);
+  };
+  useEffect(() => {
+    return () => {
+      if (submenuTimer.current) clearTimeout(submenuTimer.current);
+    };
+  }, []);
+
   return (
     <nav ref={navRef} className={`navbar ${scrolled ? "scrolled" : ""} ${open ? "menu-open" : ""}`}>
       <div className="container nav-inner">
@@ -95,9 +113,25 @@ export default function Navbar() {
         {/* Desktop nav links — ligne unique */}
         <ul className="nav-links">
           {DESKTOP_LINKS.map((l) => (
-            <li key={l.href} className={l.submenu ? "nav-has-submenu" : undefined}>
+            <li
+              key={l.href}
+              className={
+                l.submenu
+                  ? `nav-has-submenu${hoveredMenu === l.href ? " submenu-open" : ""}`
+                  : undefined
+              }
+              onMouseEnter={l.submenu ? () => openSubmenu(l.href) : undefined}
+              onMouseLeave={l.submenu ? scheduleCloseSubmenu : undefined}
+            >
               <Link href={l.href} className={isActive(l.href) ? "active" : ""}>
                 {l.label}
+                {l.submenu && (
+                  <span className="nav-submenu-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                      <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                )}
               </Link>
               {l.submenu && (
                 <ul className="nav-submenu">

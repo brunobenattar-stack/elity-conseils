@@ -14,6 +14,8 @@ export type CaseStudy = {
   quote: string;
   author: string;
   summary: string;
+  date?: string;
+  sectorCategory?: string;
 };
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -50,6 +52,8 @@ export default function CasClientsHub({
   const [tab, setTab] = useState<"cas" | "actus">("cas");
   const [overlay, setOverlay] = useState<OverlayContent>(null);
   const [year, setYear] = useState<string>("all");
+  const [caseSector, setCaseSector] = useState<string>("all");
+  const [caseSort, setCaseSort] = useState<"recent" | "old">("recent");
 
   // Ouvre l'onglet Actualités si on arrive avec #actualites (depuis la navbar)
   useEffect(() => {
@@ -90,6 +94,18 @@ export default function CasClientsHub({
   )
     .slice()
     .sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
+
+  // Filtres études de cas : par secteur + tri par date
+  const sectors = Array.from(
+    new Set(cases.map((c) => c.sectorCategory).filter(Boolean) as string[])
+  );
+  const filteredCases = cases
+    .filter((c) => caseSector === "all" || c.sectorCategory === caseSector)
+    .slice()
+    .sort((a, b) => {
+      const cmp = (b.date ?? "").localeCompare(a.date ?? "");
+      return caseSort === "recent" ? cmp : -cmp;
+    });
 
   const switchTab = (t: "cas" | "actus") => {
     setTab(t);
@@ -144,32 +160,76 @@ export default function CasClientsHub({
 
           <div id="blog-zone" className="blog-zone">
             {tab === "cas" ? (
-              <div className="blog-grid">
-                {cases.map((c, i) => (
-                  <Reveal
-                    key={c.sector}
-                    delay={(((i % 3) + 1) * 100) as 100 | 200 | 300}
-                  >
-                    <article className="blog-card">
-                      <div className="blog-card-body">
-                        <div className="blog-card-meta">
-                          <span className="blog-card-cat">{c.tag}</span>
-                        </div>
-                        <h3 className="blog-card-title">{c.sector}</h3>
-                        <p className="blog-card-sub">{c.meta}</p>
-                        <p className="blog-card-excerpt">{c.summary}</p>
+              <>
+                <div className="blog-filter" aria-label="Filtrer les études de cas">
+                  {sectors.length > 0 && (
+                    <>
+                      <button
+                        type="button"
+                        className={`blog-filter-btn${caseSector === "all" ? " active" : ""}`}
+                        onClick={() => setCaseSector("all")}
+                      >
+                        Tous les secteurs
+                      </button>
+                      {sectors.map((s) => (
                         <button
+                          key={s}
                           type="button"
-                          className="blog-card-cta"
-                          onClick={() => setOverlay({ kind: "case", data: c })}
+                          className={`blog-filter-btn${caseSector === s ? " active" : ""}`}
+                          onClick={() => setCaseSector(s)}
                         >
-                          En savoir plus <span aria-hidden="true">→</span>
+                          {s}
                         </button>
-                      </div>
-                    </article>
-                  </Reveal>
-                ))}
-              </div>
+                      ))}
+                      <span className="blog-filter-sep" aria-hidden="true" />
+                    </>
+                  )}
+                  <button
+                    type="button"
+                    className={`blog-filter-btn${caseSort === "recent" ? " active" : ""}`}
+                    onClick={() => setCaseSort("recent")}
+                  >
+                    Plus récentes
+                  </button>
+                  <button
+                    type="button"
+                    className={`blog-filter-btn${caseSort === "old" ? " active" : ""}`}
+                    onClick={() => setCaseSort("old")}
+                  >
+                    Plus anciennes
+                  </button>
+                </div>
+
+                <div className="blog-grid">
+                  {filteredCases.map((c, i) => (
+                    <Reveal
+                      key={c.sector}
+                      delay={(((i % 3) + 1) * 100) as 100 | 200 | 300}
+                    >
+                      <article className="blog-card">
+                        <div className="blog-card-body">
+                          <div className="blog-card-meta">
+                            <span className="blog-card-cat">{c.tag}</span>
+                            {c.date && (
+                              <time dateTime={c.date}>{formatDate(c.date)}</time>
+                            )}
+                          </div>
+                          <h3 className="blog-card-title">{c.sector}</h3>
+                          <p className="blog-card-sub">{c.meta}</p>
+                          <p className="blog-card-excerpt">{c.summary}</p>
+                          <button
+                            type="button"
+                            className="blog-card-cta"
+                            onClick={() => setOverlay({ kind: "case", data: c })}
+                          >
+                            En savoir plus <span aria-hidden="true">→</span>
+                          </button>
+                        </div>
+                      </article>
+                    </Reveal>
+                  ))}
+                </div>
+              </>
             ) : articles.length === 0 ? (
               <Reveal className="blog-empty">
                 <p>Les premières actualités arrivent bientôt. Revenez prochainement.</p>
