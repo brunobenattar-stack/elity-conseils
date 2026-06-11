@@ -280,11 +280,11 @@ main { position: relative; z-index: 2; }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  padding: 18px 0;
+  padding: 12px 0;
   transition: all 0.4s var(--ease);
 }
 .navbar.scrolled {
-  padding: 12px 0;
+  padding: 8px 0;
 }
 /* Pill flottant permanent en desktop : la navbar reste lisible sur le hero vidéo */
 @media (min-width: 1025px) {
@@ -324,7 +324,7 @@ main { position: relative; z-index: 2; }
   .logo-tag { display: none; }
 }
 .logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-.logo-mark { width: 92px; height: 92px; flex-shrink: 0; }
+.logo-mark { width: 62px; height: 62px; flex-shrink: 0; }
 .logo-text { display: flex; flex-direction: column; line-height: 1; }
 .logo-name {
   font-family: var(--serif);
@@ -3749,8 +3749,9 @@ main { position: relative; z-index: 2; }
    ========================================================================== */
 .steps-horizontal {
   position: relative;
-  /* 2 panels visibles à la fois → seulement 3 transitions pour parcourir les 5 étapes */
-  height: 400vh;
+  /* 2 panels visibles à la fois. Hauteur réduite (était 400vh) pour enchaîner
+     plus vite vers la section suivante, sans temps mort en fin de défilement. */
+  height: 280vh;
   background: #ffffff;
 }
 .steps-horizontal-sticky {
@@ -6478,8 +6479,8 @@ main { position: relative; z-index: 2; }
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), 0 0 18px rgba(201, 165, 90, 0.25);
   }
 
-  .navbar { padding: 12px 0; }
-  .logo-mark { width: 54px; height: 54px; }
+  .navbar { padding: 8px 0; }
+  .logo-mark { width: 36px; height: 36px; }
   /* Navbar haut mobile : contour doré visible */
   .navbar {
     margin: 10px;

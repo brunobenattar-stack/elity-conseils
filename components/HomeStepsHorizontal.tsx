@@ -73,7 +73,7 @@ function DesktopHorizontalSteps() {
     offset: ["start start", "end end"],
   });
 
-  // 2 panels visibles à la fois : translate 0 à -60% (3 transitions pour parcourir 5 panels)
+  // 2 panels visibles à la fois : translate 0 à -60% (la 5e étape finit calée à droite).
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-60%"]);
   const progressBarScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
