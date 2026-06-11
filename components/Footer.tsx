@@ -43,12 +43,12 @@ export default function Footer() {
           <div className="footer-brand">
             <Logo />
             <p className="footer-tagline">Structurer aujourd&apos;hui. Valoriser demain.</p>
-            <p className="footer-partner">En partenariat avec Procom Océan Indien</p>
+            <p className="footer-partner">En partenariat avec Procomm Océan Indien</p>
             <div className="footer-social">
               <a href="https://www.linkedin.com/in/brunobenattar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Bruno Benattar">
                 <LinkedInIcon />
               </a>
-              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <a href="https://www.facebook.com/ElityConseil" target="_blank" rel="noopener noreferrer" aria-label="Facebook Elity Conseil">
                 <FacebookIcon />
               </a>
             </div>
@@ -59,9 +59,10 @@ export default function Footer() {
             <ul>
               <li><Link href="/approche">Notre Approche</Link></li>
               <li><Link href="/offres">Nos Offres</Link></li>
-              <li><Link href="/offres#pilotage">Pilotage mensuel</Link></li>
+              <li><Link href="/offres#pilotage">Accompagnement mensuel</Link></li>
               <li><Link href="/methode-essor">Méthode ESSOR</Link></li>
               <li><Link href="/cas-clients">Cas clients</Link></li>
+              <li><Link href="/actualites">Actualités</Link></li>
               <li><Link href="/faq">FAQ</Link></li>
               <li><Link href="/a-propos">À Propos</Link></li>
               <li><Link href="/nos-partenaires">Nos Partenaires</Link></li>

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE = "https://www.elity-conseils.com";
+const BASE = "https://elityconseil.re";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -10,6 +10,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/offres", priority: 0.9 },
     { url: "/methode-essor", priority: 0.8 },
     { url: "/cas-clients", priority: 0.8 },
+    { url: "/cas-clients/etudes", priority: 0.7 },
+    { url: "/actualites", priority: 0.7 },
     { url: "/faq", priority: 0.7 },
     { url: "/a-propos", priority: 0.7 },
     { url: "/nos-partenaires", priority: 0.6 },

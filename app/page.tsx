@@ -6,15 +6,12 @@ import Reveal from "@/components/Reveal";
 import HomeProblem from "@/components/HomeProblem";
 import HomeStepsHorizontal from "@/components/HomeStepsHorizontal";
 import HomeBrunoParallax from "@/components/HomeBrunoParallax";
-import HomeOffersCards from "@/components/HomeOffersCards";
+import CessionOffers from "@/components/CessionOffers";
 import MagneticButton from "@/components/MagneticButton";
-import StickyCompass from "@/components/StickyCompass";
 
 export default function HomePage() {
   return (
     <>
-      <StickyCompass />
-
       {/* 1+2. HERO + PROBLÈME */}
       <div id="section-hero" className="hero-parallax-zone">
         <HomeHero />
@@ -44,19 +41,7 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          <HomeOffersCards />
-
-          {/* Note acquisition */}
-          <Reveal>
-            <div className="offres-acquisition-note">
-              <div className="offres-acquisition-note-inner">
-                <span className="offres-acquisition-eyebrow">Vous souhaitez acquérir ?</span>
-                <p className="offres-acquisition-text">
-                  Elity Conseils vous accompagne dans la définition de votre stratégie : identification de cibles, audit de valeur, structuration du projet.
-                </p>
-              </div>
-            </div>
-          </Reveal>
+          <CessionOffers compact />
 
           <Reveal className="offers-deck-cta-wrap">
             <Link href="/offres" className="btn btn-ghost">
@@ -74,15 +59,15 @@ export default function HomePage() {
             <div>
               <span className="home-pilotage-eyebrow">Pas (encore) de projet de cession ?</span>
               <h2 className="home-pilotage-title">
-                Le cabinet accompagne aussi les dirigeants{" "}
-                <em>mensuellement.</em>
+                Un regard extérieur pour{" "}
+                <em>garder le cap sereinement.</em>
               </h2>
               <p className="home-pilotage-desc">
-                Avant, ou indépendamment d&apos;une cession, nous proposons un pilotage mensuel pour les dirigeants de TPE/PME qui veulent un partenaire stratégique régulier. Méthode ESSOR, formules 12 ou 24 mois.
+                Avant ou indépendamment d&apos;une cession, Elity devient le partenaire stratégique des dirigeant(e)s de TPE/PME : on vous accompagne à piloter votre entreprise, un cadre clair pour décider sur des faits, garder le cap et préparer l&apos;avenir. Méthode ESSOR, formules 12 ou 24 mois.
               </p>
             </div>
             <Link href="/offres#pilotage" className="home-pilotage-cta">
-              Voir l&apos;offre Pilotage
+              Voir l&apos;offre Accompagnement
               <span aria-hidden="true">→</span>
             </Link>
           </Reveal>
@@ -132,13 +117,17 @@ export default function HomePage() {
               {/* Résultats : 2 chiffres */}
               <div className="cas-home-metrics-top">
                 <div className="cas-home-metric">
-                  <span className="cas-home-metric-val">24</span>
-                  <span className="cas-home-metric-unit">mois</span>
+                  <span className="cas-home-metric-line">
+                    <span className="cas-home-metric-val">24</span>
+                    <span className="cas-home-metric-unit">mois</span>
+                  </span>
                   <span className="cas-home-metric-lbl">d&apos;accompagnement</span>
                 </div>
                 <div className="cas-home-metric">
-                  <span className="cas-home-metric-val">5</span>
-                  <span className="cas-home-metric-unit">emplois</span>
+                  <span className="cas-home-metric-line">
+                    <span className="cas-home-metric-val">5</span>
+                    <span className="cas-home-metric-unit">emplois</span>
+                  </span>
                   <span className="cas-home-metric-lbl">préservés</span>
                 </div>
               </div>
@@ -157,7 +146,7 @@ export default function HomePage() {
               <div className="cas-home-summary">
                 <p>
                   Entreprise au bord de la faillite, dirigeant sans rémunération, 5 emplois menacés.
-                  Un accompagnement ESSOR sur 24 mois : trésorerie stabilisée, pilotage structuré, rentabilité retrouvée.
+                  Un accompagnement ESSOR sur 24 mois : trésorerie stabilisée, gestion structurée, rentabilité retrouvée.
                 </p>
                 <cite className="cas-home-cite">Témoignage anonymisé</cite>
               </div>
@@ -166,8 +155,8 @@ export default function HomePage() {
 
           <Reveal>
             <div style={{ textAlign: "center", marginTop: 48 }}>
-              <Link href="/cas-clients" className="btn btn-ghost">
-                Voir tous les cas clients
+              <Link href="/cas-clients/etudes" className="btn btn-ghost">
+                En savoir plus
                 <span aria-hidden="true">→</span>
               </Link>
             </div>
@@ -180,7 +169,7 @@ export default function HomePage() {
         <div className="container">
           <Reveal>
             <h2>
-              Cession ou rachat ?<br />
+              Cession, rachat ou accompagnement ?<br />
               <em>Parlons-en.</em>
             </h2>
             <p>Premier échange confidentiel et sans engagement.</p>

@@ -12,20 +12,21 @@ const DESKTOP_LINKS = [
   { href: "/offres", label: "Offres" },
   { href: "/methode-essor", label: "Méthode ESSOR" },
   { href: "/cas-clients", label: "Cas clients" },
+  { href: "/actualites", label: "Actualités" },
   { href: "/faq", label: "FAQ" },
   { href: "/a-propos", label: "À Propos" },
   { href: "/contact", label: "Contact" },
 ];
 
-// Mobile : 8 pages max
 const MOBILE_LINKS = [
   { href: "/", label: "Accueil" },
   { href: "/approche", label: "Approche" },
   { href: "/offres", label: "Offres" },
+  { href: "/methode-essor", label: "Méthode ESSOR" },
   { href: "/cas-clients", label: "Cas clients" },
+  { href: "/actualites", label: "Actualités" },
   { href: "/faq", label: "FAQ" },
   { href: "/a-propos", label: "À Propos" },
-  { href: "/methode-essor", label: "Méthode ESSOR" },
   { href: "/contact", label: "Contact" },
 ];
 

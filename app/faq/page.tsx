@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
-import CtaStrip from "@/components/CtaStrip";
+import CtaFinal from "@/components/CtaFinal";
+import { getFaqItems } from "@/sanity/queries";
 
 export const metadata: Metadata = {
   title: "FAQ : Vos questions sur la cession et l'accompagnement",
@@ -41,15 +41,15 @@ const CESSION: QA[] = [
 const DIRIGEANT: QA[] = [
   {
     q: "Qu'est-ce qu'Elity Dirigeant exactement ?",
-    a: "Un accompagnement mensuel structuré sur 12 ou 24 mois pour les dirigeants de TPE/PME. Un entretien individuel de 3 à 4 heures chaque mois, un rapport d'activité personnalisé, un plan d'action concret. Pas du coaching : un partenaire stratégique avec qui vous pilotez.",
+    a: "Un accompagnement mensuel structuré sur 12 ou 24 mois pour les dirigeant(e)s de TPE/PME. Un entretien individuel de 3 à 4 heures chaque mois, un rapport d'activité personnalisé, un plan d'action concret. Pas du coaching : un partenaire stratégique qui vous accompagne à piloter votre entreprise.",
   },
   {
     q: "C'est quoi la méthode ESSOR ?",
-    a: "Quatre étapes : Constate, Consolide, Maîtrise, Réalise, qui structurent l'accompagnement. On commence par un audit complet, on optimise ce qui fonctionne, on met en place les indicateurs de pilotage, puis on concrétise les projets : croissance, recrutement, valorisation, cession.",
+    a: "Quatre étapes : Constate, Consolide, Maîtrise, Réalise, qui structurent l'accompagnement. On commence par un audit complet, on optimise ce qui fonctionne, on met en place les indicateurs de suivi, puis on concrétise les projets : croissance, recrutement, valorisation, cession.",
   },
   {
     q: "Quelle est la différence avec mon expert-comptable ?",
-    a: "Votre expert-comptable enregistre et déclare. Elity Dirigeant pilote avec vous : choix stratégiques, arbitrages, recrutement, croissance, préparation à la cession. Les deux fonctions sont complémentaires, pas concurrentes.",
+    a: "Votre expert-comptable enregistre et déclare. Elity Dirigeant vous accompagne à piloter votre entreprise : choix stratégiques, arbitrages, recrutement, croissance, préparation à la cession. Les deux fonctions sont complémentaires, pas concurrentes.",
   },
   {
     q: "À quel moment de la vie de mon entreprise est-ce pertinent ?",
@@ -119,8 +119,22 @@ function FaqGroup({ label, items }: { label: string; items: QA[] }) {
   );
 }
 
-export default function FaqPage() {
-  const allItems = [...CESSION, ...DIRIGEANT, ...PRATIQUE, ...PRATIQUE_EXTRA];
+export default async function FaqPage() {
+  const sanityFaq = await getFaqItems();
+  // Si des questions existent dans Sanity, elles remplacent les groupes par defaut.
+  const fromSanity = (g: "cession" | "dirigeant" | "pratique"): QA[] =>
+    sanityFaq.filter((f) => (f.group ?? "pratique") === g).map((f) => ({ q: f.question, a: f.answer }));
+
+  const sanityCession = fromSanity("cession");
+  const sanityDirigeant = fromSanity("dirigeant");
+  const sanityPratique = fromSanity("pratique");
+  const hasSanity = sanityFaq.length > 0;
+
+  const cessionItems = hasSanity ? sanityCession : CESSION;
+  const dirigeantItems = hasSanity ? sanityDirigeant : DIRIGEANT;
+  const pratiqueItems = hasSanity ? sanityPratique : [...PRATIQUE, ...PRATIQUE_EXTRA];
+
+  const allItems = [...cessionItems, ...dirigeantItems, ...pratiqueItems];
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -138,45 +152,31 @@ export default function FaqPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <PageHero
-        crumbs={[{ label: "FAQ" }]}
-        title={
-          <>
-            Les questions que vous nous posez<br />
-            <em>le plus souvent.</em>
-          </>
-        }
-        subtitle="Cession, accompagnement, méthode, honoraires, confidentialité. Les réponses claires aux interrogations qui reviennent dans nos premiers échanges avec les dirigeants."
-        meta="3 thèmes · 17 réponses"
-      />
-
-      <section className="section">
+      <section className="section faq-dark-section section-first">
         <div className="container faq-container">
-          <FaqGroup label="Cession & rachat" items={CESSION} />
-          <FaqGroup label="Elity Dirigeant & méthode ESSOR" items={DIRIGEANT} />
-          <FaqGroup label="En pratique" items={[...PRATIQUE, ...PRATIQUE_EXTRA]} />
-        </div>
-      </section>
-
-      <section className="section" style={{ background: "var(--bg-secondary)" }}>
-        <div className="container">
-          <Reveal>
-            <p className="pull-quote">
-              Votre question n&apos;est pas listée&nbsp;?<br />
-              <em>Elle mérite probablement une vraie conversation.</em>
+          <Reveal className="faq-hero">
+            <h1 className="faq-hero-title">FAQ</h1>
+            <p className="faq-hero-text">
+              Les réponses claires aux interrogations qui reviennent le plus souvent.
             </p>
           </Reveal>
+          <div className="faq-groups">
+            {cessionItems.length > 0 && <FaqGroup label="Cession & rachat" items={cessionItems} />}
+            {dirigeantItems.length > 0 && <FaqGroup label="Elity Dirigeant & méthode ESSOR" items={dirigeantItems} />}
+            {pratiqueItems.length > 0 && <FaqGroup label="En pratique" items={pratiqueItems} />}
+          </div>
         </div>
       </section>
 
-      <CtaStrip
+      <CtaFinal
         title={
           <>
-            Une situation singulière<br />
-            <em>mérite une réponse sur-mesure.</em>
+            Une situation singulière <em>mérite mieux.</em>
           </>
         }
-        text="Premier échange confidentiel et sans engagement. Nous prenons le temps qu'il faut pour comprendre votre situation."
+        text="Votre question n'est pas listée ? Elle mérite une vraie conversation. Premier échange confidentiel et sans engagement."
+        secondaryLabel="À propos de Bruno"
+        secondaryHref="/a-propos"
       />
     </>
   );

@@ -25,7 +25,8 @@ export default function HomeBrunoParallax() {
               Bruno Benattar
             </h2>
             <p className="cabinet-simple-role">
-              Franchisé Procomm · La Réunion · depuis 2015
+              <span className="cabinet-simple-role-line">Franchisé Procomm · La Réunion</span>{" "}
+              <span className="cabinet-simple-role-line">depuis 2015</span>
             </p>
           </div>
 

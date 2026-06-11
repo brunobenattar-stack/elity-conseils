@@ -118,11 +118,11 @@ export default function HomeTrajectoires() {
 
         <Reveal className="trajectoires-note">
           <p>
-            Pas encore prêt à céder ?{" "}
+            Pas encore prêt(e) à céder ?{" "}
             <Link href="/offres#pilotage" className="trajectoires-note-link">
-              Elity Conseils propose aussi un pilotage mensuel
+              Elity Conseils propose aussi un accompagnement mensuel
             </Link>{" "}
-            pour les dirigeants qui veulent structurer et valoriser leur entreprise sur le long terme, avant de décider.
+            pour les dirigeant(e)s qui veulent structurer et valoriser leur entreprise sur le long terme, avant de décider.
           </p>
         </Reveal>
       </div>

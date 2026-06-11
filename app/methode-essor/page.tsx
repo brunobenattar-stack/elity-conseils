@@ -1,14 +1,15 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import PageHero from "@/components/PageHero";
+import PageLead from "@/components/PageLead";
 import Reveal from "@/components/Reveal";
-import CtaStrip from "@/components/CtaStrip";
+import CtaFinal from "@/components/CtaFinal";
+import VideoParallaxBg from "@/components/VideoParallaxBg";
 import { IconLoupe, IconHandshake, IconChart, IconTrophy } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Méthode ESSOR : Le cadre de pilotage Elity Dirigeant",
+  title: "Méthode ESSOR : accompagnement de dirigeant(e) de TPE/PME à La Réunion",
   description:
-    "ESSOR : une méthode en 4 étapes (Constate, Consolide, Maîtrise, Réalise) pour piloter sereinement une TPE/PME. Audit stratégique, optimisation, indicateurs, projets concrets.",
+    "ESSOR : une méthode en 4 étapes (Constate, Consolide, Maîtrise, Réalise) pour vous accompagner à piloter sereinement votre TPE/PME. Audit stratégique, optimisation, indicateurs, projets concrets.",
 };
 
 type Step = {
@@ -24,11 +25,11 @@ type Step = {
 const STEPS: Step[] = [
   {
     num: "01",
-    name: "Constate",
+    name: "Constater",
     baseline: "Voir clair avant d'agir.",
     Icon: IconLoupe,
     what:
-      "Un audit complet : financier, organisationnel, commercial, humain. L'objectif n'est pas de juger, mais de cartographier ce qui fonctionne, ce qui freine, et le potentiel inexploité que vous ne voyez plus parce que vous y êtes immergé.",
+      "Un audit complet de l'entreprise : forces, faiblesses et potentiel. On cartographie ce qui fonctionne, ce qui freine, et ce que vous ne voyez plus.",
     deliverables: [
       "Diagnostic global de l'entreprise (forces, faiblesses, opportunités).",
       "Cartographie des indicateurs clés réellement pilotables.",
@@ -40,11 +41,11 @@ const STEPS: Step[] = [
   },
   {
     num: "02",
-    name: "Consolide",
+    name: "Consolider",
     baseline: "Renforcer la base avant d'accélérer.",
     Icon: IconHandshake,
     what:
-      "Consolider, c'est optimiser ce qui marche déjà et corriger ce qui freine, avant de chercher à grandir. La plupart des dirigeants veulent accélérer alors que leurs fondations méritent d'abord d'être stabilisées. Cette étape évite des mois de croissance brouillonne.",
+      "On optimise ce qui marche déjà et on corrige ce qui freine, avant de chercher à grandir. Stabiliser les fondations évite des mois de croissance brouillonne.",
     deliverables: [
       "Optimisation des process opérationnels essentiels.",
       "Renforcement de la structure financière (BFR, marges, trésorerie).",
@@ -56,14 +57,14 @@ const STEPS: Step[] = [
   },
   {
     num: "03",
-    name: "Maîtrise",
-    baseline: "Piloter aux indicateurs, plus à l'instinct.",
+    name: "Maîtriser",
+    baseline: "Décider aux indicateurs, plus à l'instinct.",
     Icon: IconChart,
     what:
-      "À ce stade, on installe le tableau de bord du dirigeant. Pas un outil de comptable : un cockpit mensuel qui rend visible ce qui crée vraiment de la valeur. Vous reprenez la main sur les décisions parce que les chiffres parlent.",
+      "On installe le tableau de bord du dirigeant : des chiffres clairs, des décisions éclairées, un cap tenu mois après mois. Vous reprenez la main.",
     deliverables: [
       "Construction du tableau de bord stratégique mensuel.",
-      "Rituel de pilotage mensuel structuré avec rapport d'activité.",
+      "Rituel mensuel structuré avec rapport d'activité.",
       "Anticipation des décisions clés à 3, 6 et 12 mois.",
       "Cadre d'arbitrage face aux opportunités et aux risques.",
     ],
@@ -72,13 +73,13 @@ const STEPS: Step[] = [
   },
   {
     num: "04",
-    name: "Réalise",
+    name: "Réaliser",
     baseline: "Concrétiser les projets qui comptent.",
     Icon: IconTrophy,
     what:
-      "L'étape où l'on transforme la maîtrise en résultat. Croissance, recrutement stratégique, ouverture d'un nouveau marché, valorisation en vue d'une cession : ce qui semblait flou hier devient un projet exécutable, jalonné, sécurisé.",
+      "On transforme la maîtrise en résultat : croissance, recrutements, valorisation de l'actif ou mise en vente. Ce qui semblait flou devient un projet exécutable.",
     deliverables: [
-      "Pilotage des projets stratégiques (croissance, recrutement, M&A).",
+      "Conduite des projets stratégiques (croissance, recrutement, M&A).",
       "Préparation à la valorisation et à la cession le cas échéant.",
       "Bilan annuel ou semestriel approfondi.",
       "Continuité d'accompagnement entre les séances mensuelles.",
@@ -91,54 +92,40 @@ const STEPS: Step[] = [
 export default function MethodeEssorPage() {
   return (
     <>
-      <PageHero
-        crumbs={[{ label: "Méthode ESSOR" }]}
-        title={
-          <>
-            ESSOR.<br />
-            <em>Le cadre de pilotage du dirigeant.</em>
-          </>
-        }
-        subtitle="Une méthode en quatre étapes pour passer de la réaction quotidienne au pilotage maîtrisé. ESSOR structure l'accompagnement Elity Dirigeant et donne aux décideurs de TPE/PME ce qui leur manque le plus : du recul, du cadre, et une trajectoire claire."
-        meta="4 étapes · 1 méthode"
-      />
-
-      <section className="section">
+      <section className="section section-cream section-first">
         <div className="container">
-          <Reveal className="section-header center">
-            <span className="section-label">Pourquoi ESSOR</span>
-            <div className="section-sep" />
-            <h2 className="section-title">Diriger une TPE/PME,<br />ce n&apos;est pas suivre un manuel.</h2>
-            <p className="section-body" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
-              C&apos;est arbitrer en permanence avec des informations incomplètes, sous pression du quotidien. ESSOR n&apos;impose pas un modèle. C&apos;est un fil conducteur qui s&apos;adapte à votre entreprise et qui transforme l&apos;arbitrage subi en pilotage choisi.
-            </p>
-          </Reveal>
+          <PageLead
+            label="Méthode ESSOR"
+            title={
+              <>
+                Méthode <em>ESSOR.</em>
+              </>
+            }
+            text="De l'état des lieux à la performance, en 12 ou 24 mois. Quatre étapes pour décider les yeux ouverts."
+          />
 
           <div className="essor-grid">
             {STEPS.map((s, i) => (
               <Reveal key={s.num} className="essor-card" delay={(((i % 2) + 1) * 100) as 100 | 200}>
-                <div className="essor-card-head">
-                  <span className="essor-card-num">{s.num}</span>
-                  <div className="essor-card-icon" aria-hidden="true">
-                    <s.Icon />
+                <div className="essor-card-inner">
+                  <div className="essor-card-left">
+                    <div className="essor-card-top">
+                      <div className="essor-card-icon" aria-hidden="true">
+                        <s.Icon />
+                      </div>
+                    </div>
+                    <h3 className="essor-card-name">{s.name}</h3>
+                    <p className="essor-card-baseline">{s.baseline}</p>
                   </div>
-                </div>
-                <h3 className="essor-card-name">{s.name}</h3>
-                <p className="essor-card-baseline">{s.baseline}</p>
-                <p className="essor-card-what">{s.what}</p>
-
-                <div className="essor-card-deliv">
-                  <span className="essor-card-deliv-label">Ce qu&apos;on construit ensemble</span>
-                  <ul>
-                    {s.deliverables.map((d) => (
-                      <li key={d}>{d}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="essor-card-shift">
-                  <span className="essor-card-shift-label">Ce que ça change</span>
-                  <p>{s.shift}</p>
+                  <div className="essor-card-right">
+                    <p className="essor-card-what">{s.what}</p>
+                    <ul className="essor-card-deliv-list">
+                      {s.deliverables.map((d) => (
+                        <li key={d}>{d}</li>
+                      ))}
+                    </ul>
+                    <p className="essor-card-shift-text">{s.shift}</p>
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -146,33 +133,42 @@ export default function MethodeEssorPage() {
         </div>
       </section>
 
-      <section className="section" style={{ background: "var(--bg-secondary)" }}>
+      <section className="section section-cream">
         <div className="container">
-          <div className="essor-compare">
-            <Reveal className="essor-compare-head">
-              <span className="section-label">Ce que ESSOR n&apos;est pas</span>
-              <div className="section-sep" />
-              <h2 className="section-title">Une méthode de partenaire,<br />pas une posture d&apos;expert.</h2>
-            </Reveal>
-
-            <div className="essor-compare-grid">
-              <Reveal className="essor-vs essor-vs-not" delay={100}>
-                <div className="essor-vs-head">Ce n&apos;est pas</div>
+          <Reveal className="section-header center">
+            <span className="section-label">Pour qui</span>
+            <div className="section-sep" style={{ marginInline: "auto" }} />
+            <h2 className="section-title">À qui la méthode ESSOR<br /><em>convient vraiment.</em></h2>
+          </Reveal>
+          <div className="essor-fit-layout essor-fit-layout-2col">
+            <div className="essor-fit-cols">
+              <Reveal className="essor-fit-card essor-fit-card-yes" delay={100}>
+                <span className="essor-fit-card-head">
+                  <span className="essor-fit-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  </span>
+                  C&apos;est pour vous si…
+                </span>
                 <ul>
-                  <li>Du coaching personnel ou du développement individuel.</li>
-                  <li>Un audit ponctuel suivi d&apos;un rapport sans suite.</li>
-                  <li>Un cabinet de conseil qui vend des slides.</li>
-                  <li>Un service que votre expert-comptable rend déjà.</li>
+                  <li>Vous êtes dans l&apos;opérationnel et perdez le recul</li>
+                  <li>Vous traversez une période où votre entreprise stagne</li>
+                  <li>Vous préparez une cession à 18-36 mois</li>
+                  <li>Vous venez de racheter et voulez structurer</li>
                 </ul>
               </Reveal>
 
-              <Reveal className="essor-vs essor-vs-is" delay={200}>
-                <div className="essor-vs-head">C&apos;est</div>
+              <Reveal className="essor-fit-card essor-fit-card-no" delay={200}>
+                <span className="essor-fit-card-head">
+                  <span className="essor-fit-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" /></svg>
+                  </span>
+                  Ce n&apos;est pas pour vous si…
+                </span>
                 <ul>
-                  <li>Un partenaire mensuel qui pilote avec vous, dans la durée.</li>
-                  <li>Un cadre structuré qui produit du livrable à chaque séance.</li>
-                  <li>Un regard extérieur engagé sur les décisions concrètes.</li>
-                  <li>Le chaînon manquant entre comptabilité, stratégie et exécution.</li>
+                  <li>Vous cherchez une solution miracle en quelques semaines</li>
+                  <li>Vous voulez tout déléguer à un tiers</li>
+                  <li>Vous n&apos;êtes pas prêt(e) à investir 3-4h par mois</li>
+                  <li>Vous attendez qu&apos;on décide à votre place</li>
                 </ul>
               </Reveal>
             </div>
@@ -180,80 +176,75 @@ export default function MethodeEssorPage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-photo origine-section">
+        <VideoParallaxBg />
         <div className="container">
-          <Reveal className="essor-fit">
-            <span className="section-label">Pour qui</span>
-            <div className="section-sep" />
-            <h2 className="section-title">ESSOR fonctionne quand…</h2>
-            <div className="essor-fit-grid">
-              <div className="essor-fit-block">
-                <h4>Vous reconnaissez l&apos;une de ces situations</h4>
-                <ul>
-                  <li>Vous dirigez seul une TPE/PME et n&apos;avez pas les moyens d&apos;embaucher un directeur administratif et financier.</li>
-                  <li>Vous êtes dans l&apos;opérationnel et vous perdez le recul.</li>
-                  <li>Vous traversez un plateau de stagnation que vous ne savez pas comment franchir.</li>
-                  <li>Vous préparez une cession à 18-36 mois et vous voulez maximiser la valeur.</li>
-                  <li>Vous venez de racheter une entreprise et souhaitez structurer votre prise en main.</li>
-                </ul>
-              </div>
-              <div className="essor-fit-block essor-fit-block-not">
-                <h4>ESSOR n&apos;est pas pour vous si…</h4>
-                <ul>
-                  <li>Vous cherchez une solution miracle en quelques semaines.</li>
-                  <li>Vous voulez déléguer entièrement le pilotage à un tiers.</li>
-                  <li>Vous n&apos;êtes pas prêt à investir 3-4 heures de réflexion par mois.</li>
-                  <li>Vous attendez d&apos;un consultant qu&apos;il prenne les décisions à votre place.</li>
-                </ul>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <Reveal className="section-header center">
-            <span className="section-label">Origine de la méthode</span>
-            <div className="section-sep" />
-            <h2 className="section-title">Une méthode née du terrain,<br /><em>pas d&apos;un livre.</em></h2>
-            <p className="section-body" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
-              ESSOR s&apos;inspire d&apos;une franchise acquise il y a plusieurs années, EssOR des ENTREPRISES, qui a depuis déposé le bilan. Bruno Benattar l&apos;a adaptée à partir de son expérience terrain et de celle de son associé, de formation comptable. La méthode est appliquée dans ses accompagnements depuis 2021.
-            </p>
-            <p className="section-body" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
-              Elle peut s&apos;appliquer à tout moment stratégique : pilotage mensuel, mais aussi préparation avant une vente ou structuration après un rachat.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section" style={{ background: "var(--bg-secondary)" }}>
-        <div className="container">
-          <Reveal>
-            <p className="pull-quote">
-              Une bonne décision ne tombe pas du ciel.<br />
-              <em>Elle se prépare, elle se pilote.</em>
-            </p>
-          </Reveal>
-          <Reveal>
-            <div className="essor-cta-bridge">
-              <Link href="/offres#pilotage" className="btn btn-ghost">
-                Voir les formules de pilotage mensuel
-                <span aria-hidden="true">→</span>
+          <div className="origine-layout">
+            <Reveal className="origine-intro">
+              <span className="section-label">Origine de la méthode</span>
+              <div className="section-sep" />
+              <h2 className="section-title">Née du terrain,<br /><em>pas d&apos;un livre.</em></h2>
+              <p className="origine-lead">
+                ESSOR n&apos;est pas sortie d&apos;un manuel. Elle s&apos;est forgée sur le terrain, affinée année après année, au contact réel des dirigeants et de leurs décisions.
+              </p>
+              <Link href="/contact" className="btn btn-ghost">
+                Échanger sur votre situation <span aria-hidden="true">→</span>
               </Link>
+            </Reveal>
+
+            <div className="origine-steps">
+              <Reveal className="origine-step" delay={100}>
+                <span className="origine-step-ico" aria-hidden="true"><IconLoupe /></span>
+                <div>
+                  <h3>Le terrain</h3>
+                  <p>Adaptée de l&apos;expérience de Bruno comme chef d&apos;entreprise, au plus près des vraies contraintes.</p>
+                </div>
+              </Reveal>
+              <Reveal className="origine-step" delay={200}>
+                <span className="origine-step-ico" aria-hidden="true"><IconChart /></span>
+                <div>
+                  <h3>La rigueur</h3>
+                  <p>Affinée avec Thierry Le Lidec, son associé de formation comptable, pour ancrer chaque décision dans les chiffres.</p>
+                </div>
+              </Reveal>
+              <Reveal className="origine-step" delay={300}>
+                <span className="origine-step-ico" aria-hidden="true"><IconTrophy /></span>
+                <div>
+                  <h3>Depuis 2021</h3>
+                  <p>Appliquée à l&apos;accompagnement des TPE/PME, avant une vente ou après un rachat.</p>
+                </div>
+              </Reveal>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section essor-decision-section">
+        <div className="container">
+          <Reveal className="essor-decision">
+            <span className="essor-decision-eyebrow">La conviction Elity</span>
+            <p className="essor-decision-quote">
+              Une bonne décision<br />
+              <em>ne tombe pas du ciel.</em>
+            </p>
+            <p className="essor-decision-sub">Elle se prépare, elle se construit, mois après mois.</p>
+            <Link href="/offres#pilotage" className="btn btn-ghost">
+              Voir les formules d&apos;accompagnement mensuel
+              <span aria-hidden="true">→</span>
+            </Link>
           </Reveal>
         </div>
       </section>
 
-      <CtaStrip
+      <CtaFinal
         title={
           <>
-            Envie de découvrir<br />
-            <em>la méthode appliquée à votre cas&nbsp;?</em>
+            ESSOR appliqué <em>à votre entreprise ?</em>
           </>
         }
-        text="Premier échange confidentiel de 45 min à 1 h, sans engagement. Nous regardons ensemble si ESSOR correspond à votre rythme et à vos enjeux."
+        text="Premier échange confidentiel, sans engagement. On regarde ensemble si la méthode vous correspond."
+        secondaryLabel="Voir les formules"
+        secondaryHref="/offres#pilotage"
       />
     </>
   );

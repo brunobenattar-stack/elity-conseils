@@ -7,8 +7,8 @@ export default function Logo() {
       <Image
         src="/logo-elity.png"
         alt=""
-        width={38}
-        height={38}
+        width={184}
+        height={184}
         className="logo-mark"
         priority
       />
