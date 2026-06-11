@@ -47,7 +47,7 @@ const FALLBACK_CASES: CaseStudy[] = [
   {
     sector: "Résidence hôtelière",
     meta: "Cession · 2 associés · 18 mois · La Réunion",
-    tag: "Cession Elity + Procomm",
+    tag: "Cession Procomm Océan Indien",
     date: "2017-06-01",
     sectorCategory: "Hôtellerie",
     summary:
@@ -64,9 +64,9 @@ const FALLBACK_CASES: CaseStudy[] = [
         text: "En 2017, deux associés en désaccord depuis dix ans souhaitent céder leur résidence hôtelière. Le dossier est jugé impossible, même le notaire pensait qu'on perdait notre temps.",
       },
       {
-        eyebrow: "Notre intervention",
+        eyebrow: "L'intervention",
         title: "Tenir le cap, 18 mois durant",
-        text: "Un accompagnement patient et structuré de la transaction : valorisation défendable, recherche d'acquéreurs, médiation entre les associés, sécurisation de chaque condition.",
+        text: "À l'époque, Bruno opérait via la franchise Procomm Océan Indien (Elity Conseils n'existait pas encore). Un accompagnement patient et structuré de la transaction : valorisation défendable, recherche d'acquéreurs, médiation entre les associés, sécurisation de chaque condition.",
       },
       {
         eyebrow: "Le résultat",

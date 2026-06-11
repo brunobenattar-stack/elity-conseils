@@ -22,7 +22,7 @@ export default function MentionsLegalesPage() {
           <Reveal className="legal-page">
             <h2>Éditeur du site</h2>
             <p>
-              <strong>SAS Elity Conseils</strong> (Elity Conseils, Essor des Entreprises)<br />
+              <strong>SASU Elity Conseils</strong> (Elity Conseils, Essor des Entreprises)<br />
               Forme juridique : SASU, société par actions simplifiée unipersonnelle<br />
               SIREN : 902 290 147<br />
               SIRET (siège) : 902 290 147 00013<br />
@@ -35,7 +35,7 @@ export default function MentionsLegalesPage() {
             </p>
 
             <h2>Directeur de la publication</h2>
-            <p>Bruno Ben Attar, président de la SAS Elity Conseils.</p>
+            <p>Bruno Ben Attar, président de la SASU Elity Conseils.</p>
 
             <h2>Hébergement</h2>
             <p>

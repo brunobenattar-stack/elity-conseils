@@ -22,7 +22,7 @@ export default function ConfidentialitePage() {
           <Reveal className="legal-page">
             <h2>1. Responsable du traitement</h2>
             <p>
-              Le responsable du traitement des données est la <strong>SAS Elity Conseils</strong> (SIREN 902 290 147), représentée par Bruno Ben Attar, dont le siège est situé 15 Ruelle 46, 97436 Saint-Leu, La Réunion. Pour toute question relative à vos données, contactez-nous à <a href="mailto:contact@elityconseils.re">contact@elityconseils.re</a>.
+              Le responsable du traitement des données est la <strong>SASU Elity Conseils</strong> (SIREN 902 290 147), représentée par Bruno Ben Attar, dont le siège est situé 15 Ruelle 46, 97436 Saint-Leu, La Réunion. Pour toute question relative à vos données, contactez-nous à <a href="mailto:contact@elityconseils.re">contact@elityconseils.re</a>.
             </p>
 
             <h2>2. Données collectées</h2>
@@ -39,10 +39,16 @@ export default function ConfidentialitePage() {
             <p>
               Le formulaire de contact sert uniquement à permettre à <strong>Bruno Benattar et son équipe</strong> de vous recontacter, d'échanger sur votre situation et de vous proposer un accompagnement adapté (cession, acquisition ou accompagnement de dirigeant(e)). Vos données ne sont utilisées à aucune autre fin : ni démarchage commercial, ni publicité, ni revente.
             </p>
+            <p>
+              <strong>Base légale :</strong> le traitement repose sur votre consentement, donné au moment de l'envoi du formulaire, ainsi que sur l'intérêt légitime d'Elity Conseils à répondre à votre demande et à entrer en relation commerciale.
+            </p>
 
             <h2>4. Confidentialité</h2>
             <p>
               <strong>Vos informations sont strictement confidentielles.</strong> Elles ne sont jamais cédées, vendues ou transmises à des tiers, à l'exception de notre partenaire Procomm Océan Indien lorsque la mise en transaction le nécessite et avec votre accord explicite.
+            </p>
+            <p>
+              L'envoi du formulaire est assuré par notre prestataire technique <strong>Web3Forms</strong>, qui transmet votre message à notre adresse email. À ce titre, vos données peuvent être traitées sur des serveurs situés en dehors de l'Union européenne (États-Unis). Web3Forms agit en qualité de sous-traitant et n'utilise pas vos données à d'autres fins.
             </p>
 
             <h2>5. Durée de conservation</h2>
@@ -61,7 +67,7 @@ export default function ConfidentialitePage() {
               <li>Droit d'opposition</li>
             </ul>
             <p>
-              Pour exercer ces droits, écrivez à <a href="mailto:contact@elityconseils.re">contact@elityconseils.re</a>.
+              Pour exercer ces droits, écrivez à <a href="mailto:contact@elityconseils.re">contact@elityconseils.re</a>. Vous disposez également du droit d'introduire une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés), autorité de contrôle française, via son site <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>.
             </p>
 
             <h2>7. Cookies</h2>
