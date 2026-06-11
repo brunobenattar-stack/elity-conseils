@@ -15,7 +15,7 @@ export default function AproposBio() {
           Après un parcours dans l&apos;immobilier de luxe à l&apos;Ile Maurice, je suis entré dans la transaction d&apos;entreprise en 2013 en aidant mon père à céder son restaurant. J&apos;ai découvert la franchise Procomm, disponible sur les Iles Mascareignes, j&apos;ai suivi la formation d&apos;intégration et signé la franchise le 1er juillet 2015. Ce réseau d&apos;une quinzaine de cabinets en France nous apporte du poids, de la rigueur et une formation continue.
         </p>
         <p>
-          Pendant plus de dix ans, la préparation à la cession était offerte contre une prise de mandat exclusif : chronophage, rémunération incertaine. C&apos;est quand plusieurs vendeurs ont commencé à me demander combien cela leur coûterait que j&apos;ai formalisé cette prestation sous Elity Conseils. L&apos;idée de la développer à plus grande échelle est venue naturellement.
+          Compte tenu des difficultés à faire financer les reprises de société, nous avons mis en place un service d&apos;accompagnement à la cession en amont de la mise en vente, pour structurer le dossier et optimiser les chances de transmission. Formaliser cette préparation sous Elity Conseils est devenu une évidence : une entreprise bien préparée se vend mieux, plus vite, et dans de meilleures conditions.
         </p>
       </div>
       <button
