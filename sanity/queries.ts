@@ -46,6 +46,7 @@ export type SanityArticle = {
   category?: string;
   excerpt?: string;
   coverUrl?: string;
+  body?: string;
 };
 
 async function safeFetch<T>(query: string, fallback: T): Promise<T> {
@@ -93,7 +94,8 @@ export function getArticles() {
   return safeFetch<SanityArticle[]>(
     `*[_type == "article"] | order(date desc){
       title, "slug": slug.current, date, category, excerpt,
-      "coverUrl": cover.asset->url
+      "coverUrl": cover.asset->url,
+      "body": pt::text(body)
     }`,
     []
   );

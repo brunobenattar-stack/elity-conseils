@@ -62,7 +62,7 @@ export default function Footer() {
               <li><Link href="/offres#pilotage">Accompagnement mensuel</Link></li>
               <li><Link href="/methode-essor">Méthode ESSOR</Link></li>
               <li><Link href="/cas-clients">Cas clients</Link></li>
-              <li><Link href="/actualites">Actualités</Link></li>
+              <li><Link href="/cas-clients#actualites">Actualités</Link></li>
               <li><Link href="/faq">FAQ</Link></li>
               <li><Link href="/a-propos">À Propos</Link></li>
               <li><Link href="/nos-partenaires">Nos Partenaires</Link></li>

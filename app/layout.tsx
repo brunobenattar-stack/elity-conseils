@@ -66,8 +66,8 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/logo-elity.png",
-    apple: "/logo-elity.png",
+    icon: "/favicon-elity.png",
+    apple: "/favicon-elity.png",
   },
 };
 

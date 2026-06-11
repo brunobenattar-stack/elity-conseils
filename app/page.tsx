@@ -155,7 +155,7 @@ export default function HomePage() {
 
           <Reveal>
             <div style={{ textAlign: "center", marginTop: 48 }}>
-              <Link href="/cas-clients/etudes" className="btn btn-ghost">
+              <Link href="/cas-clients" className="btn btn-ghost">
                 En savoir plus
                 <span aria-hidden="true">→</span>
               </Link>

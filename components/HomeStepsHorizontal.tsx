@@ -4,7 +4,7 @@
 // Mobile : accordéon expansible (anti scroll trop long)
 
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useIsMobile } from "./useIsMobile";
 
 type Step = {
@@ -68,16 +68,32 @@ export default function HomeStepsHorizontal() {
 
 function DesktopHorizontalSteps() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  // 2 panels visibles à la fois. Translate final -72% pour que la 5e étape finisse
-  // calée à droite (plus de grand vide). Le mapping se termine à 82% du scroll : les
-  // ~18% restants laissent la section sortir vers le bas sans temps mort.
-  const x = useTransform(scrollYProgress, [0, 0.82], ["0%", "-72%"]);
-  const progressBarScale = useTransform(scrollYProgress, [0, 0.82], [0, 1]);
+  // Distance de translation = largeur réelle de la piste − largeur du viewport.
+  // Mesurée au runtime (et au resize) pour que la dernière étape finisse pile
+  // cadrée à droite à TOUTES les largeurs desktop, sans vide ni rognage.
+  const [maxShift, setMaxShift] = useState(0);
+  useEffect(() => {
+    const measure = () => {
+      const track = trackRef.current;
+      if (!track) return;
+      const shift = track.scrollWidth - window.innerWidth;
+      setMaxShift(shift > 0 ? shift : 0);
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  // Le défilement horizontal se termine à 90% du scroll (la dernière étape est
+  // alors cadrée) ; les 10% restants laissent la section sortir sans temps mort.
+  const x = useTransform(scrollYProgress, [0, 0.9], [0, -maxShift]);
+  const progressBarScale = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
 
   return (
     <section className="steps-horizontal" ref={containerRef}>
@@ -90,7 +106,7 @@ function DesktopHorizontalSteps() {
           </h2>
         </div>
 
-        <motion.div className="steps-horizontal-track" style={{ x }}>
+        <motion.div className="steps-horizontal-track" ref={trackRef} style={{ x }}>
           {STEPS.map((s, i) => (
             <StepPanel key={s.num} step={s} index={i} total={STEPS.length} />
           ))}

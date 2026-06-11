@@ -6,25 +6,37 @@ import { useEffect, useState, useRef, Fragment } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "./Logo";
 
-const DESKTOP_LINKS = [
+type NavLink = {
+  href: string;
+  label: string;
+  submenu?: { href: string; label: string }[];
+};
+
+const DESKTOP_LINKS: NavLink[] = [
   { href: "/", label: "Accueil" },
   { href: "/approche", label: "Approche" },
   { href: "/offres", label: "Offres" },
   { href: "/methode-essor", label: "Méthode ESSOR" },
-  { href: "/cas-clients", label: "Cas clients" },
-  { href: "/actualites", label: "Actualités" },
+  {
+    href: "/cas-clients",
+    label: "Cas clients",
+    submenu: [
+      { href: "/cas-clients#cas", label: "Cas clients" },
+      { href: "/cas-clients#actualites", label: "Actualités" },
+    ],
+  },
   { href: "/faq", label: "FAQ" },
   { href: "/a-propos", label: "À Propos" },
   { href: "/contact", label: "Contact" },
 ];
 
-const MOBILE_LINKS = [
+const MOBILE_LINKS: NavLink[] = [
   { href: "/", label: "Accueil" },
   { href: "/approche", label: "Approche" },
   { href: "/offres", label: "Offres" },
   { href: "/methode-essor", label: "Méthode ESSOR" },
-  { href: "/cas-clients", label: "Cas clients" },
-  { href: "/actualites", label: "Actualités" },
+  { href: "/cas-clients#cas", label: "Cas clients" },
+  { href: "/cas-clients#actualites", label: "Actualités" },
   { href: "/faq", label: "FAQ" },
   { href: "/a-propos", label: "À Propos" },
   { href: "/contact", label: "Contact" },
@@ -80,13 +92,22 @@ export default function Navbar() {
       <div className="container nav-inner">
         <Logo />
 
-        {/* Desktop nav links — ligne unique, 8 pages */}
+        {/* Desktop nav links — ligne unique */}
         <ul className="nav-links">
           {DESKTOP_LINKS.map((l) => (
-            <li key={l.href}>
+            <li key={l.href} className={l.submenu ? "nav-has-submenu" : undefined}>
               <Link href={l.href} className={isActive(l.href) ? "active" : ""}>
                 {l.label}
               </Link>
+              {l.submenu && (
+                <ul className="nav-submenu">
+                  {l.submenu.map((s) => (
+                    <li key={s.href}>
+                      <Link href={s.href}>{s.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ul>

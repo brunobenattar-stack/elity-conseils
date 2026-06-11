@@ -224,10 +224,11 @@ export default function MethodeEssorPage() {
           <Reveal className="essor-decision">
             <span className="essor-decision-eyebrow">La conviction Elity</span>
             <p className="essor-decision-quote">
-              Une bonne décision<br />
-              <em>ne tombe pas du ciel.</em>
+              Une bonne décision ne tombe pas du ciel.
             </p>
-            <p className="essor-decision-sub">Elle se prépare, elle se construit, mois après mois.</p>
+            <p className="essor-decision-sub">
+              <em>Elle se prépare, elle se construit, mois après mois.</em>
+            </p>
             <Link href="/offres#pilotage" className="btn btn-ghost">
               Voir les formules d&apos;accompagnement mensuel
               <span aria-hidden="true">→</span>
