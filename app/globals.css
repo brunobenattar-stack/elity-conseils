@@ -6585,6 +6585,7 @@ main { position: relative; z-index: 2; }
   .navbar .logo-text {
     overflow: hidden;
     max-width: 240px;
+    margin-left: -20px;
     opacity: 1;
     transform: translateX(0);
     transition:
