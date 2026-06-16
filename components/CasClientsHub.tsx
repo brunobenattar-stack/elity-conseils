@@ -55,6 +55,8 @@ export default function CasClientsHub({
   const [overlay, setOverlay] = useState<OverlayContent>(null);
   const [caseSector, setCaseSector] = useState<string>("all");
   const [caseSort, setCaseSort] = useState<"recent" | "old">("recent");
+  const [caseFrom, setCaseFrom] = useState<string>("");
+  const [caseTo, setCaseTo] = useState<string>("");
   const [artCategory, setArtCategory] = useState<string>("all");
   const [artSort, setArtSort] = useState<"recent" | "old">("recent");
   const [artFrom, setArtFrom] = useState<string>("");
@@ -124,6 +126,8 @@ export default function CasClientsHub({
   );
   const filteredCases = cases
     .filter((c) => caseSector === "all" || c.sectorCategory === caseSector)
+    .filter((c) => !caseFrom || (c.date ?? "") >= caseFrom)
+    .filter((c) => !caseTo || (c.date ?? "") <= caseTo)
     .slice()
     .sort((a, b) => {
       const cmp = (b.date ?? "").localeCompare(a.date ?? "");
@@ -222,6 +226,43 @@ export default function CasClientsHub({
                     Plus anciennes
                   </button>
                 </div>
+                <div className="blog-filter blog-filter-dates" aria-label="Filtrer par dates">
+                  <label className="blog-date-field">
+                    <span>Du</span>
+                    <input
+                      type="date"
+                      value={caseFrom}
+                      max={caseTo || undefined}
+                      onChange={(e) => setCaseFrom(e.target.value)}
+                    />
+                  </label>
+                  <label className="blog-date-field">
+                    <span>Au</span>
+                    <input
+                      type="date"
+                      value={caseTo}
+                      min={caseFrom || undefined}
+                      onChange={(e) => setCaseTo(e.target.value)}
+                    />
+                  </label>
+                  {(caseFrom || caseTo) && (
+                    <button
+                      type="button"
+                      className="blog-filter-btn"
+                      onClick={() => {
+                        setCaseFrom("");
+                        setCaseTo("");
+                      }}
+                    >
+                      Réinitialiser
+                    </button>
+                  )}
+                </div>
+                {filteredCases.length === 0 && (
+                  <Reveal className="blog-empty">
+                    <p>Aucune étude de cas ne correspond à ces filtres.</p>
+                  </Reveal>
+                )}
 
                 <div className="blog-grid">
                   {filteredCases.map((c, i) => (
