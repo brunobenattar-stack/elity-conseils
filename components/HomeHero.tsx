@@ -21,19 +21,49 @@ export default function HomeHero() {
     return () => cancelAnimationFrame(id);
   }, []);
 
-  // Force autoplay sur iOS — déclenché au mount ET à chaque changement d'état
+  // Force autoplay sur iOS : attributs imperatifs + retries sur evenements + fallback interaction
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-    video.muted = true;
-    video.play().catch(() => {});
-  }, []);
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    // Attributs requis par iOS, poses imperativement (certains navigateurs ignorent le JSX)
     video.muted = true;
-    video.play().catch(() => {});
+    video.defaultMuted = true;
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+
+    const tryPlay = () => {
+      video.muted = true;
+      const p = video.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    };
+
+    // Tentative immediate + sur les evenements de chargement (iOS n'est pret qu'apres buffering)
+    tryPlay();
+    video.addEventListener("loadedmetadata", tryPlay);
+    video.addEventListener("loadeddata", tryPlay);
+    video.addEventListener("canplay", tryPlay);
+
+    // Filet de securite : si l'autoplay est bloque (Low Power Mode...), demarre au 1er geste
+    const onInteract = () => {
+      tryPlay();
+    };
+    window.addEventListener("touchstart", onInteract, { once: true, passive: true });
+    window.addEventListener("scroll", onInteract, { once: true, passive: true });
+    document.addEventListener("visibilitychange", tryPlay);
+
+    // Force le navigateur a (re)charger la source pour declencher le buffering
+    if (video.readyState === 0) video.load();
+
+    return () => {
+      video.removeEventListener("loadedmetadata", tryPlay);
+      video.removeEventListener("loadeddata", tryPlay);
+      video.removeEventListener("canplay", tryPlay);
+      window.removeEventListener("touchstart", onInteract);
+      window.removeEventListener("scroll", onInteract);
+      document.removeEventListener("visibilitychange", tryPlay);
+    };
   }, [isMobile]);
 
   return (
