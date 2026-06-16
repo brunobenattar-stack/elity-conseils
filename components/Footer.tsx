@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Logo from "./Logo";
+import LogoMark from "./LogoMark";
 
 const LinkedInIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -41,7 +41,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid footer-grid-v3">
           <div className="footer-brand">
-            <Logo />
+            <LogoMark />
             <p className="footer-tagline">Structurer aujourd&apos;hui. Valoriser demain.</p>
             <p className="footer-partner">En partenariat avec Procomm Océan Indien</p>
             <div className="footer-social">
