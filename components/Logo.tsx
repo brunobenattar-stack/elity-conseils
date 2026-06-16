@@ -14,7 +14,11 @@ export default function Logo() {
       />
       <span className="logo-text">
         <span className="logo-name">ELITY</span>
-        <span className="logo-sub">CONSEILS</span>
+        <span className="logo-sub">
+          <span className="dash" aria-hidden="true" />
+          CONSEILS
+          <span className="dash" aria-hidden="true" />
+        </span>
       </span>
     </Link>
   );
