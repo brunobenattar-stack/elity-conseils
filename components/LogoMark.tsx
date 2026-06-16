@@ -1,25 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
 
-// Ancien logo (compass + texte HTML) : utilise dans le footer.
+// Logo du footer : meme lockup image que le header, mais version avec contours blancs.
 export default function LogoMark() {
   return (
     <Link href="/" className="logo" aria-label="Elity Conseils, Accueil">
       <Image
-        src="/logo-elity.png"
-        alt=""
-        width={184}
-        height={184}
-        className="logo-mark"
+        src="/logo-elity-full-bordered.png"
+        alt="Elity Conseils"
+        width={1280}
+        height={500}
+        className="logo-lockup"
       />
-      <span className="logo-text">
-        <span className="logo-name">ELITY</span>
-        <span className="logo-sub">
-          <span className="dash" aria-hidden="true" />
-          CONSEILS
-          <span className="dash" aria-hidden="true" />
-        </span>
-      </span>
     </Link>
   );
 }
