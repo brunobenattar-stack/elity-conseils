@@ -5,13 +5,17 @@ export default function Logo() {
   return (
     <Link href="/" className="logo" aria-label="Elity Conseils, Accueil">
       <Image
-        src="/logo-elity-full.png"
-        alt="Elity Conseils, Approche stratégique"
-        width={956}
-        height={362}
-        className="logo-lockup"
+        src="/logo-elity.png"
+        alt=""
+        width={184}
+        height={184}
+        className="logo-mark"
         priority
       />
+      <span className="logo-text">
+        <span className="logo-name">ELITY</span>
+        <span className="logo-sub">CONSEILS</span>
+      </span>
     </Link>
   );
 }
