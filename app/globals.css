@@ -327,6 +327,7 @@ main { position: relative; z-index: 2; }
 }
 .logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 .logo-mark { width: 62px; height: 62px; flex-shrink: 0; }
+.logo-lockup { height: 48px; width: auto; display: block; }
 .logo-text { display: flex; flex-direction: column; line-height: 1; }
 .logo-name {
   font-family: var(--serif);
@@ -6503,6 +6504,7 @@ main { position: relative; z-index: 2; }
 
   .navbar { padding: 8px 0; }
   .logo-mark { width: 72px; height: 72px; }
+  .logo-lockup { height: 40px; }
   /* Navbar haut mobile : contour doré visible */
   .navbar {
     margin: 10px;
