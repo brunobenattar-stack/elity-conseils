@@ -6507,7 +6507,10 @@ main { position: relative; z-index: 2; }
 
   .navbar { padding: 2px 0; }
   .logo-mark { width: 88px; height: 88px; }
-  .logo-lockup { height: 84px; }
+  /* Header mobile : logo reduit (~moitie) pour resserrer la hauteur de la navbar */
+  .navbar .logo-lockup { height: 42px; }
+  /* Footer mobile : logo lockup garde sa taille */
+  .footer .logo-lockup { height: 84px; }
   /* Navbar haut mobile : contour doré visible */
   .navbar {
     margin: 10px;
