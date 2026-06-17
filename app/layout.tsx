@@ -66,8 +66,11 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/favicon-elity.png",
-    apple: "/favicon-elity.png",
+    icon: [
+      { url: "/favicon.ico?v=2", sizes: "any" },
+      { url: "/favicon-elity.png?v=2", type: "image/png", sizes: "512x512" },
+    ],
+    apple: "/apple-icon.png?v=2",
   },
 };
 
