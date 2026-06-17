@@ -6,14 +6,14 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useIsMobile } from "./useIsMobile";
-import { useContent } from "@/lib/ContentProvider";
+import type { HeroContent } from "@/lib/content";
+import { defaultContent } from "@/lib/content";
 import HeroCompassBg from "./HeroCompassBg";
 
-export default function HomeHero() {
+export default function HomeHero({ hero }: { hero?: HeroContent }) {
   const [loaded, setLoaded] = useState(false);
   const isMobile = useIsMobile(1024);
-  const { content } = useContent();
-  const h = content.hero;
+  const h = hero ?? defaultContent.hero;
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {

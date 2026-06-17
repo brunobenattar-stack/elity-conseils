@@ -76,11 +76,32 @@ const faqItems = [
   { group: "pratique", question: "Travaillez-vous avec des avocats et notaires ?", answer: "Oui. Pour une cession, nous coordonnons avec vos conseils existants (avocat d'affaires, expert-comptable, notaire) ou vous orientons vers des partenaires de confiance si nécessaire. Notre rôle est de garantir la cohérence de l'ensemble." },
 ].map((f, i) => ({ ...f, _id: `faq-${String(i + 1).padStart(2, "0")}`, _type: "faqItem", order: i }));
 
+const heroSection = {
+  _id: "heroSection",
+  _type: "heroSection",
+  eyebrow: "La Réunion · Ile Maurice · Océan Indien",
+  titleLine1: "Céder, reprendre,",
+  titleEm: "structurer avant d'agir.",
+  sub: "Elity Conseils accompagne les dirigeantes et dirigeants de l'Océan Indien dans leur stratégie de cession ou d'acquisition, et les aide à piloter leur entreprise sur le long terme.",
+  cta1Label: "Entamer un échange",
+  cta1Href: "/contact",
+  cta2Label: "Découvrir notre approche",
+  cta2Href: "/approche",
+  chip1Label: "Confidentialité totale",
+  chip1Sub: "Premier échange sans engagement",
+  chip2Num: "10+",
+  chip2Label: "Années d'expérience",
+  chip2Sub: "Franchisé Procomm depuis 2015",
+};
+
+// createIfNotExists pour le hero : on ne veut PAS ecraser les edits du client
+// si on relance le seed. (Les autres docs utilisent createOrReplace, idempotent.)
 async function run() {
   const tx = client.transaction();
   for (const doc of [...caseStudies, ...offers, ...faqItems]) {
     tx.createOrReplace(doc);
   }
+  tx.createIfNotExists(heroSection);
   const res = await tx.commit();
   console.log(`OK : ${res.results.length} documents crees/mis a jour dans Sanity.`);
 }

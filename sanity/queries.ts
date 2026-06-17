@@ -56,6 +56,22 @@ export type SanityArticle = {
   link?: string;
 };
 
+export type SanityHero = {
+  eyebrow?: string;
+  titleLine1?: string;
+  titleEm?: string;
+  sub?: string;
+  cta1Label?: string;
+  cta1Href?: string;
+  cta2Label?: string;
+  cta2Href?: string;
+  chip1Label?: string;
+  chip1Sub?: string;
+  chip2Num?: string;
+  chip2Label?: string;
+  chip2Sub?: string;
+};
+
 async function safeFetch<T>(query: string, fallback: T): Promise<T> {
   try {
     const data = await client.fetch<T>(query, {}, { next: { revalidate: 60 } });
@@ -96,6 +112,17 @@ export function getPageTexts() {
   return safeFetch<SanityPageText[]>(
     `*[_type == "pageText"]{ key, eyebrow, heading, body }`,
     []
+  );
+}
+
+export function getHero() {
+  return safeFetch<SanityHero | null>(
+    `*[_type == "heroSection"][0]{
+      eyebrow, titleLine1, titleEm, sub,
+      cta1Label, cta1Href, cta2Label, cta2Href,
+      chip1Label, chip1Sub, chip2Num, chip2Label, chip2Sub
+    }`,
+    null
   );
 }
 

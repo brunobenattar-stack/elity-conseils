@@ -5,7 +5,8 @@ import offer from "./offer";
 import faqItem from "./faqItem";
 import pageText from "./pageText";
 import article from "./article";
+import heroSection from "./heroSection";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [caseStudy, offer, faqItem, pageText, article],
+  types: [caseStudy, offer, faqItem, pageText, article, heroSection],
 };

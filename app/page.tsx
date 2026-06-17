@@ -8,13 +8,25 @@ import HomeStepsHorizontal from "@/components/HomeStepsHorizontal";
 import HomeBrunoParallax from "@/components/HomeBrunoParallax";
 import CessionOffers from "@/components/CessionOffers";
 import MagneticButton from "@/components/MagneticButton";
+import { getHero } from "@/sanity/queries";
+import { defaultContent } from "@/lib/content";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const sanityHero = await getHero();
+  // Sanity prioritaire, repli sur le contenu par defaut champ par champ.
+  const hero = { ...defaultContent.hero };
+  if (sanityHero) {
+    (Object.keys(hero) as (keyof typeof hero)[]).forEach((k) => {
+      const v = sanityHero[k];
+      if (typeof v === "string" && v.trim() !== "") hero[k] = v;
+    });
+  }
+
   return (
     <>
       {/* 1+2. HERO + PROBLÈME */}
       <div id="section-hero" className="hero-parallax-zone">
-        <HomeHero />
+        <HomeHero hero={hero} />
         <HomeProblem />
       </div>
 
