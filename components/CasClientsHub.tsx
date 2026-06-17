@@ -17,6 +17,7 @@ export type CaseStudy = {
   date?: string;
   sectorCategory?: string;
   coverUrl?: string;
+  icon?: string;
   link?: string;
 };
 
@@ -37,6 +38,49 @@ function formatDate(iso: string) {
   } catch {
     return iso;
   }
+}
+
+// Icônes disponibles pour les cartes (quand aucune image n'est renseignée).
+const CARD_ICON_PATHS: Record<string, string> = {
+  compass: "M12 2l2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2z",
+  handshake: "M8 11l3-3 3 3 3-3 3 3-6 6-3-3-3 3-3-3 3-3z",
+  growth: "M4 18l5-5 3 3 7-7M21 9V4h-5",
+  shield: "M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z",
+  document: "M7 3h7l4 4v14H7V3zM14 3v4h4",
+  building: "M4 21V5l8-3 8 3v16M9 9h.01M15 9h.01M9 13h.01M15 13h.01M9 17h6",
+  target: "M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0-18 0M12 12m-5 0a5 5 0 1 0 10 0a5 5 0 1 0-10 0M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0",
+  bulb: "M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z",
+};
+
+function CardVisual({
+  coverUrl,
+  icon,
+  label,
+}: {
+  coverUrl?: string;
+  icon?: string;
+  label: string;
+}) {
+  if (coverUrl) {
+    return (
+      <div
+        className="blog-card-cover"
+        style={{ backgroundImage: `url(${coverUrl})` }}
+        role="img"
+        aria-label={label}
+      />
+    );
+  }
+  if (icon && CARD_ICON_PATHS[icon]) {
+    return (
+      <div className="blog-card-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+          <path d={CARD_ICON_PATHS[icon]} />
+        </svg>
+      </div>
+    );
+  }
+  return null;
 }
 
 type OverlayContent =
@@ -271,14 +315,7 @@ export default function CasClientsHub({
                       delay={(((i % 3) + 1) * 100) as 100 | 200 | 300}
                     >
                       <article className="blog-card">
-                        {c.coverUrl && (
-                          <div
-                            className="blog-card-cover"
-                            style={{ backgroundImage: `url(${c.coverUrl})` }}
-                            role="img"
-                            aria-label={c.sector}
-                          />
-                        )}
+                        <CardVisual coverUrl={c.coverUrl} icon={c.icon} label={c.sector} />
                         <div className="blog-card-body">
                           <div className="blog-card-meta">
                             <span className="blog-card-cat">{c.tag}</span>
@@ -397,14 +434,7 @@ export default function CasClientsHub({
                       delay={(((i % 3) + 1) * 100) as 100 | 200 | 300}
                     >
                       <article className="blog-card">
-                        {a.coverUrl && (
-                          <div
-                            className="blog-card-cover"
-                            style={{ backgroundImage: `url(${a.coverUrl})` }}
-                            role="img"
-                            aria-label={a.title}
-                          />
-                        )}
+                        <CardVisual coverUrl={a.coverUrl} icon={a.icon} label={a.title} />
                         <div className="blog-card-body">
                           <div className="blog-card-meta">
                             <time dateTime={a.date}>{formatDate(a.date)}</time>

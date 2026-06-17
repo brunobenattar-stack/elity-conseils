@@ -43,7 +43,26 @@ export default defineType({
       title: "Image de la carte (optionnelle)",
       type: "image",
       options: { hotspot: true },
-      description: "Affichée en haut de la carte si renseignée.",
+      description: "Affichée en haut de la carte si renseignée. Si vide, on peut choisir une icône ci-dessous.",
+    }),
+    defineField({
+      name: "icon",
+      title: "Icône (si pas d'image)",
+      type: "string",
+      description: "Grande icône affichée en haut de la carte quand aucune image n'est renseignée.",
+      options: {
+        list: [
+          { title: "Aucune", value: "" },
+          { title: "Boussole (stratégie)", value: "compass" },
+          { title: "Poignée de main (cession)", value: "handshake" },
+          { title: "Courbe de croissance", value: "growth" },
+          { title: "Bouclier (sécurisation)", value: "shield" },
+          { title: "Document / dossier", value: "document" },
+          { title: "Bâtiment / entreprise", value: "building" },
+          { title: "Cible (objectif)", value: "target" },
+          { title: "Ampoule (idée)", value: "bulb" },
+        ],
+      },
     }),
     defineField({
       name: "link",

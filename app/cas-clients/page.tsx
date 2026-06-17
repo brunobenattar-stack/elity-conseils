@@ -94,6 +94,7 @@ export default async function CasClientsPage() {
         date: c.date,
         sectorCategory: c.sectorCategory,
         coverUrl: c.coverUrl,
+        icon: c.icon,
         link: c.link,
         metrics: c.metrics ?? [],
         phases: (c.phases ?? []).map((p) => ({

@@ -10823,6 +10823,22 @@ main { position: relative; z-index: 2; }
   background-size: cover;
   background-position: center;
 }
+.blog-card-icon {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(201, 165, 90, 0.14), transparent 70%),
+    var(--bg-deep, #0b0f1a);
+  color: var(--gold-main, #c9a55a);
+  border-bottom: 1px solid var(--gold-border, rgba(201, 165, 90, 0.18));
+}
+.blog-card-icon svg {
+  width: 64px;
+  height: 64px;
+}
 .blog-card-body {
   display: flex;
   flex-direction: column;
