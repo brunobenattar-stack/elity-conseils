@@ -27,7 +27,6 @@ const DESKTOP_LINKS: NavLink[] = [
   },
   { href: "/faq", label: "FAQ" },
   { href: "/a-propos", label: "À Propos" },
-  { href: "/contact", label: "Contact" },
 ];
 
 const MOBILE_LINKS: NavLink[] = [
