@@ -18,7 +18,7 @@ export type SanityArticle = {
   excerpt?: string;
   coverUrl?: string;
   icon?: string;
-  body?: string;
+  body?: SanityBodyBlock[];
   link?: string;
 };
 
@@ -119,6 +119,10 @@ export type SanityCasItem = {
   author?: string;
 };
 
+export type SanityBodyBlock =
+  | { _type: "block"; text: string }
+  | { _type: "image"; imageUrl?: string };
+
 export type SanityArticleItem = {
   statut?: string;
   title?: string;
@@ -127,7 +131,7 @@ export type SanityArticleItem = {
   excerpt?: string;
   coverUrl?: string;
   icon?: string;
-  body?: string;
+  body?: SanityBodyBlock[];
   link?: string;
 };
 
@@ -292,7 +296,8 @@ export function getCasClientsPage() {
       cases[]{ statut, sector, meta, tag, sectorCategory, date, icon, link,
         "coverUrl": cover.asset->url, metrics, phases, quote, author },
       articles[]{ statut, title, date, category, excerpt, icon, link,
-        "coverUrl": cover.asset->url, "body": pt::text(body) }
+        "coverUrl": cover.asset->url,
+        "body": body[]{ _type, _type == "block" => { "text": pt::text(@) }, _type == "image" => { "imageUrl": asset->url } } }
     }`,
     null
   );

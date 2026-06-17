@@ -323,7 +323,18 @@ export default function CasClientsHub({
                       key={c.sector}
                       delay={(((i % 3) + 1) * 100) as 100 | 200 | 300}
                     >
-                      <article className="blog-card">
+                      <article
+                        className="blog-card blog-card-clickable"
+                        onClick={() => !c.link && setOverlay({ kind: "case", data: c })}
+                        role={c.link ? undefined : "button"}
+                        tabIndex={c.link ? undefined : 0}
+                        onKeyDown={(e) => {
+                          if (!c.link && (e.key === "Enter" || e.key === " ")) {
+                            e.preventDefault();
+                            setOverlay({ kind: "case", data: c });
+                          }
+                        }}
+                      >
                         <CardVisual coverUrl={c.coverUrl} icon={c.icon} label={c.sector} />
                         <div className="blog-card-body">
                           <div className="blog-card-meta">
@@ -334,24 +345,20 @@ export default function CasClientsHub({
                           </div>
                           <h3 className="blog-card-title">{c.sector}</h3>
                           <p className="blog-card-sub">{c.meta}</p>
-                          <p className="blog-card-excerpt">{c.summary}</p>
                           {c.link ? (
                             <a
                               href={c.link}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="blog-card-cta"
+                              onClick={(e) => e.stopPropagation()}
                             >
                               En savoir plus <span aria-hidden="true">→</span>
                             </a>
                           ) : (
-                            <button
-                              type="button"
-                              className="blog-card-cta"
-                              onClick={() => setOverlay({ kind: "case", data: c })}
-                            >
+                            <span className="blog-card-cta">
                               En savoir plus <span aria-hidden="true">→</span>
-                            </button>
+                            </span>
                           )}
                         </div>
                       </article>
@@ -442,7 +449,18 @@ export default function CasClientsHub({
                       key={a.slug || a.title}
                       delay={(((i % 3) + 1) * 100) as 100 | 200 | 300}
                     >
-                      <article className="blog-card">
+                      <article
+                        className="blog-card blog-card-clickable"
+                        onClick={() => !a.link && setOverlay({ kind: "article", data: a })}
+                        role={a.link ? undefined : "button"}
+                        tabIndex={a.link ? undefined : 0}
+                        onKeyDown={(e) => {
+                          if (!a.link && (e.key === "Enter" || e.key === " ")) {
+                            e.preventDefault();
+                            setOverlay({ kind: "article", data: a });
+                          }
+                        }}
+                      >
                         <CardVisual coverUrl={a.coverUrl} icon={a.icon} label={a.title} />
                         <div className="blog-card-body">
                           <div className="blog-card-meta">
@@ -463,17 +481,14 @@ export default function CasClientsHub({
                               target="_blank"
                               rel="noopener noreferrer"
                               className="blog-card-cta"
+                              onClick={(e) => e.stopPropagation()}
                             >
                               En savoir plus <span aria-hidden="true">→</span>
                             </a>
                           ) : (
-                            <button
-                              type="button"
-                              className="blog-card-cta"
-                              onClick={() => setOverlay({ kind: "article", data: a })}
-                            >
+                            <span className="blog-card-cta">
                               En savoir plus <span aria-hidden="true">→</span>
-                            </button>
+                            </span>
                           )}
                         </div>
                       </article>
@@ -505,7 +520,7 @@ export default function CasClientsHub({
           aria-modal="true"
           onClick={() => setOverlay(null)}
         >
-          <div className="blog-overlay-panel" onClick={(e) => e.stopPropagation()}>
+          <div className="blog-overlay-panel" data-lenis-prevent onClick={(e) => e.stopPropagation()}>
             <button
               type="button"
               className="blog-overlay-close"
@@ -587,11 +602,25 @@ function ArticleReader({ data: a }: { data: SanityArticle }) {
         />
       )}
       {a.excerpt && <p className="blog-reader-lead">{a.excerpt}</p>}
-      {a.body ? (
+      {a.body && a.body.length > 0 ? (
         <div className="blog-reader-body">
-          {a.body.split("\n").filter(Boolean).map((para, i) => (
-            <p key={i}>{para}</p>
-          ))}
+          {a.body.map((block, i) => {
+            if (block._type === "image" && block.imageUrl) {
+              return (
+                <img
+                  key={i}
+                  src={block.imageUrl}
+                  alt=""
+                  className="blog-reader-body-img"
+                  loading="lazy"
+                />
+              );
+            }
+            if (block._type === "block" && block.text) {
+              return <p key={i}>{block.text}</p>;
+            }
+            return null;
+          })}
         </div>
       ) : (
         <p className="blog-reader-body">{a.excerpt}</p>

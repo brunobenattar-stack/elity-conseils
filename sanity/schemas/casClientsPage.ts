@@ -68,7 +68,7 @@ const articleObject = {
     { name: "excerpt", title: "Court résumé", type: "text", rows: 3, description: "Petit texte affiché sur la carte." },
     { name: "cover", title: "Image de couverture", type: "image", options: { hotspot: true } },
     { name: "icon", title: "Icône (si pas d'image)", type: "string", options: { list: ICON_LIST } },
-    { name: "body", title: "Contenu", type: "array", of: [{ type: "block" }] },
+    { name: "body", title: "Contenu", type: "array", of: [{ type: "block" }, { type: "image", options: { hotspot: true } }] },
     { name: "link", title: "Lien de redirection (optionnel)", type: "url" },
   ],
   preview: { select: { title: "title", subtitle: "date", media: "cover" } },
