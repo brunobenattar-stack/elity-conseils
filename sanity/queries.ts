@@ -50,20 +50,74 @@ export type SanityArticle = {
 };
 
 export type SanityApproche = {
+  label?: string;
   heading?: string;
   intro?: string;
-  steps?: { label?: string; title?: string; desc?: string; bullets?: string[] }[];
+  steps?: { eyebrow?: string; title?: string; desc?: string; points?: string[] }[];
+  dualLabel?: string;
+  dualTitle1?: string;
+  dualTitle2?: string;
+  acquisitionEyebrow?: string;
+  acquisitionTitle?: string;
+  acquisitionText?: string;
+  acquisitionPoints?: string[];
+  accompagnementEyebrow?: string;
+  accompagnementTitle?: string;
+  accompagnementText?: string;
+  accompagnementPoints?: string[];
+  teamLabel?: string;
+  teamTitle1?: string;
+  teamTitle2?: string;
+  teamIntro?: string;
+  team?: { role?: string; name?: string; text?: string }[];
 };
 
 export type SanityEssor = {
-  heading?: string;
   intro?: string;
-  steps?: { label?: string; title?: string; desc?: string; bullets?: string[]; outcome?: string }[];
+  steps?: { name?: string; baseline?: string; what?: string; deliverables?: string[]; shift?: string }[];
+  fitLabel?: string;
+  fitTitle1?: string;
+  fitTitle2?: string;
+  fitYesTitle?: string;
+  fitYes?: string[];
+  fitNoTitle?: string;
+  fitNo?: string[];
+  origineLabel?: string;
+  origineTitle1?: string;
+  origineTitle2?: string;
+  origineLead?: string;
+  origineSteps?: { title?: string; text?: string }[];
+  convictionEyebrow?: string;
+  convictionQuote?: string;
+  convictionSub?: string;
 };
 
 export type SanityOffersPage = {
   heading?: string;
   intro?: string;
+};
+
+export type SanityContact = {
+  label?: string;
+  title1?: string;
+  title2?: string;
+  sub?: string;
+  formTitle?: string;
+  projectOptions?: string[];
+  consentText?: string;
+  submitLabel?: string;
+  reassurance?: string;
+  successTitle?: string;
+  successText?: string;
+};
+
+export type SanitySettings = {
+  email?: string;
+  phone?: string;
+  linkedin?: string;
+  facebook?: string;
+  footerTagline?: string;
+  footerPartner?: string;
 };
 
 export type SanityAbout = {
@@ -146,7 +200,12 @@ export function getFaqItems() {
 export function getApproche() {
   return safeFetch<SanityApproche | null>(
     `*[_type == "approchePage"][0]{
-      heading, intro, steps[]{ label, title, desc, bullets }
+      label, heading, intro,
+      steps[]{ eyebrow, title, desc, points },
+      dualLabel, dualTitle1, dualTitle2,
+      acquisitionEyebrow, acquisitionTitle, acquisitionText, acquisitionPoints,
+      accompagnementEyebrow, accompagnementTitle, accompagnementText, accompagnementPoints,
+      teamLabel, teamTitle1, teamTitle2, teamIntro, team[]{ role, name, text }
     }`,
     null
   );
@@ -155,7 +214,10 @@ export function getApproche() {
 export function getEssor() {
   return safeFetch<SanityEssor | null>(
     `*[_type == "essorPage"][0]{
-      heading, intro, steps[]{ label, title, desc, bullets, outcome }
+      intro, steps[]{ name, baseline, what, deliverables, shift },
+      fitLabel, fitTitle1, fitTitle2, fitYesTitle, fitYes, fitNoTitle, fitNo,
+      origineLabel, origineTitle1, origineTitle2, origineLead, origineSteps[]{ title, text },
+      convictionEyebrow, convictionQuote, convictionSub
     }`,
     null
   );
@@ -164,6 +226,23 @@ export function getEssor() {
 export function getOffersPage() {
   return safeFetch<SanityOffersPage | null>(
     `*[_type == "offersPage"][0]{ heading, intro }`,
+    null
+  );
+}
+
+export function getContact() {
+  return safeFetch<SanityContact | null>(
+    `*[_type == "contactPage"][0]{
+      label, title1, title2, sub, formTitle, projectOptions,
+      consentText, submitLabel, reassurance, successTitle, successText
+    }`,
+    null
+  );
+}
+
+export function getSettings() {
+  return safeFetch<SanitySettings | null>(
+    `*[_type == "siteSettings"][0]{ email, phone, linkedin, facebook, footerTagline, footerPartner }`,
     null
   );
 }

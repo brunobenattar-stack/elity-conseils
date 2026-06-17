@@ -92,8 +92,30 @@ const STEPS: Step[] = [
 
 export default async function MethodeEssorPage() {
   const e = await getEssor();
-  const heading = e?.heading?.trim();
-  const intro = e?.intro?.trim() || "De l'état des lieux à la performance, en 12 ou 24 mois. Quatre étapes pour décider les yeux ouverts.";
+  const t = (v: string | undefined, d: string) => (v && v.trim() ? v.trim() : d);
+  const intro = t(e?.intro, "De l'état des lieux à la performance, en 12 ou 24 mois. Quatre étapes pour décider les yeux ouverts.");
+
+  const steps = e?.steps && e.steps.length > 0
+    ? e.steps.map((s, i) => ({
+        num: STEPS[i % STEPS.length].num,
+        Icon: STEPS[i % STEPS.length].Icon,
+        name: t(s.name, STEPS[i % STEPS.length].name),
+        baseline: t(s.baseline, STEPS[i % STEPS.length].baseline),
+        what: t(s.what, STEPS[i % STEPS.length].what),
+        deliverables: s.deliverables && s.deliverables.length ? s.deliverables : STEPS[i % STEPS.length].deliverables,
+        shift: t(s.shift, STEPS[i % STEPS.length].shift),
+      }))
+    : STEPS;
+
+  const fitYes = e?.fitYes && e.fitYes.length ? e.fitYes : ["Vous êtes dans l'opérationnel et perdez le recul", "Vous traversez une période où votre entreprise stagne", "Vous préparez une cession à 18-36 mois", "Vous venez de racheter et voulez structurer"];
+  const fitNo = e?.fitNo && e.fitNo.length ? e.fitNo : ["Vous cherchez une solution miracle en quelques semaines", "Vous voulez tout déléguer à un tiers", "Vous n'êtes pas prêt(e) à investir 3-4h par mois", "Vous attendez qu'on décide à votre place"];
+  const origineSteps = e?.origineSteps && e.origineSteps.length ? e.origineSteps : [
+    { title: "Le terrain", text: "Adaptée de l'expérience de Bruno comme chef d'entreprise, au plus près des vraies contraintes." },
+    { title: "La rigueur", text: "Affinée avec Thierry Le Lidec, son associé de formation comptable, pour ancrer chaque décision dans les chiffres." },
+    { title: "Depuis 2021", text: "Appliquée à l'accompagnement des TPE/PME, avant une vente ou après un rachat." },
+  ];
+  const origineIcons = [IconLoupe, IconChart, IconTrophy];
+
   return (
     <>
       <section className="section section-cream section-first">
@@ -101,19 +123,15 @@ export default async function MethodeEssorPage() {
           <PageLead
             label="Méthode ESSOR"
             title={
-              heading ? (
-                <>{heading}</>
-              ) : (
-                <>
-                  Méthode <em>ESSOR.</em>
-                </>
-              )
+              <>
+                Méthode <em>ESSOR.</em>
+              </>
             }
             text={intro}
           />
 
           <div className="essor-grid">
-            {STEPS.map((s, i) => (
+            {steps.map((s, i) => (
               <Reveal key={s.num} className="essor-card" delay={(((i % 2) + 1) * 100) as 100 | 200}>
                 <div className="essor-card-inner">
                   <div className="essor-card-left">
@@ -144,9 +162,9 @@ export default async function MethodeEssorPage() {
       <section className="section section-cream">
         <div className="container">
           <Reveal className="section-header center">
-            <span className="section-label">Pour qui</span>
+            <span className="section-label">{t(e?.fitLabel, "Pour qui")}</span>
             <div className="section-sep" style={{ marginInline: "auto" }} />
-            <h2 className="section-title">À qui la méthode ESSOR<br /><em>convient vraiment.</em></h2>
+            <h2 className="section-title">{t(e?.fitTitle1, "À qui la méthode ESSOR")}<br /><em>{t(e?.fitTitle2, "convient vraiment.")}</em></h2>
           </Reveal>
           <div className="essor-fit-layout essor-fit-layout-2col">
             <div className="essor-fit-cols">
@@ -155,13 +173,10 @@ export default async function MethodeEssorPage() {
                   <span className="essor-fit-card-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   </span>
-                  C&apos;est pour vous si…
+                  {t(e?.fitYesTitle, "C'est pour vous si…")}
                 </span>
                 <ul>
-                  <li>Vous êtes dans l&apos;opérationnel et perdez le recul</li>
-                  <li>Vous traversez une période où votre entreprise stagne</li>
-                  <li>Vous préparez une cession à 18-36 mois</li>
-                  <li>Vous venez de racheter et voulez structurer</li>
+                  {fitYes.map((p) => <li key={p}>{p}</li>)}
                 </ul>
               </Reveal>
 
@@ -170,13 +185,10 @@ export default async function MethodeEssorPage() {
                   <span className="essor-fit-card-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" /></svg>
                   </span>
-                  Ce n&apos;est pas pour vous si…
+                  {t(e?.fitNoTitle, "Ce n'est pas pour vous si…")}
                 </span>
                 <ul>
-                  <li>Vous cherchez une solution miracle en quelques semaines</li>
-                  <li>Vous voulez tout déléguer à un tiers</li>
-                  <li>Vous n&apos;êtes pas prêt(e) à investir 3-4h par mois</li>
-                  <li>Vous attendez qu&apos;on décide à votre place</li>
+                  {fitNo.map((p) => <li key={p}>{p}</li>)}
                 </ul>
               </Reveal>
             </div>
@@ -189,11 +201,11 @@ export default async function MethodeEssorPage() {
         <div className="container">
           <div className="origine-layout">
             <Reveal className="origine-intro">
-              <span className="section-label">Origine de la méthode</span>
+              <span className="section-label">{t(e?.origineLabel, "Origine de la méthode")}</span>
               <div className="section-sep" />
-              <h2 className="section-title">Née du terrain,<br /><em>pas d&apos;un livre.</em></h2>
+              <h2 className="section-title">{t(e?.origineTitle1, "Née du terrain,")}<br /><em>{t(e?.origineTitle2, "pas d'un livre.")}</em></h2>
               <p className="origine-lead">
-                ESSOR n&apos;est pas sortie d&apos;un manuel. Elle s&apos;est forgée sur le terrain, affinée année après année, au contact réel des dirigeants et de leurs décisions.
+                {t(e?.origineLead, "ESSOR n'est pas sortie d'un manuel. Elle s'est forgée sur le terrain, affinée année après année, au contact réel des dirigeants et de leurs décisions.")}
               </p>
               <Link href="/contact" className="btn btn-ghost">
                 Échanger sur votre situation <span aria-hidden="true">→</span>
@@ -201,27 +213,18 @@ export default async function MethodeEssorPage() {
             </Reveal>
 
             <div className="origine-steps">
-              <Reveal className="origine-step" delay={100}>
-                <span className="origine-step-ico" aria-hidden="true"><IconLoupe /></span>
-                <div>
-                  <h3>Le terrain</h3>
-                  <p>Adaptée de l&apos;expérience de Bruno comme chef d&apos;entreprise, au plus près des vraies contraintes.</p>
-                </div>
-              </Reveal>
-              <Reveal className="origine-step" delay={200}>
-                <span className="origine-step-ico" aria-hidden="true"><IconChart /></span>
-                <div>
-                  <h3>La rigueur</h3>
-                  <p>Affinée avec Thierry Le Lidec, son associé de formation comptable, pour ancrer chaque décision dans les chiffres.</p>
-                </div>
-              </Reveal>
-              <Reveal className="origine-step" delay={300}>
-                <span className="origine-step-ico" aria-hidden="true"><IconTrophy /></span>
-                <div>
-                  <h3>Depuis 2021</h3>
-                  <p>Appliquée à l&apos;accompagnement des TPE/PME, avant une vente ou après un rachat.</p>
-                </div>
-              </Reveal>
+              {origineSteps.map((o, i) => {
+                const Ico = origineIcons[i % origineIcons.length];
+                return (
+                  <Reveal className="origine-step" delay={(((i % 3) + 1) * 100) as 100 | 200 | 300} key={i}>
+                    <span className="origine-step-ico" aria-hidden="true"><Ico /></span>
+                    <div>
+                      <h3>{o.title}</h3>
+                      <p>{o.text}</p>
+                    </div>
+                  </Reveal>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -230,12 +233,12 @@ export default async function MethodeEssorPage() {
       <section className="section essor-decision-section">
         <div className="container">
           <Reveal className="essor-decision">
-            <span className="essor-decision-eyebrow">La conviction Elity</span>
+            <span className="essor-decision-eyebrow">{t(e?.convictionEyebrow, "La conviction Elity")}</span>
             <p className="essor-decision-quote">
-              Une bonne décision ne tombe pas du ciel.
+              {t(e?.convictionQuote, "Une bonne décision ne tombe pas du ciel.")}
             </p>
             <p className="essor-decision-sub">
-              <em>Elle se prépare, elle se construit, mois après mois.</em>
+              <em>{t(e?.convictionSub, "Elle se prépare, elle se construit, mois après mois.")}</em>
             </p>
             <Link href="/offres#pilotage" className="btn btn-ghost">
               Voir les formules d&apos;accompagnement mensuel

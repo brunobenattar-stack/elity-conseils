@@ -7,6 +7,8 @@ export const SINGLETON_TYPES = new Set([
   "offersPage",
   "essorPage",
   "aboutPage",
+  "contactPage",
+  "siteSettings",
 ]);
 
 // Organisation du menu du Studio : un element par page du site.
@@ -34,6 +36,10 @@ export const structure: StructureResolver = (S) =>
         .id("aboutPage")
         .title("À propos")
         .child(S.document().schemaType("aboutPage").documentId("aboutPage")),
+      S.listItem()
+        .id("contactPage")
+        .title("Contact")
+        .child(S.document().schemaType("contactPage").documentId("contactPage")),
       S.divider(),
       S.listItem()
         .title("Cas clients (cartes)")
@@ -47,4 +53,9 @@ export const structure: StructureResolver = (S) =>
       S.listItem()
         .title("FAQ (questions)")
         .child(S.documentTypeList("faqItem").title("Questions FAQ")),
+      S.divider(),
+      S.listItem()
+        .id("siteSettings")
+        .title("Coordonnées & réglages")
+        .child(S.document().schemaType("siteSettings").documentId("siteSettings")),
     ]);

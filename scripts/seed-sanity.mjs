@@ -197,28 +197,67 @@ const homePage = {
 const approchePage = {
   _id: "approchePage",
   _type: "approchePage",
+  label: "La méthode Elity en 5 étapes",
   heading: "Cinq étapes pour préparer et valoriser votre entreprise avant la cession.",
   intro: "",
   steps: [
-    { _key: "a1", label: "Diagnostic", title: "On regarde la réalité en face", desc: "Un audit complet pour cartographier vos forces, vos dépendances et les leviers de valeur que vous ne voyez plus.", bullets: ["Finances, organisation, clientèle", "Forces, faiblesses, opportunités", "Leviers de valeur cachés"] },
-    { _key: "a2", label: "Positionnement", title: "On fixe un prix défendable", desc: "Une valorisation calée sur la capacité de remboursement réelle, comme un banquier. Pas de surévaluation.", bullets: ["Positionnement de mise en marché", "Valorisation argumentée", "Profils d'acquéreurs ciblés"] },
-    { _key: "a3", label: "Préparation", title: "On rend l'entreprise lisible", desc: "Un dossier qui met en avant vos points forts et lisse les points sensibles avant la rencontre des acquéreurs.", bullets: ["Teaser, mémorandum, data room", "Points forts valorisés", "Leviers du diagnostic activés"] },
-    { _key: "a4", label: "Mise en relation", title: "On cible les bons acquéreurs", desc: "La mise en marché est confiée à Procomm Océan Indien, avec discrétion. Seules les intentions sérieuses avancent.", bullets: ["Ciblage précis via le réseau Procomm", "Pilotage discret du processus", "Filtrage des intentions"] },
-    { _key: "a5", label: "Signature", title: "On sécurise jusqu'au bout", desc: "Accompagnement de la négociation à la signature, et au-delà, pour sécuriser chaque condition.", bullets: ["Posture de négociation", "Conditions économiques et juridiques", "Accompagnement jusqu'à la finalisation"] },
+    { _key: "a1", eyebrow: "Diagnostic", title: "On regarde la réalité en face", desc: "Un audit complet pour cartographier vos forces, vos dépendances et les leviers de valeur que vous ne voyez plus.", points: ["Finances, organisation, clientèle", "Forces, faiblesses, opportunités", "Leviers de valeur cachés"] },
+    { _key: "a2", eyebrow: "Valorisation", title: "On fixe un prix défendable", desc: "Une valorisation calée sur la capacité de remboursement réelle, comme un banquier. Pas de surévaluation.", points: ["Positionnement de mise en marché", "Valorisation argumentée", "Profils d'acquéreurs ciblés"] },
+    { _key: "a3", eyebrow: "Préparation", title: "On rend l'entreprise lisible", desc: "Un dossier qui met en avant vos points forts et lisse les points sensibles avant la rencontre des acquéreurs.", points: ["Teaser, mémorandum, data room", "Points forts valorisés", "Leviers du diagnostic activés"] },
+    { _key: "a4", eyebrow: "Mise en relation", title: "On cible les bons acquéreurs", desc: "La mise en marché est confiée à Procomm Océan Indien, avec discrétion. Seules les intentions sérieuses avancent.", points: ["Ciblage précis via le réseau Procomm", "Pilotage discret du processus", "Filtrage des intentions"] },
+    { _key: "a5", eyebrow: "Signature", title: "On sécurise jusqu'au bout", desc: "Des conditions négociées et sécurisées, jusqu'à la signature et au-delà si besoin.", points: ["Conditions économiques et juridiques", "Accompagnement jusqu'à la signature", "Coordination avocats et notaires"] },
+  ],
+  dualLabel: "Pas seulement la cession",
+  dualTitle1: "La même rigueur,",
+  dualTitle2: "pour chaque projet.",
+  acquisitionEyebrow: "Vous rachetez",
+  acquisitionTitle: "L'approche acquisition",
+  acquisitionText: "Avant de reprendre, on sécurise. On audite la cible en toute discrétion, on vérifie que la valeur affichée tient la route et on identifie les zones de risque.",
+  acquisitionPoints: ["Audit indépendant de la cible", "Vérification de la valorisation", "Analyse des dépendances et des risques", "Sécurisation des conditions de reprise"],
+  accompagnementEyebrow: "Vous dirigez",
+  accompagnementTitle: "L'approche accompagnement",
+  accompagnementText: "Pas de projet de cession dans l'immédiat ? On vous accompagne à piloter votre entreprise au mois le mois avec la méthode ESSOR, pour reprendre le contrôle et préparer l'avenir.",
+  accompagnementPoints: ["Diagnostic complet de l'entreprise", "Tableau de bord mensuel", "Plan d'action et bilans réguliers", "Méthode ESSOR sur 12 ou 24 mois"],
+  teamLabel: "Bien plus qu'un directeur financier",
+  teamTitle1: "Une équipe derrière",
+  teamTitle2: "chaque décision.",
+  teamIntro: "Un accompagnement Elity ne se limite pas aux chiffres. On regarde votre entreprise dans son ensemble : les équipes, l'organisation, le marketing. L'objectif : que chacun(e) soit à la bonne place, que le travail soit fluide, et que tout aille dans le sens de l'entreprise et de sa rentabilité.",
+  team: [
+    { _key: "tm1", role: "Stratégie & cession", name: "Bruno Benattar", text: "Chef d'entreprise devenu conseil. Il pilote la stratégie, la valorisation et la relation avec les dirigeant(e)s, de la cession à l'accompagnement au long cours." },
+    { _key: "tm2", role: "Rigueur & chiffres", name: "Thierry Le Lidec", text: "Associé de formation comptable. Il ancre chaque décision dans les chiffres : trésorerie, marges, indicateurs, pour décider sur des faits." },
+    { _key: "tm3", role: "Équipes & organisation", name: "Sarah Moraschetti", text: "Pôle ressources humaines. Elle audite l'organisation pour placer chacun(e) au bon rôle, optimiser le travail des équipes et améliorer l'ambiance au service de l'entreprise." },
   ],
 };
 
 const essorPage = {
   _id: "essorPage",
   _type: "essorPage",
-  heading: "",
   intro: "De l'état des lieux à la performance, en 12 ou 24 mois. Quatre étapes pour décider les yeux ouverts.",
   steps: [
-    { _key: "e1", label: "Constate", title: "Voir clair avant d'agir.", desc: "Un audit complet de l'entreprise : forces, faiblesses et potentiel. On cartographie ce qui fonctionne, ce qui freine, et ce que vous ne voyez plus.", bullets: ["Diagnostic global (forces, faiblesses, opportunités).", "Cartographie des indicateurs clés réellement pilotables.", "Identification des dépendances critiques (clients, savoir-faire, dirigeant).", "Restitution écrite et discussion approfondie."], outcome: "Vous repartez avec une lecture neuve de votre entreprise. Pas une critique : une photographie honnête sur laquelle bâtir." },
-    { _key: "e2", label: "Consolide", title: "Renforcer la base avant d'accélérer.", desc: "On optimise ce qui marche déjà et on corrige ce qui freine, avant de chercher à grandir. Stabiliser les fondations évite des mois de croissance brouillonne.", bullets: ["Optimisation des process opérationnels essentiels.", "Renforcement de la structure financière (BFR, marges, trésorerie).", "Clarification de l'organisation et des responsabilités.", "Plan d'action mensuel sur les chantiers prioritaires."], outcome: "L'entreprise gagne en lisibilité, en marge et en sérénité opérationnelle. Le dirigeant cesse d'éteindre des feux." },
-    { _key: "e3", label: "Maîtrise", title: "Décider aux indicateurs, plus à l'instinct.", desc: "On installe le tableau de bord du dirigeant : des chiffres clairs, des décisions éclairées, un cap tenu mois après mois. Vous reprenez la main.", bullets: ["Construction du tableau de bord stratégique mensuel.", "Rituel mensuel structuré avec rapport d'activité."], outcome: "" },
-    { _key: "e4", label: "Réalise", title: "Concrétiser les projets qui comptent.", desc: "Croissance, recrutement, valorisation, cession : on déroule les projets stratégiques avec méthode.", bullets: [], outcome: "" },
+    { _key: "e1", name: "Constater", baseline: "Voir clair avant d'agir.", what: "Un audit complet de l'entreprise : forces, faiblesses et potentiel. On cartographie ce qui fonctionne, ce qui freine, et ce que vous ne voyez plus.", deliverables: ["Diagnostic global de l'entreprise (forces, faiblesses, opportunités).", "Cartographie des indicateurs clés réellement pilotables.", "Identification des dépendances critiques (clients, savoir-faire, dirigeant).", "Restitution écrite et discussion approfondie."], shift: "Vous repartez avec une lecture neuve de votre entreprise. Pas une critique : une photographie honnête sur laquelle bâtir." },
+    { _key: "e2", name: "Consolider", baseline: "Renforcer la base avant d'accélérer.", what: "On optimise ce qui marche déjà et on corrige ce qui freine, avant de chercher à grandir. Stabiliser les fondations évite des mois de croissance brouillonne.", deliverables: ["Optimisation des process opérationnels essentiels.", "Renforcement de la structure financière (BFR, marges, trésorerie).", "Clarification de l'organisation et des responsabilités.", "Plan d'action mensuel sur les chantiers prioritaires."], shift: "L'entreprise gagne en lisibilité, en marge et en sérénité opérationnelle. Le dirigeant cesse d'éteindre des feux." },
+    { _key: "e3", name: "Maîtriser", baseline: "Décider aux indicateurs, plus à l'instinct.", what: "On installe le tableau de bord du dirigeant : des chiffres clairs, des décisions éclairées, un cap tenu mois après mois. Vous reprenez la main.", deliverables: ["Construction du tableau de bord stratégique mensuel.", "Rituel mensuel structuré avec rapport d'activité.", "Anticipation des décisions clés à 3, 6 et 12 mois.", "Cadre d'arbitrage face aux opportunités et aux risques."], shift: "Vous décidez sur des faits, plus sur des intuitions. Les choix difficiles deviennent plus simples parce qu'ils sont préparés." },
+    { _key: "e4", name: "Réaliser", baseline: "Concrétiser les projets qui comptent.", what: "On transforme la maîtrise en résultat : croissance, recrutements, valorisation de l'actif ou mise en vente. Ce qui semblait flou devient un projet exécutable.", deliverables: ["Conduite des projets stratégiques (croissance, recrutement, M&A).", "Préparation à la valorisation et à la cession le cas échéant.", "Bilan annuel ou semestriel approfondi.", "Continuité d'accompagnement entre les séances mensuelles."], shift: "Vous ne dirigez plus dans la réaction. Vous avancez vers un cap que vous avez choisi, et que vous tenez." },
   ],
+  fitLabel: "Pour qui",
+  fitTitle1: "À qui la méthode ESSOR",
+  fitTitle2: "convient vraiment.",
+  fitYesTitle: "C'est pour vous si…",
+  fitYes: ["Vous êtes dans l'opérationnel et perdez le recul", "Vous traversez une période où votre entreprise stagne", "Vous préparez une cession à 18-36 mois", "Vous venez de racheter et voulez structurer"],
+  fitNoTitle: "Ce n'est pas pour vous si…",
+  fitNo: ["Vous cherchez une solution miracle en quelques semaines", "Vous voulez tout déléguer à un tiers", "Vous n'êtes pas prêt(e) à investir 3-4h par mois", "Vous attendez qu'on décide à votre place"],
+  origineLabel: "Origine de la méthode",
+  origineTitle1: "Née du terrain,",
+  origineTitle2: "pas d'un livre.",
+  origineLead: "ESSOR n'est pas sortie d'un manuel. Elle s'est forgée sur le terrain, affinée année après année, au contact réel des dirigeants et de leurs décisions.",
+  origineSteps: [
+    { _key: "o1", title: "Le terrain", text: "Adaptée de l'expérience de Bruno comme chef d'entreprise, au plus près des vraies contraintes." },
+    { _key: "o2", title: "La rigueur", text: "Affinée avec Thierry Le Lidec, son associé de formation comptable, pour ancrer chaque décision dans les chiffres." },
+    { _key: "o3", title: "Depuis 2021", text: "Appliquée à l'accompagnement des TPE/PME, avant une vente ou après un rachat." },
+  ],
+  convictionEyebrow: "La conviction Elity",
+  convictionQuote: "Une bonne décision ne tombe pas du ciel.",
+  convictionSub: "Elle se prépare, elle se construit, mois après mois.",
 };
 
 const offersPage = {
@@ -228,6 +267,37 @@ const offersPage = {
   intro: "",
 };
 
+const contactPage = {
+  _id: "contactPage",
+  _type: "contactPage",
+  label: "Contact",
+  title1: "Parlons de",
+  title2: "votre projet.",
+  sub: "Premier échange confidentiel, sans engagement. Nous prenons le temps de comprendre votre situation avant tout.",
+  formTitle: "Votre situation",
+  projectOptions: [
+    "Je souhaite céder mon entreprise",
+    "Je souhaite reprendre une entreprise",
+    "Je cherche un accompagnement pour mon entreprise",
+  ],
+  consentText: "J'accepte que mes données soient utilisées dans le cadre de mon accompagnement chez Elity Conseils, en toute confidentialité.",
+  submitLabel: "Envoyer ma demande",
+  reassurance: "Confidentialité garantie par écrit",
+  successTitle: "Demande envoyée.",
+  successText: "Nous vous recontactons sous 24h en toute confidentialité.",
+};
+
+const siteSettings = {
+  _id: "siteSettings",
+  _type: "siteSettings",
+  email: "contact@elityconseils.re",
+  phone: "",
+  linkedin: "https://www.linkedin.com/in/brunobenattar/",
+  facebook: "https://www.facebook.com/ElityConseil",
+  footerTagline: "Structurer aujourd'hui. Valoriser demain.",
+  footerPartner: "En partenariat avec Procomm Océan Indien",
+};
+
 // createIfNotExists pour les singletons : on ne veut PAS ecraser les edits du
 // client si on relance le seed. (Les autres docs utilisent createOrReplace.)
 async function run() {
@@ -235,11 +305,16 @@ async function run() {
   for (const doc of [...caseStudies, ...articles, ...offers, ...faqItems]) {
     tx.createOrReplace(doc);
   }
-  tx.createIfNotExists(aboutPage);
-  tx.createIfNotExists(homePage);
-  tx.createIfNotExists(approchePage);
-  tx.createIfNotExists(essorPage);
-  tx.createIfNotExists(offersPage);
+  // Pages singletons : createOrReplace lors de ce seed initial pour garantir que
+  // TOUS les champs sont remplis avec le texte actuel du site (le client n'a pas
+  // encore edite). Une fois le contenu valide, repasser en createIfNotExists.
+  tx.createOrReplace(aboutPage);
+  tx.createOrReplace(homePage);
+  tx.createOrReplace(approchePage);
+  tx.createOrReplace(essorPage);
+  tx.createOrReplace(offersPage);
+  tx.createOrReplace(contactPage);
+  tx.createOrReplace(siteSettings);
   const res = await tx.commit();
   console.log(`OK : ${res.results.length} documents crees/mis a jour dans Sanity.`);
 }

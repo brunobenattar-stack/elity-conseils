@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LogoMark from "./LogoMark";
+import type { SanitySettings } from "@/sanity/queries";
 
 const LinkedInIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -33,8 +34,13 @@ const GlobeIcon = () => (
   </svg>
 );
 
-export default function Footer() {
+export default function Footer({ settings }: { settings?: SanitySettings | null }) {
   const year = new Date().getFullYear();
+  const email = settings?.email?.trim() || "contact@elityconseils.re";
+  const linkedin = settings?.linkedin?.trim() || "https://www.linkedin.com/in/brunobenattar/";
+  const facebook = settings?.facebook?.trim() || "https://www.facebook.com/ElityConseil";
+  const tagline = settings?.footerTagline?.trim() || "Structurer aujourd'hui. Valoriser demain.";
+  const partner = settings?.footerPartner?.trim() || "En partenariat avec Procomm Océan Indien";
 
   return (
     <footer className="footer">
@@ -42,13 +48,13 @@ export default function Footer() {
         <div className="footer-grid footer-grid-v3">
           <div className="footer-brand">
             <LogoMark />
-            <p className="footer-tagline">Structurer aujourd&apos;hui. Valoriser demain.</p>
-            <p className="footer-partner">En partenariat avec Procomm Océan Indien</p>
+            <p className="footer-tagline">{tagline}</p>
+            <p className="footer-partner">{partner}</p>
             <div className="footer-social">
-              <a href="https://www.linkedin.com/in/brunobenattar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Bruno Benattar">
+              <a href={linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Bruno Benattar">
                 <LinkedInIcon />
               </a>
-              <a href="https://www.facebook.com/ElityConseil" target="_blank" rel="noopener noreferrer" aria-label="Facebook Elity Conseil">
+              <a href={facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook Elity Conseil">
                 <FacebookIcon />
               </a>
             </div>
@@ -74,9 +80,9 @@ export default function Footer() {
             <h4>Nous contacter</h4>
             <ul className="footer-contact-list">
               <li>
-                <a href="mailto:contact@elityconseils.re">
+                <a href={`mailto:${email}`}>
                   <span className="footer-contact-ico" aria-hidden="true"><MailIcon /></span>
-                  <span>contact@elityconseils.re</span>
+                  <span>{email}</span>
                 </a>
               </li>
             </ul>

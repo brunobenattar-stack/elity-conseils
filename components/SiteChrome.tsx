@@ -9,10 +9,17 @@ import PageTransition from "./PageTransition";
 import FloatingContactCTA from "./FloatingContactCTA";
 import ComingSoonBanner from "./ComingSoonBanner";
 import ScrollManager from "./ScrollManager";
+import type { SanitySettings } from "@/sanity/queries";
 
 // Affiche le chrome du site (navbar + footer + bottom nav mobile) sur toutes les
 // pages sauf /admin, qui doit rester nue pour offrir une vraie UX d'édition.
-export default function SiteChrome({ children }: { children: ReactNode }) {
+export default function SiteChrome({
+  children,
+  settings,
+}: {
+  children: ReactNode;
+  settings?: SanitySettings | null;
+}) {
   const pathname = usePathname();
   const isBare =
     (pathname?.startsWith("/admin") ?? false) ||
@@ -31,7 +38,7 @@ export default function SiteChrome({ children }: { children: ReactNode }) {
       <main>
         <PageTransition>{children}</PageTransition>
       </main>
-      <Footer />
+      <Footer settings={settings} />
       <FloatingContactCTA />
     </>
   );

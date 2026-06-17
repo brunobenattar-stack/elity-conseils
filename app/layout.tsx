@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Montserrat, Bricolage_Grotesque } from "next/font/g
 import SiteChrome from "@/components/SiteChrome";
 import LenisProvider from "@/components/LenisProvider";
 import { ContentProvider } from "@/lib/ContentProvider";
+import { getSettings } from "@/sanity/queries";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -74,11 +75,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const settings = await getSettings();
   return (
     <html lang="fr" className={`${cormorant.variable} ${montserrat.variable} ${bricolage.variable}`}>
       <body>
@@ -111,7 +113,7 @@ export default function RootLayout({
         />
         <ContentProvider>
           <LenisProvider>
-            <SiteChrome>{children}</SiteChrome>
+            <SiteChrome settings={settings}>{children}</SiteChrome>
           </LenisProvider>
         </ContentProvider>
       </body>

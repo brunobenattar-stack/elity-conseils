@@ -3,8 +3,9 @@
 import { useState, useRef, useEffect, type FormEvent } from "react";
 import Link from "next/link";
 import { useIsMobile } from "./useIsMobile";
+import type { SanityContact, SanitySettings } from "@/sanity/queries";
 
-const PROJECT_OPTIONS = [
+const PROJECT_OPTIONS_DEFAULT = [
   { value: "cession", label: "Je souhaite céder mon entreprise" },
   { value: "reprise", label: "Je souhaite reprendre une entreprise" },
   { value: "pilotage", label: "Je cherche un accompagnement pour mon entreprise" },
@@ -36,7 +37,19 @@ function LockIcon() {
   );
 }
 
-export default function ContactPageClient() {
+export default function ContactPageClient({
+  contact,
+  settings,
+}: {
+  contact?: SanityContact | null;
+  settings?: SanitySettings | null;
+}) {
+  const t = (v: string | undefined, d: string) => (v && v.trim() ? v.trim() : d);
+  const email = settings?.email?.trim() || "contact@elityconseils.re";
+  const projectOptions =
+    contact?.projectOptions && contact.projectOptions.length === PROJECT_OPTIONS_DEFAULT.length
+      ? PROJECT_OPTIONS_DEFAULT.map((o, i) => ({ value: o.value, label: contact.projectOptions![i] }))
+      : PROJECT_OPTIONS_DEFAULT;
   const isMobile = useIsMobile(768);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [sent, setSent] = useState(false);
@@ -97,21 +110,21 @@ export default function ContactPageClient() {
       <div className="contact-page-inner">
         {/* Colonne gauche - infos de contact */}
         <div className="contact-info-col">
-          <span className="section-label" style={{ color: "var(--gold-main)" }}>Contact</span>
+          <span className="section-label" style={{ color: "var(--gold-main)" }}>{t(contact?.label, "Contact")}</span>
           <h1 className="contact-page-title">
-            Parlons de<br />
-            <em>votre projet.</em>
+            {t(contact?.title1, "Parlons de")}<br />
+            <em>{t(contact?.title2, "votre projet.")}</em>
           </h1>
           <p className="contact-page-sub">
-            Premier échange confidentiel, sans engagement. Nous prenons le temps de comprendre votre situation avant tout.
+            {t(contact?.sub, "Premier échange confidentiel, sans engagement. Nous prenons le temps de comprendre votre situation avant tout.")}
           </p>
 
           <div className="contact-info-items">
-            <a href="mailto:contact@elityconseils.re" className="contact-info-item">
+            <a href={`mailto:${email}`} className="contact-info-item">
               <span className="contact-info-ico"><MailIcon /></span>
               <div>
                 <span className="contact-info-label">Email</span>
-                <span className="contact-info-value">contact@elityconseils.re</span>
+                <span className="contact-info-value">{email}</span>
               </div>
             </a>
           </div>
@@ -126,8 +139,8 @@ export default function ContactPageClient() {
                 <circle cx="24" cy="24" r="22" stroke="var(--gold-main)" strokeWidth="1.5" />
                 <path d="M14 24l8 8 12-14" stroke="var(--gold-main)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <h2>Demande envoyée.</h2>
-              <p>Nous vous recontactons sous 24h en toute confidentialité.</p>
+              <h2>{t(contact?.successTitle, "Demande envoyée.")}</h2>
+              <p>{t(contact?.successText, "Nous vous recontactons sous 24h en toute confidentialité.")}</p>
               <Link href="/" className="contact-success-back">Retour à l&apos;accueil</Link>
             </div>
           ) : (
@@ -135,11 +148,11 @@ export default function ContactPageClient() {
               <input type="hidden" name="access_key" value="12817e2f-68b1-438e-974d-bc0bdd8d602f" />
               <input type="hidden" name="subject" value="Nouvelle demande de contact - Elity Conseils" />
               <input type="hidden" name="from_name" value="Elity Conseils - Site web" />
-              <h2 className="contact-form-title">Votre situation</h2>
+              <h2 className="contact-form-title">{t(contact?.formTitle, "Votre situation")}</h2>
 
               {/* Type de projet */}
               <div className="contact-project-choice">
-                {PROJECT_OPTIONS.map((opt) => (
+                {projectOptions.map((opt) => (
                   <label
                     key={opt.value}
                     className={`contact-project-opt ${project === opt.value ? "selected" : ""}`}
@@ -187,13 +200,13 @@ export default function ContactPageClient() {
 
               <label className="contact-form-check">
                 <input type="checkbox" required />
-                <span>J&apos;accepte que mes données soient utilisées dans le cadre de mon accompagnement chez Elity Conseils, en toute confidentialité.</span>
+                <span>{t(contact?.consentText, "J'accepte que mes données soient utilisées dans le cadre de mon accompagnement chez Elity Conseils, en toute confidentialité.")}</span>
               </label>
 
               {error && <p className="form-error" role="alert">{error}</p>}
 
               <button type="submit" className="contact-form-submit" disabled={loading}>
-                {loading ? "Envoi en cours…" : "Envoyer ma demande"}
+                {loading ? "Envoi en cours…" : t(contact?.submitLabel, "Envoyer ma demande")}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path d="M5 12h14M13 5l7 7-7 7" />
                 </svg>
@@ -203,7 +216,7 @@ export default function ContactPageClient() {
                   <rect x="5" y="11" width="14" height="10" rx="1.5" />
                   <path d="M8 11V7a4 4 0 0 1 8 0v4" />
                 </svg>
-                Confidentialité garantie par écrit
+                {t(contact?.reassurance, "Confidentialité garantie par écrit")}
               </p>
             </form>
           )}
