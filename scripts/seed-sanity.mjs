@@ -94,14 +94,34 @@ const heroSection = {
   chip2Sub: "Franchisé Procomm depuis 2015",
 };
 
-// createIfNotExists pour le hero : on ne veut PAS ecraser les edits du client
-// si on relance le seed. (Les autres docs utilisent createOrReplace, idempotent.)
+const aboutPage = {
+  _id: "aboutPage",
+  _type: "aboutPage",
+  label: "À propos · le parcours",
+  name: "Bruno Benattar,",
+  nameEm: "chef d'entreprise devenu conseil.",
+  role: "Franchisé Procomm depuis 2015, à La Réunion.",
+  paragraphs: [
+    "Chef d'entreprise toute ma vie, j'ai vécu de l'intérieur toutes les problématiques qui vont avec. C'est ce qui me permet de parler le même langage que les dirigeants que j'accompagne. J'aime les écouter, les aider, et les voir réussir.",
+    "Après un parcours dans l'immobilier de luxe à l'Ile Maurice, je suis entré dans la transaction d'entreprise en 2013 en aidant mon père à céder son restaurant. J'ai découvert la franchise Procomm, disponible sur les Iles Mascareignes, j'ai suivi la formation d'intégration et signé la franchise le 1er juillet 2015. Ce réseau d'une quinzaine de cabinets en France nous apporte du poids, de la rigueur et une formation continue.",
+    "Compte tenu des difficultés à faire financer les reprises de société, nous avons mis en place le service d'accompagnement à la cession en amont de la mise en vente, pour optimiser les chances de cession. Formaliser cette préparation sous Elity Conseils est devenu une évidence : une entreprise bien préparée se vend mieux, plus vite, et dans de meilleures conditions.",
+  ],
+  values: [
+    { _key: "v1", name: "Écoute", desc: "Comprendre le projet de vie avant de proposer." },
+    { _key: "v2", name: "Intégrité", desc: "Jamais de surévaluation, jamais de mensonge." },
+    { _key: "v3", name: "Persévérance", desc: "Tenir le cap quand les autres abandonnent." },
+  ],
+};
+
+// createIfNotExists pour les singletons : on ne veut PAS ecraser les edits du
+// client si on relance le seed. (Les autres docs utilisent createOrReplace.)
 async function run() {
   const tx = client.transaction();
   for (const doc of [...caseStudies, ...offers, ...faqItems]) {
     tx.createOrReplace(doc);
   }
   tx.createIfNotExists(heroSection);
+  tx.createIfNotExists(aboutPage);
   const res = await tx.commit();
   console.log(`OK : ${res.results.length} documents crees/mis a jour dans Sanity.`);
 }

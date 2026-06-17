@@ -1,7 +1,7 @@
 import type { StructureResolver } from "sanity/structure";
 
 // Types geres comme "singleton" : un seul document, edite directement (pas de liste).
-export const SINGLETON_TYPES = new Set(["heroSection"]);
+export const SINGLETON_TYPES = new Set(["heroSection", "aboutPage"]);
 
 // Organisation du menu du Studio pour le client.
 export const structure: StructureResolver = (S) =>
@@ -14,6 +14,10 @@ export const structure: StructureResolver = (S) =>
         .child(
           S.document().schemaType("heroSection").documentId("heroSection")
         ),
+      S.listItem()
+        .id("aboutPage")
+        .title("Page À propos")
+        .child(S.document().schemaType("aboutPage").documentId("aboutPage")),
       S.divider(),
       S.listItem()
         .title("Études de cas")

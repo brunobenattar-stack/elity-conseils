@@ -2,6 +2,26 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import CtaFinal from "@/components/CtaFinal";
 import { IconCompass, IconTarget, IconDiamond } from "@/components/icons";
+import { getAbout } from "@/sanity/queries";
+
+const ABOUT_FALLBACK = {
+  label: "À propos · le parcours",
+  name: "Bruno Benattar,",
+  nameEm: "chef d'entreprise devenu conseil.",
+  role: "Franchisé Procomm depuis 2015, à La Réunion.",
+  paragraphs: [
+    "Chef d'entreprise toute ma vie, j'ai vécu de l'intérieur toutes les problématiques qui vont avec. C'est ce qui me permet de parler le même langage que les dirigeants que j'accompagne. J'aime les écouter, les aider, et les voir réussir.",
+    "Après un parcours dans l'immobilier de luxe à l'Ile Maurice, je suis entré dans la transaction d'entreprise en 2013 en aidant mon père à céder son restaurant. J'ai découvert la franchise Procomm, disponible sur les Iles Mascareignes, j'ai suivi la formation d'intégration et signé la franchise le 1er juillet 2015. Ce réseau d'une quinzaine de cabinets en France nous apporte du poids, de la rigueur et une formation continue.",
+    "Compte tenu des difficultés à faire financer les reprises de société, nous avons mis en place le service d'accompagnement à la cession en amont de la mise en vente, pour optimiser les chances de cession. Formaliser cette préparation sous Elity Conseils est devenu une évidence : une entreprise bien préparée se vend mieux, plus vite, et dans de meilleures conditions.",
+  ],
+  values: [
+    { name: "Écoute", desc: "Comprendre le projet de vie avant de proposer." },
+    { name: "Intégrité", desc: "Jamais de surévaluation, jamais de mensonge." },
+    { name: "Persévérance", desc: "Tenir le cap quand les autres abandonnent." },
+  ],
+};
+
+const VALUE_ICONS = [IconCompass, IconTarget, IconDiamond];
 
 export const metadata: Metadata = {
   title: "À Propos : Bruno Benattar, conseil en cession et transmission",
@@ -9,7 +29,23 @@ export const metadata: Metadata = {
     "Bruno Benattar, franchisé Procomm depuis 2015 et fondateur d'Elity Conseils à La Réunion. Accompagnement stratégique en cession, acquisition et accompagnement de dirigeant(e)s de TPE/PME.",
 };
 
-export default function AProposPage() {
+export default async function AProposPage() {
+  const sanityAbout = await getAbout();
+  const a = {
+    label: sanityAbout?.label?.trim() || ABOUT_FALLBACK.label,
+    name: sanityAbout?.name?.trim() || ABOUT_FALLBACK.name,
+    nameEm: sanityAbout?.nameEm?.trim() || ABOUT_FALLBACK.nameEm,
+    role: sanityAbout?.role?.trim() || ABOUT_FALLBACK.role,
+    paragraphs:
+      sanityAbout?.paragraphs && sanityAbout.paragraphs.length > 0
+        ? sanityAbout.paragraphs
+        : ABOUT_FALLBACK.paragraphs,
+    values:
+      sanityAbout?.values && sanityAbout.values.length > 0
+        ? sanityAbout.values
+        : ABOUT_FALLBACK.values,
+  };
+
   return (
     <>
       <section className="section section-first">
@@ -23,39 +59,28 @@ export default function AProposPage() {
             />
 
             <Reveal className="apropos-content" delay={200}>
-              <span className="section-label">À propos · le parcours</span>
+              <span className="section-label">{a.label}</span>
               <div className="section-sep" />
-              <h2 className="apropos-name">Bruno Benattar,<br /><em>chef d&apos;entreprise devenu conseil.</em></h2>
-              <p className="apropos-role">Franchisé Procomm depuis 2015, à La Réunion.</p>
+              <h2 className="apropos-name">{a.name}<br /><em>{a.nameEm}</em></h2>
+              <p className="apropos-role">{a.role}</p>
 
               <div className="apropos-body">
-                <p>
-                  Chef d&apos;entreprise toute ma vie, j&apos;ai vécu de l&apos;intérieur toutes les problématiques qui vont avec. C&apos;est ce qui me permet de parler le même langage que les dirigeants que j&apos;accompagne. J&apos;aime les écouter, les aider, et les voir réussir.
-                </p>
-                <p>
-                  Après un parcours dans l&apos;immobilier de luxe à l&apos;Ile Maurice, je suis entré dans la transaction d&apos;entreprise en 2013 en aidant mon père à céder son restaurant. J&apos;ai découvert la franchise Procomm, disponible sur les Iles Mascareignes, j&apos;ai suivi la formation d&apos;intégration et signé la franchise le 1er juillet 2015. Ce réseau d&apos;une quinzaine de cabinets en France nous apporte du poids, de la rigueur et une formation continue.
-                </p>
-                <p>
-                  Compte tenu des difficultés à faire financer les reprises de société, nous avons mis en place le service d&apos;accompagnement à la cession en amont de la mise en vente, pour optimiser les chances de cession. Formaliser cette préparation sous Elity Conseils est devenu une évidence : une entreprise bien préparée se vend mieux, plus vite, et dans de meilleures conditions.
-                </p>
+                {a.paragraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
               </div>
 
               <div className="values">
-                <Reveal className="value" delay={100}>
-                  <IconCompass />
-                  <div className="value-name">Écoute</div>
-                  <div className="value-desc">Comprendre le projet de vie avant de proposer.</div>
-                </Reveal>
-                <Reveal className="value" delay={200}>
-                  <IconTarget />
-                  <div className="value-name">Intégrité</div>
-                  <div className="value-desc">Jamais de surévaluation, jamais de mensonge.</div>
-                </Reveal>
-                <Reveal className="value" delay={300}>
-                  <IconDiamond />
-                  <div className="value-name">Persévérance</div>
-                  <div className="value-desc">Tenir le cap quand les autres abandonnent.</div>
-                </Reveal>
+                {a.values.map((v, i) => {
+                  const Icon = VALUE_ICONS[i] ?? IconCompass;
+                  return (
+                    <Reveal className="value" delay={((i + 1) * 100) as 100 | 200 | 300} key={i}>
+                      <Icon />
+                      <div className="value-name">{v.name}</div>
+                      <div className="value-desc">{v.desc}</div>
+                    </Reveal>
+                  );
+                })}
               </div>
             </Reveal>
           </div>

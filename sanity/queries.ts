@@ -72,6 +72,15 @@ export type SanityHero = {
   chip2Sub?: string;
 };
 
+export type SanityAbout = {
+  label?: string;
+  name?: string;
+  nameEm?: string;
+  role?: string;
+  paragraphs?: string[];
+  values?: { name?: string; desc?: string }[];
+};
+
 async function safeFetch<T>(query: string, fallback: T): Promise<T> {
   try {
     const data = await client.fetch<T>(query, {}, { next: { revalidate: 60 } });
@@ -121,6 +130,16 @@ export function getHero() {
       eyebrow, titleLine1, titleEm, sub,
       cta1Label, cta1Href, cta2Label, cta2Href,
       chip1Label, chip1Sub, chip2Num, chip2Label, chip2Sub
+    }`,
+    null
+  );
+}
+
+export function getAbout() {
+  return safeFetch<SanityAbout | null>(
+    `*[_type == "aboutPage"][0]{
+      label, name, nameEm, role, paragraphs,
+      values[]{ name, desc }
     }`,
     null
   );
