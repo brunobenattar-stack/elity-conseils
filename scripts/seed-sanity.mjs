@@ -308,9 +308,41 @@ const casClientsPage = {
   introLabel: "Cas clients & actualités",
   introTitle1: "Ce que nous faisons,",
   introTitle2: "et ce que ça change.",
+  // Cartes embarquees (texte + cartes dans le meme fichier).
+  cases: caseStudies.map((c, i) => {
+    const { _id, _type, order, ...rest } = c;
+    return { _key: `case${i + 1}`, ...rest };
+  }),
+  articles: articles.map((a, i) => {
+    const { _id, _type, slug, ...rest } = a;
+    return { _key: `art${i + 1}`, ...rest };
+  }),
   ctaTitle1: "Votre situation ressemble",
   ctaTitle2: "à l'une des leurs ?",
   ctaText: "Premier échange confidentiel et sans engagement, pour identifier le bon accompagnement.",
+};
+
+const cessionAcqOffers = offers.filter((o) => o.category !== "pilotage");
+const pilotageOffers = offers.filter((o) => o.category === "pilotage");
+const offersPage = {
+  _id: "offersPage",
+  _type: "offersPage",
+  cessionLabel: "Vendre ou racheter une entreprise",
+  cessionTitle1: "Trois niveaux d'accompagnement,",
+  cessionTitle2: "une approche adaptée.",
+  cessionBody: "Elity Conseils prépare votre stratégie. Procomm Océan Indien réalise la transaction.",
+  offers: cessionAcqOffers.map((o, i) => {
+    const { _id, _type, order, price, ...rest } = o;
+    return { _key: `off${i + 1}`, ...rest };
+  }),
+  pilotageLabel: "Accompagnement de dirigeant(e)",
+  pilotageTitle1: "Diriger seul(e), c'est arbitrer",
+  pilotageTitle2: "dans le brouillard.",
+  pilotageBody: "Votre comptable gère vos comptes. Mais qui décide vraiment avec vous ? Elity Dirigeant vous donne un cadre mensuel structuré, appuyé sur la méthode ESSOR.",
+  pilotage: pilotageOffers.map((o, i) => {
+    const { _id, _type, order, price, ...rest } = o;
+    return { _key: `pil${i + 1}`, ...rest };
+  }),
 };
 
 const siteSettings = {
@@ -328,19 +360,28 @@ const siteSettings = {
 // client si on relance le seed. (Les autres docs utilisent createOrReplace.)
 async function run() {
   const tx = client.transaction();
-  for (const doc of [...caseStudies, ...articles, ...offers, ...faqItems]) {
+  // FAQ : documents de liste conserves.
+  for (const doc of faqItems) {
     tx.createOrReplace(doc);
   }
-  // Pages singletons : createOrReplace lors de ce seed initial pour garantir que
-  // TOUS les champs sont remplis avec le texte actuel du site (le client n'a pas
+  // Pages singletons : tout le texte + les cartes embarquees. createOrReplace lors
+  // de ce seed pour garantir que TOUS les champs sont remplis (le client n'a pas
   // encore edite). Une fois le contenu valide, repasser en createIfNotExists.
-  tx.createOrReplace(aboutPage);
   tx.createOrReplace(homePage);
   tx.createOrReplace(approchePage);
+  tx.createOrReplace(offersPage);
   tx.createOrReplace(essorPage);
-  tx.createOrReplace(contactPage);
   tx.createOrReplace(casClientsPage);
+  tx.createOrReplace(aboutPage);
+  tx.createOrReplace(contactPage);
   tx.createOrReplace(siteSettings);
+  // Nettoyage : anciens documents de liste (remplaces par les cartes embarquees).
+  for (const id of ["case-garage", "case-hotel", "article-ceder-reunion-erreurs",
+    "offer-cession-classique", "offer-cession-strategique", "offer-cession-premium",
+    "offer-acq-decouverte", "offer-acq-audit", "offer-acq-integrale",
+    "offer-pilotage-12", "offer-pilotage-24"]) {
+    tx.delete(id);
+  }
   const res = await tx.commit();
   console.log(`OK : ${res.results.length} documents crees/mis a jour dans Sanity.`);
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import CasClientsHub, { type CaseStudy } from "@/components/CasClientsHub";
-import { getCaseStudies, getArticles, getCasClientsPage } from "@/sanity/queries";
+import type { SanityArticle } from "@/sanity/queries";
+import { getCasClientsPage } from "@/sanity/queries";
 
 export const metadata: Metadata = {
   title: "Cas clients & Actualités - Elity Conseils La Réunion",
@@ -79,35 +80,53 @@ const FALLBACK_CASES: CaseStudy[] = [
   },
 ];
 
-export default async function CasClientsPage() {
-  const [sanityCases, articles, page] = await Promise.all([
-    getCaseStudies(),
-    getArticles(),
-    getCasClientsPage(),
-  ]);
+const isPublie = (statut?: string) => !statut || statut === "publie";
+const byDateDesc = (a?: string, b?: string) => (b ?? "").localeCompare(a ?? "");
 
+export default async function CasClientsPage() {
+  const page = await getCasClientsPage();
+
+  const sanityCases = (page?.cases ?? []).filter((c) => isPublie(c.statut));
   const cases: CaseStudy[] = sanityCases.length
-    ? sanityCases.map((c) => ({
-        sector: c.sector,
-        meta: c.meta ?? "",
-        tag: c.tag ?? "",
-        summary: c.meta ?? "",
-        date: c.date,
-        sectorCategory: c.sectorCategory,
-        coverUrl: c.coverUrl,
-        icon: c.icon,
-        link: c.link,
-        metrics: c.metrics ?? [],
-        phases: (c.phases ?? []).map((p) => ({
-          eyebrow: p.eyebrow ?? "",
-          title: p.title ?? "",
-          text: p.text ?? "",
-        })),
-        quote: c.quote ?? "",
-        author: c.author ?? "",
-      }))
+    ? sanityCases
+        .slice()
+        .sort((a, b) => byDateDesc(a.date, b.date))
+        .map((c) => ({
+          sector: c.sector ?? "",
+          meta: c.meta ?? "",
+          tag: c.tag ?? "",
+          summary: c.meta ?? "",
+          date: c.date,
+          sectorCategory: c.sectorCategory,
+          coverUrl: c.coverUrl,
+          icon: c.icon,
+          link: c.link,
+          metrics: (c.metrics ?? []).map((m) => ({ value: m.value ?? "", label: m.label ?? "" })),
+          phases: (c.phases ?? []).map((p) => ({
+            eyebrow: p.eyebrow ?? "",
+            title: p.title ?? "",
+            text: p.text ?? "",
+          })),
+          quote: c.quote ?? "",
+          author: c.author ?? "",
+        }))
     : FALLBACK_CASES;
 
-  // Les actualités viennent uniquement de Sanity (statut publié).
+  const articles: SanityArticle[] = (page?.articles ?? [])
+    .filter((a) => isPublie(a.statut))
+    .slice()
+    .sort((a, b) => byDateDesc(a.date, b.date))
+    .map((a) => ({
+      title: a.title ?? "",
+      slug: (a.title ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
+      date: a.date ?? "",
+      category: a.category,
+      excerpt: a.excerpt,
+      coverUrl: a.coverUrl,
+      icon: a.icon,
+      body: a.body,
+      link: a.link,
+    }));
+
   return <CasClientsHub cases={cases} articles={articles} page={page} />;
 }

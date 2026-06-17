@@ -4,33 +4,6 @@ import { client } from "./client";
 // si Sanity est injoignable ou vide, elles renvoient null/[] et le site
 // retombe sur son contenu par defaut (aucune page ne casse).
 
-export type SanityCaseStudy = {
-  sector: string;
-  meta?: string;
-  tag?: string;
-  sectorCategory?: string;
-  date?: string;
-  coverUrl?: string;
-  icon?: string;
-  link?: string;
-  metrics?: { value: string; label: string }[];
-  phases?: { eyebrow?: string; title?: string; text?: string }[];
-  quote?: string;
-  author?: string;
-};
-
-export type SanityOffer = {
-  name: string;
-  category: "cession" | "acquisition" | "pilotage";
-  pitch?: string;
-  chip?: string;
-  featured?: boolean;
-  features?: string[];
-  price?: string;
-  details?: string;
-  meta?: string;
-};
-
 export type SanityFaqItem = {
   question: string;
   answer: string;
@@ -92,6 +65,30 @@ export type SanityEssor = {
   convictionSub?: string;
 };
 
+export type SanityOfferItem = {
+  name?: string;
+  category?: "cession" | "acquisition" | "pilotage";
+  pitch?: string;
+  chip?: string;
+  featured?: boolean;
+  features?: string[];
+  meta?: string;
+  details?: string;
+};
+
+export type SanityOffersPage = {
+  cessionLabel?: string;
+  cessionTitle1?: string;
+  cessionTitle2?: string;
+  cessionBody?: string;
+  offers?: SanityOfferItem[];
+  pilotageLabel?: string;
+  pilotageTitle1?: string;
+  pilotageTitle2?: string;
+  pilotageBody?: string;
+  pilotage?: SanityOfferItem[];
+};
+
 export type SanityContact = {
   label?: string;
   title1?: string;
@@ -106,10 +103,40 @@ export type SanityContact = {
   successText?: string;
 };
 
+export type SanityCasItem = {
+  statut?: string;
+  sector?: string;
+  meta?: string;
+  tag?: string;
+  sectorCategory?: string;
+  date?: string;
+  coverUrl?: string;
+  icon?: string;
+  link?: string;
+  metrics?: { value?: string; label?: string }[];
+  phases?: { eyebrow?: string; title?: string; text?: string }[];
+  quote?: string;
+  author?: string;
+};
+
+export type SanityArticleItem = {
+  statut?: string;
+  title?: string;
+  date?: string;
+  category?: string;
+  excerpt?: string;
+  coverUrl?: string;
+  icon?: string;
+  body?: string;
+  link?: string;
+};
+
 export type SanityCasClientsPage = {
   introLabel?: string;
   introTitle1?: string;
   introTitle2?: string;
+  cases?: SanityCasItem[];
+  articles?: SanityArticleItem[];
   ctaTitle1?: string;
   ctaTitle2?: string;
   ctaText?: string;
@@ -192,26 +219,6 @@ async function safeFetch<T>(query: string, fallback: T): Promise<T> {
   }
 }
 
-export function getCaseStudies() {
-  return safeFetch<SanityCaseStudy[]>(
-    `*[_type == "caseStudy" && (statut == "publie" || !defined(statut))] | order(order asc){
-      sector, meta, tag, sectorCategory, date, link, icon,
-      "coverUrl": cover.asset->url,
-      metrics, phases, quote, author
-    }`,
-    []
-  );
-}
-
-export function getOffers() {
-  return safeFetch<SanityOffer[]>(
-    `*[_type == "offer"] | order(order asc){
-      name, category, pitch, chip, featured, features, price, details, meta
-    }`,
-    []
-  );
-}
-
 export function getFaqItems() {
   return safeFetch<SanityFaqItem[]>(
     `*[_type == "faqItem"] | order(order asc){ question, answer, group }`,
@@ -245,6 +252,18 @@ export function getEssor() {
   );
 }
 
+export function getOffersPage() {
+  return safeFetch<SanityOffersPage | null>(
+    `*[_type == "offersPage"][0]{
+      cessionLabel, cessionTitle1, cessionTitle2, cessionBody,
+      offers[]{ name, category, pitch, chip, featured, features, meta, details },
+      pilotageLabel, pilotageTitle1, pilotageTitle2, pilotageBody,
+      pilotage[]{ name, category, pitch, chip, featured, features, meta, details }
+    }`,
+    null
+  );
+}
+
 export function getContact() {
   return safeFetch<SanityContact | null>(
     `*[_type == "contactPage"][0]{
@@ -258,7 +277,11 @@ export function getContact() {
 export function getCasClientsPage() {
   return safeFetch<SanityCasClientsPage | null>(
     `*[_type == "casClientsPage"][0]{
-      introLabel, introTitle1, introTitle2, ctaTitle1, ctaTitle2, ctaText
+      introLabel, introTitle1, introTitle2, ctaTitle1, ctaTitle2, ctaText,
+      cases[]{ statut, sector, meta, tag, sectorCategory, date, icon, link,
+        "coverUrl": cover.asset->url, metrics, phases, quote, author },
+      articles[]{ statut, title, date, category, excerpt, icon, link,
+        "coverUrl": cover.asset->url, "body": pt::text(body) }
     }`,
     null
   );
@@ -302,13 +325,3 @@ export function getAbout() {
   );
 }
 
-export function getArticles() {
-  return safeFetch<SanityArticle[]>(
-    `*[_type == "article" && (statut == "publie" || !defined(statut))] | order(date desc){
-      title, "slug": slug.current, date, category, excerpt, link, icon,
-      "coverUrl": cover.asset->url,
-      "body": pt::text(body)
-    }`,
-    []
-  );
-}

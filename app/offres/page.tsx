@@ -5,7 +5,7 @@ import CessionOffers from "@/components/CessionOffers";
 import OfferCard, { type OfferCardData } from "@/components/OfferCard";
 import CtaFinal from "@/components/CtaFinal";
 import { IconLock, IconEye, IconChart } from "@/components/icons";
-import { getOffers } from "@/sanity/queries";
+import { getOffersPage, type SanityOfferItem } from "@/sanity/queries";
 
 export const metadata: Metadata = {
   title: "Nos Offres : Cession, rachat et accompagnement de dirigeant(e) à La Réunion",
@@ -47,10 +47,10 @@ const PILOTAGE: OfferCardData[] = [
   },
 ];
 
-function mapOffer(o: import("@/sanity/queries").SanityOffer, i: number): OfferCardData {
+function mapOffer(o: SanityOfferItem, i: number): OfferCardData {
   return {
     id: `${o.category}-${i}`,
-    name: o.name,
+    name: o.name ?? "",
     pitch: o.pitch ?? "",
     chip: o.chip || undefined,
     featured: o.featured || undefined,
@@ -61,11 +61,12 @@ function mapOffer(o: import("@/sanity/queries").SanityOffer, i: number): OfferCa
 }
 
 export default async function OffresPage() {
-  const sanityOffers = await getOffers();
-  const cession = sanityOffers.filter((o) => o.category === "cession").map(mapOffer);
-  const acquisition = sanityOffers.filter((o) => o.category === "acquisition").map(mapOffer);
-  const pilotageSanity = sanityOffers.filter((o) => o.category === "pilotage").map(mapOffer);
-  const pilotage = pilotageSanity.length ? pilotageSanity : PILOTAGE;
+  const page = await getOffersPage();
+  const t = (v: string | undefined, d: string) => (v && v.trim() ? v.trim() : d);
+  const allOffers = page?.offers && page.offers.length > 0 ? page.offers : [];
+  const cession = allOffers.filter((o) => o.category === "cession").map(mapOffer);
+  const acquisition = allOffers.filter((o) => o.category === "acquisition").map(mapOffer);
+  const pilotage = page?.pilotage && page.pilotage.length > 0 ? page.pilotage.map(mapOffer) : PILOTAGE;
 
   return (
     <>
@@ -73,11 +74,11 @@ export default async function OffresPage() {
       <section className="section section-first offers-cession-section" id="cession">
         <div className="container">
           <Reveal className="section-header center">
-            <span className="section-label">Vendre ou racheter une entreprise</span>
+            <span className="section-label">{t(page?.cessionLabel, "Vendre ou racheter une entreprise")}</span>
             <div className="section-sep" style={{ marginInline: "auto" }} />
-            <h2 className="section-title">Trois niveaux d&apos;accompagnement,<br /><em>une approche adaptée.</em></h2>
+            <h2 className="section-title">{t(page?.cessionTitle1, "Trois niveaux d'accompagnement,")}<br /><em>{t(page?.cessionTitle2, "une approche adaptée.")}</em></h2>
             <p className="section-body" style={{ marginInline: "auto", textAlign: "center" }}>
-              Elity Conseils prépare votre stratégie. <strong>Procomm Océan Indien</strong> réalise la transaction.
+              {page?.cessionBody?.trim() || (<>Elity Conseils prépare votre stratégie. <strong>Procomm Océan Indien</strong> réalise la transaction.</>)}
             </p>
           </Reveal>
 
@@ -113,11 +114,11 @@ export default async function OffresPage() {
       <section className="section section-cream offers-pilotage-section" id="pilotage">
         <div className="container">
           <Reveal className="section-header center">
-            <span className="section-label">Accompagnement de dirigeant(e)</span>
+            <span className="section-label">{t(page?.pilotageLabel, "Accompagnement de dirigeant(e)")}</span>
             <div className="section-sep" style={{ marginInline: "auto" }} />
-            <h2 className="section-title">Diriger seul(e), c&apos;est arbitrer<br /><em>dans le brouillard.</em></h2>
+            <h2 className="section-title">{t(page?.pilotageTitle1, "Diriger seul(e), c'est arbitrer")}<br /><em>{t(page?.pilotageTitle2, "dans le brouillard.")}</em></h2>
             <p className="section-body" style={{ marginInline: "auto", textAlign: "center" }}>
-              Votre comptable gère vos comptes. Mais qui décide vraiment avec vous ? Elity Dirigeant vous donne un cadre mensuel structuré, appuyé sur la <Link href="/methode-essor" className="inline-link">méthode ESSOR</Link>.
+              {page?.pilotageBody?.trim() || (<>Votre comptable gère vos comptes. Mais qui décide vraiment avec vous ? Elity Dirigeant vous donne un cadre mensuel structuré, appuyé sur la <Link href="/methode-essor" className="inline-link">méthode ESSOR</Link>.</>)}
             </p>
           </Reveal>
 
