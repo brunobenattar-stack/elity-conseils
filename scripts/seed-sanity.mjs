@@ -137,6 +137,28 @@ const aboutPage = {
     { _key: "v2", name: "Intégrité", desc: "Jamais de surévaluation, jamais de mensonge." },
     { _key: "v3", name: "Persévérance", desc: "Tenir le cap quand les autres abandonnent." },
   ],
+  missionLabel: "Ma mission au quotidien",
+  missionTitle1: "Analyser, accompagner,",
+  missionTitle2: "répondre à vos enjeux.",
+  missionBody: "J'écoute le projet de vie du dirigeant, je structure, je sécurise, je valorise. Et surtout : je prends le temps d'écouter.",
+  missionItems: [
+    { _key: "mi1", title: "Connaissance du marché", text: "Une lecture fine des transactions récentes de l'Océan Indien." },
+    { _key: "mi2", title: "Leads qualifiés", text: "Une base d'acquéreurs bâtie sur plus de dix ans de transactions." },
+    { _key: "mi3", title: "Valorisation juste", text: "Calée sur la capacité de remboursement réelle, comme un banquier." },
+  ],
+  diffLabel: "Pourquoi se faire accompagner",
+  diffTitle1: "Ce que vous voyez",
+  diffTitle2: "n'est pas ce que voit un acquéreur.",
+  diffBody: "La perception crée la valeur. Nous construisons celle qu'un bon acquéreur doit avoir de votre entreprise.",
+  diffBadTitle: "Mal préparée",
+  diffBad: ["Perception floue de la valeur", "Négociation subie, prix tiré vers le bas", "Risques perçus élevés", "Acquéreurs opportunistes"],
+  diffBadFoot: "Vendre devient difficile.",
+  diffGoodTitle: "Bien préparée",
+  diffGood: ["Perception claire, acquéreurs qui se projettent", "Négociation maîtrisée, prix qui reflète la valeur", "Risques maîtrisés, décision facilitée", "Acquéreurs qualifiés, vision long terme"],
+  diffGoodFoot: "Vendre devient naturel.",
+  ctaTitle1: "Envie d'échanger",
+  ctaTitle2: "avec Bruno ?",
+  ctaText: "Le premier rendez-vous est confidentiel et sans engagement. On prend le temps de comprendre votre situation.",
 };
 
 const homePage = {
@@ -260,13 +282,6 @@ const essorPage = {
   convictionSub: "Elle se prépare, elle se construit, mois après mois.",
 };
 
-const offersPage = {
-  _id: "offersPage",
-  _type: "offersPage",
-  heading: "",
-  intro: "",
-};
-
 const contactPage = {
   _id: "contactPage",
   _type: "contactPage",
@@ -285,6 +300,17 @@ const contactPage = {
   reassurance: "Confidentialité garantie par écrit",
   successTitle: "Demande envoyée.",
   successText: "Nous vous recontactons sous 24h en toute confidentialité.",
+};
+
+const casClientsPage = {
+  _id: "casClientsPage",
+  _type: "casClientsPage",
+  introLabel: "Cas clients & actualités",
+  introTitle1: "Ce que nous faisons,",
+  introTitle2: "et ce que ça change.",
+  ctaTitle1: "Votre situation ressemble",
+  ctaTitle2: "à l'une des leurs ?",
+  ctaText: "Premier échange confidentiel et sans engagement, pour identifier le bon accompagnement.",
 };
 
 const siteSettings = {
@@ -312,8 +338,8 @@ async function run() {
   tx.createOrReplace(homePage);
   tx.createOrReplace(approchePage);
   tx.createOrReplace(essorPage);
-  tx.createOrReplace(offersPage);
   tx.createOrReplace(contactPage);
+  tx.createOrReplace(casClientsPage);
   tx.createOrReplace(siteSettings);
   const res = await tx.commit();
   console.log(`OK : ${res.results.length} documents crees/mis a jour dans Sanity.`);

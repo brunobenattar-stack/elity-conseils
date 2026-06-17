@@ -5,7 +5,7 @@ import CessionOffers from "@/components/CessionOffers";
 import OfferCard, { type OfferCardData } from "@/components/OfferCard";
 import CtaFinal from "@/components/CtaFinal";
 import { IconLock, IconEye, IconChart } from "@/components/icons";
-import { getOffers, getOffersPage } from "@/sanity/queries";
+import { getOffers } from "@/sanity/queries";
 
 export const metadata: Metadata = {
   title: "Nos Offres : Cession, rachat et accompagnement de dirigeant(e) à La Réunion",
@@ -61,7 +61,7 @@ function mapOffer(o: import("@/sanity/queries").SanityOffer, i: number): OfferCa
 }
 
 export default async function OffresPage() {
-  const [sanityOffers, offersPage] = await Promise.all([getOffers(), getOffersPage()]);
+  const sanityOffers = await getOffers();
   const cession = sanityOffers.filter((o) => o.category === "cession").map(mapOffer);
   const acquisition = sanityOffers.filter((o) => o.category === "acquisition").map(mapOffer);
   const pilotageSanity = sanityOffers.filter((o) => o.category === "pilotage").map(mapOffer);
@@ -75,17 +75,9 @@ export default async function OffresPage() {
           <Reveal className="section-header center">
             <span className="section-label">Vendre ou racheter une entreprise</span>
             <div className="section-sep" style={{ marginInline: "auto" }} />
-            {offersPage?.heading?.trim() ? (
-              <h2 className="section-title">{offersPage.heading}</h2>
-            ) : (
-              <h2 className="section-title">Trois niveaux d&apos;accompagnement,<br /><em>une approche adaptée.</em></h2>
-            )}
+            <h2 className="section-title">Trois niveaux d&apos;accompagnement,<br /><em>une approche adaptée.</em></h2>
             <p className="section-body" style={{ marginInline: "auto", textAlign: "center" }}>
-              {offersPage?.intro?.trim() ? (
-                offersPage.intro
-              ) : (
-                <>Elity Conseils prépare votre stratégie. <strong>Procomm Océan Indien</strong> réalise la transaction.</>
-              )}
+              Elity Conseils prépare votre stratégie. <strong>Procomm Océan Indien</strong> réalise la transaction.
             </p>
           </Reveal>
 

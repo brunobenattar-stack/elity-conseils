@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Reveal from "./Reveal";
 import CtaFinal from "./CtaFinal";
-import type { SanityArticle } from "@/sanity/queries";
+import type { SanityArticle, SanityCasClientsPage } from "@/sanity/queries";
 
 export type CaseStudy = {
   sector: string;
@@ -91,10 +91,13 @@ type OverlayContent =
 export default function CasClientsHub({
   cases,
   articles,
+  page,
 }: {
   cases: CaseStudy[];
   articles: SanityArticle[];
+  page?: SanityCasClientsPage | null;
 }) {
+  const t = (v: string | undefined, d: string) => (v && v.trim() ? v.trim() : d);
   const [tab, setTab] = useState<"cas" | "actus">("cas");
   const [overlay, setOverlay] = useState<OverlayContent>(null);
   const [caseSector, setCaseSector] = useState<string>("all");
@@ -199,10 +202,10 @@ export default function CasClientsHub({
       <section className="section section-cream section-first">
         <div className="container">
           <Reveal className="case-intro">
-            <span className="case-intro-label">Cas clients &amp; actualités</span>
+            <span className="case-intro-label">{t(page?.introLabel, "Cas clients & actualités")}</span>
             <h2 className="case-intro-title">
-              Ce que nous faisons,<br />
-              <em>et ce que ça change.</em>
+              {t(page?.introTitle1, "Ce que nous faisons,")}<br />
+              <em>{t(page?.introTitle2, "et ce que ça change.")}</em>
             </h2>
           </Reveal>
 
@@ -486,10 +489,10 @@ export default function CasClientsHub({
       <CtaFinal
         title={
           <>
-            Votre situation ressemble <em>à l&apos;une des leurs ?</em>
+            {t(page?.ctaTitle1, "Votre situation ressemble")} <em>{t(page?.ctaTitle2, "à l'une des leurs ?")}</em>
           </>
         }
-        text="Premier échange confidentiel et sans engagement, pour identifier le bon accompagnement."
+        text={t(page?.ctaText, "Premier échange confidentiel et sans engagement, pour identifier le bon accompagnement.")}
         secondaryLabel="Voir nos offres"
         secondaryHref="/offres"
       />

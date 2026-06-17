@@ -45,6 +45,17 @@ export default async function AProposPage() {
         ? sanityAbout.values
         : ABOUT_FALLBACK.values,
   };
+  const tx = (v: string | undefined, d: string) => (v && v.trim() ? v.trim() : d);
+  const missionItems = sanityAbout?.missionItems && sanityAbout.missionItems.length > 0
+    ? sanityAbout.missionItems
+    : [
+        { title: "Connaissance du marché", text: "Une lecture fine des transactions récentes de l'Océan Indien." },
+        { title: "Leads qualifiés", text: "Une base d'acquéreurs bâtie sur plus de dix ans de transactions." },
+        { title: "Valorisation juste", text: "Calée sur la capacité de remboursement réelle, comme un banquier." },
+      ];
+  const missionIcons = [IconCompass, IconTarget, IconDiamond];
+  const diffBad = sanityAbout?.diffBad && sanityAbout.diffBad.length ? sanityAbout.diffBad : ["Perception floue de la valeur", "Négociation subie, prix tiré vers le bas", "Risques perçus élevés", "Acquéreurs opportunistes"];
+  const diffGood = sanityAbout?.diffGood && sanityAbout.diffGood.length ? sanityAbout.diffGood : ["Perception claire, acquéreurs qui se projettent", "Négociation maîtrisée, prix qui reflète la valeur", "Risques maîtrisés, décision facilitée", "Acquéreurs qualifiés, vision long terme"];
 
   return (
     <>
@@ -96,30 +107,25 @@ export default async function AProposPage() {
       >
         <div className="container">
           <Reveal className="section-header center">
-            <span className="section-label">Ma mission au quotidien</span>
+            <span className="section-label">{tx(sanityAbout?.missionLabel, "Ma mission au quotidien")}</span>
             <div className="section-sep" style={{ marginInline: "auto" }} />
-            <h2 className="section-title">Analyser, accompagner,<br /><em>répondre à vos enjeux.</em></h2>
+            <h2 className="section-title">{tx(sanityAbout?.missionTitle1, "Analyser, accompagner,")}<br /><em>{tx(sanityAbout?.missionTitle2, "répondre à vos enjeux.")}</em></h2>
             <p className="section-body" style={{ marginInline: "auto", textAlign: "center" }}>
-              J&apos;écoute le projet de vie du dirigeant, je structure, je sécurise, je valorise. Et surtout : <em>je prends le temps d&apos;écouter.</em>
+              {tx(sanityAbout?.missionBody, "J'écoute le projet de vie du dirigeant, je structure, je sécurise, je valorise. Et surtout : je prends le temps d'écouter.")}
             </p>
           </Reveal>
 
           <div className="apropos-mission-grid">
-            <Reveal className="apropos-mission-item" delay={100}>
-              <span className="apropos-mission-icon" aria-hidden="true"><IconCompass /></span>
-              <h3>Connaissance du marché</h3>
-              <p>Une lecture fine des transactions récentes de l&apos;Océan Indien.</p>
-            </Reveal>
-            <Reveal className="apropos-mission-item" delay={200}>
-              <span className="apropos-mission-icon" aria-hidden="true"><IconTarget /></span>
-              <h3>Leads qualifiés</h3>
-              <p>Une base d&apos;acquéreurs bâtie sur plus de dix ans de transactions.</p>
-            </Reveal>
-            <Reveal className="apropos-mission-item" delay={300}>
-              <span className="apropos-mission-icon" aria-hidden="true"><IconDiamond /></span>
-              <h3>Valorisation juste</h3>
-              <p>Calée sur la capacité de remboursement réelle, comme un banquier.</p>
-            </Reveal>
+            {missionItems.map((m, i) => {
+              const Ico = missionIcons[i % missionIcons.length];
+              return (
+                <Reveal className="apropos-mission-item" delay={(((i % 3) + 1) * 100) as 100 | 200 | 300} key={i}>
+                  <span className="apropos-mission-icon" aria-hidden="true"><Ico /></span>
+                  <h3>{m.title}</h3>
+                  <p>{m.text}</p>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -127,11 +133,11 @@ export default async function AProposPage() {
       <section className="section">
         <div className="container">
           <Reveal className="section-header center">
-            <span className="section-label">Pourquoi se faire accompagner</span>
+            <span className="section-label">{tx(sanityAbout?.diffLabel, "Pourquoi se faire accompagner")}</span>
             <div className="section-sep" style={{ marginInline: "auto" }} />
-            <h2 className="section-title">Ce que vous voyez<br /><em>n&apos;est pas ce que voit un acquéreur.</em></h2>
+            <h2 className="section-title">{tx(sanityAbout?.diffTitle1, "Ce que vous voyez")}<br /><em>{tx(sanityAbout?.diffTitle2, "n'est pas ce que voit un acquéreur.")}</em></h2>
             <p className="section-body" style={{ marginInline: "auto", textAlign: "center" }}>
-              La perception crée la valeur. Nous construisons celle qu&apos;un bon acquéreur doit avoir de votre entreprise.
+              {tx(sanityAbout?.diffBody, "La perception crée la valeur. Nous construisons celle qu'un bon acquéreur doit avoir de votre entreprise.")}
             </p>
           </Reveal>
 
@@ -141,30 +147,24 @@ export default async function AProposPage() {
                 <span className="diff-card-tag-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" /></svg>
                 </span>
-                Mal préparée
+                {tx(sanityAbout?.diffBadTitle, "Mal préparée")}
               </span>
               <ul>
-                <li>Perception floue de la valeur</li>
-                <li>Négociation subie, prix tiré vers le bas</li>
-                <li>Risques perçus élevés</li>
-                <li>Acquéreurs opportunistes</li>
+                {diffBad.map((p) => <li key={p}>{p}</li>)}
               </ul>
-              <p className="diff-card-foot">Vendre devient difficile.</p>
+              <p className="diff-card-foot">{tx(sanityAbout?.diffBadFoot, "Vendre devient difficile.")}</p>
             </Reveal>
             <Reveal className="diff-card diff-card-good" delay={200}>
               <span className="diff-card-tag">
                 <span className="diff-card-tag-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </span>
-                Bien préparée
+                {tx(sanityAbout?.diffGoodTitle, "Bien préparée")}
               </span>
               <ul>
-                <li>Perception claire, acquéreurs qui se projettent</li>
-                <li>Négociation maîtrisée, prix qui reflète la valeur</li>
-                <li>Risques maîtrisés, décision facilitée</li>
-                <li>Acquéreurs qualifiés, vision long terme</li>
+                {diffGood.map((p) => <li key={p}>{p}</li>)}
               </ul>
-              <p className="diff-card-foot">Vendre devient naturel.</p>
+              <p className="diff-card-foot">{tx(sanityAbout?.diffGoodFoot, "Vendre devient naturel.")}</p>
             </Reveal>
           </div>
         </div>
@@ -173,10 +173,10 @@ export default async function AProposPage() {
       <CtaFinal
         title={
           <>
-            Envie d&apos;échanger<br /><em>avec Bruno ?</em>
+            {tx(sanityAbout?.ctaTitle1, "Envie d'échanger")}<br /><em>{tx(sanityAbout?.ctaTitle2, "avec Bruno ?")}</em>
           </>
         }
-        text="Le premier rendez-vous est confidentiel et sans engagement. On prend le temps de comprendre votre situation."
+        text={tx(sanityAbout?.ctaText, "Le premier rendez-vous est confidentiel et sans engagement. On prend le temps de comprendre votre situation.")}
         secondaryLabel="Voir nos offres"
         secondaryHref="/offres"
       />

@@ -92,11 +92,6 @@ export type SanityEssor = {
   convictionSub?: string;
 };
 
-export type SanityOffersPage = {
-  heading?: string;
-  intro?: string;
-};
-
 export type SanityContact = {
   label?: string;
   title1?: string;
@@ -109,6 +104,15 @@ export type SanityContact = {
   reassurance?: string;
   successTitle?: string;
   successText?: string;
+};
+
+export type SanityCasClientsPage = {
+  introLabel?: string;
+  introTitle1?: string;
+  introTitle2?: string;
+  ctaTitle1?: string;
+  ctaTitle2?: string;
+  ctaText?: string;
 };
 
 export type SanitySettings = {
@@ -127,6 +131,24 @@ export type SanityAbout = {
   role?: string;
   paragraphs?: string[];
   values?: { name?: string; desc?: string }[];
+  missionLabel?: string;
+  missionTitle1?: string;
+  missionTitle2?: string;
+  missionBody?: string;
+  missionItems?: { title?: string; text?: string }[];
+  diffLabel?: string;
+  diffTitle1?: string;
+  diffTitle2?: string;
+  diffBody?: string;
+  diffBadTitle?: string;
+  diffBad?: string[];
+  diffBadFoot?: string;
+  diffGoodTitle?: string;
+  diffGood?: string[];
+  diffGoodFoot?: string;
+  ctaTitle1?: string;
+  ctaTitle2?: string;
+  ctaText?: string;
 };
 
 export type SanityHome = {
@@ -223,18 +245,20 @@ export function getEssor() {
   );
 }
 
-export function getOffersPage() {
-  return safeFetch<SanityOffersPage | null>(
-    `*[_type == "offersPage"][0]{ heading, intro }`,
-    null
-  );
-}
-
 export function getContact() {
   return safeFetch<SanityContact | null>(
     `*[_type == "contactPage"][0]{
       label, title1, title2, sub, formTitle, projectOptions,
       consentText, submitLabel, reassurance, successTitle, successText
+    }`,
+    null
+  );
+}
+
+export function getCasClientsPage() {
+  return safeFetch<SanityCasClientsPage | null>(
+    `*[_type == "casClientsPage"][0]{
+      introLabel, introTitle1, introTitle2, ctaTitle1, ctaTitle2, ctaText
     }`,
     null
   );
@@ -268,7 +292,11 @@ export function getAbout() {
   return safeFetch<SanityAbout | null>(
     `*[_type == "aboutPage"][0]{
       label, name, nameEm, role, paragraphs,
-      values[]{ name, desc }
+      values[]{ name, desc },
+      missionLabel, missionTitle1, missionTitle2, missionBody, missionItems[]{ title, text },
+      diffLabel, diffTitle1, diffTitle2, diffBody,
+      diffBadTitle, diffBad, diffBadFoot, diffGoodTitle, diffGood, diffGoodFoot,
+      ctaTitle1, ctaTitle2, ctaText
     }`,
     null
   );

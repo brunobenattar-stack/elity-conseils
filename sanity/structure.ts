@@ -4,10 +4,10 @@ import type { StructureResolver } from "sanity/structure";
 export const SINGLETON_TYPES = new Set([
   "homePage",
   "approchePage",
-  "offersPage",
   "essorPage",
   "aboutPage",
   "contactPage",
+  "casClientsPage",
   "siteSettings",
 ]);
 
@@ -25,10 +25,6 @@ export const structure: StructureResolver = (S) =>
         .title("Approche")
         .child(S.document().schemaType("approchePage").documentId("approchePage")),
       S.listItem()
-        .id("offersPage")
-        .title("Offres (en-tête de page)")
-        .child(S.document().schemaType("offersPage").documentId("offersPage")),
-      S.listItem()
         .id("essorPage")
         .title("Méthode ESSOR")
         .child(S.document().schemaType("essorPage").documentId("essorPage")),
@@ -41,6 +37,10 @@ export const structure: StructureResolver = (S) =>
         .title("Contact")
         .child(S.document().schemaType("contactPage").documentId("contactPage")),
       S.divider(),
+      S.listItem()
+        .id("casClientsPage")
+        .title("Cas clients / Actualités (texte de page)")
+        .child(S.document().schemaType("casClientsPage").documentId("casClientsPage")),
       S.listItem()
         .title("Cas clients (cartes)")
         .child(S.documentTypeList("caseStudy").title("Études de cas")),

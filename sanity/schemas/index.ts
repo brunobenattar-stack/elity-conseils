@@ -8,18 +8,18 @@ import homePage from "./homePage";
 import aboutPage from "./aboutPage";
 import approchePage from "./approchePage";
 import essorPage from "./essorPage";
-import offersPage from "./offersPage";
 import contactPage from "./contactPage";
+import casClientsPage from "./casClientsPage";
 import siteSettings from "./siteSettings";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     homePage,
     approchePage,
-    offersPage,
     essorPage,
     aboutPage,
     contactPage,
+    casClientsPage,
     caseStudy,
     article,
     offer,

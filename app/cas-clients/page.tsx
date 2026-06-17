@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import CasClientsHub, { type CaseStudy } from "@/components/CasClientsHub";
-import { getCaseStudies, getArticles } from "@/sanity/queries";
+import { getCaseStudies, getArticles, getCasClientsPage } from "@/sanity/queries";
 
 export const metadata: Metadata = {
   title: "Cas clients & Actualités - Elity Conseils La Réunion",
@@ -80,9 +80,10 @@ const FALLBACK_CASES: CaseStudy[] = [
 ];
 
 export default async function CasClientsPage() {
-  const [sanityCases, articles] = await Promise.all([
+  const [sanityCases, articles, page] = await Promise.all([
     getCaseStudies(),
     getArticles(),
+    getCasClientsPage(),
   ]);
 
   const cases: CaseStudy[] = sanityCases.length
@@ -108,5 +109,5 @@ export default async function CasClientsPage() {
     : FALLBACK_CASES;
 
   // Les actualités viennent uniquement de Sanity (statut publié).
-  return <CasClientsHub cases={cases} articles={articles} />;
+  return <CasClientsHub cases={cases} articles={articles} page={page} />;
 }
