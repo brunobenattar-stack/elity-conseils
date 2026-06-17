@@ -8,6 +8,21 @@ export default defineType({
   type: "document",
   fields: [
     defineField({
+      name: "statut",
+      title: "Statut de publication",
+      type: "string",
+      description: "Publié = visible sur le site. Brouillon ou Archivé = masqué du site.",
+      options: {
+        list: [
+          { title: "Publié (visible sur le site)", value: "publie" },
+          { title: "Brouillon (masqué)", value: "brouillon" },
+          { title: "Archivé (masqué)", value: "archive" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "publie",
+    }),
+    defineField({
       name: "title",
       title: "Titre",
       type: "string",
@@ -45,10 +60,10 @@ export default defineType({
     }),
     defineField({
       name: "excerpt",
-      title: "Résumé (chapô)",
+      title: "Court résumé",
       type: "text",
       rows: 3,
-      description: "Court résumé affiché dans la liste des actualités.",
+      description: "Petit texte d'introduction affiché sur la carte dans la liste des actualités.",
     }),
     defineField({
       name: "cover",

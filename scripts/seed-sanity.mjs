@@ -23,6 +23,7 @@ const caseStudies = [
   {
     _id: "case-garage",
     _type: "caseStudy",
+    statut: "publie",
     order: 0,
     sector: "Garage automobile",
     meta: "TPE · 5 salariés · CA 1 M€ · La Réunion",
@@ -39,6 +40,49 @@ const caseStudies = [
     ],
     quote: "Merci pour l'écoute et le soutien. Nous avons pu redresser l'entreprise en 24 mois.",
     author: "Le dirigeant accompagné",
+  },
+  {
+    _id: "case-hotel",
+    _type: "caseStudy",
+    statut: "publie",
+    order: 1,
+    sector: "Résidence hôtelière",
+    meta: "Cession · 2 associés · 18 mois · La Réunion",
+    tag: "Cession Procomm Océan Indien",
+    sectorCategory: "Hôtellerie",
+    date: "2017-06-01",
+    metrics: [
+      { _key: "m1", value: "18 mois", label: "de persévérance" },
+      { _key: "m2", value: "5 M€", label: "de cession" },
+      { _key: "m3", value: "2 associés", label: "réconciliés" },
+    ],
+    phases: [
+      { _key: "p1", eyebrow: "La situation", title: "Deux associés en conflit", text: "En 2017, deux associés en désaccord depuis dix ans souhaitent céder leur résidence hôtelière. Le dossier est jugé impossible, même le notaire pensait qu'on perdait notre temps." },
+      { _key: "p2", eyebrow: "L'intervention", title: "Tenir le cap, 18 mois durant", text: "À l'époque, Bruno opérait via la franchise Procomm Océan Indien (Elity Conseils n'existait pas encore). Un accompagnement patient et structuré de la transaction : valorisation défendable, recherche d'acquéreurs, médiation entre les associés, sécurisation de chaque condition." },
+      { _key: "p3", eyebrow: "Le résultat", title: "Bien plus qu'une transaction", text: "La cession est finalisée à 5 M€. Et au-delà du prix, la mission a permis un soulagement entre deux hommes que leur propre affaire avait éloignés." },
+    ],
+    quote: "C'est pour ça que je fais ce métier.",
+    author: "Bruno Benattar",
+  },
+];
+
+const articles = [
+  {
+    _id: "article-ceder-reunion-erreurs",
+    _type: "article",
+    statut: "publie",
+    title: "Céder son entreprise à La Réunion : 3 erreurs à éviter en 2025",
+    slug: { _type: "slug", current: "ceder-entreprise-reunion-erreurs" },
+    date: "2025-01-15",
+    category: "conseil",
+    excerpt: "Surévaluation, dossier incomplet, timing mal choisi : les trois pièges qui font échouer une cession, et comment les éviter en préparant en amont.",
+    body: [
+      { _type: "block", _key: "b1", style: "normal", children: [{ _type: "span", _key: "s1", text: "Vendre son entreprise est souvent le projet d'une vie. Pourtant, beaucoup de dirigeant(e)s abordent la cession sans préparation, et le résultat s'en ressent : prix tiré vers le bas, acquéreurs qui se désengagent, négociation subie." }] },
+      { _type: "block", _key: "b2", style: "normal", children: [{ _type: "span", _key: "s1", text: "Première erreur : surévaluer son entreprise. Un prix déconnecté de la capacité de remboursement réelle fait fuir les bons repreneurs. Une valorisation défendable, calée comme le ferait un banquier, sécurise la transaction." }] },
+      { _type: "block", _key: "b3", style: "normal", children: [{ _type: "span", _key: "s1", text: "Deuxième erreur : un dossier incomplet. Sans teaser, mémorandum et data room clairs, l'acquéreur perçoit du risque, et le risque se paie en décote." }] },
+      { _type: "block", _key: "b4", style: "normal", children: [{ _type: "span", _key: "s1", text: "Troisième erreur : un mauvais timing. Préparer la cession 18 à 36 mois en amont permet de présenter une entreprise structurée, rentable et lisible, donc bien plus attractive." }] },
+      { _type: "block", _key: "b5", style: "normal", children: [{ _type: "span", _key: "s1", text: "La bonne nouvelle : ces trois pièges s'évitent avec un accompagnement en amont. C'est exactement ce que propose Elity Conseils." }] },
+    ],
   },
 ];
 
@@ -164,7 +208,7 @@ const homePage = {
 // client si on relance le seed. (Les autres docs utilisent createOrReplace.)
 async function run() {
   const tx = client.transaction();
-  for (const doc of [...caseStudies, ...offers, ...faqItems]) {
+  for (const doc of [...caseStudies, ...articles, ...offers, ...faqItems]) {
     tx.createOrReplace(doc);
   }
   tx.createIfNotExists(heroSection);

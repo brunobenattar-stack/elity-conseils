@@ -116,7 +116,7 @@ async function safeFetch<T>(query: string, fallback: T): Promise<T> {
 
 export function getCaseStudies() {
   return safeFetch<SanityCaseStudy[]>(
-    `*[_type == "caseStudy"] | order(order asc){
+    `*[_type == "caseStudy" && (statut == "publie" || !defined(statut))] | order(order asc){
       sector, meta, tag, sectorCategory, date, link, icon,
       "coverUrl": cover.asset->url,
       metrics, phases, quote, author
@@ -186,7 +186,7 @@ export function getAbout() {
 
 export function getArticles() {
   return safeFetch<SanityArticle[]>(
-    `*[_type == "article"] | order(date desc){
+    `*[_type == "article" && (statut == "publie" || !defined(statut))] | order(date desc){
       title, "slug": slug.current, date, category, excerpt, link, icon,
       "coverUrl": cover.asset->url,
       "body": pt::text(body)
