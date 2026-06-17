@@ -81,6 +81,30 @@ export type SanityAbout = {
   values?: { name?: string; desc?: string }[];
 };
 
+export type SanityHome = {
+  problemTitle1?: string;
+  problemTitle2?: string;
+  problemSub?: string;
+  problemCards?: { eyebrow?: string; titre?: string; desc?: string }[];
+  problemCtaLabel?: string;
+  stepsLabel?: string;
+  stepsTitle1?: string;
+  stepsTitle2?: string;
+  steps?: { label?: string; title?: string; desc?: string }[];
+  manifesteEyebrow?: string;
+  manifesteLine1?: string;
+  manifesteLine2?: string;
+  manifesteLine3?: string;
+  manifesteSub?: string;
+  stats?: { prefix?: string; value?: number; suffix?: string; label?: string }[];
+  cabinetEyebrow?: string;
+  cabinetName?: string;
+  cabinetRole?: string;
+  cabinetDesc?: string;
+  cabinetReassurance?: string;
+  temoignages?: { text?: string; name?: string; context?: string }[];
+};
+
 async function safeFetch<T>(query: string, fallback: T): Promise<T> {
   try {
     const data = await client.fetch<T>(query, {}, { next: { revalidate: 60 } });
@@ -130,6 +154,21 @@ export function getHero() {
       eyebrow, titleLine1, titleEm, sub,
       cta1Label, cta1Href, cta2Label, cta2Href,
       chip1Label, chip1Sub, chip2Num, chip2Label, chip2Sub
+    }`,
+    null
+  );
+}
+
+export function getHome() {
+  return safeFetch<SanityHome | null>(
+    `*[_type == "homePage"][0]{
+      problemTitle1, problemTitle2, problemSub,
+      problemCards[]{ eyebrow, titre, desc }, problemCtaLabel,
+      stepsLabel, stepsTitle1, stepsTitle2, steps[]{ label, title, desc },
+      manifesteEyebrow, manifesteLine1, manifesteLine2, manifesteLine3, manifesteSub,
+      stats[]{ prefix, value, suffix, label },
+      cabinetEyebrow, cabinetName, cabinetRole, cabinetDesc, cabinetReassurance,
+      temoignages[]{ text, name, context }
     }`,
     null
   );

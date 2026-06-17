@@ -59,14 +59,47 @@ const STEPS: Step[] = [
   },
 ];
 
-export default function HomeStepsHorizontal() {
-  const isMobile = useIsMobile(1024);
-  // On ne render qu'une seule version : économise un useScroll qui tracke 400vh
-  // côté mobile, et économise un IntersectionObserver côté desktop.
-  return isMobile ? <MobileAccordionSteps /> : <DesktopHorizontalSteps />;
+type HomeStepsData = {
+  stepsLabel?: string;
+  stepsTitle1?: string;
+  stepsTitle2?: string;
+  steps?: { label?: string; title?: string; desc?: string }[];
+};
+
+type StepsView = {
+  label: string;
+  title1: string;
+  title2: string;
+  steps: Step[];
+};
+
+function buildStepsView(home?: HomeStepsData | null): StepsView {
+  const label = home?.stepsLabel?.trim() || "Notre approche";
+  const title1 = home?.stepsTitle1?.trim() || "5 étapes,";
+  const title2 = home?.stepsTitle2?.trim() || "une seule trajectoire.";
+  const steps =
+    home?.steps && home.steps.length > 0
+      ? home.steps.map((s, i) => ({
+          ...STEPS[i % STEPS.length],
+          num: String(i + 1).padStart(2, "0"),
+          label: s.label?.trim() || STEPS[i % STEPS.length].label,
+          title: s.title?.trim() || STEPS[i % STEPS.length].title,
+          desc: s.desc?.trim() || STEPS[i % STEPS.length].desc,
+        }))
+      : STEPS;
+  return { label, title1, title2, steps };
 }
 
-function DesktopHorizontalSteps() {
+export default function HomeStepsHorizontal({ home }: { home?: HomeStepsData | null }) {
+  const isMobile = useIsMobile(1024);
+  const view = buildStepsView(home);
+  // On ne render qu'une seule version : économise un useScroll qui tracke 400vh
+  // côté mobile, et économise un IntersectionObserver côté desktop.
+  return isMobile ? <MobileAccordionSteps view={view} /> : <DesktopHorizontalSteps view={view} />;
+}
+
+function DesktopHorizontalSteps({ view }: { view: StepsView }) {
+  const STEPS = view.steps;
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -99,10 +132,10 @@ function DesktopHorizontalSteps() {
     <section className="steps-horizontal" ref={containerRef}>
       <div className="steps-horizontal-sticky">
         <div className="steps-horizontal-header">
-          <span className="section-label">Notre approche</span>
+          <span className="section-label">{view.label}</span>
           <h2 className="steps-horizontal-title">
-            5 étapes,<br />
-            <em>une seule trajectoire.</em>
+            {view.title1}<br />
+            <em>{view.title2}</em>
           </h2>
         </div>
 
@@ -128,16 +161,17 @@ function DesktopHorizontalSteps() {
   );
 }
 
-function MobileAccordionSteps() {
+function MobileAccordionSteps({ view }: { view: StepsView }) {
+  const STEPS = view.steps;
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <section className="steps-mobile-accordion">
       <div className="container">
         <div className="section-header center">
-          <span className="section-label">Notre approche</span>
+          <span className="section-label">{view.label}</span>
           <div className="section-sep" />
-          <h2 className="section-title">5 étapes, une seule trajectoire.</h2>
+          <h2 className="section-title">{view.title1} {view.title2}</h2>
         </div>
 
         <div className="accordion-list">

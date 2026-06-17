@@ -113,6 +113,53 @@ const aboutPage = {
   ],
 };
 
+const homePage = {
+  _id: "homePage",
+  _type: "homePage",
+  problemTitle1: "Ce qui coûte cher",
+  problemTitle2: "quand on s'y prend mal.",
+  problemSub: "La plupart des dirigeantes et dirigeants sous-estiment la complexité d'une transmission. Voici ce qui arrive quand elle n'est pas préparée.",
+  problemCtaLabel: "Voir comment l'éviter",
+  problemCards: [
+    { _key: "pc1", eyebrow: "Valorisation", titre: "Vendre en dessous de la valeur réelle", desc: "Sans dossier argumenté, le prix s'aligne sur l'instinct de l'acheteur. L'écart peut représenter plusieurs années de bénéfices." },
+    { _key: "pc2", eyebrow: "Repreneur", titre: "Tomber sur le mauvais acquéreur", desc: "Un repreneur sans capacité financière ou sans projet solide met en danger vos salariés, votre réputation et vos garanties post-cession." },
+    { _key: "pc3", eyebrow: "Discrétion", titre: "Perdre le contrôle de l'information", desc: "Une vente mal gérée se sait. Salariés, concurrents, fournisseurs alertés trop tôt : l'entreprise se fragilise avant même la signature." },
+    { _key: "pc4", eyebrow: "Clauses", titre: "Signer sans comprendre ce qu'on signe", desc: "Garantie d'actif-passif, earn-out, non-concurrence : mal négociées, ces clauses peuvent effacer une partie du prix des années après la vente." },
+  ],
+  stepsLabel: "Notre approche",
+  stepsTitle1: "5 étapes,",
+  stepsTitle2: "une seule trajectoire.",
+  steps: [
+    { _key: "s1", label: "Diagnostic", title: "Comprendre avant de proposer.", desc: "Forces, faiblesses, dépendances et leviers de valeur cachés. Sans angle mort." },
+    { _key: "s2", label: "Positionnement", title: "Définir la juste valeur.", desc: "Positionnement défendable, valorisation argumentée, profilage des bons acquéreurs." },
+    { _key: "s3", label: "Préparation", title: "Structurer le dossier.", desc: "Teaser, mémorandum, data room. Chaque pièce raconte clairement la valeur." },
+    { _key: "s4", label: "Mise en vente", title: "Cibler avec discrétion.", desc: "Acquéreurs ciblés, interactions pilotées, confidentialité préservée du début à la fin." },
+    { _key: "s5", label: "Accompagnement", title: "Conseiller jusqu'à la signature.", desc: "Posture de négociation, conditions économiques et juridiques. Accompagnement jusqu'à la finalisation et au-delà." },
+  ],
+  manifesteEyebrow: "",
+  manifesteLine1: "Vous ne vendez",
+  manifesteLine2: "qu'une fois.",
+  manifesteLine3: "Préparez-vous comme tel.",
+  manifesteSub: "",
+  stats: [
+    { _key: "st1", value: 18, suffix: "mois", label: "Durée moyenne d'un accompagnement Premium" },
+    { _key: "st2", value: 22, label: "Collaborateurs intégrés dans la cession médiane" },
+    { _key: "st3", prefix: "×", value: 3, label: "Multiple de valorisation moyen vs estimation initiale" },
+  ],
+  cabinetEyebrow: "Le cabinet",
+  cabinetName: "Bruno Benattar",
+  cabinetRole: "Franchisé Procomm · La Réunion depuis 2015",
+  cabinetDesc: "12 ans aux côtés des dirigeants de TPE et PME, en cession comme en acquisition. Une approche fondée sur l'écoute, la rigueur et la discrétion.",
+  cabinetReassurance: "100+ dirigeants accompagnés",
+  temoignages: [
+    { _key: "t1", text: "L'accompagnement a été précis du début à la fin. Bruno a su identifier ce qui faisait vraiment notre valeur, là où d'autres auraient vu une PME parmi d'autres.", name: "Jean-Marc R.", context: "Dirigeant cédant, PME BTP, La Réunion" },
+    { _key: "t2", text: "On savait qu'on voulait vendre, on ne savait pas comment. Aujourd'hui c'est signé, dans les meilleures conditions.", name: "Sylvie M.", context: "Commerce alimentaire, 8 collaborateurs" },
+    { _key: "t3", text: "La discrétion totale tout au long du processus. Pour nous, c'était indispensable.", name: "Patrick L.", context: "Société de services, 14 collaborateurs" },
+    { _key: "t4", text: "Le diagnostic initial a changé notre regard sur notre propre entreprise. Le repreneur a vu ce que Bruno avait mis en lumière.", name: "Hélène D.", context: "Société d'ingénierie, 12 collaborateurs" },
+    { _key: "t5", text: "Méthode, écoute et calme. Trois qualités qui ont fait la différence quand les discussions se sont tendues.", name: "Olivier F.", context: "Entreprise industrielle, 26 collaborateurs" },
+  ],
+};
+
 // createIfNotExists pour les singletons : on ne veut PAS ecraser les edits du
 // client si on relance le seed. (Les autres docs utilisent createOrReplace.)
 async function run() {
@@ -122,6 +169,7 @@ async function run() {
   }
   tx.createIfNotExists(heroSection);
   tx.createIfNotExists(aboutPage);
+  tx.createIfNotExists(homePage);
   const res = await tx.commit();
   console.log(`OK : ${res.results.length} documents crees/mis a jour dans Sanity.`);
 }

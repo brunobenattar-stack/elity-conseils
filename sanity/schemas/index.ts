@@ -7,7 +7,8 @@ import pageText from "./pageText";
 import article from "./article";
 import heroSection from "./heroSection";
 import aboutPage from "./aboutPage";
+import homePage from "./homePage";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [caseStudy, offer, faqItem, pageText, article, heroSection, aboutPage],
+  types: [caseStudy, offer, faqItem, pageText, article, heroSection, aboutPage, homePage],
 };

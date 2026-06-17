@@ -94,29 +94,54 @@ function ProblemCard({ r }: { r: typeof RISQUES[number] }) {
   );
 }
 
-export default function HomeProblem() {
+type HomeProblemData = {
+  problemTitle1?: string;
+  problemTitle2?: string;
+  problemSub?: string;
+  problemCards?: { eyebrow?: string; titre?: string; desc?: string }[];
+  problemCtaLabel?: string;
+};
+
+export default function HomeProblem({ home }: { home?: HomeProblemData | null }) {
+  const title1 = home?.problemTitle1?.trim() || "Ce qui coûte cher";
+  const title2 = home?.problemTitle2?.trim() || "quand on s'y prend mal.";
+  const sub =
+    home?.problemSub?.trim() ||
+    "La plupart des dirigeantes et dirigeants sous-estiment la complexité d'une transmission. Voici ce qui arrive quand elle n'est pas préparée.";
+  const ctaLabel = home?.problemCtaLabel?.trim() || "Voir comment l'éviter";
+
+  // Si Sanity fournit des cartes, on garde la deco visuelle (icone + variante) par index.
+  const cards =
+    home?.problemCards && home.problemCards.length > 0
+      ? home.problemCards.map((c, i) => ({
+          ...RISQUES[i % RISQUES.length],
+          num: String(i + 1).padStart(2, "0"),
+          eyebrow: c.eyebrow?.trim() || RISQUES[i % RISQUES.length].eyebrow,
+          titre: c.titre?.trim() || RISQUES[i % RISQUES.length].titre,
+          desc: c.desc?.trim() || RISQUES[i % RISQUES.length].desc,
+        }))
+      : RISQUES;
+
   return (
     <section className="section problem-section">
       <div className="container">
         <Reveal className="problem-intro">
           <h2 className="problem-headline">
-            <span className="problem-headline-line">Ce qui coûte cher</span>
-            <span className="problem-headline-line"><em>quand on s&apos;y prend mal.</em></span>
+            <span className="problem-headline-line">{title1}</span>
+            <span className="problem-headline-line"><em>{title2}</em></span>
           </h2>
-          <p className="problem-sub">
-            La plupart des dirigeantes et dirigeants sous-estiment la complexité d&apos;une transmission. Voici ce qui arrive quand elle n&apos;est pas préparée.
-          </p>
+          <p className="problem-sub">{sub}</p>
         </Reveal>
 
         <div className="problem-cards-scroller">
-          {RISQUES.map((r) => (
+          {cards.map((r) => (
             <ProblemCard key={r.num} r={r} />
           ))}
         </div>
 
         <Reveal className="problem-cta-wrap">
           <Link href="/approche" className="btn btn-ghost problem-cta">
-            Voir comment l&apos;éviter
+            {ctaLabel}
             <span aria-hidden="true">→</span>
           </Link>
         </Reveal>
