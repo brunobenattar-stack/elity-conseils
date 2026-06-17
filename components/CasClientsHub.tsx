@@ -180,6 +180,12 @@ export default function CasClientsHub({
 
   const switchTab = (t: "cas" | "actus") => {
     setTab(t);
+    // Met a jour l'URL (sans saut de scroll) pour que l'onglet soit conserve
+    // si on actualise la page.
+    if (typeof window !== "undefined") {
+      const hash = t === "actus" ? "#actualites" : "#cas";
+      history.replaceState(null, "", hash);
+    }
     // place l'ancre en haut de la zone blog
     requestAnimationFrame(() => {
       document
