@@ -107,17 +107,6 @@ export default async function CasClientsPage() {
       }))
     : FALLBACK_CASES;
 
-  // Exemple d'actualité de démonstration (à retirer ou remplacer par du contenu Sanity).
-  const DEMO_ARTICLE = {
-    title: "Céder son entreprise à La Réunion : 3 erreurs à éviter en 2025",
-    slug: "ceder-entreprise-reunion-erreurs",
-    date: "2025-01-15",
-    category: "conseil",
-    excerpt:
-      "Surévaluation, dossier incomplet, timing mal choisi : les trois pièges qui font échouer une cession, et comment les éviter en préparant en amont.",
-    body: "Vendre son entreprise est souvent le projet d'une vie. Pourtant, beaucoup de dirigeant(e)s abordent la cession sans préparation, et le résultat s'en ressent : prix tiré vers le bas, acquéreurs qui se désengagent, négociation subie.\nPremière erreur : surévaluer son entreprise. Un prix déconnecté de la capacité de remboursement réelle fait fuir les bons repreneurs. Une valorisation défendable, calée comme le ferait un banquier, sécurise la transaction.\nDeuxième erreur : un dossier incomplet. Sans teaser, mémorandum et data room clairs, l'acquéreur perçoit du risque, et le risque se paie en décote.\nTroisième erreur : un mauvais timing. Préparer la cession 18 à 36 mois en amont permet de présenter une entreprise structurée, rentable et lisible, donc bien plus attractive.\nLa bonne nouvelle : ces trois pièges s'évitent avec un accompagnement en amont. C'est exactement ce que propose Elity Conseils.",
-  };
-  const articlesWithDemo = articles.length ? articles : [DEMO_ARTICLE];
-
-  return <CasClientsHub cases={cases} articles={articlesWithDemo} />;
+  // Les actualités viennent uniquement de Sanity (statut publié).
+  return <CasClientsHub cases={cases} articles={articles} />;
 }

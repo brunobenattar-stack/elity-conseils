@@ -329,7 +329,7 @@ main { position: relative; z-index: 2; }
 .logo-mark { width: 78px; height: 78px; flex-shrink: 0; }
 .logo-lockup { height: 88px; width: auto; display: block; flex-shrink: 0; }
 /* Header desktop : logo un peu plus petit pour resserrer la navbar (footer garde 88px) */
-.navbar .logo-lockup { height: 70px; }
+.navbar .logo-lockup { height: 60px; }
 .logo-text { display: flex; flex-direction: column; align-items: center; line-height: 1; }
 .logo-name {
   font-family: var(--serif);
@@ -10966,7 +10966,7 @@ main { position: relative; z-index: 2; }
 .blog-overlay {
   position: fixed;
   inset: 0;
-  z-index: 2000;
+  z-index: 3000;
   background: rgba(8, 7, 5, 0.72);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
