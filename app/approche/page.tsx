@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import CtaFinal from "@/components/CtaFinal";
+import { getApproche } from "@/sanity/queries";
 
 export const metadata: Metadata = {
   title: "Notre Approche : 5 étapes pour préparer votre cession à La Réunion",
@@ -61,16 +62,18 @@ const STEPS: Step[] = [
   },
 ];
 
-export default function ApprochePage() {
+export default async function ApprochePage() {
+  const a = await getApproche();
+  const heading = a?.heading?.trim() || "Cinq étapes pour préparer et valoriser votre entreprise avant la cession.";
+  const intro = a?.intro?.trim() || "";
   return (
     <>
       <section className="section section-cream section-first">
         <div className="container">
           <Reveal className="approche-intro">
             <span className="approche-intro-label">La méthode Elity en 5 étapes</span>
-            <h2 className="approche-intro-title">
-              Cinq étapes pour préparer et valoriser votre entreprise <em>avant la cession.</em>
-            </h2>
+            <h2 className="approche-intro-title">{heading}</h2>
+            {intro && <p className="approche-intro-sub">{intro}</p>}
           </Reveal>
           <div className="approche-flow">
             {STEPS.map((s, i) => (

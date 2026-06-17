@@ -8,19 +8,24 @@ import HomeStepsHorizontal from "@/components/HomeStepsHorizontal";
 import HomeBrunoParallax from "@/components/HomeBrunoParallax";
 import CessionOffers from "@/components/CessionOffers";
 import MagneticButton from "@/components/MagneticButton";
-import { getHero, getHome } from "@/sanity/queries";
+import { getHome } from "@/sanity/queries";
 import { defaultContent } from "@/lib/content";
 
 export default async function HomePage() {
-  const [sanityHero, home] = await Promise.all([getHero(), getHome()]);
-  // Sanity prioritaire, repli sur le contenu par defaut champ par champ.
-  const hero = { ...defaultContent.hero };
-  if (sanityHero) {
-    (Object.keys(hero) as (keyof typeof hero)[]).forEach((k) => {
-      const v = sanityHero[k];
-      if (typeof v === "string" && v.trim() !== "") hero[k] = v;
-    });
-  }
+  const home = await getHome();
+  // Hero : Sanity (champs hero* de homePage) prioritaire, repli sur le defaut.
+  const d = defaultContent.hero;
+  const hero = {
+    ...d,
+    eyebrow: home?.heroEyebrow?.trim() || d.eyebrow,
+    titleLine1: home?.heroTitleLine1?.trim() || d.titleLine1,
+    titleEm: home?.heroTitleEm?.trim() || d.titleEm,
+    sub: home?.heroSub?.trim() || d.sub,
+    cta1Label: home?.heroCta1Label?.trim() || d.cta1Label,
+    cta1Href: home?.heroCta1Href?.trim() || d.cta1Href,
+    cta2Label: home?.heroCta2Label?.trim() || d.cta2Label,
+    cta2Href: home?.heroCta2Href?.trim() || d.cta2Href,
+  };
 
   return (
     <>

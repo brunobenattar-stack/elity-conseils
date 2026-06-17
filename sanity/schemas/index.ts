@@ -3,12 +3,23 @@ import { type SchemaTypeDefinition } from "sanity";
 import caseStudy from "./caseStudy";
 import offer from "./offer";
 import faqItem from "./faqItem";
-import pageText from "./pageText";
 import article from "./article";
-import heroSection from "./heroSection";
-import aboutPage from "./aboutPage";
 import homePage from "./homePage";
+import aboutPage from "./aboutPage";
+import approchePage from "./approchePage";
+import essorPage from "./essorPage";
+import offersPage from "./offersPage";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [caseStudy, offer, faqItem, pageText, article, heroSection, aboutPage, homePage],
+  types: [
+    homePage,
+    approchePage,
+    offersPage,
+    essorPage,
+    aboutPage,
+    caseStudy,
+    article,
+    offer,
+    faqItem,
+  ],
 };

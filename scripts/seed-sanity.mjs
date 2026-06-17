@@ -120,24 +120,6 @@ const faqItems = [
   { group: "pratique", question: "Travaillez-vous avec des avocats et notaires ?", answer: "Oui. Pour une cession, nous coordonnons avec vos conseils existants (avocat d'affaires, expert-comptable, notaire) ou vous orientons vers des partenaires de confiance si nécessaire. Notre rôle est de garantir la cohérence de l'ensemble." },
 ].map((f, i) => ({ ...f, _id: `faq-${String(i + 1).padStart(2, "0")}`, _type: "faqItem", order: i }));
 
-const heroSection = {
-  _id: "heroSection",
-  _type: "heroSection",
-  eyebrow: "La Réunion · Ile Maurice · Océan Indien",
-  titleLine1: "Céder, reprendre,",
-  titleEm: "structurer avant d'agir.",
-  sub: "Elity Conseils accompagne les dirigeantes et dirigeants de l'Océan Indien dans leur stratégie de cession ou d'acquisition, et les aide à piloter leur entreprise sur le long terme.",
-  cta1Label: "Entamer un échange",
-  cta1Href: "/contact",
-  cta2Label: "Découvrir notre approche",
-  cta2Href: "/approche",
-  chip1Label: "Confidentialité totale",
-  chip1Sub: "Premier échange sans engagement",
-  chip2Num: "10+",
-  chip2Label: "Années d'expérience",
-  chip2Sub: "Franchisé Procomm depuis 2015",
-};
-
 const aboutPage = {
   _id: "aboutPage",
   _type: "aboutPage",
@@ -160,6 +142,14 @@ const aboutPage = {
 const homePage = {
   _id: "homePage",
   _type: "homePage",
+  heroEyebrow: "La Réunion · Ile Maurice · Océan Indien",
+  heroTitleLine1: "Céder, reprendre,",
+  heroTitleEm: "structurer avant d'agir.",
+  heroSub: "Elity Conseils accompagne les dirigeantes et dirigeants de l'Océan Indien dans leur stratégie de cession ou d'acquisition, et les aide à piloter leur entreprise sur le long terme.",
+  heroCta1Label: "Entamer un échange",
+  heroCta1Href: "/contact",
+  heroCta2Label: "Découvrir notre approche",
+  heroCta2Href: "/approche",
   problemTitle1: "Ce qui coûte cher",
   problemTitle2: "quand on s'y prend mal.",
   problemSub: "La plupart des dirigeantes et dirigeants sous-estiment la complexité d'une transmission. Voici ce qui arrive quand elle n'est pas préparée.",
@@ -204,6 +194,40 @@ const homePage = {
   ],
 };
 
+const approchePage = {
+  _id: "approchePage",
+  _type: "approchePage",
+  heading: "Cinq étapes pour préparer et valoriser votre entreprise avant la cession.",
+  intro: "",
+  steps: [
+    { _key: "a1", label: "Diagnostic", title: "On regarde la réalité en face", desc: "Un audit complet pour cartographier vos forces, vos dépendances et les leviers de valeur que vous ne voyez plus.", bullets: ["Finances, organisation, clientèle", "Forces, faiblesses, opportunités", "Leviers de valeur cachés"] },
+    { _key: "a2", label: "Positionnement", title: "On fixe un prix défendable", desc: "Une valorisation calée sur la capacité de remboursement réelle, comme un banquier. Pas de surévaluation.", bullets: ["Positionnement de mise en marché", "Valorisation argumentée", "Profils d'acquéreurs ciblés"] },
+    { _key: "a3", label: "Préparation", title: "On rend l'entreprise lisible", desc: "Un dossier qui met en avant vos points forts et lisse les points sensibles avant la rencontre des acquéreurs.", bullets: ["Teaser, mémorandum, data room", "Points forts valorisés", "Leviers du diagnostic activés"] },
+    { _key: "a4", label: "Mise en relation", title: "On cible les bons acquéreurs", desc: "La mise en marché est confiée à Procomm Océan Indien, avec discrétion. Seules les intentions sérieuses avancent.", bullets: ["Ciblage précis via le réseau Procomm", "Pilotage discret du processus", "Filtrage des intentions"] },
+    { _key: "a5", label: "Signature", title: "On sécurise jusqu'au bout", desc: "Accompagnement de la négociation à la signature, et au-delà, pour sécuriser chaque condition.", bullets: ["Posture de négociation", "Conditions économiques et juridiques", "Accompagnement jusqu'à la finalisation"] },
+  ],
+};
+
+const essorPage = {
+  _id: "essorPage",
+  _type: "essorPage",
+  heading: "",
+  intro: "De l'état des lieux à la performance, en 12 ou 24 mois. Quatre étapes pour décider les yeux ouverts.",
+  steps: [
+    { _key: "e1", label: "Constate", title: "Voir clair avant d'agir.", desc: "Un audit complet de l'entreprise : forces, faiblesses et potentiel. On cartographie ce qui fonctionne, ce qui freine, et ce que vous ne voyez plus.", bullets: ["Diagnostic global (forces, faiblesses, opportunités).", "Cartographie des indicateurs clés réellement pilotables.", "Identification des dépendances critiques (clients, savoir-faire, dirigeant).", "Restitution écrite et discussion approfondie."], outcome: "Vous repartez avec une lecture neuve de votre entreprise. Pas une critique : une photographie honnête sur laquelle bâtir." },
+    { _key: "e2", label: "Consolide", title: "Renforcer la base avant d'accélérer.", desc: "On optimise ce qui marche déjà et on corrige ce qui freine, avant de chercher à grandir. Stabiliser les fondations évite des mois de croissance brouillonne.", bullets: ["Optimisation des process opérationnels essentiels.", "Renforcement de la structure financière (BFR, marges, trésorerie).", "Clarification de l'organisation et des responsabilités.", "Plan d'action mensuel sur les chantiers prioritaires."], outcome: "L'entreprise gagne en lisibilité, en marge et en sérénité opérationnelle. Le dirigeant cesse d'éteindre des feux." },
+    { _key: "e3", label: "Maîtrise", title: "Décider aux indicateurs, plus à l'instinct.", desc: "On installe le tableau de bord du dirigeant : des chiffres clairs, des décisions éclairées, un cap tenu mois après mois. Vous reprenez la main.", bullets: ["Construction du tableau de bord stratégique mensuel.", "Rituel mensuel structuré avec rapport d'activité."], outcome: "" },
+    { _key: "e4", label: "Réalise", title: "Concrétiser les projets qui comptent.", desc: "Croissance, recrutement, valorisation, cession : on déroule les projets stratégiques avec méthode.", bullets: [], outcome: "" },
+  ],
+};
+
+const offersPage = {
+  _id: "offersPage",
+  _type: "offersPage",
+  heading: "",
+  intro: "",
+};
+
 // createIfNotExists pour les singletons : on ne veut PAS ecraser les edits du
 // client si on relance le seed. (Les autres docs utilisent createOrReplace.)
 async function run() {
@@ -211,9 +235,11 @@ async function run() {
   for (const doc of [...caseStudies, ...articles, ...offers, ...faqItems]) {
     tx.createOrReplace(doc);
   }
-  tx.createIfNotExists(heroSection);
   tx.createIfNotExists(aboutPage);
   tx.createIfNotExists(homePage);
+  tx.createIfNotExists(approchePage);
+  tx.createIfNotExists(essorPage);
+  tx.createIfNotExists(offersPage);
   const res = await tx.commit();
   console.log(`OK : ${res.results.length} documents crees/mis a jour dans Sanity.`);
 }

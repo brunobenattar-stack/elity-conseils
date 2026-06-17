@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 import CtaFinal from "@/components/CtaFinal";
 import VideoParallaxBg from "@/components/VideoParallaxBg";
 import { IconLoupe, IconHandshake, IconChart, IconTrophy } from "@/components/icons";
+import { getEssor } from "@/sanity/queries";
 
 export const metadata: Metadata = {
   title: "Méthode ESSOR : accompagnement de dirigeant(e) de TPE/PME à La Réunion",
@@ -89,7 +90,10 @@ const STEPS: Step[] = [
   },
 ];
 
-export default function MethodeEssorPage() {
+export default async function MethodeEssorPage() {
+  const e = await getEssor();
+  const heading = e?.heading?.trim();
+  const intro = e?.intro?.trim() || "De l'état des lieux à la performance, en 12 ou 24 mois. Quatre étapes pour décider les yeux ouverts.";
   return (
     <>
       <section className="section section-cream section-first">
@@ -97,11 +101,15 @@ export default function MethodeEssorPage() {
           <PageLead
             label="Méthode ESSOR"
             title={
-              <>
-                Méthode <em>ESSOR.</em>
-              </>
+              heading ? (
+                <>{heading}</>
+              ) : (
+                <>
+                  Méthode <em>ESSOR.</em>
+                </>
+              )
             }
-            text="De l'état des lieux à la performance, en 12 ou 24 mois. Quatre étapes pour décider les yeux ouverts."
+            text={intro}
           />
 
           <div className="essor-grid">

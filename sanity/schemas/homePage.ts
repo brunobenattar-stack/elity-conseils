@@ -7,6 +7,7 @@ export default defineType({
   title: "Page d'accueil (sections)",
   type: "document",
   groups: [
+    { name: "hero", title: "Bloc principal (hero)", default: true },
     { name: "problem", title: "Section Problèmes" },
     { name: "steps", title: "Section Approche (étapes)" },
     { name: "manifeste", title: "Manifeste" },
@@ -15,6 +16,15 @@ export default defineType({
     { name: "temoignages", title: "Témoignages" },
   ],
   fields: [
+    // --- Hero (bloc principal d'accueil) ---
+    defineField({ name: "heroEyebrow", title: "Surtitre", type: "string", group: "hero" }),
+    defineField({ name: "heroTitleLine1", title: "Titre (1re partie)", type: "string", group: "hero" }),
+    defineField({ name: "heroTitleEm", title: "Titre (partie dorée)", type: "string", group: "hero" }),
+    defineField({ name: "heroSub", title: "Sous-titre", type: "text", rows: 3, group: "hero" }),
+    defineField({ name: "heroCta1Label", title: "Bouton principal : texte", type: "string", group: "hero" }),
+    defineField({ name: "heroCta1Href", title: "Bouton principal : lien", type: "string", group: "hero" }),
+    defineField({ name: "heroCta2Label", title: "Bouton secondaire : texte", type: "string", group: "hero" }),
+    defineField({ name: "heroCta2Href", title: "Bouton secondaire : lien", type: "string", group: "hero" }),
     // --- Section Problemes ---
     defineField({ name: "problemTitle1", title: "Titre (ligne 1)", type: "string", group: "problem" }),
     defineField({ name: "problemTitle2", title: "Titre (ligne 2, italique)", type: "string", group: "problem" }),

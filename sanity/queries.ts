@@ -37,13 +37,6 @@ export type SanityFaqItem = {
   group?: "cession" | "dirigeant" | "pratique";
 };
 
-export type SanityPageText = {
-  key: string;
-  eyebrow?: string;
-  heading?: string;
-  body?: string;
-};
-
 export type SanityArticle = {
   title: string;
   slug: string;
@@ -56,20 +49,21 @@ export type SanityArticle = {
   link?: string;
 };
 
-export type SanityHero = {
-  eyebrow?: string;
-  titleLine1?: string;
-  titleEm?: string;
-  sub?: string;
-  cta1Label?: string;
-  cta1Href?: string;
-  cta2Label?: string;
-  cta2Href?: string;
-  chip1Label?: string;
-  chip1Sub?: string;
-  chip2Num?: string;
-  chip2Label?: string;
-  chip2Sub?: string;
+export type SanityApproche = {
+  heading?: string;
+  intro?: string;
+  steps?: { label?: string; title?: string; desc?: string; bullets?: string[] }[];
+};
+
+export type SanityEssor = {
+  heading?: string;
+  intro?: string;
+  steps?: { label?: string; title?: string; desc?: string; bullets?: string[]; outcome?: string }[];
+};
+
+export type SanityOffersPage = {
+  heading?: string;
+  intro?: string;
 };
 
 export type SanityAbout = {
@@ -82,6 +76,14 @@ export type SanityAbout = {
 };
 
 export type SanityHome = {
+  heroEyebrow?: string;
+  heroTitleLine1?: string;
+  heroTitleEm?: string;
+  heroSub?: string;
+  heroCta1Label?: string;
+  heroCta1Href?: string;
+  heroCta2Label?: string;
+  heroCta2Href?: string;
   problemTitle1?: string;
   problemTitle2?: string;
   problemSub?: string;
@@ -141,20 +143,27 @@ export function getFaqItems() {
   );
 }
 
-export function getPageTexts() {
-  return safeFetch<SanityPageText[]>(
-    `*[_type == "pageText"]{ key, eyebrow, heading, body }`,
-    []
+export function getApproche() {
+  return safeFetch<SanityApproche | null>(
+    `*[_type == "approchePage"][0]{
+      heading, intro, steps[]{ label, title, desc, bullets }
+    }`,
+    null
   );
 }
 
-export function getHero() {
-  return safeFetch<SanityHero | null>(
-    `*[_type == "heroSection"][0]{
-      eyebrow, titleLine1, titleEm, sub,
-      cta1Label, cta1Href, cta2Label, cta2Href,
-      chip1Label, chip1Sub, chip2Num, chip2Label, chip2Sub
+export function getEssor() {
+  return safeFetch<SanityEssor | null>(
+    `*[_type == "essorPage"][0]{
+      heading, intro, steps[]{ label, title, desc, bullets, outcome }
     }`,
+    null
+  );
+}
+
+export function getOffersPage() {
+  return safeFetch<SanityOffersPage | null>(
+    `*[_type == "offersPage"][0]{ heading, intro }`,
     null
   );
 }
@@ -162,6 +171,8 @@ export function getHero() {
 export function getHome() {
   return safeFetch<SanityHome | null>(
     `*[_type == "homePage"][0]{
+      heroEyebrow, heroTitleLine1, heroTitleEm, heroSub,
+      heroCta1Label, heroCta1Href, heroCta2Label, heroCta2Href,
       problemTitle1, problemTitle2, problemSub,
       problemCards[]{ eyebrow, titre, desc }, problemCtaLabel,
       stepsLabel, stepsTitle1, stepsTitle2, steps[]{ label, title, desc },
