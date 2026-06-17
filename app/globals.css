@@ -11207,7 +11207,7 @@ main { position: relative; z-index: 2; }
 .nav-submenu a:hover { background: rgba(201, 165, 90, 0.14); color: var(--gold-main); }
 
 @media (max-width: 680px) {
-  .blog-overlay { padding: 96px 14px 24px; }
-  .blog-overlay-panel { border-radius: 16px; padding: 40px 22px 32px; max-height: calc(100dvh - 120px); }
+  .blog-overlay { padding: 124px 14px 20px; align-items: flex-start; }
+  .blog-overlay-panel { border-radius: 16px; padding: 40px 22px 32px; max-height: calc(100dvh - 144px); }
   .blog-reader-metrics { gap: 18px; }
 }
