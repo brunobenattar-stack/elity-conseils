@@ -1,8 +1,8 @@
 /* ==========================================================================
-   ELITY CONSEILS — Global tokens & shared styles
+   ELITY CONSEILS - Global tokens & shared styles
    ========================================================================== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-/* Bandeau "en cours de création" — fixé en bas sur mobile uniquement */
+/* Bandeau "en cours de création" - fixé en bas sur mobile uniquement */
 .coming-soon-banner {
   display: none; /* masqué sur desktop */
 }
@@ -58,7 +58,7 @@ input, textarea { font: inherit; color: inherit; }
 
   --sep: rgba(201, 165, 90, 0.30);
 
-  /* CREAM / LIGHT SECTIONS — alternance forte avec le dark */
+  /* CREAM / LIGHT SECTIONS - alternance forte avec le dark */
   --bg-cream: #f1ebe0;
   --bg-cream-2: #e8e0d1;
   --text-on-cream: #1a1611;
@@ -69,7 +69,7 @@ input, textarea { font: inherit; color: inherit; }
   --gold-on-cream-soft: rgba(154, 122, 58, 0.22);
   --sep-on-cream: rgba(26, 22, 17, 0.12);
 
-  /* ACCENT SECONDAIRE — bleu pétrole foncé (contraste vs or) */
+  /* ACCENT SECONDAIRE - bleu pétrole foncé (contraste vs or) */
   --ink-deep: #1d3a52;
   --ink-deep-2: #163049;
   --ink-deep-soft: rgba(29, 58, 82, 0.45);
@@ -467,7 +467,7 @@ main { position: relative; z-index: 2; }
   color: var(--gold-main);
 }
 
-/* Mobile menu — liens secondaires */
+/* Mobile menu - liens secondaires */
 .nav-more-mobile-sep {
   width: 40px;
   height: 1px;
@@ -611,7 +611,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   PAGE LEAD — entree directe (pas de bandeau-heros), avec degagement navbar
+   PAGE LEAD - entree directe (pas de bandeau-heros), avec degagement navbar
    ========================================================================== */
 .section-first { padding-top: clamp(132px, 14vw, 168px); }
 .page-lead { max-width: 880px; }
@@ -684,7 +684,7 @@ main { position: relative; z-index: 2; }
 .section-cream .page-lead-stat-lbl { color: var(--text-cream-muted); }
 
 /* ==========================================================================
-   SECTION VARIANTS — alternance cream / petrole pour casser le tout-noir
+   SECTION VARIANTS - alternance cream / petrole pour casser le tout-noir
    ========================================================================== */
 .section-cream {
   background: var(--bg-cream);
@@ -722,7 +722,7 @@ main { position: relative; z-index: 2; }
 .section-photo .section-body { color: rgba(255,255,255,0.82); }
 
 /* ==========================================================================
-   APPROCHE — flow 5 etapes : photo + contenu en alternance
+   APPROCHE - flow 5 etapes : photo + contenu en alternance
    ========================================================================== */
 .approche-intro { max-width: 760px; margin-bottom: clamp(48px, 6vw, 80px); }
 .approche-intro-label {
@@ -1903,7 +1903,7 @@ main { position: relative; z-index: 2; }
   .apropos-avantages { grid-template-columns: 1fr; gap: 18px; margin-top: 40px; }
 }
 
-/* Ma mission — section photo + icones */
+/* Ma mission - section photo + icones */
 .apropos-mission-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1950,7 +1950,7 @@ main { position: relative; z-index: 2; }
 .apropos-mission .apropos-mission-grid { margin-top: 40px; }
 .apropos-mission .apropos-mission-item { padding: 26px 22px; }
 
-/* Une mission marquante — titre geant pleine largeur */
+/* Une mission marquante - titre geant pleine largeur */
 .apropos-story-section .container-wide,
 .container-wide {
   width: 100%;
@@ -2020,7 +2020,7 @@ main { position: relative; z-index: 2; }
   margin-bottom: 2px;
 }
 
-/* Notre difference — 2 cartes style premium */
+/* Notre difference - 2 cartes style premium */
 .diff-deck {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2290,7 +2290,7 @@ main { position: relative; z-index: 2; }
 .contact-line a:hover { color: var(--gold-main); }
 
 /* ==========================================================================
-   CONTACT PAGE V2 — Vidéo BG + formulaire overlay
+   CONTACT PAGE V2 - Vidéo BG + formulaire overlay
    ========================================================================== */
 .contact-page-wrap {
   position: relative;
@@ -2732,7 +2732,7 @@ main { position: relative; z-index: 2; }
   gap: 64px;
   padding-bottom: 48px;
 }
-/* Layout v3 : 3 colonnes — brand / nav / contact (à droite) */
+/* Layout v3 : 3 colonnes - brand / nav / contact (à droite) */
 .footer-grid-v3 {
   grid-template-columns: 1.5fr 1fr 1.3fr;
   gap: 64px;
@@ -2987,7 +2987,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   CONCEPT A — STICKY COMPASS (boussole avec fond cercle noir, lisible partout)
+   CONCEPT A - STICKY COMPASS (boussole avec fond cercle noir, lisible partout)
    ========================================================================== */
 .sticky-compass-wrap {
   position: fixed;
@@ -3085,13 +3085,13 @@ main { position: relative; z-index: 2; }
     5%, 95% { opacity: 1; }
   }
 }
-/* Fallback : navigateurs sans scroll-driven (Firefox < 110) — affiche juste le 1er label */
+/* Fallback : navigateurs sans scroll-driven (Firefox < 110) - affiche juste le 1er label */
 @supports not (animation-timeline: scroll()) {
   .sticky-compass-phase:not(:first-child) { display: none; }
 }
 
 /* ==========================================================================
-   CONCEPT A — HOME MANIFESTE (pull-quote oversized, BlurText)
+   CONCEPT A - HOME MANIFESTE (pull-quote oversized, BlurText)
    ========================================================================== */
 .manifeste-section {
   background: var(--bg-deep);
@@ -3161,7 +3161,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   MANIFESTE V3 — minimaliste centré (signature et stats supprimées)
+   MANIFESTE V3 - minimaliste centré (signature et stats supprimées)
    ========================================================================== */
 .manifeste-v3 {
   padding: clamp(80px, 12vw, 160px) 0;
@@ -3296,7 +3296,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   OFFRES — background image (sans bg-attachment fixed, trop coûteux GPU)
+   OFFRES - background image (sans bg-attachment fixed, trop coûteux GPU)
    ========================================================================== */
 .offres-dark {
   background-size: cover;
@@ -3304,7 +3304,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   CAS CLIENTS V3 — TABLEAU ÉDITORIAL (1 ligne par cas, style "dossier")
+   CAS CLIENTS V3 - TABLEAU ÉDITORIAL (1 ligne par cas, style "dossier")
    ========================================================================== */
 .cas-tableau {
   margin-top: 40px;
@@ -3528,7 +3528,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   TÉMOIGNAGES — Bouton Google GROS centré au milieu de la section
+   TÉMOIGNAGES - Bouton Google GROS centré au milieu de la section
    ========================================================================== */
 .btn-google-center {
   display: flex;
@@ -3584,7 +3584,7 @@ main { position: relative; z-index: 2; }
 .btn-google-big svg { width: 22px; height: 22px; }
 
 /* ==========================================================================
-   MOBILE ACCORDÉON — Approche 5 étapes en menu déroulant tactile
+   MOBILE ACCORDÉON - Approche 5 étapes en menu déroulant tactile
    ========================================================================== */
 .steps-mobile-accordion { display: none; }
 @media (max-width: 1024px) {
@@ -3597,7 +3597,7 @@ main { position: relative; z-index: 2; }
     position: relative;
     color: var(--text-on-cream);
   }
-  /* Fix : titre invisible sur fond crème — overrides explicites */
+  /* Fix : titre invisible sur fond crème - overrides explicites */
   .steps-mobile-accordion .section-title { color: var(--text-on-cream); }
   .steps-mobile-accordion .section-label { color: var(--gold-on-cream); }
   .steps-mobile-accordion .section-sep { background: var(--gold-on-cream); }
@@ -3720,7 +3720,7 @@ main { position: relative; z-index: 2; }
 .approche-cabinet-merged {
   position: relative;
 }
-/* CTA en bas du groupe — placé sur fond cream (continuité Cabinet) */
+/* CTA en bas du groupe - placé sur fond cream (continuité Cabinet) */
 .approche-cabinet-cta {
   display: flex;
   justify-content: center;
@@ -3751,7 +3751,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   CONCEPT A — STEPS HORIZONTAL STICKY (signature animation)
+   CONCEPT A - STEPS HORIZONTAL STICKY (signature animation)
    ========================================================================== */
 .steps-horizontal {
   position: relative;
@@ -3782,7 +3782,7 @@ main { position: relative; z-index: 2; }
   pointer-events: none;
 }
 .steps-horizontal-header > * { pointer-events: auto; }
-/* Voile réduit — couvre uniquement le header, pas les panels en dessous */
+/* Voile réduit - couvre uniquement le header, pas les panels en dessous */
 .steps-horizontal-header::before {
   content: "";
   position: absolute;
@@ -3887,7 +3887,7 @@ main { position: relative; z-index: 2; }
   border: 1px solid var(--gold-on-cream-soft);
   border-radius: 100px;
 }
-/* Numérotation étapes — même variable que le titre qui s'affiche en noir */
+/* Numérotation étapes - même variable que le titre qui s'affiche en noir */
 .step-num-display {
   font-family: var(--sans);
   font-size: 12px;
@@ -4062,7 +4062,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   HOME — SECTIONS LIGHT (CREAM) pour alternance forte
+   HOME - SECTIONS LIGHT (CREAM) pour alternance forte
    ========================================================================== */
 .section-light {
   background: var(--bg-cream);
@@ -4088,7 +4088,7 @@ main { position: relative; z-index: 2; }
 .section-light .pull-quote::before { color: var(--gold-on-cream-soft); }
 
 /* ==========================================================================
-   HOME — HERO avec photo réelle Unsplash en BG (rule design-god #3)
+   HOME - HERO avec photo réelle Unsplash en BG (rule design-god #3)
    ========================================================================== */
 .hero-media-bg {
   position: absolute;
@@ -4123,7 +4123,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   HERO COMPASS BG — boussole animée Framer Motion
+   HERO COMPASS BG - boussole animée Framer Motion
    ========================================================================== */
 .hero-compass-bg {
   position: absolute;
@@ -4179,7 +4179,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   HERO V3 — sans boussole, single column gauche, chips flottants, CTAs retravaillés
+   HERO V3 - sans boussole, single column gauche, chips flottants, CTAs retravaillés
    ========================================================================== */
 .hero-v3 .container { max-width: 1240px; }
 .hero-v3-container {
@@ -4295,7 +4295,7 @@ main { position: relative; z-index: 2; }
 }
 .hero-cta-ghost:hover .hero-cta-arrow { transform: translateY(3px); }
 
-/* Chips flottants — desktop seulement */
+/* Chips flottants - desktop seulement */
 .hero-chip {
   position: absolute;
   right: 6vw;
@@ -4412,7 +4412,7 @@ main { position: relative; z-index: 2; }
 .hero-visual { position: relative; z-index: 2; }
 
 /* ==========================================================================
-   HOME — APPROCHE ÉDITORIALE COMPACTE (anti-grille cartes, scroll réduit)
+   HOME - APPROCHE ÉDITORIALE COMPACTE (anti-grille cartes, scroll réduit)
    ========================================================================== */
 .approche-edito {
   display: flex;
@@ -4537,7 +4537,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   HOME — OFFRES CARTES (style inspiré 21st.dev PricingCards, noir/or)
+   HOME - OFFRES CARTES (style inspiré 21st.dev PricingCards, noir/or)
    ========================================================================== */
 .offres-dark {
   position: relative;
@@ -4640,7 +4640,7 @@ main { position: relative; z-index: 2; }
     0 32px 80px -20px rgba(0, 0, 0, 0.8),
     0 0 80px -10px rgba(201, 165, 90, 0.28);
 }
-/* FEATURED — Premium : carte la plus mise en avant (shell or plein) */
+/* FEATURED - Premium : carte la plus mise en avant (shell or plein) */
 .offer-card-shell.featured {
   background:
     linear-gradient(180deg, #d8b463 0%, #b8923f 100%);
@@ -4668,10 +4668,10 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   VARIANTES CARTES OFFRES — 3 identités chromatiques distinctes
+   VARIANTES CARTES OFFRES - 3 identités chromatiques distinctes
    ========================================================================== */
 
-/* CREAM — Stratégique : ivoire chaud + accent or, texte sombre.
+/* CREAM - Stratégique : ivoire chaud + accent or, texte sombre.
    Bordure 1px pour matcher les variantes default → cartes strictement symétriques. */
 .offer-card-shell.offer-card-cream {
   background:
@@ -4704,7 +4704,7 @@ main { position: relative; z-index: 2; }
     0 0 70px -10px rgba(201, 165, 90, 0.35);
 }
 
-/* GOLD variant supprimé — variantes valides : "default" et "cream" uniquement */
+/* GOLD variant supprimé - variantes valides : "default" et "cream" uniquement */
 
 /* Section Accompagnement de dirigeant(e) : cartes 12/24 mois entièrement claires,
    texte noir, contour noir (demande client). On neutralise le head sombre du cream. */
@@ -5020,7 +5020,7 @@ main { position: relative; z-index: 2; }
 .offer-line:hover .offer-line-link { gap: 14px; }
 
 /* ==========================================================================
-   HOME — À PROPOS BRUNO sur cream + stats inline
+   HOME - À PROPOS BRUNO sur cream + stats inline
    ========================================================================== */
 .about-edito {
   display: grid;
@@ -5129,7 +5129,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   HOME — STATS GRID 2x2 (cabinet compact)
+   HOME - STATS GRID 2x2 (cabinet compact)
    ========================================================================== */
 .stats-grid-2x2 {
   display: grid;
@@ -5172,7 +5172,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   HOME — STATS / RÉASSURANCE STACKED PILLS (rectangles arrondis empilés)
+   HOME - STATS / RÉASSURANCE STACKED PILLS (rectangles arrondis empilés)
    ========================================================================== */
 .stats-stacked {
   display: flex;
@@ -5239,12 +5239,12 @@ main { position: relative; z-index: 2; }
 .stat-pill:nth-child(4):hover { transform: translateX(24px); }
 
 /* ==========================================================================
-   CONCEPT A — BRUNO PARALLAX (photo monte, texte descend, croisement au milieu)
+   CONCEPT A - BRUNO PARALLAX (photo monte, texte descend, croisement au milieu)
    ========================================================================== */
 /* Plus de parallax sur Bruno → will-change retiré pour économiser un layer GPU */
 
 /* ==========================================================================
-   CAS CLIENTS — KPI ULTRA COMPACT (3 chiffres + label, pas de bla-bla)
+   CAS CLIENTS - KPI ULTRA COMPACT (3 chiffres + label, pas de bla-bla)
    ========================================================================== */
 .kpi-row {
   display: grid;
@@ -5320,7 +5320,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   CAS CLIENTS — BIG COUNTS V2 (deprecated, kept for legacy)
+   CAS CLIENTS - BIG COUNTS V2 (deprecated, kept for legacy)
    ========================================================================== */
 .big-counts-row {
   display: grid;
@@ -5484,7 +5484,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   HOME — CAS CLIENTS dark + photo BG, layout asymétrique
+   HOME - CAS CLIENTS dark + photo BG, layout asymétrique
    ========================================================================== */
 .cas-dark {
   position: relative;
@@ -5584,7 +5584,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   HOME — TÉMOIGNAGES sur cream, featured + 2 stacked
+   HOME - TÉMOIGNAGES sur cream, featured + 2 stacked
    ========================================================================== */
 .temoins-grid {
   display: grid;
@@ -5654,7 +5654,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   HOME — TÉMOIGNAGES SLIDER (contraste fort, flèches navigation, bouton Google)
+   HOME - TÉMOIGNAGES SLIDER (contraste fort, flèches navigation, bouton Google)
    ========================================================================== */
 .temoins-slider {
   position: relative;
@@ -5870,7 +5870,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   CONCEPT A — TÉMOIGNAGES 3D (carrousel Apple-style, rotation Y selon distance centre)
+   CONCEPT A - TÉMOIGNAGES 3D (carrousel Apple-style, rotation Y selon distance centre)
    ========================================================================== */
 .temoins-slider-3d {
   position: relative;
@@ -5924,7 +5924,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   CONCEPT A — MAGNETIC BUTTON
+   CONCEPT A - MAGNETIC BUTTON
    ========================================================================== */
 .magnetic-btn {
   will-change: transform;
@@ -6008,7 +6008,7 @@ main { position: relative; z-index: 2; }
   box-shadow: 0 2px 8px -2px rgba(201, 165, 90, 0.4);
 }
 
-/* Hamburger dans la bottom nav — icône seule, alignée avec les autres items */
+/* Hamburger dans la bottom nav - icône seule, alignée avec les autres items */
 .mobile-nav-burger {
   background: none;
   border: 0;
@@ -6212,7 +6212,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   HOME — CTA FINAL dark + photo BG
+   HOME - CTA FINAL dark + photo BG
    ========================================================================== */
 .cta-photo {
   position: relative;
@@ -6251,7 +6251,7 @@ main { position: relative; z-index: 2; }
   gap: 18px;
   justify-content: center;
 }
-/* Bouton secondaire CTA final — vrai bouton avec contour or */
+/* Bouton secondaire CTA final - vrai bouton avec contour or */
 .cta-photo-btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -6472,7 +6472,7 @@ main { position: relative; z-index: 2; }
   }
   .mobile-burger { display: flex !important; }
 
-  /* Bouton flottant "Nous contacter" — fixe en bas à droite de l'écran */
+  /* Bouton flottant "Nous contacter" - fixe en bas à droite de l'écran */
   .floating-contact-cta {
     display: inline-flex;
     align-items: center;
@@ -6720,7 +6720,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   TRAJECTOIRES — split cession / rachat (remplace le manifeste)
+   TRAJECTOIRES - split cession / rachat (remplace le manifeste)
    ========================================================================== */
 .trajectoires-section {
   position: relative;
@@ -6738,7 +6738,7 @@ main { position: relative; z-index: 2; }
   margin-bottom: 28px;
 }
 
-/* CTA "Voir nos offres" — entre les cartes et la note pilotage */
+/* CTA "Voir nos offres" - entre les cartes et la note pilotage */
 .trajectoires-offres-cta {
   display: flex;
   flex-direction: column;
@@ -6858,7 +6858,7 @@ main { position: relative; z-index: 2; }
 }
 .trajectoire-card-deco svg { width: 100%; height: 100%; }
 
-/* Carte 1 : Cession — ivoire chaud (bordure or épaisse) */
+/* Carte 1 : Cession - ivoire chaud (bordure or épaisse) */
 .trajectoire-card-ivory {
   background:
     radial-gradient(ellipse at top right, rgba(201, 165, 90, 0.14) 0%, transparent 60%),
@@ -6876,7 +6876,7 @@ main { position: relative; z-index: 2; }
 }
 .trajectoire-card-ivory .trajectoire-card-deco { color: #b89548; }
 
-/* Carte 2 : Rachat — doré chaud profond (bordure blanche épaisse) */
+/* Carte 2 : Rachat - doré chaud profond (bordure blanche épaisse) */
 .trajectoire-card-gold {
   background:
     radial-gradient(ellipse at top right, rgba(255, 255, 255, 0.18) 0%, transparent 60%),
@@ -6989,7 +6989,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   SECTION PROBLÈME — Risques d'une cession mal préparée
+   SECTION PROBLÈME - Risques d'une cession mal préparée
    ========================================================================== */
 .problem-section {
   position: relative;
@@ -7157,7 +7157,7 @@ main { position: relative; z-index: 2; }
   position: relative;
   z-index: 1;
 }
-/* Description — toujours visible */
+/* Description - toujours visible */
 .problem-desc {
   font-family: var(--sans);
   font-size: 14px;
@@ -7170,7 +7170,7 @@ main { position: relative; z-index: 2; }
 
 
 /* ==========================================================================
-   CABINET — Simple : photo + description + 1 CTA
+   CABINET - Simple : photo + description + 1 CTA
    ========================================================================== */
 .cabinet-simple {
   position: relative;
@@ -7335,10 +7335,10 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   ÉTUDE DE CAS — Section home
+   ÉTUDE DE CAS - Section home
    ========================================================================== */
 /* ==========================================================================
-   NOTE ACQUISITION — sous les 3 cartes offres
+   NOTE ACQUISITION - sous les 3 cartes offres
    ========================================================================== */
 .offres-acquisition-note {
   margin: 32px auto 0;
@@ -7391,7 +7391,7 @@ main { position: relative; z-index: 2; }
 .offres-acquisition-cta:hover { background: var(--gold-main); color: #08080a; }
 
 /* ==========================================================================
-   ÉTUDE DE CAS HOME — design YieldCard inspiré, gradient border doré
+   ÉTUDE DE CAS HOME - design YieldCard inspiré, gradient border doré
    ========================================================================== */
 .cas-home-section {
   background: linear-gradient(160deg, #0a0907 0%, #131009 50%, #0a0907 100%);
@@ -7708,7 +7708,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   TÉMOIGNAGES — Section "Avis Google" : watermark boussole en background
+   TÉMOIGNAGES - Section "Avis Google" : watermark boussole en background
    ========================================================================== */
 .temoignages-section {
   position: relative;
@@ -7758,7 +7758,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   AVIS GOOGLE — Marquée auto-scroll desktop + snap horizontal mobile
+   AVIS GOOGLE - Marquée auto-scroll desktop + snap horizontal mobile
    ========================================================================== */
 /* Header Avis Google : label à gauche + titre à droite sur la même ligne */
 .temoignages-header-row {
@@ -8041,7 +8041,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   CABINET — FICHE DIRIGEANT [obsolète, remplacé par cabinet-simple]
+   CABINET - FICHE DIRIGEANT [obsolète, remplacé par cabinet-simple]
    ========================================================================== */
 .cabinet-fiche {
   position: relative;
@@ -8086,7 +8086,7 @@ main { position: relative; z-index: 2; }
   color: var(--text-cream-muted);
 }
 
-/* Nom XXL — élément graphique principal */
+/* Nom XXL - élément graphique principal */
 .cabinet-fiche-name {
   font-family: var(--display);
   font-weight: 400;
@@ -8267,7 +8267,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   CABINET — Layout éditorial (photo cadrée + citation + stats + 1 CTA) [obsolète]
+   CABINET - Layout éditorial (photo cadrée + citation + stats + 1 CTA) [obsolète]
    ========================================================================== */
 .cabinet-editorial {
   position: relative;
@@ -8505,7 +8505,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   ADMIN — /admin (passcode, panneau d'édition, formulaires)
+   ADMIN - /admin (passcode, panneau d'édition, formulaires)
    ========================================================================== */
 .admin-loading {
   min-height: 60vh;
@@ -9331,7 +9331,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   CAS CLIENTS PAGE — une seule grande carte recapitulative
+   CAS CLIENTS PAGE - une seule grande carte recapitulative
    ========================================================================== */
 .case-intro { max-width: 720px; margin-bottom: 48px; }
 .case-intro-label {
@@ -9574,7 +9574,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   CAS CLIENTS — ancien layout (conserve, non utilise)
+   CAS CLIENTS - ancien layout (conserve, non utilise)
    ========================================================================== */
 .case-feature {
   border: 1px solid var(--gold-border);
@@ -10335,7 +10335,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   OFFERS PAGE — Table of contents + pilotage section
+   OFFERS PAGE - Table of contents + pilotage section
    ========================================================================== */
 .offers-toc-section { padding: 60px 0 40px; }
 .offers-toc {
@@ -10454,7 +10454,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   HOMEPAGE — Pilotage teaser strip
+   HOMEPAGE - Pilotage teaser strip
    ========================================================================== */
 .home-pilotage-teaser {
   padding: 60px 0;
@@ -10663,7 +10663,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   BLOG — Hub Cas clients, Études de cas, Actualités
+   BLOG - Hub Cas clients, Études de cas, Actualités
    ========================================================================== */
 .blog-back-link {
   display: inline-flex;
@@ -10898,7 +10898,7 @@ main { position: relative; z-index: 2; }
 }
 
 /* ==========================================================================
-   BLOG — Toggle (Études de cas / Actualités), bouton carte, overlay lecture
+   BLOG - Toggle (Études de cas / Actualités), bouton carte, overlay lecture
    ========================================================================== */
 .blog-toggle {
   display: inline-flex;

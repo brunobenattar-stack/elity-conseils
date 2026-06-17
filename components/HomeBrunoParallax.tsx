@@ -1,6 +1,6 @@
 "use client";
 
-// Section Cabinet — minimaliste : photo + description + 1 CTA
+// Section Cabinet - minimaliste : photo + description + 1 CTA
 // Mobile : label → nom → photo → role/desc/CTA/reassurance
 
 import Link from "next/link";

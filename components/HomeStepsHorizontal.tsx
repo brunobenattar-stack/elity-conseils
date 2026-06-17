@@ -1,6 +1,6 @@
 "use client";
 
-// CONCEPT A — V2 : Desktop horizontal sticky (800vh, header absolute)
+// CONCEPT A - V2 : Desktop horizontal sticky (800vh, header absolute)
 // Mobile : accordéon expansible (anti scroll trop long)
 
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";

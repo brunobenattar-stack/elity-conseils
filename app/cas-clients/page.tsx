@@ -3,7 +3,7 @@ import CasClientsHub, { type CaseStudy } from "@/components/CasClientsHub";
 import { getCaseStudies, getArticles } from "@/sanity/queries";
 
 export const metadata: Metadata = {
-  title: "Cas clients & Actualités — Elity Conseils La Réunion",
+  title: "Cas clients & Actualités - Elity Conseils La Réunion",
   description:
     "Études de cas anonymisées et actualités d'Elity Conseils : cessions, redressements et accompagnements de dirigeant(e)s de TPE/PME à La Réunion.",
 };

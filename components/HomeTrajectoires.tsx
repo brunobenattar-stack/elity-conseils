@@ -1,6 +1,6 @@
 "use client";
 
-// Section Trajectoires : cession / rachat — split 2 colonnes
+// Section Trajectoires : cession / rachat - split 2 colonnes
 // Remplace l'ancien Manifeste. Asseoit le double positionnement.
 
 import Link from "next/link";

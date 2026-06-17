@@ -1,6 +1,6 @@
 "use client";
 
-// MANIFESTE V3 — minimaliste, sans signature ni stats (déplacés ailleurs)
+// MANIFESTE V3 - minimaliste, sans signature ni stats (déplacés ailleurs)
 // Pull-quote BlurText centré, déco SVG en BG
 
 import { motion, useInView } from "framer-motion";

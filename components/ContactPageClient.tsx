@@ -95,7 +95,7 @@ export default function ContactPageClient() {
       </div>
 
       <div className="contact-page-inner">
-        {/* Colonne gauche — infos de contact */}
+        {/* Colonne gauche - infos de contact */}
         <div className="contact-info-col">
           <span className="section-label" style={{ color: "var(--gold-main)" }}>Contact</span>
           <h1 className="contact-page-title">
@@ -118,7 +118,7 @@ export default function ContactPageClient() {
 
         </div>
 
-        {/* Colonne droite — formulaire */}
+        {/* Colonne droite - formulaire */}
         <div className="contact-form-col">
           {sent ? (
             <div className="contact-success" role="status">

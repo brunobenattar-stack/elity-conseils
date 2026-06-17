@@ -109,7 +109,7 @@ export default function Navbar() {
       <div className="container nav-inner">
         <Logo />
 
-        {/* Desktop nav links — ligne unique */}
+        {/* Desktop nav links - ligne unique */}
         <ul className="nav-links">
           {DESKTOP_LINKS.map((l) => (
             <li
@@ -163,7 +163,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile dropdown — s'agrandit depuis la navbar */}
+      {/* Mobile dropdown - s'agrandit depuis la navbar */}
       <AnimatePresence>
         {open && (
           <motion.div

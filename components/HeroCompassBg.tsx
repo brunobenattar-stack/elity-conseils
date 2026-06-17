@@ -60,7 +60,7 @@ export default function HeroCompassBg() {
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Boussole principale — rotation lente 30s */}
+      {/* Boussole principale - rotation lente 30s */}
       <motion.div
         className="hero-compass-rose"
         animate={{ rotate: 360 }}
@@ -136,7 +136,7 @@ export default function HeroCompassBg() {
             fillOpacity="0.7"
           />
 
-          {/* 4 flèches diagonales (NE, SE, SO, NO) — plus petites */}
+          {/* 4 flèches diagonales (NE, SE, SO, NO) - plus petites */}
           <polygon points="100,6 104,90 100,100 96,90"
             fill="url(#shimmer)"
             transform="rotate(45 100 100)"

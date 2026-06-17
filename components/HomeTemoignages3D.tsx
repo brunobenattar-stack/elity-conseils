@@ -1,6 +1,6 @@
 "use client";
 
-// AVIS GOOGLE — Marquée auto-scroll desktop, snap horizontal mobile
+// AVIS GOOGLE - Marquée auto-scroll desktop, snap horizontal mobile
 // Cartes compactes sans photo, design propre avec étoiles + texte + signature
 
 import { useRef } from "react";

@@ -1,6 +1,6 @@
 "use client";
 
-// CONCEPT A — Bouton magnetic : attiré par le curseur dans un rayon de 140px
+// CONCEPT A - Bouton magnetic : attiré par le curseur dans un rayon de 140px
 
 import Link from "next/link";
 import { useEffect, useRef, type ReactNode } from "react";

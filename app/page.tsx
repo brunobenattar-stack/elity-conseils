@@ -1,4 +1,4 @@
-// PAGE HOME — V5 CONCEPT A COMPLET "Le Compas qui guide"
+// PAGE HOME - V5 CONCEPT A COMPLET "Le Compas qui guide"
 
 import Link from "next/link";
 import HomeHero from "@/components/HomeHero";

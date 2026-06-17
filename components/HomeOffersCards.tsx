@@ -78,7 +78,7 @@ export default function HomeOffersCards() {
         ))}
       </div>
 
-      {/* Indicateur scroll horizontal — visible mobile uniquement */}
+      {/* Indicateur scroll horizontal - visible mobile uniquement */}
       <div className="offers-scroll-hint" aria-hidden="true">
         <span className="offers-scroll-hint-text">Glissez pour voir les autres offres</span>
         <span className="offers-scroll-hint-arrow">

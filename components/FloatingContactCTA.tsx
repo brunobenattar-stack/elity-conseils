@@ -1,6 +1,6 @@
 "use client";
 
-// Bouton "Nous contacter" flottant — visible uniquement sur mobile (≤768px)
+// Bouton "Nous contacter" flottant - visible uniquement sur mobile (≤768px)
 // Position fixe en bas de l'écran, centré
 
 import Link from "next/link";

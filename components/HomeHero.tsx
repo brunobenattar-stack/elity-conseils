@@ -1,6 +1,6 @@
 "use client";
 
-// HERO V3 — sans boussole, vidéo Runway en BG, 2 chips flottants desktop, CTAs retravaillés
+// HERO V3 - sans boussole, vidéo Runway en BG, 2 chips flottants desktop, CTAs retravaillés
 
 import Link from "next/link";
 import { motion } from "framer-motion";

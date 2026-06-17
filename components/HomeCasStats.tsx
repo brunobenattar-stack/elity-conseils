@@ -1,6 +1,6 @@
 "use client";
 
-// V4 — ULTRA COMPACT : 3 KPI inline, juste chiffre + label sur 2 lignes max
+// V4 - ULTRA COMPACT : 3 KPI inline, juste chiffre + label sur 2 lignes max
 
 import { animate, motion, useInView, useMotionValue, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
