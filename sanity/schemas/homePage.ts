@@ -10,10 +10,11 @@ export default defineType({
     { name: "hero", title: "Bloc principal (hero)", default: true },
     { name: "problem", title: "Section Problèmes" },
     { name: "steps", title: "Section Approche (étapes)" },
-    { name: "manifeste", title: "Manifeste" },
-    { name: "stats", title: "Chiffres clés" },
+    { name: "offres", title: "Section Offres (aperçu)" },
+    { name: "pilotage", title: "Encart Accompagnement" },
     { name: "cabinet", title: "Section Cabinet (Bruno)" },
-    { name: "temoignages", title: "Témoignages" },
+    { name: "casHome", title: "Étude de cas (aperçu)" },
+    { name: "cta", title: "Bloc final (avant footer)" },
   ],
   fields: [
     // --- Hero (bloc principal d'accueil) ---
@@ -64,51 +65,34 @@ export default defineType({
         preview: { select: { title: "label", subtitle: "title" } },
       }],
     }),
-    // --- Manifeste ---
-    defineField({ name: "manifesteEyebrow", title: "Surtitre", type: "string", group: "manifeste" }),
-    defineField({ name: "manifesteLine1", title: "Phrase ligne 1", type: "string", group: "manifeste" }),
-    defineField({ name: "manifesteLine2", title: "Phrase ligne 2", type: "string", group: "manifeste" }),
-    defineField({ name: "manifesteLine3", title: "Phrase ligne 3 (dorée)", type: "string", group: "manifeste" }),
-    defineField({ name: "manifesteSub", title: "Sous-texte", type: "text", rows: 2, group: "manifeste" }),
-    // --- Stats ---
-    defineField({
-      name: "stats",
-      title: "Chiffres clés (3)",
-      type: "array",
-      group: "stats",
-      of: [{
-        type: "object",
-        fields: [
-          { name: "prefix", title: "Préfixe (ex. ×)", type: "string" },
-          { name: "value", title: "Valeur (nombre)", type: "number" },
-          { name: "suffix", title: "Suffixe (ex. mois)", type: "string" },
-          { name: "label", title: "Libellé", type: "string" },
-        ],
-        preview: { select: { title: "value", subtitle: "label" } },
-      }],
-    }),
+    // --- Section Offres (apercu sur l'accueil) ---
+    defineField({ name: "offresLabel", title: "Surtitre", type: "string", group: "offres" }),
+    defineField({ name: "offresTitle1", title: "Titre (1re partie)", type: "string", group: "offres" }),
+    defineField({ name: "offresTitle2", title: "Titre (partie dorée)", type: "string", group: "offres" }),
+    defineField({ name: "offresSub", title: "Sous-texte", type: "text", rows: 2, group: "offres" }),
+    // --- Encart Accompagnement (teaser pilotage) ---
+    defineField({ name: "pilotageEyebrow", title: "Surtitre", type: "string", group: "pilotage" }),
+    defineField({ name: "pilotageTitle1", title: "Titre (1re partie)", type: "string", group: "pilotage" }),
+    defineField({ name: "pilotageTitle2", title: "Titre (partie italique)", type: "string", group: "pilotage" }),
+    defineField({ name: "pilotageDesc", title: "Description", type: "text", rows: 3, group: "pilotage" }),
+    defineField({ name: "pilotageCtaLabel", title: "Texte du bouton", type: "string", group: "pilotage" }),
     // --- Cabinet / Bruno ---
     defineField({ name: "cabinetEyebrow", title: "Surtitre", type: "string", group: "cabinet" }),
     defineField({ name: "cabinetName", title: "Nom / titre", type: "string", group: "cabinet" }),
     defineField({ name: "cabinetRole", title: "Ligne de rôle", type: "string", group: "cabinet" }),
     defineField({ name: "cabinetDesc", title: "Description", type: "text", rows: 4, group: "cabinet" }),
     defineField({ name: "cabinetReassurance", title: "Ligne de réassurance", type: "string", group: "cabinet" }),
-    // --- Temoignages ---
-    defineField({
-      name: "temoignages",
-      title: "Avis / témoignages",
-      type: "array",
-      group: "temoignages",
-      of: [{
-        type: "object",
-        fields: [
-          { name: "text", title: "Témoignage", type: "text", rows: 3 },
-          { name: "name", title: "Nom", type: "string" },
-          { name: "context", title: "Contexte (rôle, secteur)", type: "string" },
-        ],
-        preview: { select: { title: "name", subtitle: "context" } },
-      }],
-    }),
+    // --- Etude de cas (apercu sur l'accueil) ---
+    defineField({ name: "casHomeLabel", title: "Surtitre", type: "string", group: "casHome" }),
+    defineField({ name: "casHomeTitle1", title: "Titre (1re partie)", type: "string", group: "casHome" }),
+    defineField({ name: "casHomeTitle2", title: "Titre (partie dorée)", type: "string", group: "casHome" }),
+    defineField({ name: "casHomeSector", title: "Carte : secteur", type: "string", group: "casHome" }),
+    defineField({ name: "casHomeOffer", title: "Carte : offre", type: "string", group: "casHome" }),
+    defineField({ name: "casHomeSummary", title: "Carte : résumé", type: "text", rows: 3, group: "casHome" }),
+    // --- Bloc final (CtaFinal) ---
+    defineField({ name: "ctaTitle1", title: "Titre (1re partie)", type: "string", group: "cta" }),
+    defineField({ name: "ctaTitle2", title: "Titre (partie italique)", type: "string", group: "cta" }),
+    defineField({ name: "ctaText", title: "Texte", type: "text", rows: 2, group: "cta" }),
   ],
   preview: { prepare: () => ({ title: "Page d'accueil (sections)" }) },
 });

@@ -10975,7 +10975,8 @@ main { position: relative; z-index: 2; }
   align-items: flex-start;
   /* Le fond ne scrolle pas : c'est le panneau qui scrolle en interne */
   overflow: hidden;
-  padding: clamp(24px, 6vh, 80px) 20px;
+  /* Padding haut suffisant pour que le panneau s'ouvre SOUS le header flottant */
+  padding: 120px 20px 40px;
   animation: blog-overlay-in 0.3s var(--ease);
 }
 @keyframes blog-overlay-in {
@@ -10987,7 +10988,7 @@ main { position: relative; z-index: 2; }
   width: 100%;
   max-width: 760px;
   /* Hauteur bornée + scroll interne : on lit le contenu en faisant défiler la carte */
-  max-height: calc(100dvh - clamp(48px, 12vh, 160px));
+  max-height: calc(100dvh - 160px);
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
@@ -11206,6 +11207,7 @@ main { position: relative; z-index: 2; }
 .nav-submenu a:hover { background: rgba(201, 165, 90, 0.14); color: var(--gold-main); }
 
 @media (max-width: 680px) {
-  .blog-overlay-panel { border-radius: 16px; padding: 40px 22px 32px; }
+  .blog-overlay { padding: 96px 14px 24px; }
+  .blog-overlay-panel { border-radius: 16px; padding: 40px 22px 32px; max-height: calc(100dvh - 120px); }
   .blog-reader-metrics { gap: 18px; }
 }

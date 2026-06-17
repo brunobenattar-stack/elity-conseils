@@ -196,18 +196,29 @@ export type SanityHome = {
   stepsTitle1?: string;
   stepsTitle2?: string;
   steps?: { label?: string; title?: string; desc?: string }[];
-  manifesteEyebrow?: string;
-  manifesteLine1?: string;
-  manifesteLine2?: string;
-  manifesteLine3?: string;
-  manifesteSub?: string;
-  stats?: { prefix?: string; value?: number; suffix?: string; label?: string }[];
+  offresLabel?: string;
+  offresTitle1?: string;
+  offresTitle2?: string;
+  offresSub?: string;
+  pilotageEyebrow?: string;
+  pilotageTitle1?: string;
+  pilotageTitle2?: string;
+  pilotageDesc?: string;
+  pilotageCtaLabel?: string;
   cabinetEyebrow?: string;
   cabinetName?: string;
   cabinetRole?: string;
   cabinetDesc?: string;
   cabinetReassurance?: string;
-  temoignages?: { text?: string; name?: string; context?: string }[];
+  casHomeLabel?: string;
+  casHomeTitle1?: string;
+  casHomeTitle2?: string;
+  casHomeSector?: string;
+  casHomeOffer?: string;
+  casHomeSummary?: string;
+  ctaTitle1?: string;
+  ctaTitle2?: string;
+  ctaText?: string;
 };
 
 async function safeFetch<T>(query: string, fallback: T): Promise<T> {
@@ -302,10 +313,11 @@ export function getHome() {
       problemTitle1, problemTitle2, problemSub,
       problemCards[]{ eyebrow, titre, desc }, problemCtaLabel,
       stepsLabel, stepsTitle1, stepsTitle2, steps[]{ label, title, desc },
-      manifesteEyebrow, manifesteLine1, manifesteLine2, manifesteLine3, manifesteSub,
-      stats[]{ prefix, value, suffix, label },
+      offresLabel, offresTitle1, offresTitle2, offresSub,
+      pilotageEyebrow, pilotageTitle1, pilotageTitle2, pilotageDesc, pilotageCtaLabel,
       cabinetEyebrow, cabinetName, cabinetRole, cabinetDesc, cabinetReassurance,
-      temoignages[]{ text, name, context }
+      casHomeLabel, casHomeTitle1, casHomeTitle2, casHomeSector, casHomeOffer, casHomeSummary,
+      ctaTitle1, ctaTitle2, ctaText
     }`,
     null
   );

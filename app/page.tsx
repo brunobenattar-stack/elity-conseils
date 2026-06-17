@@ -13,6 +13,7 @@ import { defaultContent } from "@/lib/content";
 
 export default async function HomePage() {
   const home = await getHome();
+  const th = (v: string | undefined, d: string) => (v && v.trim() ? v.trim() : d);
   // Hero : Sanity (champs hero* de homePage) prioritaire, repli sur le defaut.
   const d = defaultContent.hero;
   const hero = {
@@ -44,17 +45,16 @@ export default async function HomePage() {
       <section id="section-offres" className="section offres-dark">
         <div className="container">
           <Reveal className="offers-deck-intro">
-            <span className="section-label">Nos offres · Cession & Acquisition</span>
+            <span className="section-label">{th(home?.offresLabel, "Nos offres · Cession & Acquisition")}</span>
             <div className="section-sep" style={{ marginLeft: "auto", marginRight: "auto" }} />
             <h2 className="section-title" style={{ marginBottom: 16 }}>
-              Trois niveaux,{" "}
+              {th(home?.offresTitle1, "Trois niveaux,")}{" "}
               <em style={{ fontStyle: "normal", color: "var(--gold-main)", fontFamily: "var(--display)", fontWeight: 400 }}>
-                un seul standard.
+                {th(home?.offresTitle2, "un seul standard.")}
               </em>
             </h2>
             <p style={{ color: "var(--text-muted)", fontSize: "15px", maxWidth: 420, margin: "0 auto 8px", textAlign: "center", lineHeight: 1.6 }}>
-              Elity Conseils structure votre stratégie.<br />
-              Procomm Océan Indien réalise la transaction.
+              {home?.offresSub?.trim() || (<>Elity Conseils structure votre stratégie.<br />Procomm Océan Indien réalise la transaction.</>)}
             </p>
           </Reveal>
 
@@ -74,17 +74,17 @@ export default async function HomePage() {
         <div className="container">
           <Reveal className="home-pilotage-inner">
             <div>
-              <span className="home-pilotage-eyebrow">Pas (encore) de projet de cession ?</span>
+              <span className="home-pilotage-eyebrow">{th(home?.pilotageEyebrow, "Pas (encore) de projet de cession ?")}</span>
               <h2 className="home-pilotage-title">
-                Un regard extérieur pour{" "}
-                <em>garder le cap sereinement.</em>
+                {th(home?.pilotageTitle1, "Un regard extérieur pour")}{" "}
+                <em>{th(home?.pilotageTitle2, "garder le cap sereinement.")}</em>
               </h2>
               <p className="home-pilotage-desc">
-                Avant ou indépendamment d&apos;une cession, Elity devient le partenaire stratégique des dirigeant(e)s de TPE/PME : on vous accompagne à piloter votre entreprise, un cadre clair pour décider sur des faits, garder le cap et préparer l&apos;avenir. Méthode ESSOR, formules 12 ou 24 mois.
+                {th(home?.pilotageDesc, "Avant ou indépendamment d'une cession, Elity devient le partenaire stratégique des dirigeant(e)s de TPE/PME : on vous accompagne à piloter votre entreprise, un cadre clair pour décider sur des faits, garder le cap et préparer l'avenir. Méthode ESSOR, formules 12 ou 24 mois.")}
               </p>
             </div>
             <Link href="/offres#pilotage" className="home-pilotage-cta">
-              Voir l&apos;offre Accompagnement
+              {th(home?.pilotageCtaLabel, "Voir l'offre Accompagnement")}
               <span aria-hidden="true">→</span>
             </Link>
           </Reveal>
@@ -100,11 +100,11 @@ export default async function HomePage() {
       <section id="section-cas" className="section cas-home-section">
         <div className="container">
           <Reveal className="section-header center">
-            <span className="section-label">Étude de cas</span>
+            <span className="section-label">{th(home?.casHomeLabel, "Étude de cas")}</span>
             <h2 className="section-title">
-              Un exemple{" "}
+              {th(home?.casHomeTitle1, "Un exemple")}{" "}
               <em style={{ fontStyle: "italic", color: "var(--gold-main)", fontFamily: "var(--serif)" }}>
-                concret.
+                {th(home?.casHomeTitle2, "concret.")}
               </em>
             </h2>
           </Reveal>
@@ -114,8 +114,8 @@ export default async function HomePage() {
               {/* En-tête : secteur + offre */}
               <div className="cas-home-header">
                 <div className="cas-home-identity">
-                  <span className="cas-home-sector">Garage automobile</span>
-                  <span className="cas-home-offer">Offre Elity Dirigeant</span>
+                  <span className="cas-home-sector">{th(home?.casHomeSector, "Garage automobile")}</span>
+                  <span className="cas-home-offer">{th(home?.casHomeOffer, "Offre Elity Dirigeant")}</span>
                 </div>
               </div>
 
@@ -162,8 +162,7 @@ export default async function HomePage() {
               {/* Description */}
               <div className="cas-home-summary">
                 <p>
-                  Entreprise au bord de la faillite, dirigeant sans rémunération, 5 emplois menacés.
-                  Un accompagnement ESSOR sur 24 mois : trésorerie stabilisée, gestion structurée, rentabilité retrouvée.
+                  {th(home?.casHomeSummary, "Entreprise au bord de la faillite, dirigeant sans rémunération, 5 emplois menacés. Un accompagnement ESSOR sur 24 mois : trésorerie stabilisée, gestion structurée, rentabilité retrouvée.")}
                 </p>
                 <cite className="cas-home-cite">Témoignage anonymisé</cite>
               </div>
@@ -186,10 +185,10 @@ export default async function HomePage() {
         <div className="container">
           <Reveal>
             <h2>
-              Cession, rachat ou accompagnement ?<br />
-              <em>Parlons-en.</em>
+              {th(home?.ctaTitle1, "Cession, rachat ou accompagnement ?")}<br />
+              <em>{th(home?.ctaTitle2, "Parlons-en.")}</em>
             </h2>
-            <p>Premier échange confidentiel et sans engagement.</p>
+            <p>{th(home?.ctaText, "Premier échange confidentiel et sans engagement.")}</p>
             <div className="cta-photo-btns">
               <MagneticButton href="/contact">
                 Entamer un échange
