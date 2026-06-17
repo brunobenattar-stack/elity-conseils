@@ -135,10 +135,10 @@ export default async function OffresPage() {
       <CtaFinal
         title={
           <>
-            Un doute sur l&apos;offre ?<br /><em>Réservez un échange gratuit.</em>
+            {t(page?.ctaTitle1, "Un doute sur l'offre ?")}<br /><em>{t(page?.ctaTitle2, "Réservez un échange gratuit.")}</em>
           </>
         }
-        text="30 minutes pour comprendre votre situation et identifier le bon format. Sans engagement."
+        text={t(page?.ctaText, "30 minutes pour comprendre votre situation et identifier le bon format. Sans engagement.")}
         secondaryLabel="Découvrir la méthode"
         secondaryHref="/methode-essor"
       />

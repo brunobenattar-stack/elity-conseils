@@ -10,6 +10,7 @@ export default defineType({
     { name: "steps", title: "5 étapes" },
     { name: "dual", title: "Acquisition / Accompagnement" },
     { name: "team", title: "Équipe" },
+    { name: "cta", title: "Bloc final (avant footer)" },
   ],
   fields: [
     defineField({ name: "label", title: "Surtitre", type: "string", group: "intro" }),
@@ -69,6 +70,9 @@ export default defineType({
         },
       ],
     }),
+    defineField({ name: "ctaTitle1", title: "Bloc final : titre (1re partie)", type: "string", group: "cta" }),
+    defineField({ name: "ctaTitle2", title: "Bloc final : titre (partie italique)", type: "string", group: "cta" }),
+    defineField({ name: "ctaText", title: "Bloc final : texte", type: "text", rows: 2, group: "cta" }),
   ],
   preview: { prepare: () => ({ title: "Page Approche" }) },
 });

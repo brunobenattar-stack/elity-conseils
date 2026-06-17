@@ -37,6 +37,7 @@ export default defineType({
     { name: "offers", title: "Offres cession / acquisition" },
     { name: "pilotageHead", title: "En-tête : Accompagnement" },
     { name: "pilotage", title: "Formules d'accompagnement" },
+    { name: "cta", title: "Bloc final (avant footer)" },
   ],
   fields: [
     // En-tete section cession
@@ -53,6 +54,9 @@ export default defineType({
     defineField({ name: "pilotageBody", title: "Paragraphe", type: "text", rows: 2, group: "pilotageHead" }),
     // Formules pilotage
     defineField({ name: "pilotage", title: "Formules d'accompagnement mensuel", type: "array", of: [offerObject], group: "pilotage" }),
+    defineField({ name: "ctaTitle1", title: "Bloc final : titre (1re partie)", type: "string", group: "cta" }),
+    defineField({ name: "ctaTitle2", title: "Bloc final : titre (partie italique)", type: "string", group: "cta" }),
+    defineField({ name: "ctaText", title: "Bloc final : texte", type: "text", rows: 2, group: "cta" }),
   ],
   preview: { prepare: () => ({ title: "Page Offres" }) },
 });

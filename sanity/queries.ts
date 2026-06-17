@@ -43,6 +43,9 @@ export type SanityApproche = {
   teamTitle2?: string;
   teamIntro?: string;
   team?: { role?: string; name?: string; text?: string }[];
+  ctaTitle1?: string;
+  ctaTitle2?: string;
+  ctaText?: string;
 };
 
 export type SanityEssor = {
@@ -63,6 +66,9 @@ export type SanityEssor = {
   convictionEyebrow?: string;
   convictionQuote?: string;
   convictionSub?: string;
+  ctaTitle1?: string;
+  ctaTitle2?: string;
+  ctaText?: string;
 };
 
 export type SanityOfferItem = {
@@ -87,6 +93,9 @@ export type SanityOffersPage = {
   pilotageTitle2?: string;
   pilotageBody?: string;
   pilotage?: SanityOfferItem[];
+  ctaTitle1?: string;
+  ctaTitle2?: string;
+  ctaText?: string;
 };
 
 export type SanityContact = {
@@ -249,7 +258,8 @@ export function getApproche() {
       dualLabel, dualTitle1, dualTitle2,
       acquisitionEyebrow, acquisitionTitle, acquisitionText, acquisitionPoints,
       accompagnementEyebrow, accompagnementTitle, accompagnementText, accompagnementPoints,
-      teamLabel, teamTitle1, teamTitle2, teamIntro, team[]{ role, name, text }
+      teamLabel, teamTitle1, teamTitle2, teamIntro, team[]{ role, name, text },
+      ctaTitle1, ctaTitle2, ctaText
     }`,
     null
   );
@@ -261,7 +271,8 @@ export function getEssor() {
       intro, steps[]{ name, baseline, what, deliverables, shift },
       fitLabel, fitTitle1, fitTitle2, fitYesTitle, fitYes, fitNoTitle, fitNo,
       origineLabel, origineTitle1, origineTitle2, origineLead, origineSteps[]{ title, text },
-      convictionEyebrow, convictionQuote, convictionSub
+      convictionEyebrow, convictionQuote, convictionSub,
+      ctaTitle1, ctaTitle2, ctaText
     }`,
     null
   );
@@ -273,7 +284,8 @@ export function getOffersPage() {
       cessionLabel, cessionTitle1, cessionTitle2, cessionBody,
       offers[]{ name, category, pitch, chip, featured, features, meta, details },
       pilotageLabel, pilotageTitle1, pilotageTitle2, pilotageBody,
-      pilotage[]{ name, category, pitch, chip, featured, features, meta, details }
+      pilotage[]{ name, category, pitch, chip, featured, features, meta, details },
+      ctaTitle1, ctaTitle2, ctaText
     }`,
     null
   );

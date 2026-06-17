@@ -251,10 +251,10 @@ export default async function MethodeEssorPage() {
       <CtaFinal
         title={
           <>
-            ESSOR appliqué <em>à votre entreprise ?</em>
+            {t(e?.ctaTitle1, "ESSOR appliqué")} <em>{t(e?.ctaTitle2, "à votre entreprise ?")}</em>
           </>
         }
-        text="Premier échange confidentiel, sans engagement. On regarde ensemble si la méthode vous correspond."
+        text={t(e?.ctaText, "Premier échange confidentiel, sans engagement. On regarde ensemble si la méthode vous correspond.")}
         secondaryLabel="Voir les formules"
         secondaryHref="/offres#pilotage"
       />

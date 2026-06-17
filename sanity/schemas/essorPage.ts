@@ -11,6 +11,7 @@ export default defineType({
     { name: "fit", title: "Pour qui" },
     { name: "origine", title: "Origine de la méthode" },
     { name: "conviction", title: "Conviction" },
+    { name: "cta", title: "Bloc final (avant footer)" },
   ],
   fields: [
     defineField({ name: "intro", title: "Sous-titre d'introduction", type: "text", rows: 2, group: "intro" }),
@@ -66,6 +67,9 @@ export default defineType({
     defineField({ name: "convictionEyebrow", title: "Surtitre", type: "string", group: "conviction" }),
     defineField({ name: "convictionQuote", title: "Citation", type: "string", group: "conviction" }),
     defineField({ name: "convictionSub", title: "Sous-texte (italique)", type: "string", group: "conviction" }),
+    defineField({ name: "ctaTitle1", title: "Bloc final : titre (1re partie)", type: "string", group: "cta" }),
+    defineField({ name: "ctaTitle2", title: "Bloc final : titre (partie italique)", type: "string", group: "cta" }),
+    defineField({ name: "ctaText", title: "Bloc final : texte", type: "text", rows: 2, group: "cta" }),
   ],
   preview: { prepare: () => ({ title: "Page Méthode ESSOR" }) },
 });

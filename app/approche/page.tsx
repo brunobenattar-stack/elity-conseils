@@ -204,10 +204,10 @@ export default async function ApprochePage() {
       <CtaFinal
         title={
           <>
-            Cession, rachat ou accompagnement ?<br /><em>Parlons-en.</em>
+            {t(a?.ctaTitle1, "Cession, rachat ou accompagnement ?")}<br /><em>{t(a?.ctaTitle2, "Parlons-en.")}</em>
           </>
         }
-        text="Premier échange confidentiel et sans engagement."
+        text={t(a?.ctaText, "Premier échange confidentiel et sans engagement.")}
         secondaryLabel="Voir nos offres"
         secondaryHref="/offres"
       />

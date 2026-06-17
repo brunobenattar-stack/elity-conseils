@@ -250,6 +250,9 @@ const approchePage = {
     { _key: "tm2", role: "Rigueur & chiffres", name: "Thierry Le Lidec", text: "Associé de formation comptable. Il ancre chaque décision dans les chiffres : trésorerie, marges, indicateurs, pour décider sur des faits." },
     { _key: "tm3", role: "Équipes & organisation", name: "Sarah Moraschetti", text: "Pôle ressources humaines. Elle audite l'organisation pour placer chacun(e) au bon rôle, optimiser le travail des équipes et améliorer l'ambiance au service de l'entreprise." },
   ],
+  ctaTitle1: "Cession, rachat ou accompagnement ?",
+  ctaTitle2: "Parlons-en.",
+  ctaText: "Premier échange confidentiel et sans engagement.",
 };
 
 const essorPage = {
@@ -281,6 +284,9 @@ const essorPage = {
   convictionEyebrow: "La conviction Elity",
   convictionQuote: "Une bonne décision ne tombe pas du ciel.",
   convictionSub: "Elle se prépare, elle se construit, mois après mois.",
+  ctaTitle1: "ESSOR appliqué",
+  ctaTitle2: "à votre entreprise ?",
+  ctaText: "Premier échange confidentiel, sans engagement. On regarde ensemble si la méthode vous correspond.",
 };
 
 const contactPage = {
@@ -344,6 +350,9 @@ const offersPage = {
     const { _id, _type, order, price, ...rest } = o;
     return { _key: `pil${i + 1}`, ...rest };
   }),
+  ctaTitle1: "Un doute sur l'offre ?",
+  ctaTitle2: "Réservez un échange gratuit.",
+  ctaText: "30 minutes pour comprendre votre situation et identifier le bon format. Sans engagement.",
 };
 
 const siteSettings = {
