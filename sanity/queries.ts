@@ -19,7 +19,7 @@ export type SanityArticle = {
   coverUrl?: string;
   icon?: string;
   body?: SanityBodyBlock[];
-  link?: string;
+  links?: { label?: string; url?: string }[];
 };
 
 export type SanityApproche = {
@@ -121,11 +121,11 @@ export type SanityCasItem = {
   date?: string;
   coverUrl?: string;
   icon?: string;
-  link?: string;
   metrics?: { value?: string; label?: string }[];
   phases?: { eyebrow?: string; title?: string; text?: string }[];
   quote?: string;
   author?: string;
+  links?: { label?: string; url?: string }[];
 };
 
 export type SanityBodyBlock =
@@ -141,7 +141,7 @@ export type SanityArticleItem = {
   coverUrl?: string;
   icon?: string;
   body?: SanityBodyBlock[];
-  link?: string;
+  links?: { label?: string; url?: string }[];
 };
 
 export type SanityCasClientsPage = {
@@ -305,9 +305,9 @@ export function getCasClientsPage() {
   return safeFetch<SanityCasClientsPage | null>(
     `*[_type == "casClientsPage"][0]{
       introLabel, introTitle1, introTitle2, ctaTitle1, ctaTitle2, ctaText,
-      cases[]{ statut, sector, meta, tag, sectorCategory, date, icon, link,
-        "coverUrl": cover.asset->url, metrics, phases, quote, author },
-      articles[]{ statut, title, date, category, excerpt, icon, link,
+      cases[]{ statut, sector, meta, tag, sectorCategory, date, icon,
+        "coverUrl": cover.asset->url, metrics, phases, quote, author, links[]{ label, url } },
+      articles[]{ statut, title, date, category, excerpt, icon, links[]{ label, url },
         "coverUrl": cover.asset->url,
         "body": body[]{ _type, _type == "block" => { "text": pt::text(@) }, _type == "image" => { "imageUrl": asset->url } } }
     }`,

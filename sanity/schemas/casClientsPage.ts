@@ -28,6 +28,24 @@ const STATUT_FIELD = {
   initialValue: "publie",
 };
 
+// Liens cliquables affiches DANS la carte ouverte (YouTube, sources, autres sites).
+const LINKS_FIELD = {
+  name: "links",
+  title: "Liens (affichés dans la carte ouverte)",
+  type: "array",
+  description: "Ex. : vidéo YouTube, source, autre site. S'affichent en bas du contenu quand on ouvre la carte.",
+  of: [
+    {
+      type: "object",
+      fields: [
+        { name: "label", title: "Texte du lien", type: "string", description: "Ex. : Voir la vidéo, Source, Site officiel" },
+        { name: "url", title: "Adresse (URL)", type: "url" },
+      ],
+      preview: { select: { title: "label", subtitle: "url" } },
+    },
+  ],
+};
+
 const caseObject = {
   type: "object",
   fields: [
@@ -39,7 +57,6 @@ const caseObject = {
     { name: "date", title: "Date du cas (tri)", type: "date", options: { dateFormat: "DD/MM/YYYY" } },
     { name: "cover", title: "Image de la carte", type: "image", options: { hotspot: true } },
     { name: "icon", title: "Icône (si pas d'image)", type: "string", options: { list: ICON_LIST } },
-    { name: "link", title: "Lien de redirection (optionnel)", type: "url" },
     {
       name: "metrics", title: "Chiffres clés", type: "array",
       of: [{ type: "object", fields: [{ name: "value", title: "Valeur", type: "string" }, { name: "label", title: "Libellé", type: "string" }], preview: { select: { title: "value", subtitle: "label" } } }],
@@ -50,6 +67,7 @@ const caseObject = {
     },
     { name: "quote", title: "Citation / témoignage", type: "text", rows: 3 },
     { name: "author", title: "Auteur de la citation", type: "string" },
+    LINKS_FIELD,
   ],
   preview: { select: { title: "sector", subtitle: "tag" } },
 };
@@ -69,7 +87,7 @@ const articleObject = {
     { name: "cover", title: "Image de couverture", type: "image", options: { hotspot: true } },
     { name: "icon", title: "Icône (si pas d'image)", type: "string", options: { list: ICON_LIST } },
     { name: "body", title: "Contenu", type: "array", of: [{ type: "block" }, { type: "image", options: { hotspot: true } }] },
-    { name: "link", title: "Lien de redirection (optionnel)", type: "url" },
+    LINKS_FIELD,
   ],
   preview: { select: { title: "title", subtitle: "date", media: "cover" } },
 };

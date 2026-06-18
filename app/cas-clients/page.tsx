@@ -100,7 +100,7 @@ export default async function CasClientsPage() {
           sectorCategory: c.sectorCategory,
           coverUrl: c.coverUrl,
           icon: c.icon,
-          link: c.link,
+          links: c.links,
           metrics: (c.metrics ?? []).map((m) => ({ value: m.value ?? "", label: m.label ?? "" })),
           phases: (c.phases ?? []).map((p) => ({
             eyebrow: p.eyebrow ?? "",
@@ -125,7 +125,7 @@ export default async function CasClientsPage() {
       coverUrl: a.coverUrl,
       icon: a.icon,
       body: a.body,
-      link: a.link,
+      links: a.links,
     }));
 
   return <CasClientsHub cases={cases} articles={articles} page={page} />;

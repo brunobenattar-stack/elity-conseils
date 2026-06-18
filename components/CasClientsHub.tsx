@@ -18,7 +18,7 @@ export type CaseStudy = {
   sectorCategory?: string;
   coverUrl?: string;
   icon?: string;
-  link?: string;
+  links?: { label?: string; url?: string }[];
 };
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -81,6 +81,27 @@ function CardVisual({
     );
   }
   return null;
+}
+
+function ReaderLinks({ links }: { links?: { label?: string; url?: string }[] }) {
+  const valid = (links ?? []).filter((l) => l.url && l.url.trim());
+  if (valid.length === 0) return null;
+  return (
+    <div className="blog-reader-links">
+      {valid.map((l, i) => (
+        <a
+          key={i}
+          href={l.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="blog-reader-link"
+        >
+          {l.label?.trim() || l.url}
+          <span aria-hidden="true">→</span>
+        </a>
+      ))}
+    </div>
+  );
 }
 
 type OverlayContent =
@@ -325,11 +346,11 @@ export default function CasClientsHub({
                     >
                       <article
                         className="blog-card blog-card-clickable"
-                        onClick={() => !c.link && setOverlay({ kind: "case", data: c })}
-                        role={c.link ? undefined : "button"}
-                        tabIndex={c.link ? undefined : 0}
+                        onClick={() => setOverlay({ kind: "case", data: c })}
+                        role="button"
+                        tabIndex={0}
                         onKeyDown={(e) => {
-                          if (!c.link && (e.key === "Enter" || e.key === " ")) {
+                          if (e.key === "Enter" || e.key === " ") {
                             e.preventDefault();
                             setOverlay({ kind: "case", data: c });
                           }
@@ -345,21 +366,9 @@ export default function CasClientsHub({
                           </div>
                           <h3 className="blog-card-title">{c.sector}</h3>
                           <p className="blog-card-sub">{c.meta}</p>
-                          {c.link ? (
-                            <a
-                              href={c.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="blog-card-cta"
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              En savoir plus <span aria-hidden="true">→</span>
-                            </a>
-                          ) : (
-                            <span className="blog-card-cta">
-                              En savoir plus <span aria-hidden="true">→</span>
-                            </span>
-                          )}
+                          <span className="blog-card-cta">
+                            En savoir plus <span aria-hidden="true">→</span>
+                          </span>
                         </div>
                       </article>
                     </Reveal>
@@ -451,11 +460,11 @@ export default function CasClientsHub({
                     >
                       <article
                         className="blog-card blog-card-clickable"
-                        onClick={() => !a.link && setOverlay({ kind: "article", data: a })}
-                        role={a.link ? undefined : "button"}
-                        tabIndex={a.link ? undefined : 0}
+                        onClick={() => setOverlay({ kind: "article", data: a })}
+                        role="button"
+                        tabIndex={0}
                         onKeyDown={(e) => {
-                          if (!a.link && (e.key === "Enter" || e.key === " ")) {
+                          if (e.key === "Enter" || e.key === " ") {
                             e.preventDefault();
                             setOverlay({ kind: "article", data: a });
                           }
@@ -475,21 +484,9 @@ export default function CasClientsHub({
                           {a.excerpt && (
                             <p className="blog-card-excerpt">{a.excerpt}</p>
                           )}
-                          {a.link ? (
-                            <a
-                              href={a.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="blog-card-cta"
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              En savoir plus <span aria-hidden="true">→</span>
-                            </a>
-                          ) : (
-                            <span className="blog-card-cta">
-                              En savoir plus <span aria-hidden="true">→</span>
-                            </span>
-                          )}
+                          <span className="blog-card-cta">
+                            En savoir plus <span aria-hidden="true">→</span>
+                          </span>
                         </div>
                       </article>
                     </Reveal>
@@ -577,6 +574,8 @@ function CaseReader({ data: c }: { data: CaseStudy }) {
           <cite>{c.author}</cite>
         </blockquote>
       )}
+
+      <ReaderLinks links={c.links} />
     </article>
   );
 }
@@ -625,6 +624,8 @@ function ArticleReader({ data: a }: { data: SanityArticle }) {
       ) : (
         <p className="blog-reader-body">{a.excerpt}</p>
       )}
+
+      <ReaderLinks links={a.links} />
     </article>
   );
 }

@@ -11098,6 +11098,22 @@ main { position: relative; z-index: 2; }
 }
 .blog-reader-body { display: flex; flex-direction: column; gap: 20px; }
 .blog-reader-body-img { width: 100%; height: auto; border-radius: 12px; display: block; }
+.blog-reader-links { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
+.blog-reader-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  padding: 11px 18px;
+  border: 1px solid var(--gold-on-cream-soft);
+  border-radius: 100px;
+  color: var(--text-on-cream);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+.blog-reader-link:hover { background: rgba(201, 165, 90, 0.12); border-color: var(--gold-main); }
 .blog-reader-phase-eyebrow {
   font-family: var(--sans);
   font-size: 11px;
