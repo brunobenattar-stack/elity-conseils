@@ -15,7 +15,15 @@ type NavLink = {
 const DESKTOP_LINKS: NavLink[] = [
   { href: "/", label: "Accueil" },
   { href: "/approche", label: "Approche" },
-  { href: "/offres", label: "Offres" },
+  {
+    href: "/offres",
+    label: "Offres",
+    submenu: [
+      { href: "/offres#cession", label: "Cession & rachat" },
+      { href: "/offres#structure", label: "Structuration de groupe" },
+      { href: "/offres#pilotage", label: "Accompagnement dirigeant(e)" },
+    ],
+  },
   { href: "/methode-essor", label: "Méthode ESSOR" },
   {
     href: "/cas-clients",

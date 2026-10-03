@@ -91,6 +91,28 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* 4 ter. TEASER STRUCTURE */}
+      <section id="section-structure" className="home-pilotage-teaser home-structure-teaser">
+        <div className="container">
+          <Reveal className="home-pilotage-inner">
+            <div>
+              <span className="home-pilotage-eyebrow">Nouveau · Elity Structure</span>
+              <h2 className="home-pilotage-title">
+                Holding, SCI, sociétés :{" "}
+                <em>construire le bon socle.</em>
+              </h2>
+              <p className="home-pilotage-desc">
+                Perso et pro mélangés, impôts trop lourds, patrimoine exposé ? Elity Structure conçoit et met en place la structure de groupe adaptée à votre situation, de A à Z, jusqu&apos;à l&apos;immatriculation. Formules Essentielle ou Premium.
+              </p>
+            </div>
+            <Link href="/offres#structure" className="home-pilotage-cta">
+              Voir l&apos;offre Structure
+              <span aria-hidden="true">→</span>
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
       {/* 5. CABINET */}
       <div id="section-cabinet">
         <HomeBrunoParallax home={home} />

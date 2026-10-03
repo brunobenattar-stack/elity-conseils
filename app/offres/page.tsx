@@ -4,13 +4,14 @@ import Reveal from "@/components/Reveal";
 import CessionOffers from "@/components/CessionOffers";
 import OfferCard, { type OfferCardData } from "@/components/OfferCard";
 import CtaFinal from "@/components/CtaFinal";
+import StructureSection from "@/components/StructureSection";
 import { IconLock, IconEye, IconChart } from "@/components/icons";
 import { getOffersPage, type SanityOfferItem } from "@/sanity/queries";
 
 export const metadata: Metadata = {
-  title: "Nos Offres : Cession, rachat et accompagnement de dirigeant(e) à La Réunion",
+  title: "Nos Offres : Cession, rachat, structuration de groupe et accompagnement de dirigeant(e) à La Réunion",
   description:
-    "Deux activités complémentaires : Cession & rachat d'entreprise (3 offres : Classique, Stratégique, Premium) et accompagnement mensuel du dirigeant(e) via la méthode ESSOR (formules 12 ou 24 mois).",
+    "Cession & rachat d'entreprise (Classique, Stratégique, Premium), structuration de groupe avec Elity Structure (holding, SCI, sociétés d'exploitation) et accompagnement mensuel du dirigeant(e) via la méthode ESSOR (formules 12 ou 24 mois).",
 };
 
 const PILOTAGE: OfferCardData[] = [
@@ -110,7 +111,10 @@ export default async function OffresPage() {
         </div>
       </section>
 
-      {/* SECTION 2 : Piloter son entreprise au quotidien */}
+      {/* SECTION 2 : Structurer son groupe (Elity Structure) */}
+      <StructureSection />
+
+      {/* SECTION 3 : Piloter son entreprise au quotidien */}
       <section className="section section-cream offers-pilotage-section" id="pilotage">
         <div className="container">
           <Reveal className="section-header center">
