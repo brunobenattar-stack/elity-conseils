@@ -5,6 +5,7 @@ import CessionOffers from "@/components/CessionOffers";
 import OfferCard, { type OfferCardData } from "@/components/OfferCard";
 import CtaFinal from "@/components/CtaFinal";
 import StructureSection from "@/components/StructureSection";
+import OfferChapter from "@/components/OfferChapter";
 import { IconLock, IconEye, IconChart } from "@/components/icons";
 import { getOffersPage, type SanityOfferItem } from "@/sanity/queries";
 
@@ -74,14 +75,14 @@ export default async function OffresPage() {
       {/* SECTION 1 : Vendre ou racheter */}
       <section className="section section-first offers-cession-section" id="cession">
         <div className="container">
-          <Reveal className="section-header center">
-            <span className="section-label">{t(page?.cessionLabel, "Vendre ou racheter une entreprise")}</span>
-            <div className="section-sep" style={{ marginInline: "auto" }} />
-            <h2 className="section-title">{t(page?.cessionTitle1, "Trois niveaux d'accompagnement,")}<br /><em>{t(page?.cessionTitle2, "une approche adaptée.")}</em></h2>
-            <p className="section-body" style={{ marginInline: "auto", textAlign: "center" }}>
-              {page?.cessionBody?.trim() || (<>Elity Conseils prépare votre stratégie. <strong>Procomm Océan Indien</strong> réalise la transaction.</>)}
-            </p>
-          </Reveal>
+          <OfferChapter
+            num={1}
+            kicker="Cession & acquisition"
+            title={t(page?.cessionLabel, "Vendre ou racheter une entreprise")}
+            subtitle={<>{t(page?.cessionTitle1, "Trois niveaux d'accompagnement,")} <em>{t(page?.cessionTitle2, "une approche adaptée.")}</em></>}
+          >
+            {page?.cessionBody?.trim() || (<>Elity Conseils prépare votre stratégie. <strong>Procomm Océan Indien</strong> réalise la transaction.</>)}
+          </OfferChapter>
 
           <CessionOffers cession={cession} acquisition={acquisition} />
 
@@ -117,14 +118,14 @@ export default async function OffresPage() {
       {/* SECTION 3 : Piloter son entreprise au quotidien */}
       <section className="section section-cream offers-pilotage-section" id="pilotage">
         <div className="container">
-          <Reveal className="section-header center">
-            <span className="section-label">{t(page?.pilotageLabel, "Accompagnement de dirigeant(e)")}</span>
-            <div className="section-sep" style={{ marginInline: "auto" }} />
-            <h2 className="section-title">{t(page?.pilotageTitle1, "Diriger seul(e), c'est arbitrer")}<br /><em>{t(page?.pilotageTitle2, "dans le brouillard.")}</em></h2>
-            <p className="section-body" style={{ marginInline: "auto", textAlign: "center" }}>
-              {page?.pilotageBody?.trim() || (<>Votre comptable gère vos comptes. Mais qui décide vraiment avec vous ? Elity Dirigeant vous donne un cadre mensuel structuré, appuyé sur la <Link href="/methode-essor" className="inline-link">méthode ESSOR</Link>.</>)}
-            </p>
-          </Reveal>
+          <OfferChapter
+            num={3}
+            kicker="Elity Dirigeant"
+            title={t(page?.pilotageLabel, "Accompagnement de dirigeant(e)")}
+            subtitle={<>{t(page?.pilotageTitle1, "Diriger seul(e), c'est arbitrer")} <em>{t(page?.pilotageTitle2, "dans le brouillard.")}</em></>}
+          >
+            {page?.pilotageBody?.trim() || (<>Votre comptable gère vos comptes. Mais qui décide vraiment avec vous ? Elity Dirigeant vous donne un cadre mensuel structuré, appuyé sur la <Link href="/methode-essor" className="inline-link">méthode ESSOR</Link>.</>)}
+          </OfferChapter>
 
           <div className="offers-deck offers-deck-2">
             {pilotage.map((offer, i) => (
