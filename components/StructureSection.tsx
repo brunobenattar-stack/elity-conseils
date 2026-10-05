@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Reveal from "./Reveal";
 import OfferCard, { type OfferCardData } from "./OfferCard";
-import OfferChapter from "./OfferChapter";
+import { IconLoupe, IconCompass, IconDocument, IconChart, IconTrophy } from "./icons";
 
 // Offre "Elity Structure" : structuration de groupe (holding, SCI, sociétés d'exploitation).
 // Contenu repris de la plaquette PDF fournie par Bruno (septembre 2026).
@@ -56,26 +56,31 @@ const STEPS = [
     num: "01",
     title: "Diagnostic",
     desc: "Audit complet de votre situation : structures existantes, fiscalité, patrimoine immobilier, revenus, objectifs à court, moyen et long terme.",
+    Icon: IconLoupe,
   },
   {
     num: "02",
     title: "Architecture",
     desc: "Conception du schéma de groupe optimal : holding animatrice, SCI patrimoniale, société(s) d'exploitation. Une structure sur mesure.",
+    Icon: IconCompass,
   },
   {
     num: "03",
     title: "Rédaction",
     desc: "Rédaction de l'ensemble des statuts et documents constitutifs. Chaque acte est rédigé, vérifié et adapté à votre situation.",
+    Icon: IconDocument,
   },
   {
     num: "04",
     title: "Déploiement",
     desc: "Immatriculation, ouverture des comptes bancaires, transfert des actifs, mise en conformité. Nous gérons tout à vos côtés.",
+    Icon: IconChart,
   },
   {
     num: "05",
     title: "Activation",
     desc: "Votre groupe est opérationnel. Formation au pilotage, rémunération du dirigeant optimisée, flux financiers entre entités définis.",
+    Icon: IconTrophy,
   },
 ] as const;
 
@@ -125,50 +130,49 @@ export default function StructureSection() {
   return (
     <section className="section structure-section" id="structure">
       <div className="container">
-        <OfferChapter
-          num={2}
-          kicker="Elity Structure"
-          title="Structuration de groupe"
-          subtitle={<>Construire le bon socle. <em>Protéger, optimiser, transmettre.</em></>}
-        >
-          Vous avez une ou plusieurs sociétés, un patrimoine immobilier, des revenus qui pourraient être mieux optimisés.
-          Elity Structure conçoit et met en place la structure de groupe adaptée à votre situation, <strong>de A à Z, jusqu&apos;à l&apos;immatriculation</strong>.
-        </OfferChapter>
-
-        <Reveal className="structure-block-head">
-          <span className="structure-block-label">Le constat</span>
-          <h3 className="structure-block-title">Aujourd&apos;hui, <em>tout est encore mélangé.</em></h3>
+        <Reveal className="section-header center">
+          <span className="section-label offer-num-label"><span className="offer-num">2</span><span>Elity Structure · Structuration de groupe</span></span>
+          <div className="section-sep" style={{ marginInline: "auto" }} />
+          <h2 className="section-title">Construire le bon socle.<br /><em>Protéger, optimiser, transmettre.</em></h2>
+          <p className="section-body" style={{ marginInline: "auto", textAlign: "center" }}>
+            Vous avez une ou plusieurs sociétés, un patrimoine immobilier, des revenus qui pourraient être mieux optimisés.
+            Elity Structure conçoit et met en place la structure de groupe adaptée à votre situation, <strong>de A à Z, jusqu&apos;à l&apos;immatriculation</strong>.
+          </p>
         </Reveal>
 
         <div className="structure-pains">
           {PAINS.map((p, i) => (
             <Reveal key={p.title} as="article" className="structure-pain" delay={((i + 1) * 100) as 100 | 200 | 300 | 400}>
               <div className="structure-pain-icon" aria-hidden="true">{p.icon}</div>
-              <h4 className="structure-pain-title">{p.title}</h4>
-              <p className="structure-pain-desc">{p.desc}</p>
+              <div>
+                <h3 className="structure-pain-title">{p.title}</h3>
+                <p className="structure-pain-desc">{p.desc}</p>
+              </div>
             </Reveal>
           ))}
         </div>
 
-        <Reveal className="structure-block-head">
-          <span className="structure-block-label">Notre méthode</span>
-          <h3 className="structure-block-title">5 étapes pour <em>structurer votre groupe.</em></h3>
+        <Reveal className="structure-subhead">
+          <span className="section-label">Notre méthode</span>
+          <h3 className="structure-subtitle">5 étapes pour <em>structurer votre groupe</em></h3>
         </Reveal>
 
-        <ol className="structure-timeline">
+        <div className="steps structure-steps">
           {STEPS.map((s, i) => (
-            <Reveal key={s.num} as="li" className="structure-tl-step" delay={(100 * (i + 1)) as 100 | 200 | 300 | 400 | 500}>
-              <span className="structure-tl-dot" aria-hidden="true" />
-              <span className="structure-tl-num">{s.num}</span>
-              <h4 className="structure-tl-title">{s.title}</h4>
-              <p className="structure-tl-desc">{s.desc}</p>
+            <Reveal key={s.num} as="article" className="step" delay={(100 * (i + 1)) as 100 | 200 | 300 | 400 | 500}>
+              <span className="step-num">{s.num}</span>
+              <div className="step-icon">
+                <s.Icon />
+              </div>
+              <h4 className="step-title">{s.title}</h4>
+              <p className="step-desc">{s.desc}</p>
             </Reveal>
           ))}
-        </ol>
+        </div>
 
-        <Reveal className="structure-block-head">
-          <span className="structure-block-label">Engagement</span>
-          <h3 className="structure-block-title">Deux <em>formules.</em></h3>
+        <Reveal className="structure-subhead">
+          <span className="section-label">Engagement</span>
+          <h3 className="structure-subtitle">Deux <em>formules</em></h3>
         </Reveal>
 
         <div className="offers-deck offers-deck-2">
@@ -180,22 +184,20 @@ export default function StructureSection() {
         </div>
 
         <Reveal className="structure-parcours">
-          <span className="structure-block-label">Le parcours Elity</span>
+          <span className="section-label">Le parcours Elity</span>
           <div className="structure-parcours-flow">
             <div className="structure-parcours-step">
-              <span className="structure-parcours-tag">Offre 2</span>
-              <span className="structure-parcours-name">Elity <em>Structure</em></span>
+              <span className="structure-parcours-name">Elity <strong>Structure</strong></span>
               <p>Nous concevons et mettons en place votre groupe, de A à Z.</p>
             </div>
-            <div className="structure-parcours-line" aria-hidden="true"><span>→</span></div>
-            <Link href="#pilotage" className="structure-parcours-step">
-              <span className="structure-parcours-tag">Offre 3</span>
-              <span className="structure-parcours-name">Elity <em>Dirigeant</em></span>
+            <span className="structure-parcours-arrow" aria-hidden="true">→</span>
+            <Link href="#pilotage" className="structure-parcours-step structure-parcours-link">
+              <span className="structure-parcours-name">Elity <strong>Dirigeant</strong></span>
               <p>Nous pilotons votre groupe avec vous, chaque mois, dans la durée.</p>
             </Link>
           </div>
           <blockquote className="structure-quote">
-            La bonne structure, c&apos;est celle qui protège aujourd&apos;hui et <em>valorise demain.</em>
+            « La bonne structure, c&apos;est celle qui protège aujourd&apos;hui et <em>valorise demain.</em> »
           </blockquote>
         </Reveal>
       </div>
