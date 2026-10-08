@@ -75,7 +75,7 @@ export default async function OffresPage() {
       <section className="section section-first offers-cession-section" id="cession">
         <div className="container">
           <Reveal className="section-header center">
-            <span className="section-label offer-num-label"><span className="offer-num">1</span><span>{t(page?.cessionLabel, "Vendre ou racheter une entreprise")}</span></span>
+            <span className="offer-pill"><span className="offer-pill-num">1</span><span>{t(page?.cessionLabel, "Vendre ou racheter une entreprise")}</span></span>
             <div className="section-sep" style={{ marginInline: "auto" }} />
             <h2 className="section-title">{t(page?.cessionTitle1, "Trois niveaux d'accompagnement,")}<br /><em>{t(page?.cessionTitle2, "une approche adaptée.")}</em></h2>
             <p className="section-body" style={{ marginInline: "auto", textAlign: "center" }}>
@@ -118,7 +118,7 @@ export default async function OffresPage() {
       <section className="section section-cream offers-pilotage-section" id="pilotage">
         <div className="container">
           <Reveal className="section-header center">
-            <span className="section-label offer-num-label"><span className="offer-num">3</span><span>{t(page?.pilotageLabel, "Accompagnement de dirigeant(e)")}</span></span>
+            <span className="offer-pill"><span className="offer-pill-num">3</span><span>{t(page?.pilotageLabel, "Accompagnement de dirigeant(e)")}</span></span>
             <div className="section-sep" style={{ marginInline: "auto" }} />
             <h2 className="section-title">{t(page?.pilotageTitle1, "Diriger seul(e), c'est arbitrer")}<br /><em>{t(page?.pilotageTitle2, "dans le brouillard.")}</em></h2>
             <p className="section-body" style={{ marginInline: "auto", textAlign: "center" }}>
