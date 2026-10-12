@@ -142,20 +142,12 @@ const FORMULES: OfferCardData[] = [
   },
 ];
 
-// En-tête de sous-partie : index + libellé avec trait (comme PageLead), grand titre à gauche,
-// phrase d'accroche à droite, filet doré en dessous.
-function SubHead({ index, label, title, children }: { index: string; label: string; title: ReactNode; children: ReactNode }) {
+// En-tête de sous-partie : libellé dans une petite pastille dorée, titre centré dessous.
+function SubHead({ label, title }: { label: string; title: ReactNode }) {
   return (
     <Reveal className="structure-head">
-      <div className="structure-head-main">
-        <span className="structure-head-label">
-          <span className="structure-head-index">{index}</span>
-          <span className="structure-head-tick" aria-hidden="true" />
-          {label}
-        </span>
-        <h3 className="structure-head-title">{title}</h3>
-      </div>
-      <p className="structure-head-text">{children}</p>
+      <span className="structure-head-label">{label}</span>
+      <h3 className="structure-head-title">{title}</h3>
     </Reveal>
   );
 }
@@ -175,9 +167,7 @@ export default function StructureSection() {
         </Reveal>
 
         {/* Constat : même cartes que "Ce qui coûte cher" (accueil) */}
-        <SubHead index="2.1" label="Vous vous reconnaissez ?" title={<>Quatre signes qu&apos;il est temps <em>de structurer.</em></>}>
-          Si l&apos;une de ces situations vous parle, votre organisation actuelle vous coûte déjà.
-        </SubHead>
+        <SubHead label="Vous vous reconnaissez ?" title={<>Quatre signes qu&apos;il est temps <em>de structurer.</em></>} />
 
         <div className="problem-cards-scroller structure-pains">
           {PAINS.map((p, i) => (
@@ -193,9 +183,7 @@ export default function StructureSection() {
         </div>
 
         {/* Méthode : ronds sur une frise, défilement horizontal */}
-        <SubHead index="2.2" label="Notre méthode" title={<>5 étapes pour <em>structurer votre groupe.</em></>}>
-          Du diagnostic à l&apos;activation, nous gérons chaque étape à vos côtés. Faites défiler pour découvrir le parcours.
-        </SubHead>
+        <SubHead label="Notre méthode" title={<>5 étapes pour <em>structurer votre groupe.</em></>} />
 
         <Reveal>
           <StructureSteps
@@ -204,9 +192,7 @@ export default function StructureSection() {
           />
         </Reveal>
 
-        <SubHead index="2.3" label="Engagement" title={<>Deux <em>formules.</em></>}>
-          Essentielle pour une holding et une société, Premium pour structurer tout votre groupe, SCI comprise.
-        </SubHead>
+        <SubHead label="Engagement" title={<>Deux <em>formules.</em></>} />
 
         <div className="offers-deck offers-deck-2">
           {FORMULES.map((offer, i) => (
@@ -217,9 +203,7 @@ export default function StructureSection() {
         </div>
 
         {/* Parcours : mêmes cartes que "La même rigueur, pour chaque projet" (page Approche) */}
-        <SubHead index="2.4" label="Le parcours Elity" title={<>Structurer, puis <em>piloter.</em></>}>
-          Une fois votre groupe en place, Elity Dirigeant prend le relais pour le piloter avec vous.
-        </SubHead>
+        <SubHead label="Le parcours Elity" title={<>Structurer, puis <em>piloter.</em></>} />
 
         <div className="approche-dual structure-parcours">
           <Reveal className="approche-dual-card" delay={100}>
