@@ -207,6 +207,7 @@ export default function StructureSection() {
 
         <div className="approche-dual structure-parcours">
           <Reveal className="approche-dual-card" delay={100}>
+            <span className="structure-parcours-num" aria-hidden="true">1</span>
             <span className="approche-dual-eyebrow">Étape 1 · Elity Structure</span>
             <h4 className="approche-dual-title">Construire le bon socle</h4>
             <p className="approche-dual-text">Nous concevons et mettons en place votre groupe, de A à Z, jusqu&apos;à l&apos;immatriculation.</p>
@@ -215,6 +216,7 @@ export default function StructureSection() {
             </Link>
           </Reveal>
           <Reveal className="approche-dual-card" delay={200}>
+            <span className="structure-parcours-num" aria-hidden="true">2</span>
             <span className="approche-dual-eyebrow">Étape 2 · Elity Dirigeant</span>
             <h4 className="approche-dual-title">Piloter dans la durée</h4>
             <p className="approche-dual-text">Nous pilotons votre groupe avec vous, chaque mois, avec la méthode ESSOR.</p>
