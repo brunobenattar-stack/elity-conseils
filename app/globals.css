@@ -11557,3 +11557,10 @@ main { position: relative; z-index: 2; }
 }
 .structure-parcours .approche-dual-eyebrow,
 .structure-parcours .approche-dual-title { position: relative; z-index: 1; }
+
+/* Téléphone : sur les cartes d'offres Cession et Dirigeant, la liste à puces suffit ;
+   le paragraphe détaillé (texte Sanity, souvent long) reste visible sur ordinateur. */
+@media (max-width: 640px) {
+  #cession .offer-card-detail-text,
+  #pilotage .offer-card-detail-text { display: none; }
+}

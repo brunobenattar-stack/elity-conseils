@@ -106,12 +106,12 @@ export default function Footer({ settings }: { settings?: SanitySettings | null 
           <span>
             Créé par{" "}
             <a
-              href="https://fondationstudio.fr"
+              href="https://actcstudio.fr"
               target="_blank"
               rel="noopener noreferrer"
               className="footer-credit-link"
             >
-              Fondation Studio.fr
+              actcstudio.fr
             </a>
           </span>
           <span className="footer-credit-line" aria-hidden="true" />

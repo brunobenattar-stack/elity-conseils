@@ -14,7 +14,7 @@ const PAINS = [
     eyebrow: "Organisation",
     variant: "ivory",
     title: "Tout est mélangé",
-    desc: "Perso et pro, immobilier et exploitation : aucune séparation claire des actifs et des risques.",
+    desc: "Perso, pro et immobilier : rien n'est séparé.",
     icon: (
       <svg viewBox="0 0 64 64" fill="none">
         <circle cx="24" cy="32" r="14" stroke="currentColor" strokeWidth="1.3" />
@@ -26,7 +26,7 @@ const PAINS = [
     eyebrow: "Fiscalité",
     variant: "dark",
     title: "Vous payez trop d'impôts",
-    desc: "Sans holding ni optimisation fiscale, vous laissez des sommes considérables au fisc chaque année.",
+    desc: "Sans holding, une part de vos bénéfices part au fisc.",
     icon: (
       <svg viewBox="0 0 64 64" fill="none">
         <path d="M14 20l12 12 8-8 16 16" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
@@ -39,7 +39,7 @@ const PAINS = [
     eyebrow: "Protection",
     variant: "ivory",
     title: "Votre patrimoine est exposé",
-    desc: "En cas de difficulté, tout est attaquable. Aucune protection entre vos actifs personnels et professionnels.",
+    desc: "En cas de coup dur, vos biens personnels sont exposés.",
     icon: (
       <svg viewBox="0 0 64 64" fill="none">
         <path d="M32 10l18 7v13c0 12-8 20-18 24-10-4-18-12-18-24V17l18-7z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" />
@@ -51,7 +51,7 @@ const PAINS = [
     eyebrow: "Transmission",
     variant: "dark",
     title: "Votre transmission n'est pas prête",
-    desc: "Sans structure adaptée, la cession ou la transmission de votre entreprise sera coûteuse et complexe.",
+    desc: "Vendre ou transmettre vous coûtera plus cher.",
     icon: (
       <svg viewBox="0 0 64 64" fill="none">
         <rect x="14" y="22" width="36" height="28" rx="2" stroke="currentColor" strokeWidth="1.3" />
@@ -67,35 +67,35 @@ const STEPS = [
     num: "01",
     title: "Diagnostic",
     baseline: "Comprendre votre situation.",
-    desc: "Audit complet de votre situation : structures existantes, fiscalité, patrimoine immobilier, revenus, objectifs à court, moyen et long terme.",
+    desc: "Nous analysons vos sociétés, votre patrimoine et vos objectifs.",
     Icon: IconLoupe,
   },
   {
     num: "02",
     title: "Architecture",
     baseline: "Dessiner le bon schéma.",
-    desc: "Conception du schéma de groupe optimal : holding animatrice, SCI patrimoniale, société(s) d'exploitation. Une structure sur mesure.",
+    desc: "Nous dessinons le bon schéma : holding, SCI, sociétés.",
     Icon: IconCompass,
   },
   {
     num: "03",
     title: "Rédaction",
     baseline: "Des actes sur mesure.",
-    desc: "Rédaction de l'ensemble des statuts et documents constitutifs. Chaque acte est rédigé, vérifié et adapté à votre situation.",
+    desc: "Tous les statuts et actes, rédigés sur mesure.",
     Icon: IconDocument,
   },
   {
     num: "04",
     title: "Déploiement",
     baseline: "On s'occupe de tout.",
-    desc: "Immatriculation, ouverture des comptes bancaires, transfert des actifs, mise en conformité. Nous gérons tout à vos côtés.",
+    desc: "Immatriculation, banques, transfert des actifs : on gère tout.",
     Icon: IconChart,
   },
   {
     num: "05",
     title: "Activation",
     baseline: "Vous prenez la main.",
-    desc: "Votre groupe est opérationnel. Formation au pilotage, rémunération du dirigeant optimisée, flux financiers entre entités définis.",
+    desc: "Votre groupe tourne. Nous vous apprenons à le piloter.",
     Icon: IconTrophy,
   },
 ] as const;
@@ -106,17 +106,15 @@ const FORMULES: OfferCardData[] = [
     name: "Essentielle",
     pitch: "Holding + 1 société d'exploitation.",
     features: [
-      "Audit de situation complet",
-      "Conception du schéma holding",
-      "Rédaction des statuts de la holding",
-      "Immatriculation de la holding",
-      "Mise en place des flux financiers",
-      "Formation au pilotage du groupe",
-      "Accompagnement jusqu'à l'activation",
+      "Audit et schéma de la holding",
+      "Statuts et immatriculation",
+      "Flux financiers mis en place",
+      "Formation au pilotage",
+      "Suivi jusqu'à l'activation",
     ],
     meta: "Durée : 2 à 4 mois",
     details:
-      "Une structure simple pour séparer votre patrimoine, optimiser votre fiscalité et protéger vos actifs.",
+      "Séparer, optimiser, protéger : l'essentiel.",
   },
   {
     id: "structure-premium",
@@ -125,20 +123,16 @@ const FORMULES: OfferCardData[] = [
     chip: "Recommandée",
     featured: true,
     features: [
-      "Audit de situation complet",
-      "Conception du schéma de groupe complet",
-      "Rédaction des statuts holding + SCI + sociétés",
-      "Immatriculation de toutes les entités",
-      "Structuration du patrimoine immobilier (SCI)",
-      "Optimisation de la rémunération dirigeant",
-      "Mise en place des flux inter-sociétés",
-      "Formation au pilotage du groupe",
-      "Préparation à la cession ou transmission",
-      "Accompagnement jusqu'à l'activation complète",
+      "Tout le contenu Essentielle",
+      "Holding, SCI et sociétés créées",
+      "Immobilier logé dans une SCI",
+      "Rémunération du dirigeant optimisée",
+      "Flux entre sociétés organisés",
+      "Préparation à la cession",
     ],
     meta: "Durée : 4 à 9 mois",
     details:
-      "Une structure complète pour un groupe structuré, optimisé et prêt pour la transmission.",
+      "Un groupe complet, prêt à être transmis.",
   },
 ];
 
@@ -161,8 +155,7 @@ export default function StructureSection() {
           <div className="section-sep" style={{ marginInline: "auto" }} />
           <h2 className="section-title">Construire le bon socle.<br /><em>Protéger, optimiser, transmettre.</em></h2>
           <p className="section-body" style={{ marginInline: "auto", textAlign: "center" }}>
-            Vous avez une ou plusieurs sociétés, un patrimoine immobilier, des revenus qui pourraient être mieux optimisés.
-            Elity Structure conçoit et met en place la structure de groupe adaptée à votre situation, <strong>de A à Z, jusqu&apos;à l&apos;immatriculation</strong>.
+            Holding, SCI, sociétés : nous créons la structure de votre groupe, <strong>de A à Z</strong>.
           </p>
         </Reveal>
 
@@ -210,7 +203,7 @@ export default function StructureSection() {
             <span className="structure-parcours-num" aria-hidden="true">1</span>
             <span className="approche-dual-eyebrow">Étape 1 · Elity Structure</span>
             <h4 className="approche-dual-title">Construire le bon socle</h4>
-            <p className="approche-dual-text">Nous concevons et mettons en place votre groupe, de A à Z, jusqu&apos;à l&apos;immatriculation.</p>
+            <p className="approche-dual-text">Nous créons votre groupe, de A à Z.</p>
             <Link href="/contact" className="approche-row-cta">
               Prendre contact <span aria-hidden="true">→</span>
             </Link>
@@ -219,7 +212,7 @@ export default function StructureSection() {
             <span className="structure-parcours-num" aria-hidden="true">2</span>
             <span className="approche-dual-eyebrow">Étape 2 · Elity Dirigeant</span>
             <h4 className="approche-dual-title">Piloter dans la durée</h4>
-            <p className="approche-dual-text">Nous pilotons votre groupe avec vous, chaque mois, avec la méthode ESSOR.</p>
+            <p className="approche-dual-text">Nous le pilotons avec vous, chaque mois.</p>
             <Link href="#pilotage" className="approche-row-cta">
               Voir l&apos;accompagnement <span aria-hidden="true">→</span>
             </Link>
