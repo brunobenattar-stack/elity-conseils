@@ -22,7 +22,7 @@ export default function ConfidentialitePage() {
           <Reveal className="legal-page">
             <h2>1. Responsable du traitement</h2>
             <p>
-              Le responsable du traitement des données est la <strong>SASU Elity Conseils</strong> (SIREN 902 290 147), représentée par Bruno Ben Attar, dont le siège est situé 15 Ruelle 46, 97436 Saint-Leu, La Réunion. Pour toute question relative à vos données, contactez-nous à <a href="mailto:contact@elityconseils.re">contact@elityconseils.re</a>.
+              Le responsable du traitement des données est la <strong>SASU Elity Conseils</strong> (SIREN 902 290 147), représentée par Bruno BENATTAR, dont le siège est situé 15 Ruelle 46, 97436 Saint-Leu, La Réunion. Pour toute question relative à vos données, contactez-nous à <a href="mailto:contact@elityconseils.re">contact@elityconseils.re</a>.
             </p>
 
             <h2>2. Données collectées</h2>

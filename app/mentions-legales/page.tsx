@@ -35,7 +35,7 @@ export default function MentionsLegalesPage() {
             </p>
 
             <h2>Directeur de la publication</h2>
-            <p>Bruno Ben Attar, président de la SASU Elity Conseils.</p>
+            <p>Bruno BENATTAR, président de la SASU Elity Conseils.</p>
 
             <h2>Hébergement</h2>
             <p>
