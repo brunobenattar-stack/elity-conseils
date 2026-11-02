@@ -30,7 +30,7 @@ export default function MentionsLegalesPage() {
               RCS : 902 290 147 R.C.S. Saint-Pierre-de-la-Réunion<br />
               Code APE : 70.22Z (Conseil pour les affaires et autres conseils de gestion)<br />
               Siège social : 15 Ruelle 46, 97436 Saint-Leu, La Réunion<br />
-              Téléphone : <a href="tel:+262692188928">+262 692 18 89 28</a><br />
+              Téléphone : <a href="tel:+262692661905">+262 692 66 19 05</a><br />
               Email : <a href="mailto:contact@elityconseils.re">contact@elityconseils.re</a>
             </p>
 

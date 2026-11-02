@@ -94,7 +94,7 @@ export default async function RootLayout({
               description:
                 "Cabinet de conseil en cession, acquisition et accompagnement de dirigeant(e) à La Réunion. Approche stratégique pour valoriser et céder votre entreprise.",
               url: "https://elityconseil.re",
-              telephone: "+262692188928",
+              telephone: "+262692661905",
               email: "contact@elityconseils.re",
               founder: { "@type": "Person", name: "Bruno Ben Attar" },
               address: {
