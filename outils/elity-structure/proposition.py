@@ -188,7 +188,7 @@ nx = Table([[Paragraph(f'<font name="Lora-B" size="15" color="#C9A84C">{n}</font
              ('3', f'Rendez-vous de diagnostic sous 15 jours, {D.LIEU_RDV}')]], colWidths=[10 * mm, CW - 10 * mm])
 nx.setStyle(TableStyle([('VALIGN', (0, 0), (-1, -1), 'MIDDLE'), ('TOPPADDING', (0, 0), (-1, -1), 3), ('BOTTOMPADDING', (0, 0), (-1, -1), 3)]))
 story += [nx, Spacer(1, 10), Paragraph('« Je ne vends pas une prestation. Je sécurise une décision importante. »', ST['quote']), Spacer(1, 6),
-          Paragraph('<font name="Lora-SB" size="11" color="#0D1B2A">Bruno BENATTAR</font><br/>PDG — ELITY CONSEILS SAS · +262 692 18 89 28 · contact@elityconseils.re', ST['center']),
+          Paragraph('<font name="Lora-SB" size="11" color="#0D1B2A">Bruno BENATTAR</font><br/>PDG — ELITY CONSEILS SAS · 06 92 66 19 05 · contact@elityconseils.re', ST['center']),
           Spacer(1, 8),
           Paragraph("Les pistes évoquées sont indicatives et devront être validées avec vos conseils (expert-comptable, avocat, notaire). " + CONFID, ST['small'])]
 
