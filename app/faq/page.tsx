@@ -4,6 +4,7 @@ import CtaFinal from "@/components/CtaFinal";
 import { getFaqItems } from "@/sanity/queries";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/faq" },
   title: "FAQ : Vos questions sur la cession et l'accompagnement",
   description:
     "Réponses aux questions les plus fréquentes sur la cession d'entreprise, le rachat, l'accompagnement Elity Dirigeant, la méthode ESSOR, les délais, la confidentialité et nos honoraires.",

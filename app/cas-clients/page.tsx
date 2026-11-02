@@ -4,6 +4,7 @@ import type { SanityArticle } from "@/sanity/queries";
 import { getCasClientsPage } from "@/sanity/queries";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/cas-clients" },
   title: "Cas clients & Actualités - Elity Conseils La Réunion",
   description:
     "Études de cas anonymisées et actualités d'Elity Conseils : cessions, redressements et accompagnements de dirigeant(e)s de TPE/PME à La Réunion.",

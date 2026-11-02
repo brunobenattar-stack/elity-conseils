@@ -8,6 +8,7 @@ import { IconLoupe, IconHandshake, IconChart, IconTrophy } from "@/components/ic
 import { getEssor } from "@/sanity/queries";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/methode-essor" },
   title: "Méthode ESSOR : accompagnement de dirigeant(e) de TPE/PME à La Réunion",
   description:
     "ESSOR : une méthode en 4 étapes (Constate, Consolide, Maîtrise, Réalise) pour vous accompagner à piloter sereinement votre TPE/PME. Audit stratégique, optimisation, indicateurs, projets concrets.",

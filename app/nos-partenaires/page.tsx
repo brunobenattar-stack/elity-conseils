@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 import CtaStrip from "@/components/CtaStrip";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/nos-partenaires" },
   title: "Nos Partenaires : Le réseau de confiance Elity Conseils",
   description:
     "Elity Conseils opère en réseau avec des acteurs spécialisés à La Réunion et dans l'Océan Indien : expertise-comptable, juridique, financement et transmission. Des partenariats sélectionnés pour leur exigence.",

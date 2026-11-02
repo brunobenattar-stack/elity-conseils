@@ -3,6 +3,7 @@ import ContactPageClient from "@/components/ContactPageClient";
 import { getContact, getSettings } from "@/sanity/queries";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact : échange confidentiel avec Elity Conseils, La Réunion",
   description:
     "Contactez Elity Conseils pour un premier échange confidentiel sur votre projet de cession ou de rachat. Sans engagement. Réponse sous 24h.",
