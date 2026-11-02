@@ -9,6 +9,7 @@ import { IconLock, IconEye, IconChart } from "@/components/icons";
 import { getOffersPage, type SanityOfferItem } from "@/sanity/queries";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/offres" },
   title: "Nos Offres : Cession, rachat, structuration de groupe et accompagnement de dirigeant(e) à La Réunion",
   description:
     "Cession & rachat d'entreprise (Classique, Stratégique, Premium), structuration de groupe avec Elity Structure (holding, SCI, sociétés d'exploitation) et accompagnement mensuel du dirigeant(e) via la méthode ESSOR (formules 12 ou 24 mois).",

@@ -3,6 +3,7 @@ import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/confidentialite" },
   title: "Politique de confidentialité",
   description: "Politique de confidentialité et traitement des données, Elity Conseils.",
   robots: { index: false, follow: true },

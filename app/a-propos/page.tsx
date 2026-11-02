@@ -24,6 +24,7 @@ const ABOUT_FALLBACK = {
 const VALUE_ICONS = [IconCompass, IconTarget, IconDiamond];
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/a-propos" },
   title: "À Propos : Bruno Benattar, conseil en cession et transmission",
   description:
     "Bruno Benattar, franchisé Procomm depuis 2015 et fondateur d'Elity Conseils à La Réunion. Accompagnement stratégique en cession, acquisition et accompagnement de dirigeant(e)s de TPE/PME.",

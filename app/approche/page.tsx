@@ -5,6 +5,7 @@ import CtaFinal from "@/components/CtaFinal";
 import { getApproche } from "@/sanity/queries";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/approche" },
   title: "Notre Approche : 5 étapes pour préparer votre cession à La Réunion",
   description:
     "Avant la mise en vente, Elity Conseils structure et valorise votre entreprise : diagnostic, positionnement, préparation, mise en relation et négociation. La transaction est réalisée par Procomm Océan Indien.",

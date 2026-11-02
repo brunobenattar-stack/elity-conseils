@@ -3,6 +3,7 @@ import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/mentions-legales" },
   title: "Mentions légales",
   description: "Mentions légales du site Elity Conseils.",
   robots: { index: false, follow: true },
