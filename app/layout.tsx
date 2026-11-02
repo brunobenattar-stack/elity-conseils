@@ -35,7 +35,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://elityconseil.re"),
+  metadataBase: new URL("https://www.elityconseils.re"),
   alternates: { canonical: "/" },
   title: {
     default: "Elity Conseils : Cabinet de Conseil en Cession d'Entreprise | La Réunion",
@@ -93,10 +93,10 @@ export default async function RootLayout({
               name: "Elity Conseils",
               description:
                 "Cabinet de conseil en cession, acquisition et accompagnement de dirigeant(e) à La Réunion. Approche stratégique pour valoriser et céder votre entreprise.",
-              url: "https://elityconseil.re",
-              telephone: "+262692188928",
+              url: "https://www.elityconseils.re",
+              telephone: "+262692661905",
               email: "contact@elityconseils.re",
-              founder: { "@type": "Person", name: "Bruno Ben Attar" },
+              founder: { "@type": "Person", name: "Bruno BENATTAR" },
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "15 Ruelle 46",

@@ -1,0 +1,7 @@
+# Les dossiers clients contiennent des données personnelles : seul l'exemple fictif est suivi.
+dossiers/*
+!dossiers/exemple.py
+# Documents produits
+*.pdf
+*.png
+__pycache__/

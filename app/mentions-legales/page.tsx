@@ -30,12 +30,12 @@ export default function MentionsLegalesPage() {
               RCS : 902 290 147 R.C.S. Saint-Pierre-de-la-Réunion<br />
               Code APE : 70.22Z (Conseil pour les affaires et autres conseils de gestion)<br />
               Siège social : 15 Ruelle 46, 97436 Saint-Leu, La Réunion<br />
-              Téléphone : <a href="tel:+262692188928">+262 692 18 89 28</a><br />
+              Téléphone : <a href="tel:+262692661905">+262 692 66 19 05</a><br />
               Email : <a href="mailto:contact@elityconseils.re">contact@elityconseils.re</a>
             </p>
 
             <h2>Directeur de la publication</h2>
-            <p>Bruno Ben Attar, président de la SASU Elity Conseils.</p>
+            <p>Bruno BENATTAR, président de la SASU Elity Conseils.</p>
 
             <h2>Hébergement</h2>
             <p>
